@@ -19,12 +19,12 @@ from plot_config import (
     LOGOHELLBLAU,
 )
 
-# Colors for each variant
+# Colors for each variant - distinct and visually appealing
 VARIANT_COLORS = {
-    "True Solution": "#2E7D32",      # Dark green
-    "SPARC": "#153268",              # Dark blue (UNIBLAU)
-    "SPARC-Gym": "#0091c8",          # Medium blue
-    "SPARC-Gym Traceback": "#50a5d2", # Light blue
+    "True Solution": "#2E7D32",      # Forest green
+    "SPARC": "#E65100",              # Deep orange
+    "SPARC-Gym": "#1565C0",          # Strong blue
+    "SPARC-Gym Traceback": "#7B1FA2", # Purple
 }
 
 
@@ -69,7 +69,10 @@ def categorize_jsonl_files(results_dir):
 
 
 def extract_true_solution_data(jsonl_files):
-    """Extract difficulty_score and true solution path length from any JSONL file."""
+    """Extract difficulty_score and true solution path length from any JSONL file.
+    
+    Includes ALL solutions for each puzzle (not just the first one).
+    """
     # Use first available file to get ground truth (all files have the same puzzles)
     difficulty_scores = []
     path_lengths = []
@@ -85,11 +88,12 @@ def extract_true_solution_data(jsonl_files):
         solutions = entry.get('solutions', [])
         
         if difficulty_score is not None and solutions:
-            # Take the first solution's path length
-            path_length = solutions[0].get('pathLength')
-            if path_length is not None:
-                difficulty_scores.append(difficulty_score)
-                path_lengths.append(path_length)
+            # Include ALL solutions, not just the first one
+            for solution in solutions:
+                path_length = solution.get('pathLength')
+                if path_length is not None:
+                    difficulty_scores.append(difficulty_score)
+                    path_lengths.append(path_length)
     
     return np.array(difficulty_scores), np.array(path_lengths)
 
@@ -132,6 +136,60 @@ def extract_gym_data(jsonl_files):
                 all_steps.append(steps_taken)
     
     return np.array(all_difficulty_scores), np.array(all_steps)
+
+
+def clean_path(path):
+    """Remove loops/detours from a path.
+    
+    If the same coordinate is visited twice, remove everything between
+    the first and second occurrence (keeping only the second occurrence).
+    
+    Example: [A, B, C, B, D] -> [A, B, D]
+    """
+    if not path:
+        return []
+    
+    # Convert path to list of tuples for hashing
+    # Handle both dict format {'x': x, 'y': y} and list format [x, y]
+    path_tuples = []
+    for p in path:
+        if isinstance(p, dict):
+            path_tuples.append((p.get('x'), p.get('y')))
+        else:
+            path_tuples.append(tuple(p))
+    
+    cleaned = []
+    for coord in path_tuples:
+        # Check if this coordinate is already in the cleaned path
+        if coord in cleaned:
+            # Remove everything from the first occurrence onwards
+            idx = cleaned.index(coord)
+            cleaned = cleaned[:idx]
+        cleaned.append(coord)
+    
+    return cleaned
+
+
+def extract_traceback_data(jsonl_files):
+    """Extract difficulty_score and cleaned path length from SPARC-Gym Traceback JSONL files."""
+    all_difficulty_scores = []
+    all_path_lengths = []
+    
+    for filepath in jsonl_files:
+        data = load_jsonl_data(filepath)
+        
+        for entry in data:
+            difficulty_score = entry.get('difficulty_score')
+            result = entry.get('result', {})
+            extracted_path = result.get('extracted_path', [])
+            
+            if difficulty_score is not None and extracted_path:
+                # Clean the path to remove backtracking detours
+                cleaned = clean_path(extracted_path)
+                all_difficulty_scores.append(difficulty_score)
+                all_path_lengths.append(len(cleaned))
+    
+    return np.array(all_difficulty_scores), np.array(all_path_lengths)
 
 
 def bin_data_by_difficulty(difficulty_scores, values, n_bins=20):
@@ -190,19 +248,33 @@ def create_subplot(ax, difficulty_scores, values, title, color, ylabel=True):
     ax.set_axisbelow(True)
 
 
-def create_difficulty_steps_plot(results_dir, output_path=None):
-    """Create the 4-subplot figure."""
+def filter_by_max_steps(difficulty_scores, steps, max_steps=100):
+    """Filter out data points where steps >= max_steps."""
+    mask = steps < max_steps
+    return difficulty_scores[mask], steps[mask]
+
+
+def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
+    """Create the 4-subplot figure.
+    
+    Args:
+        results_dir: Path to results directory
+        output_path: Path to save the figure
+        max_steps: If set, filter out data points with steps >= max_steps
+    """
     setup_plot_style(use_latex=True)
     
     # Categorize files
     categorized_files = categorize_jsonl_files(results_dir)
     
-    # Get all available files for true solution extraction
-    all_files = categorized_files["SPARC"] + categorized_files["SPARC-Gym"] + categorized_files["SPARC-Gym Traceback"]
+    # True solution data is the same for all variants (same puzzles)
+    # Use any available file to extract ground truth
+    any_file = (categorized_files["SPARC"] + categorized_files["SPARC-Gym"] + 
+                categorized_files["SPARC-Gym Traceback"])[:1]
     
     # Extract data for each variant
-    print("Extracting true solution data...")
-    true_diff, true_steps = extract_true_solution_data(all_files)
+    print("Extracting true solution data (same for all variants)...")
+    true_diff, true_steps = extract_true_solution_data(any_file)
     
     print("Extracting SPARC data...")
     sparc_diff, sparc_steps = extract_sparc_data(categorized_files["SPARC"])
@@ -211,7 +283,15 @@ def create_difficulty_steps_plot(results_dir, output_path=None):
     gym_diff, gym_steps = extract_gym_data(categorized_files["SPARC-Gym"])
     
     print("Extracting SPARC-Gym Traceback data...")
-    traceback_diff, traceback_steps = extract_gym_data(categorized_files["SPARC-Gym Traceback"])
+    traceback_diff, traceback_steps = extract_traceback_data(categorized_files["SPARC-Gym Traceback"])
+    
+    # Apply filtering if max_steps is set
+    if max_steps is not None:
+        print(f"\nFiltering out steps >= {max_steps}...")
+        true_diff, true_steps = filter_by_max_steps(true_diff, true_steps, max_steps)
+        sparc_diff, sparc_steps = filter_by_max_steps(sparc_diff, sparc_steps, max_steps)
+        gym_diff, gym_steps = filter_by_max_steps(gym_diff, gym_steps, max_steps)
+        traceback_diff, traceback_steps = filter_by_max_steps(traceback_diff, traceback_steps, max_steps)
     
     # Print statistics
     print(f"\nData points: True={len(true_diff)}, SPARC={len(sparc_diff)}, Gym={len(gym_diff)}, Traceback={len(traceback_diff)}")
@@ -252,12 +332,24 @@ def create_difficulty_steps_plot(results_dir, output_path=None):
 
 def main():
     results_dir = Path(__file__).parent / "results" / "sparc"
+    
+    # Version 1: All data
+    print("=" * 60)
+    print("Creating difficulty vs steps plot (all data)...")
+    print("=" * 60)
     output_pdf = Path(__file__).parent / "difficulty_vs_steps.pdf"
     output_png = Path(__file__).parent / "difficulty_vs_steps.png"
-    
-    print("Creating difficulty vs steps plot...")
     create_difficulty_steps_plot(results_dir, output_pdf)
     create_difficulty_steps_plot(results_dir, output_png)
+    
+    # Version 2: Filtered (steps < 100)
+    print("\n" + "=" * 60)
+    print("Creating difficulty vs steps plot (filtered < 100 steps)...")
+    print("=" * 60)
+    output_pdf_filtered = Path(__file__).parent / "difficulty_vs_steps_filtered.pdf"
+    output_png_filtered = Path(__file__).parent / "difficulty_vs_steps_filtered.png"
+    create_difficulty_steps_plot(results_dir, output_pdf_filtered, max_steps=100)
+    create_difficulty_steps_plot(results_dir, output_png_filtered, max_steps=100)
 
 
 if __name__ == "__main__":
