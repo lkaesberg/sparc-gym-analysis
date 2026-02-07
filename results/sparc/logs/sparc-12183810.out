@@ -1,0 +1,89 @@
+================================================================================
+JobID = 12183810
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu155
+================================================================================
+[2026-01-12 15:03:49] Job starting on ggpu155
+⌛ Waiting for vLLM.................................................................................................................................................................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 2 previous results from openai_gpt-oss-120b_gym.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ───────────────────────────────────────────────────                         │
+│   Dataset Size        500                                                    │
+│   Already Processed   2                                                      │
+│   Remaining           498                                                    │
+│   Model               openai/gpt-oss-120b                                    │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        openai_gpt-oss-120b_gym.jsonl                          │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Gym Traceback       Disabled                                               │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 2 previous results from openai_gpt-oss-120b_gym.jsonl
+🔄 Resuming processing: 2 already done, 498 remaining
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 6d056fee-8d31-4e67-8711-e1e85b28fa4e)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/195579019ab44fce4f394bb03af04bf598956e4b/.huggingface.yaml
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 1ed1f7c4-e3ac-4b5d-89d1-6b7a07fed251)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/main/README.md
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 21a7cc12-76ac-4ee1-9395-1fb12f694c7e)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/195579019ab44fce4f394bb03af04bf598956e4b/.huggingface.yaml
+Retrying in 1s [Retry 1/5].
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5b5d43da944a752d (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 1284a7249a4fa10f (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 24e8876585456ee5 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d91761f3ba340d (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle e82bd665d710bb75 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 971ad9f45d1bd53b (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 953c10f2e4d6fd6 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5f9a92945a4ab62e (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 196a88635b1c83b4 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c6739963a7308111 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle cbeb87b359947c42 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle bc66c2e18fd6231b (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c80d64b5c5e39d7b (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4b236c53ea5fbbdf (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 860fbc1cfd446f7c (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+[2026-01-12T16:58:55.591] error: *** JOB 12183810 ON ggpu155 CANCELLED AT 2026-01-12T16:58:55 DUE to SIGNAL Terminated ***
+============ Job Information ===================================================
+Submitted: 2026-01-12T15:03:25
+Started: 2026-01-12T15:03:46
+Ended: 2026-01-12T16:58:56
+Elapsed: 116 min, Limit: 2880 min, Difference: 2764 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 290.00 core-hours
+================================================================================

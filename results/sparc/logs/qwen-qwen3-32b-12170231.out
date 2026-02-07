@@ -1,0 +1,77 @@
+================================================================================
+JobID = 12170231
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu155
+================================================================================
+[2026-01-09 22:03:15] Job starting on ggpu155
+⌛ Waiting for vLLM......................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ────────────────────────────────────────────────────────                    │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               Qwen/Qwen3-32B                                         │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        Qwen_Qwen3-32B_gym_traceback.jsonl                     │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Gym Traceback       Enabled                                                │
+│   Run Name            traceback                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+[2026-01-11T17:10:46.821] error: *** JOB 12170231 ON ggpu155 CANCELLED AT 2026-01-11T17:10:46 DUE to SIGNAL Terminated ***
+============ Job Information ===================================================
+Submitted: 2026-01-09T17:31:16
+Started: 2026-01-09T22:03:12
+Ended: 2026-01-11T17:10:47
+Elapsed: 2588 min, Limit: 2880 min, Difference: 292 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 6470.00 core-hours
+================================================================================

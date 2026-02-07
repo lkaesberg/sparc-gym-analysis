@@ -1,0 +1,315 @@
+================================================================================
+JobID = 11476011
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu198
+================================================================================
+[2025-10-17 14:37:33] Job starting on ggpu198
+⌛ Waiting for vLLM.....................INFO 10-17 14:37:54 [__init__.py:239] Automatically detected platform cuda.
+.....INFO 10-17 14:37:59 [api_server.py:1043] vLLM API server version 0.8.5.post1
+INFO 10-17 14:37:59 [api_server.py:1044] args: Namespace(host=None, port=8000, uvicorn_log_level='info', disable_uvicorn_access_log=False, allow_credentials=False, allowed_origins=['*'], allowed_methods=['*'], allowed_headers=['*'], api_key=None, lora_modules=None, prompt_adapters=None, chat_template=None, chat_template_content_format='auto', response_role='assistant', ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, enable_ssl_refresh=False, ssl_cert_reqs=0, root_path=None, middleware=[], return_tokens_as_token_ids=False, disable_frontend_multiprocessing=False, enable_request_id_headers=False, enable_auto_tool_choice=False, tool_call_parser=None, tool_parser_plugin='', model='lkaesberg/Qwen3-32B-SPaRC-GRPO', task='auto', tokenizer=None, hf_config_path=None, skip_tokenizer_init=False, revision=None, code_revision=None, tokenizer_revision=None, tokenizer_mode='auto', trust_remote_code=True, allowed_local_media_path=None, load_format='auto', download_dir=None, model_loader_extra_config={}, use_tqdm_on_load=True, config_format=<ConfigFormat.AUTO: 'auto'>, dtype='auto', max_model_len=None, guided_decoding_backend='auto', reasoning_parser=None, logits_processor_pattern=None, model_impl='auto', distributed_executor_backend=None, pipeline_parallel_size=1, tensor_parallel_size=4, data_parallel_size=1, enable_expert_parallel=False, max_parallel_loading_workers=None, ray_workers_use_nsight=False, disable_custom_all_reduce=False, block_size=None, gpu_memory_utilization=0.9, swap_space=4, kv_cache_dtype='auto', num_gpu_blocks_override=None, enable_prefix_caching=None, prefix_caching_hash_algo='builtin', cpu_offload_gb=0, calculate_kv_scales=False, disable_sliding_window=False, use_v2_block_manager=True, seed=None, max_logprobs=20, disable_log_stats=False, quantization=None, rope_scaling=None, rope_theta=None, hf_token=None, hf_overrides=None, enforce_eager=False, max_seq_len_to_capture=8192, tokenizer_pool_size=0, tokenizer_pool_type='ray', tokenizer_pool_extra_config={}, limit_mm_per_prompt={}, mm_processor_kwargs=None, disable_mm_preprocessor_cache=False, enable_lora=None, enable_lora_bias=False, max_loras=1, max_lora_rank=16, lora_extra_vocab_size=256, lora_dtype='auto', long_lora_scaling_factors=None, max_cpu_loras=None, fully_sharded_loras=False, enable_prompt_adapter=None, max_prompt_adapters=1, max_prompt_adapter_token=0, device='auto', speculative_config=None, ignore_patterns=[], served_model_name=None, qlora_adapter_name_or_path=None, show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, disable_async_output_proc=False, max_num_batched_tokens=None, max_num_seqs=None, max_num_partial_prefills=1, max_long_partial_prefills=1, long_prefill_token_threshold=0, num_lookahead_slots=0, scheduler_delay_factor=0.0, preemption_mode=None, num_scheduler_steps=1, multi_step_stream_outputs=True, scheduling_policy='fcfs', enable_chunked_prefill=None, disable_chunked_mm_input=False, scheduler_cls='vllm.core.scheduler.Scheduler', override_neuron_config=None, override_pooler_config=None, compilation_config=None, kv_transfer_config=None, worker_cls='auto', worker_extension_cls='', generation_config='auto', override_generation_config=None, enable_sleep_mode=False, additional_config=None, enable_reasoning=False, disable_cascade_attn=False, disable_log_requests=False, max_log_len=None, disable_fastapi_docs=False, enable_prompt_tokens_details=False, enable_server_load_tracking=False)
+.............INFO 10-17 14:38:11 [config.py:717] This model supports multiple tasks: {'embed', 'reward', 'generate', 'classify', 'score'}. Defaulting to 'generate'.
+INFO 10-17 14:38:11 [config.py:1770] Defaulting to use mp for distributed inference
+INFO 10-17 14:38:11 [config.py:2003] Chunked prefill is enabled with max_num_batched_tokens=8192.
+........INFO 10-17 14:38:20 [__init__.py:239] Automatically detected platform cuda.
+...INFO 10-17 14:38:23 [core.py:58] Initializing a V1 LLM engine (v0.8.5.post1) with config: model='lkaesberg/Qwen3-32B-SPaRC-GRPO', speculative_config=None, tokenizer='lkaesberg/Qwen3-32B-SPaRC-GRPO', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='auto', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=None, served_model_name=lkaesberg/Qwen3-32B-SPaRC-GRPO, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"level":3,"custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":512}
+INFO 10-17 14:38:23 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3], buffer_handle=(4, 10485760, 10, 'psm_01c47ff8'), local_subscribe_addr='ipc:///local/jobs/u16096_11476011/d8bc9e3c-f662-4342-835f-35585bdaafca', remote_subscribe_addr=None, remote_addr_ipv6=False)
+.....INFO 10-17 14:38:28 [__init__.py:239] Automatically detected platform cuda.
+INFO 10-17 14:38:28 [__init__.py:239] Automatically detected platform cuda.
+INFO 10-17 14:38:28 [__init__.py:239] Automatically detected platform cuda.
+.INFO 10-17 14:38:28 [__init__.py:239] Automatically detected platform cuda.
+...WARNING 10-17 14:38:32 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14c785867cb0>
+WARNING 10-17 14:38:32 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x150c918c32f0>
+WARNING 10-17 14:38:32 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x1534dc41b740>
+WARNING 10-17 14:38:32 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14a88ed55b50>
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:38:32 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_1a87ade8'), local_subscribe_addr='ipc:///local/jobs/u16096_11476011/f1ccc432-c837-412a-bc68-d24f1168f662', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:38:32 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_88d7a2e4'), local_subscribe_addr='ipc:///local/jobs/u16096_11476011/cde44114-9f20-4385-8c8e-b88a368824b9', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:38:32 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_34de168f'), local_subscribe_addr='ipc:///local/jobs/u16096_11476011/b532621f-3e2c-43f2-858e-591c22bb10df', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:38:32 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_022bfccf'), local_subscribe_addr='ipc:///local/jobs/u16096_11476011/e59f46f3-da7a-41d7-ab1f-ca96d54e16c2', remote_subscribe_addr=None, remote_addr_ipv6=False)
+..[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:38:34 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:38:34 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:38:34 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:38:34 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:38:34 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:38:34 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:38:34 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:38:34 [pynccl.py:69] vLLM is using nccl==2.21.5
+.[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:38:34 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:38:34 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:38:34 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:38:34 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:38:34 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_d1ed1eac'), local_subscribe_addr='ipc:///local/jobs/u16096_11476011/122c1b91-e214-4456-ba61-9f95fd5e401f', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:38:34 [parallel_state.py:1004] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 3
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:38:34 [parallel_state.py:1004] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:38:34 [parallel_state.py:1004] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:38:34 [parallel_state.py:1004] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:38:34 [cuda.py:221] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:38:34 [cuda.py:221] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:38:34 [cuda.py:221] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:38:34 [cuda.py:221] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m WARNING 10-17 14:38:34 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m WARNING 10-17 14:38:34 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m WARNING 10-17 14:38:34 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m WARNING 10-17 14:38:34 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:38:34 [gpu_model_runner.py:1329] Starting to load model lkaesberg/Qwen3-32B-SPaRC-GRPO...
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:38:34 [gpu_model_runner.py:1329] Starting to load model lkaesberg/Qwen3-32B-SPaRC-GRPO...
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:38:34 [gpu_model_runner.py:1329] Starting to load model lkaesberg/Qwen3-32B-SPaRC-GRPO...
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:38:34 [gpu_model_runner.py:1329] Starting to load model lkaesberg/Qwen3-32B-SPaRC-GRPO...
+.[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:38:35 [weight_utils.py:265] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:38:35 [weight_utils.py:265] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:38:35 [weight_utils.py:265] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:38:35 [weight_utils.py:265] Using model weights format ['*.safetensors']
+.[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/14 [00:00<?, ?it/s]
+...........[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:   7% Completed | 1/14 [00:10<02:19, 10.72s/it]
+............[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  14% Completed | 2/14 [00:22<02:16, 11.38s/it]
+...........[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  21% Completed | 3/14 [00:33<02:05, 11.37s/it]
+.............[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  29% Completed | 4/14 [00:46<01:58, 11.83s/it]
+.............[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  36% Completed | 5/14 [00:59<01:51, 12.43s/it]
+...........[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  43% Completed | 6/14 [01:11<01:38, 12.25s/it]
+..............[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  50% Completed | 7/14 [01:25<01:29, 12.80s/it]
+............[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  57% Completed | 8/14 [01:37<01:14, 12.47s/it]
+...........[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  64% Completed | 9/14 [01:49<01:00, 12.15s/it]
+.............[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  71% Completed | 10/14 [02:01<00:49, 12.26s/it]
+....[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  79% Completed | 11/14 [02:06<00:29,  9.94s/it]
+...........[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  86% Completed | 12/14 [02:17<00:20, 10.21s/it]
+...........[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards:  93% Completed | 13/14 [02:27<00:10, 10.41s/it]
+............[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards: 100% Completed | 14/14 [02:39<00:00, 10.92s/it]
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m Loading safetensors checkpoint shards: 100% Completed | 14/14 [02:39<00:00, 11.43s/it]
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m 
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:41:17 [loader.py:458] Loading weights took 160.02 seconds
+.[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:41:17 [loader.py:458] Loading weights took 161.58 seconds
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:41:17 [loader.py:458] Loading weights took 161.00 seconds
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:41:17 [loader.py:458] Loading weights took 160.64 seconds
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:41:17 [gpu_model_runner.py:1347] Model loading took 15.3920 GiB and 162.497562 seconds
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:41:17 [gpu_model_runner.py:1347] Model loading took 15.3920 GiB and 162.750976 seconds
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:41:17 [gpu_model_runner.py:1347] Model loading took 15.3920 GiB and 162.750644 seconds
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:41:17 [gpu_model_runner.py:1347] Model loading took 15.3920 GiB and 162.756580 seconds
+.....................[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:41:38 [backends.py:420] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/5e055db25b/rank_2_0 for vLLM's torch.compile
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:41:38 [backends.py:420] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/5e055db25b/rank_1_0 for vLLM's torch.compile
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:41:38 [backends.py:420] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/5e055db25b/rank_3_0 for vLLM's torch.compile
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:41:38 [backends.py:420] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/5e055db25b/rank_0_0 for vLLM's torch.compile
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:41:38 [backends.py:430] Dynamo bytecode transform time: 20.82 s
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:41:38 [backends.py:430] Dynamo bytecode transform time: 20.82 s
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:41:38 [backends.py:430] Dynamo bytecode transform time: 20.82 s
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:41:39 [backends.py:430] Dynamo bytecode transform time: 21.18 s
+..............[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:41:52 [backends.py:118] Directly load the compiled graph(s) for shape None from the cache, took 13.238 s
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:41:52 [backends.py:118] Directly load the compiled graph(s) for shape None from the cache, took 13.243 s
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:41:53 [backends.py:118] Directly load the compiled graph(s) for shape None from the cache, took 13.080 s
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:41:53 [backends.py:118] Directly load the compiled graph(s) for shape None from the cache, took 13.513 s
+..[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:41:56 [monitor.py:33] torch.compile takes 20.82 s in total
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:41:56 [monitor.py:33] torch.compile takes 20.82 s in total
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:41:56 [monitor.py:33] torch.compile takes 20.82 s in total
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:41:56 [monitor.py:33] torch.compile takes 21.18 s in total
+.INFO 10-17 14:41:57 [kv_cache_utils.py:634] GPU KV cache size: 785,968 tokens
+INFO 10-17 14:41:57 [kv_cache_utils.py:637] Maximum concurrency for 40,960 tokens per request: 19.19x
+INFO 10-17 14:41:57 [kv_cache_utils.py:634] GPU KV cache size: 783,664 tokens
+INFO 10-17 14:41:57 [kv_cache_utils.py:637] Maximum concurrency for 40,960 tokens per request: 19.13x
+INFO 10-17 14:41:57 [kv_cache_utils.py:634] GPU KV cache size: 783,664 tokens
+INFO 10-17 14:41:57 [kv_cache_utils.py:637] Maximum concurrency for 40,960 tokens per request: 19.13x
+INFO 10-17 14:41:57 [kv_cache_utils.py:634] GPU KV cache size: 785,968 tokens
+INFO 10-17 14:41:57 [kv_cache_utils.py:637] Maximum concurrency for 40,960 tokens per request: 19.19x
+.............................[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:42:26 [custom_all_reduce.py:195] Registering 8643 cuda graph addresses
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:42:26 [custom_all_reduce.py:195] Registering 8643 cuda graph addresses
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:42:26 [custom_all_reduce.py:195] Registering 8643 cuda graph addresses
+.[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:42:27 [custom_all_reduce.py:195] Registering 8643 cuda graph addresses
+[1;36m(VllmWorker rank=3 pid=10992)[0;0m INFO 10-17 14:42:27 [gpu_model_runner.py:1686] Graph capturing finished in 30 secs, took 1.00 GiB
+[1;36m(VllmWorker rank=1 pid=10990)[0;0m INFO 10-17 14:42:27 [gpu_model_runner.py:1686] Graph capturing finished in 30 secs, took 1.00 GiB
+[1;36m(VllmWorker rank=2 pid=10991)[0;0m INFO 10-17 14:42:27 [gpu_model_runner.py:1686] Graph capturing finished in 30 secs, took 1.00 GiB
+[1;36m(VllmWorker rank=0 pid=10989)[0;0m INFO 10-17 14:42:27 [gpu_model_runner.py:1686] Graph capturing finished in 30 secs, took 1.00 GiB
+INFO 10-17 14:42:27 [core.py:159] init engine (profile, create kv cache, warmup model) took 69.52 seconds
+.INFO 10-17 14:42:27 [core_client.py:439] Core engine process 0 ready.
+WARNING 10-17 14:42:28 [config.py:1239] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+INFO 10-17 14:42:28 [serving_chat.py:118] Using default chat sampling params from model: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
+INFO 10-17 14:42:28 [serving_completion.py:61] Using default completion sampling params from model: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
+INFO 10-17 14:42:28 [api_server.py:1090] Starting vLLM API server on http://0.0.0.0:8000
+INFO 10-17 14:42:28 [launcher.py:28] Available routes are:
+INFO 10-17 14:42:28 [launcher.py:36] Route: /openapi.json, Methods: GET, HEAD
+INFO 10-17 14:42:28 [launcher.py:36] Route: /docs, Methods: GET, HEAD
+INFO 10-17 14:42:28 [launcher.py:36] Route: /docs/oauth2-redirect, Methods: GET, HEAD
+INFO 10-17 14:42:28 [launcher.py:36] Route: /redoc, Methods: GET, HEAD
+INFO 10-17 14:42:28 [launcher.py:36] Route: /health, Methods: GET
+INFO 10-17 14:42:28 [launcher.py:36] Route: /load, Methods: GET
+INFO 10-17 14:42:28 [launcher.py:36] Route: /ping, Methods: POST, GET
+INFO 10-17 14:42:28 [launcher.py:36] Route: /tokenize, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /detokenize, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /v1/models, Methods: GET
+INFO 10-17 14:42:28 [launcher.py:36] Route: /version, Methods: GET
+INFO 10-17 14:42:28 [launcher.py:36] Route: /v1/chat/completions, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /v1/completions, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /v1/embeddings, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /pooling, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /score, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /v1/score, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /v1/audio/transcriptions, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /rerank, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /v1/rerank, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /v2/rerank, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /invocations, Methods: POST
+INFO 10-17 14:42:28 [launcher.py:36] Route: /metrics, Methods: GET
+INFO:     Started server process [10792]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ … ready.
+[14:42:28] Server output silenced (see /mnt/vast-standard/home/kaesberg1/u16096/sparc/logs/vllm_11476011.log if needed)
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ──────────────────────────────────────────────────────────                  │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               lkaesberg/Qwen3-32B-SPaRC-GRPO                         │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl                   │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+💾 Results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+
+✅ Processing completed successfully!
+
+
+                 📊 SPaRC Dataset Processing Results                  
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 52              │ 10.4%           │
+│ Failed                         │ 448             │ 89.6%           │
+│                                │                 │                 │
+│ Fully Valid Paths              │ 369             │ 73.8%           │
+│ Connected Paths                │ 447             │ 89.4%           │
+│ Correct Start/End              │ 495             │ 99.0%           │
+│ Non-Intersecting               │ 463             │ 92.6%           │
+│ No Rule Violations             │ 426             │ 85.2%           │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 28/86           │ 32.6%           │
+│ Difficulty 2 Solved            │ 15/118          │ 12.7%           │
+│ Difficulty 3 Solved            │ 7/121           │ 5.8%            │
+│ Difficulty 4 Solved            │ 1/86            │ 1.2%            │
+│ Difficulty 5 Solved            │ 1/89            │ 1.1%            │
+│                                │                 │                 │
+│ Avg Path Length                │ 15.1 steps      │                 │
+│ Min Path Length                │ 2 steps         │                 │
+│ Max Path Length                │ 40 steps        │                 │
+│                                │                 │                 │
+│ Total Time                     │ 89250.3 seconds │                 │
+│ Avg Time per Puzzle            │ 178.50 seconds  │                 │
+│ Puzzles per Minute             │ 0.3             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                Path      Time                                  
+  Puzzle ID   Diffic…   Stat…   Length    (s)      Issues                       
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05e…   3         ❌      19        140.77   None                         
+                        FAIL                                                    
+  ebc9c100…   3         ❌      8         232.32   None                         
+                        FAIL                                                    
+  ed40414d…   3         ❌      8         127.65   None                         
+                        FAIL                                                    
+  dce20e15…   5         ❌      23        181.39   rules                        
+                        FAIL                                                    
+  3fe8a85b…   1         ❌      2         133.73   None                         
+                        FAIL                                                    
+  1284a724…   3         ❌      9         240.17   None                         
+                        FAIL                                                    
+  cbeb87b3…   3         ❌      10        98.51    None                         
+                        FAIL                                                    
+  c80d64b5…   5         ❌      28        112.64   None                         
+                        FAIL                                                    
+  24e88765…   5         ❌      25        214.05   None                         
+                        FAIL                                                    
+  196a8863…   4         ❌      16        229.45   None                         
+                        FAIL                                                    
+  e82bd665…   2         ✅      23        261.38   None                         
+                        PASS                                                    
+  c6739963…   3         ✅      9         189.72   None                         
+                        PASS                                                    
+  953c10f2…   2         ✅      2         72.98    None                         
+                        PASS                                                    
+  d91761f3…   4         ❌      20        161.44   None                         
+                        FAIL                                                    
+  bc66c2e1…   3         ❌      16        194.65   disconnected                 
+                        FAIL                                                    
+  4b236c53…   3         ❌      6         172.18   None                         
+                        FAIL                                                    
+  5f9a9294…   1         ❌      8         82.20    None                         
+                        FAIL                                                    
+  860fbc1c…   3         ❌      20        182.59   None                         
+                        FAIL                                                    
+  5b5d43da…   4         ✅      10        110.84   None                         
+                        PASS                                                    
+  971ad9f4…   5         ❌      17        162.76   None                         
+                        FAIL                                                    
+                                                                                
+
+📁 Final results saved to lkaesberg_Qwen3-32B-SPaRC-GRPO.jsonl
+📑 CSV tables saved with prefix lkaesberg_Qwen3-32B-SPaRC-GRPO_*.csv
+[2025-10-17 17:09:30] sparc finished — job complete.
+[17:09:30] Cleaning up…
+============ Job Information ===================================================
+Submitted: 2025-10-17T11:42:02
+Started: 2025-10-17T14:37:00
+Ended: 2025-10-17T17:09:35
+Elapsed: 153 min, Limit: 2880 min, Difference: 2727 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 382.50 core-hours
+================================================================================

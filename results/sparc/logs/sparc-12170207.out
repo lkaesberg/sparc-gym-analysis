@@ -1,0 +1,149 @@
+================================================================================
+JobID = 12170207
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu141
+================================================================================
+[2026-01-09 22:02:36] Job starting on ggpu141
+⌛ Waiting for vLLM........................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 0 previous results from google_gemma-3-27b-it_gym.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ─────────────────────────────────────────────────────                       │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               google/gemma-3-27b-it                                  │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        google_gemma-3-27b-it_gym.jsonl                        │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Gym Traceback       Disabled                                               │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 0 previous results from google_gemma-3-27b-it_gym.jsonl
+🔄 Resuming processing: 0 already done, 500 remaining
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+💾 Results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+
+✅ Processing completed successfully!
+
+
+       📊 SPaRC Dataset Processing Results (Gym (Step-by-Step))       
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 17              │ 3.4%            │
+│ Failed                         │ 483             │ 96.6%           │
+│                                │                 │                 │
+│ Avg Steps Taken                │ 12.2 steps      │                 │
+│ Min Steps                      │ 1 steps         │                 │
+│ Max Steps                      │ 40 steps        │                 │
+│ Reached End                    │ 198             │ 39.6%           │
+│ No Legal Actions               │ 302             │ 60.4%           │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 6/86            │ 7.0%            │
+│ Difficulty 2 Solved            │ 9/118           │ 7.6%            │
+│ Difficulty 3 Solved            │ 2/121           │ 1.7%            │
+│ Difficulty 4 Solved            │ 0/86            │ 0.0%            │
+│ Difficulty 5 Solved            │ 0/89            │ 0.0%            │
+│                                │                 │                 │
+│ Total Time                     │ 36497.3 seconds │                 │
+│ Avg Time per Puzzle            │ 72.99 seconds   │                 │
+│ Puzzles per Minute             │ 0.8             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                               Time      Reached                
+  Puzzle ID     Difficul…   Status    Steps    (s)       End         No Legal   
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05ed8…   3           ❌ FAIL   15       114.10    No          Yes        
+  ebc9c10093…   3           ❌ FAIL   25       143.11    No          Yes        
+  ed40414d61…   3           ❌ FAIL   11       101.07    No          Yes        
+  dce20e150e…   5           ❌ FAIL   9        94.64     No          Yes        
+  3fe8a85b76…   1           ❌ FAIL   12       96.48     No          Yes        
+  1284a7249a…   3           ❌ FAIL   4        61.05     Yes         No         
+  cbeb87b359…   3           ❌ FAIL   9        87.13     Yes         No         
+  c80d64b5c5…   5           ❌ FAIL   7        71.95     Yes         No         
+  24e8876585…   5           ❌ FAIL   17       98.23     No          Yes        
+  196a88635b…   4           ❌ FAIL   5        52.45     Yes         No         
+  e82bd665d7…   2           ❌ FAIL   10       71.43     Yes         No         
+  c6739963a7…   3           ❌ FAIL   11       69.49     No          Yes        
+  953c10f2e4…   2           ✅ PASS   1        40.18     Yes         No         
+  d91761f3ba…   4           ❌ FAIL   13       81.92     Yes         No         
+  bc66c2e18f…   3           ❌ FAIL   18       87.39     No          Yes        
+  4b236c53ea…   3           ❌ FAIL   30       114.77    No          Yes        
+  5f9a92945a…   1           ❌ FAIL   8        59.76     No          Yes        
+  860fbc1cfd…   3           ❌ FAIL   23       96.96     No          Yes        
+  5b5d43da94…   4           ❌ FAIL   8        45.64     No          Yes        
+  971ad9f45d…   5           ❌ FAIL   12       56.78     Yes         No         
+                                                                                
+
+📁 Final results saved to google_gemma-3-27b-it_gym.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_gym_*.csv
+[2026-01-09 23:13:31] Job complete.
+============ Job Information ===================================================
+Submitted: 2026-01-09T17:23:45
+Started: 2026-01-09T22:02:33
+Ended: 2026-01-09T23:13:31
+Elapsed: 71 min, Limit: 2880 min, Difference: 2809 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 177.50 core-hours
+================================================================================

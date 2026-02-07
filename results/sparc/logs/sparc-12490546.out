@@ -1,0 +1,172 @@
+================================================================================
+JobID = 12490546
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu212
+================================================================================
+[2026-02-05 03:34:19] Job starting on ggpu212
+⌛ Waiting for vLLM..................................................................................................................................................................................................................................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ───────────────────────────────────────────────                             │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               openai/gpt-oss-120b                                    │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        openai_gpt-oss-120b.jsonl                              │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Single-shot                                            │
+│   Prompt              single_shot                                            │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+💾 Results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+
+✅ Processing completed successfully!
+
+
+          📊 SPaRC Dataset Processing Results (Single-Shot)           
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 108             │ 21.6%           │
+│ Failed                         │ 392             │ 78.4%           │
+│                                │                 │                 │
+│ Fully Valid Paths              │ 372             │ 74.4%           │
+│ Connected Paths                │ 444             │ 88.8%           │
+│ Correct Start/End              │ 470             │ 94.0%           │
+│ Non-Intersecting               │ 453             │ 90.6%           │
+│ No Rule Violations             │ 410             │ 82.0%           │
+│                                │                 │                 │
+│ Avg Path Length                │ 19.8 steps      │                 │
+│ Min Path Length                │ 1 steps         │                 │
+│ Max Path Length                │ 93 steps        │                 │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 55/86           │ 64.0%           │
+│ Difficulty 2 Solved            │ 31/118          │ 26.3%           │
+│ Difficulty 3 Solved            │ 12/121          │ 9.9%            │
+│ Difficulty 4 Solved            │ 7/86            │ 8.1%            │
+│ Difficulty 5 Solved            │ 3/89            │ 3.4%            │
+│                                │                 │                 │
+│ Total Time                     │ 60827.5 seconds │                 │
+│ Avg Time per Puzzle            │ 121.65 seconds  │                 │
+│ Puzzles per Minute             │ 0.5             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                Path      Time                                  
+  Puzzle ID   Diffic…   Stat…   Length    (s)      Issues                       
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05e…   3         ❌      55        98.58    None                         
+                        FAIL                                                    
+  ebc9c100…   3         ❌      26        34.23    None                         
+                        FAIL                                                    
+  ed40414d…   3         ✅      10        204.02   None                         
+                        PASS                                                    
+  dce20e15…   5         ❌      23        92.60    None                         
+                        FAIL                                                    
+  3fe8a85b…   1         ❌      28        109.11   None                         
+                        FAIL                                                    
+  1284a724…   3         ❌      13        166.63   None                         
+                        FAIL                                                    
+  cbeb87b3…   3         ❌      14        160.75   rules                        
+                        FAIL                                                    
+  c80d64b5…   5         ❌      32        103.19   None                         
+                        FAIL                                                    
+  24e88765…   5         ❌      33        189.30   rules                        
+                        FAIL                                                    
+  196a8863…   4         ❌      38        208.27   rules                        
+                        FAIL                                                    
+  e82bd665…   2         ✅      23        197.80   None                         
+                        PASS                                                    
+  c6739963…   3         ✅      9         41.17    None                         
+                        PASS                                                    
+  953c10f2…   2         ✅      2         64.47    None                         
+                        PASS                                                    
+  d91761f3…   4         ❌      26        142.49   None                         
+                        FAIL                                                    
+  bc66c2e1…   3         ❌      9         71.02    None                         
+                        FAIL                                                    
+  4b236c53…   3         ❌      6         37.51    None                         
+                        FAIL                                                    
+  5f9a9294…   1         ❌      8         58.99    None                         
+                        FAIL                                                    
+  860fbc1c…   3         ❌      52        250.34   intersecting                 
+                        FAIL                                                    
+  5b5d43da…   4         ✅      10        81.36    None                         
+                        PASS                                                    
+  971ad9f4…   5         ❌      0         224.58   start/end, disconnected,     
+                        FAIL                       intersecting, rules          
+                                                                                
+
+📁 Final results saved to openai_gpt-oss-120b.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_*.csv
+[2026-02-05 05:29:32] Job complete.
+============ Job Information ===================================================
+Submitted: 2026-02-05T01:14:22
+Started: 2026-02-05T03:34:16
+Ended: 2026-02-05T05:29:33
+Elapsed: 116 min, Limit: 2880 min, Difference: 2764 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 290.00 core-hours
+================================================================================

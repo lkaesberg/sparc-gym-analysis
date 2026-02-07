@@ -1,0 +1,223 @@
+================================================================================
+JobID = 10383862
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu144
+================================================================================
+[2025-08-15 09:35:47] Job starting on ggpu144
+⌛ Waiting for vLLM...................................................................INFO 08-15 09:36:54 [__init__.py:239] Automatically detected platform cuda.
+...............INFO 08-15 09:37:09 [api_server.py:1043] vLLM API server version 0.8.5.post1
+INFO 08-15 09:37:09 [api_server.py:1044] args: Namespace(host=None, port=8000, uvicorn_log_level='info', disable_uvicorn_access_log=False, allow_credentials=False, allowed_origins=['*'], allowed_methods=['*'], allowed_headers=['*'], api_key=None, lora_modules=None, prompt_adapters=None, chat_template=None, chat_template_content_format='auto', response_role='assistant', ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, enable_ssl_refresh=False, ssl_cert_reqs=0, root_path=None, middleware=[], return_tokens_as_token_ids=False, disable_frontend_multiprocessing=False, enable_request_id_headers=False, enable_auto_tool_choice=False, tool_call_parser=None, tool_parser_plugin='', model='openai/gpt-oss-20b', task='auto', tokenizer=None, hf_config_path=None, skip_tokenizer_init=False, revision=None, code_revision=None, tokenizer_revision=None, tokenizer_mode='auto', trust_remote_code=True, allowed_local_media_path=None, load_format='auto', download_dir=None, model_loader_extra_config={}, use_tqdm_on_load=True, config_format=<ConfigFormat.AUTO: 'auto'>, dtype='auto', max_model_len=None, guided_decoding_backend='auto', reasoning_parser=None, logits_processor_pattern=None, model_impl='auto', distributed_executor_backend=None, pipeline_parallel_size=1, tensor_parallel_size=4, data_parallel_size=1, enable_expert_parallel=False, max_parallel_loading_workers=None, ray_workers_use_nsight=False, disable_custom_all_reduce=False, block_size=None, gpu_memory_utilization=0.9, swap_space=4, kv_cache_dtype='auto', num_gpu_blocks_override=None, enable_prefix_caching=None, prefix_caching_hash_algo='builtin', cpu_offload_gb=0, calculate_kv_scales=False, disable_sliding_window=False, use_v2_block_manager=True, seed=None, max_logprobs=20, disable_log_stats=False, quantization=None, rope_scaling=None, rope_theta=None, hf_token=None, hf_overrides=None, enforce_eager=False, max_seq_len_to_capture=8192, tokenizer_pool_size=0, tokenizer_pool_type='ray', tokenizer_pool_extra_config={}, limit_mm_per_prompt={}, mm_processor_kwargs=None, disable_mm_preprocessor_cache=False, enable_lora=None, enable_lora_bias=False, max_loras=1, max_lora_rank=16, lora_extra_vocab_size=256, lora_dtype='auto', long_lora_scaling_factors=None, max_cpu_loras=None, fully_sharded_loras=False, enable_prompt_adapter=None, max_prompt_adapters=1, max_prompt_adapter_token=0, device='auto', speculative_config=None, ignore_patterns=[], served_model_name=None, qlora_adapter_name_or_path=None, show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, disable_async_output_proc=False, max_num_batched_tokens=None, max_num_seqs=None, max_num_partial_prefills=1, max_long_partial_prefills=1, long_prefill_token_threshold=0, num_lookahead_slots=0, scheduler_delay_factor=0.0, preemption_mode=None, num_scheduler_steps=1, multi_step_stream_outputs=True, scheduling_policy='fcfs', enable_chunked_prefill=None, disable_chunked_mm_input=False, scheduler_cls='vllm.core.scheduler.Scheduler', override_neuron_config=None, override_pooler_config=None, compilation_config=None, kv_transfer_config=None, worker_cls='auto', worker_extension_cls='', generation_config='auto', override_generation_config=None, enable_sleep_mode=False, additional_config=None, enable_reasoning=False, disable_cascade_attn=False, disable_log_requests=False, max_log_len=None, disable_fastapi_docs=False, enable_prompt_tokens_details=False, enable_server_load_tracking=False)
+.Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 1131, in from_pretrained
+    config_class = CONFIG_MAPPING[config_dict["model_type"]]
+                   ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 833, in __getitem__
+    raise KeyError(key)
+KeyError: 'gpt_oss'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 1130, in <module>
+    uvloop.run(run_server(args))
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/uvloop/__init__.py", line 109, in run
+    return __asyncio.run(
+           ^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/uvloop/__init__.py", line 61, in wrapper
+    return await main
+           ^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 1078, in run_server
+    async with build_async_engine_client(args) as engine_client:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 146, in build_async_engine_client
+    async with build_async_engine_client_from_engine_args(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 166, in build_async_engine_client_from_engine_args
+    vllm_config = engine_args.create_engine_config(usage_context=usage_context)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/engine/arg_utils.py", line 1099, in create_engine_config
+    model_config = self.create_model_config()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/engine/arg_utils.py", line 987, in create_model_config
+    return ModelConfig(
+           ^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/config.py", line 451, in __init__
+    hf_config = get_config(self.hf_config_path or self.model,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/transformers_utils/config.py", line 344, in get_config
+    raise e
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/transformers_utils/config.py", line 324, in get_config
+    config = AutoConfig.from_pretrained(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/transformers/models/auto/configuration_auto.py", line 1133, in from_pretrained
+    raise ValueError(
+ValueError: The checkpoint you are trying to load has model type `gpt_oss` but Transformers does not recognize this architecture. This could be because of an issue with the checkpoint, or because your version of Transformers is out of date.
+
+You can update Transformers with the command `pip install --upgrade transformers`. If this does not work, and the checkpoint is very new, then there may not be a release version that supports this model yet. In this case, you can get the most up-to-date code by installing Transformers from source with the command `pip install git+https://github.com/huggingface/transformers.git`
+.............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................[10:36:17] Server output silenced (see /mnt/vast-standard/home/kaesberg1/u16096/sparc/logs/vllm_10383862.log if needed)
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ──────────────────────────────────────────────                              │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               openai/gpt-oss-20b                                     │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        openai_gpt-oss-20b.jsonl                               │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+⚠️  Connection error on puzzle 953c10f2e4d6fd6 (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle e82bd665d710bb75 (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5f9a92945a4ab62e (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 971ad9f45d1bd53b (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4b236c53ea5fbbdf (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle bc66c2e18fd6231b (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle cbeb87b359947c42 (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 196a88635b1c83b4 (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 24e8876585456ee5 (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5b5d43da944a752d (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c80d64b5c5e39d7b (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d91761f3ba340d (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c6739963a7308111 (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 1284a7249a4fa10f (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 860fbc1cfd446f7c (attempt 1/4): Connection error.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 971ad9f45d1bd53b (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5f9a92945a4ab62e (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4b236c53ea5fbbdf (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 953c10f2e4d6fd6 (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle bc66c2e18fd6231b (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle cbeb87b359947c42 (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 196a88635b1c83b4 (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle e82bd665d710bb75 (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle d91761f3ba340d (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 24e8876585456ee5 (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 860fbc1cfd446f7c (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5b5d43da944a752d (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle c6739963a7308111 (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle c80d64b5c5e39d7b (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 1284a7249a4fa10f (attempt 2/4): Connection error.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 971ad9f45d1bd53b (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4b236c53ea5fbbdf (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 196a88635b1c83b4 (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle d91761f3ba340d (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 5f9a92945a4ab62e (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 953c10f2e4d6fd6 (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle e82bd665d710bb75 (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 24e8876585456ee5 (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 860fbc1cfd446f7c (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle bc66c2e18fd6231b (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle cbeb87b359947c42 (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle c80d64b5c5e39d7b (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle c6739963a7308111 (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 1284a7249a4fa10f (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 5b5d43da944a752d (attempt 3/4): Connection error.
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle 971ad9f45d1bd53b after 3 retries: Connection error.
+
+[10:36:37] Cleaning up…
+============ Job Information ===================================================
+Submitted: 2025-08-15T09:34:38
+Started: 2025-08-15T09:35:17
+Ended: 2025-08-15T10:36:37
+Elapsed: 62 min, Limit: 2880 min, Difference: 2818 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 155.00 core-hours
+================================================================================

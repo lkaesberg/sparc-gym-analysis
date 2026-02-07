@@ -1,0 +1,415 @@
+INFO 10-20 10:20:45 [__init__.py:239] Automatically detected platform cuda.
+INFO 10-20 10:20:50 [api_server.py:1043] vLLM API server version 0.8.5.post1
+INFO 10-20 10:20:50 [api_server.py:1044] args: Namespace(host=None, port=8000, uvicorn_log_level='info', disable_uvicorn_access_log=False, allow_credentials=False, allowed_origins=['*'], allowed_methods=['*'], allowed_headers=['*'], api_key=None, lora_modules=None, prompt_adapters=None, chat_template=None, chat_template_content_format='auto', response_role='assistant', ssl_keyfile=None, ssl_certfile=None, ssl_ca_certs=None, enable_ssl_refresh=False, ssl_cert_reqs=0, root_path=None, middleware=[], return_tokens_as_token_ids=False, disable_frontend_multiprocessing=False, enable_request_id_headers=False, enable_auto_tool_choice=False, tool_call_parser=None, tool_parser_plugin='', model='lkaesberg/Qwen3-14B-SPaRC-GRPO-8E', task='auto', tokenizer=None, hf_config_path=None, skip_tokenizer_init=False, revision=None, code_revision=None, tokenizer_revision=None, tokenizer_mode='auto', trust_remote_code=True, allowed_local_media_path=None, load_format='auto', download_dir=None, model_loader_extra_config={}, use_tqdm_on_load=True, config_format=<ConfigFormat.AUTO: 'auto'>, dtype='auto', max_model_len=None, guided_decoding_backend='auto', reasoning_parser=None, logits_processor_pattern=None, model_impl='auto', distributed_executor_backend=None, pipeline_parallel_size=1, tensor_parallel_size=4, data_parallel_size=1, enable_expert_parallel=False, max_parallel_loading_workers=None, ray_workers_use_nsight=False, disable_custom_all_reduce=False, block_size=None, gpu_memory_utilization=0.9, swap_space=4, kv_cache_dtype='auto', num_gpu_blocks_override=None, enable_prefix_caching=None, prefix_caching_hash_algo='builtin', cpu_offload_gb=0, calculate_kv_scales=False, disable_sliding_window=False, use_v2_block_manager=True, seed=None, max_logprobs=20, disable_log_stats=False, quantization=None, rope_scaling=None, rope_theta=None, hf_token=None, hf_overrides=None, enforce_eager=False, max_seq_len_to_capture=8192, tokenizer_pool_size=0, tokenizer_pool_type='ray', tokenizer_pool_extra_config={}, limit_mm_per_prompt={}, mm_processor_kwargs=None, disable_mm_preprocessor_cache=False, enable_lora=None, enable_lora_bias=False, max_loras=1, max_lora_rank=16, lora_extra_vocab_size=256, lora_dtype='auto', long_lora_scaling_factors=None, max_cpu_loras=None, fully_sharded_loras=False, enable_prompt_adapter=None, max_prompt_adapters=1, max_prompt_adapter_token=0, device='auto', speculative_config=None, ignore_patterns=[], served_model_name=None, qlora_adapter_name_or_path=None, show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, disable_async_output_proc=False, max_num_batched_tokens=None, max_num_seqs=None, max_num_partial_prefills=1, max_long_partial_prefills=1, long_prefill_token_threshold=0, num_lookahead_slots=0, scheduler_delay_factor=0.0, preemption_mode=None, num_scheduler_steps=1, multi_step_stream_outputs=True, scheduling_policy='fcfs', enable_chunked_prefill=None, disable_chunked_mm_input=False, scheduler_cls='vllm.core.scheduler.Scheduler', override_neuron_config=None, override_pooler_config=None, compilation_config=None, kv_transfer_config=None, worker_cls='auto', worker_extension_cls='', generation_config='auto', override_generation_config=None, enable_sleep_mode=False, additional_config=None, enable_reasoning=False, disable_cascade_attn=False, disable_log_requests=False, max_log_len=None, disable_fastapi_docs=False, enable_prompt_tokens_details=False, enable_server_load_tracking=False)
+INFO 10-20 10:21:08 [config.py:717] This model supports multiple tasks: {'generate', 'reward', 'embed', 'classify', 'score'}. Defaulting to 'generate'.
+INFO 10-20 10:21:08 [config.py:1770] Defaulting to use mp for distributed inference
+INFO 10-20 10:21:08 [config.py:2003] Chunked prefill is enabled with max_num_batched_tokens=8192.
+INFO 10-20 10:21:20 [__init__.py:239] Automatically detected platform cuda.
+INFO 10-20 10:21:24 [core.py:58] Initializing a V1 LLM engine (v0.8.5.post1) with config: model='lkaesberg/Qwen3-14B-SPaRC-GRPO-8E', speculative_config=None, tokenizer='lkaesberg/Qwen3-14B-SPaRC-GRPO-8E', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=LoadFormat.AUTO, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(guided_decoding_backend='auto', reasoning_backend=None), observability_config=ObservabilityConfig(show_hidden_metrics=False, otlp_traces_endpoint=None, collect_model_forward_time=False, collect_model_execute_time=False), seed=None, served_model_name=lkaesberg/Qwen3-14B-SPaRC-GRPO-8E, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, disable_mm_preprocessor_cache=False, mm_processor_kwargs=None, pooler_config=None, compilation_config={"level":3,"custom_ops":["none"],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output"],"use_inductor":true,"compile_sizes":[],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"max_capture_size":512}
+INFO 10-20 10:21:24 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3], buffer_handle=(4, 10485760, 10, 'psm_d62b4865'), local_subscribe_addr='ipc:///local/jobs/u16096_11515542/a233ec10-7188-4be9-a910-8b4b81b7920e', remote_subscribe_addr=None, remote_addr_ipv6=False)
+INFO 10-20 10:21:31 [__init__.py:239] Automatically detected platform cuda.
+INFO 10-20 10:21:31 [__init__.py:239] Automatically detected platform cuda.
+INFO 10-20 10:21:31 [__init__.py:239] Automatically detected platform cuda.
+INFO 10-20 10:21:31 [__init__.py:239] Automatically detected platform cuda.
+WARNING 10-20 10:21:36 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x1476d1a3c2c0>
+WARNING 10-20 10:21:36 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x1521cb658350>
+WARNING 10-20 10:21:36 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x1457b9551490>
+WARNING 10-20 10:21:36 [utils.py:2522] Methods determine_num_available_blocks,device_config,get_cache_block_size_bytes,initialize_cache not implemented in <vllm.v1.worker.gpu_worker.Worker object at 0x14bc4a4fbb00>
+[1;36m(VllmWorker rank=0 pid=454255)[0;0m INFO 10-20 10:21:36 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_1ee9fc38'), local_subscribe_addr='ipc:///local/jobs/u16096_11515542/5271a12d-9d4c-442f-be1e-59acdffc12cd', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m INFO 10-20 10:21:36 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_57701183'), local_subscribe_addr='ipc:///local/jobs/u16096_11515542/61286c1c-f271-48fa-a617-998e114f3ed0', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=3 pid=454258)[0;0m INFO 10-20 10:21:36 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_ff5c74e8'), local_subscribe_addr='ipc:///local/jobs/u16096_11515542/c9fe6b09-59eb-40da-8baa-4e078abba886', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m INFO 10-20 10:21:36 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_e6173806'), local_subscribe_addr='ipc:///local/jobs/u16096_11515542/119a4c8b-6a02-4872-92a1-a26d7c3259af', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=3 pid=454258)[0;0m INFO 10-20 10:21:38 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m INFO 10-20 10:21:38 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=0 pid=454255)[0;0m INFO 10-20 10:21:38 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m INFO 10-20 10:21:38 [utils.py:1055] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=3 pid=454258)[0;0m INFO 10-20 10:21:38 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m INFO 10-20 10:21:38 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=0 pid=454255)[0;0m INFO 10-20 10:21:38 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m INFO 10-20 10:21:38 [pynccl.py:69] vLLM is using nccl==2.21.5
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m INFO 10-20 10:21:39 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=3 pid=454258)[0;0m INFO 10-20 10:21:39 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m INFO 10-20 10:21:39 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=0 pid=454255)[0;0m INFO 10-20 10:21:39 [custom_all_reduce_utils.py:244] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=0 pid=454255)[0;0m INFO 10-20 10:21:39 [shm_broadcast.py:266] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_803296a9'), local_subscribe_addr='ipc:///local/jobs/u16096_11515542/8d50db78-0ffa-4ae9-828e-804dc76112de', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m INFO 10-20 10:21:39 [parallel_state.py:1004] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2
+[1;36m(VllmWorker rank=0 pid=454255)[0;0m INFO 10-20 10:21:39 [parallel_state.py:1004] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0
+[1;36m(VllmWorker rank=3 pid=454258)[0;0m INFO 10-20 10:21:39 [parallel_state.py:1004] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 3
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m INFO 10-20 10:21:39 [cuda.py:221] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=3 pid=454258)[0;0m INFO 10-20 10:21:39 [cuda.py:221] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=0 pid=454255)[0;0m INFO 10-20 10:21:39 [cuda.py:221] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m WARNING 10-20 10:21:39 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=3 pid=454258)[0;0m WARNING 10-20 10:21:39 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=0 pid=454255)[0;0m WARNING 10-20 10:21:39 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m INFO 10-20 10:21:39 [parallel_state.py:1004] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m INFO 10-20 10:21:39 [cuda.py:221] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m WARNING 10-20 10:21:39 [topk_topp_sampler.py:69] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m INFO 10-20 10:21:39 [gpu_model_runner.py:1329] Starting to load model lkaesberg/Qwen3-14B-SPaRC-GRPO-8E...
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m INFO 10-20 10:21:39 [gpu_model_runner.py:1329] Starting to load model lkaesberg/Qwen3-14B-SPaRC-GRPO-8E...
+[1;36m(VllmWorker rank=3 pid=454258)[0;0m INFO 10-20 10:21:39 [gpu_model_runner.py:1329] Starting to load model lkaesberg/Qwen3-14B-SPaRC-GRPO-8E...
+[1;36m(VllmWorker rank=0 pid=454255)[0;0m INFO 10-20 10:21:39 [gpu_model_runner.py:1329] Starting to load model lkaesberg/Qwen3-14B-SPaRC-GRPO-8E...
+[1;36m(VllmWorker rank=3 pid=454258)[0;0m INFO 10-20 10:21:40 [weight_utils.py:265] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=0 pid=454255)[0;0m INFO 10-20 10:21:42 [weight_utils.py:265] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] WorkerProc failed to start.
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] Traceback (most recent call last):
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     response = conn.getresponse()
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                ^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     httplib_response = super().getresponse()
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                        ^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/http/client.py", line 1430, in getresponse
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     response.begin()
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/http/client.py", line 331, in begin
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     version, status, reason = self._read_status()
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                               ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/http/client.py", line 292, in _read_status
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/socket.py", line 720, in readinto
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return self._sock.recv_into(b)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/ssl.py", line 1251, in recv_into
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return self.read(nbytes, buffer)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/ssl.py", line 1103, in read
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return self._sslobj.read(len, buffer)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] TimeoutError: The read operation timed out
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] 
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] The above exception was the direct cause of the following exception:
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] 
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] Traceback (most recent call last):
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     resp = conn.urlopen(
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     retries = retries.increment(
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]               ^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     raise reraise(type(error), error, _stacktrace)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     raise value
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     response = self._make_request(
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     raise ReadTimeoutError(
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] 
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] During handling of the above exception, another exception occurred:
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] 
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] Traceback (most recent call last):
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 409, in worker_main
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     worker = WorkerProc(*args, **kwargs)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 306, in __init__
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     self.worker.load_model()
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 162, in load_model
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     self.model_runner.load_model()
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/worker/gpu_model_runner.py", line 1332, in load_model
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     self.model = get_model(vllm_config=self.vllm_config)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/__init__.py", line 14, in get_model
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return loader.load_model(vllm_config=vllm_config)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 455, in load_model
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     loaded_weights = model.load_weights(
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                      ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/models/qwen3.py", line 319, in load_weights
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return loader.load_weights(weights)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 261, in load_weights
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     autoloaded_weights = set(self._load_module("", self.module, weights))
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 213, in _load_module
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     for child_prefix, child_weights in self._groupby_prefix(weights):
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 103, in _groupby_prefix
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     for prefix, group in itertools.groupby(weights_by_parts,
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 101, in <genexpr>
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     for weight_name, weight_data in weights)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                                     ^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 431, in get_all_weights
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     yield from self._get_weights_iterator(primary_weights)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 359, in _get_weights_iterator
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     hf_folder, hf_weights_files, use_safetensors = self._prepare_weights(
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                                                    ^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 312, in _prepare_weights
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     hf_folder = download_weights_from_hf(
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/weight_utils.py", line 256, in download_weights_from_hf
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     file_list = fs.ls(model_name_or_path, detail=False, revision=revision)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/hf_file_system.py", line 368, in ls
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     resolved_path = self.resolve_path(path, revision=revision)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/hf_file_system.py", line 209, in resolve_path
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     repo_and_revision_exist, err = self._repo_and_revision_exist(repo_type, repo_id, revision)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/hf_file_system.py", line 125, in _repo_and_revision_exist
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     self._api.repo_info(
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return fn(*args, **kwargs)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 2864, in repo_info
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return method(
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return fn(*args, **kwargs)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 2648, in model_info
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     r = get_session().get(path, headers=headers, timeout=timeout, params=params)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return self.request("GET", url, **kwargs)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     resp = self.send(prep, **send_kwargs)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     r = adapter.send(request, **kwargs)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 95, in send
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return super().send(request, *args, **kwargs)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/requests/adapters.py", line 713, in send
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     raise ReadTimeout(e, request=request)
+[1;36m(VllmWorker rank=1 pid=454256)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] requests.exceptions.ReadTimeout: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: ec8baab2-aea9-4318-94cf-c3d089195392)')
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] WorkerProc failed to start.
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] Traceback (most recent call last):
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     response = conn.getresponse()
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                ^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connection.py", line 516, in getresponse
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     httplib_response = super().getresponse()
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                        ^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/http/client.py", line 1430, in getresponse
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     response.begin()
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/http/client.py", line 331, in begin
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     version, status, reason = self._read_status()
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                               ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/http/client.py", line 292, in _read_status
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/socket.py", line 720, in readinto
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return self._sock.recv_into(b)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/ssl.py", line 1251, in recv_into
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return self.read(nbytes, buffer)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/ssl.py", line 1103, in read
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return self._sslobj.read(len, buffer)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] TimeoutError: The read operation timed out
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] 
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] The above exception was the direct cause of the following exception:
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] 
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] Traceback (most recent call last):
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/requests/adapters.py", line 667, in send
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     resp = conn.urlopen(
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     retries = retries.increment(
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]               ^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/util/retry.py", line 474, in increment
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     raise reraise(type(error), error, _stacktrace)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/util/util.py", line 39, in reraise
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     raise value
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     response = self._make_request(
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     raise ReadTimeoutError(
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] 
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] During handling of the above exception, another exception occurred:
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] 
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] Traceback (most recent call last):
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 409, in worker_main
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     worker = WorkerProc(*args, **kwargs)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 306, in __init__
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     self.worker.load_model()
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 162, in load_model
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     self.model_runner.load_model()
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/worker/gpu_model_runner.py", line 1332, in load_model
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     self.model = get_model(vllm_config=self.vllm_config)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/__init__.py", line 14, in get_model
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return loader.load_model(vllm_config=vllm_config)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 455, in load_model
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     loaded_weights = model.load_weights(
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                      ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/models/qwen3.py", line 319, in load_weights
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return loader.load_weights(weights)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 261, in load_weights
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     autoloaded_weights = set(self._load_module("", self.module, weights))
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 213, in _load_module
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     for child_prefix, child_weights in self._groupby_prefix(weights):
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 103, in _groupby_prefix
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     for prefix, group in itertools.groupby(weights_by_parts,
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/models/utils.py", line 101, in <genexpr>
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     for weight_name, weight_data in weights)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                                     ^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 431, in get_all_weights
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     yield from self._get_weights_iterator(primary_weights)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 359, in _get_weights_iterator
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     hf_folder, hf_weights_files, use_safetensors = self._prepare_weights(
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                                                    ^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/loader.py", line 312, in _prepare_weights
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     hf_folder = download_weights_from_hf(
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/model_executor/model_loader/weight_utils.py", line 256, in download_weights_from_hf
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     file_list = fs.ls(model_name_or_path, detail=False, revision=revision)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/hf_file_system.py", line 368, in ls
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     resolved_path = self.resolve_path(path, revision=revision)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/hf_file_system.py", line 209, in resolve_path
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     repo_and_revision_exist, err = self._repo_and_revision_exist(repo_type, repo_id, revision)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/hf_file_system.py", line 125, in _repo_and_revision_exist
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     self._api.repo_info(
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return fn(*args, **kwargs)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 2864, in repo_info
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return method(
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return fn(*args, **kwargs)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/hf_api.py", line 2648, in model_info
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     r = get_session().get(path, headers=headers, timeout=timeout, params=params)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/requests/sessions.py", line 602, in get
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return self.request("GET", url, **kwargs)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     resp = self.send(prep, **send_kwargs)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     r = adapter.send(request, **kwargs)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/huggingface_hub/utils/_http.py", line 95, in send
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     return super().send(request, *args, **kwargs)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/requests/adapters.py", line 713, in send
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435]     raise ReadTimeout(e, request=request)
+[1;36m(VllmWorker rank=2 pid=454257)[0;0m ERROR 10-20 10:21:50 [multiproc_executor.py:435] requests.exceptions.ReadTimeout: (ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 98e6904b-d2da-41d4-a362-444e2b4869a0)')
+[rank0]:[W1020 10:21:51.152529157 ProcessGroupNCCL.cpp:1496] Warning: WARNING: destroy_process_group() was not called before program exit, which can leak resources. For more info, please see https://pytorch.org/docs/stable/distributed.html#shutdown (function operator())
+ERROR 10-20 10:21:52 [core.py:396] EngineCore failed to start.
+ERROR 10-20 10:21:52 [core.py:396] Traceback (most recent call last):
+ERROR 10-20 10:21:52 [core.py:396]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 387, in run_engine_core
+ERROR 10-20 10:21:52 [core.py:396]     engine_core = EngineCoreProc(*args, **kwargs)
+ERROR 10-20 10:21:52 [core.py:396]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-20 10:21:52 [core.py:396]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 329, in __init__
+ERROR 10-20 10:21:52 [core.py:396]     super().__init__(vllm_config, executor_class, log_stats,
+ERROR 10-20 10:21:52 [core.py:396]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 64, in __init__
+ERROR 10-20 10:21:52 [core.py:396]     self.model_executor = executor_class(vllm_config)
+ERROR 10-20 10:21:52 [core.py:396]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-20 10:21:52 [core.py:396]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 52, in __init__
+ERROR 10-20 10:21:52 [core.py:396]     self._init_executor()
+ERROR 10-20 10:21:52 [core.py:396]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 91, in _init_executor
+ERROR 10-20 10:21:52 [core.py:396]     self.workers = WorkerProc.wait_for_ready(unready_workers)
+ERROR 10-20 10:21:52 [core.py:396]                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ERROR 10-20 10:21:52 [core.py:396]   File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 370, in wait_for_ready
+ERROR 10-20 10:21:52 [core.py:396]     raise e from None
+ERROR 10-20 10:21:52 [core.py:396] Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+Process EngineCore_0:
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+    self.run()
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/multiprocessing/process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 400, in run_engine_core
+    raise e
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 387, in run_engine_core
+    engine_core = EngineCoreProc(*args, **kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 329, in __init__
+    super().__init__(vllm_config, executor_class, log_stats,
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 64, in __init__
+    self.model_executor = executor_class(vllm_config)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/executor/executor_base.py", line 52, in __init__
+    self._init_executor()
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 91, in _init_executor
+    self.workers = WorkerProc.wait_for_ready(unready_workers)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 370, in wait_for_ready
+    raise e from None
+Exception: WorkerProc initialization failed due to an exception in a background process. See stack trace for root cause.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/weakref.py", line 666, in _exitfunc
+    f()
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/weakref.py", line 590, in __call__
+    return info.func(*info.args, **(info.kwargs or {}))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/executor/multiproc_executor.py", line 228, in shutdown
+    for w in self.workers:
+             ^^^^^^^^^^^^
+AttributeError: 'MultiprocExecutor' object has no attribute 'workers'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 1130, in <module>
+    uvloop.run(run_server(args))
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/uvloop/__init__.py", line 109, in run
+    return __asyncio.run(
+           ^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/asyncio/runners.py", line 195, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "uvloop/loop.pyx", line 1518, in uvloop.loop.Loop.run_until_complete
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/uvloop/__init__.py", line 61, in wrapper
+    return await main
+           ^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 1078, in run_server
+    async with build_async_engine_client(args) as engine_client:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 146, in build_async_engine_client
+    async with build_async_engine_client_from_engine_args(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/entrypoints/openai/api_server.py", line 178, in build_async_engine_client_from_engine_args
+    async_llm = AsyncLLM.from_vllm_config(
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 150, in from_vllm_config
+    return cls(
+           ^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/async_llm.py", line 118, in __init__
+    self.engine_core = core_client_class(
+                       ^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 642, in __init__
+    super().__init__(
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 398, in __init__
+    self._wait_for_engine_startup()
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 430, in _wait_for_engine_startup
+    raise RuntimeError("Engine core initialization failed. "
+RuntimeError: Engine core initialization failed. See root cause above.
+/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/multiprocessing/resource_tracker.py:279: UserWarning: resource_tracker: There appear to be 1 leaked shared_memory objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

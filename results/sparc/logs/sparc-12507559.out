@@ -1,0 +1,154 @@
+================================================================================
+JobID = 12507559
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu153
+================================================================================
+[2026-02-06 05:03:44] Job starting on ggpu153
+⌛ Waiting for vLLM..................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 400 previous results from 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ──────────────────────────────────────────────────────────────────────────  │
+│   Dataset Size        500                                                    │
+│   Already Processed   400                                                    │
+│   Remaining           100                                                    │
+│   Model               nvidia/Llama-3_3-Nemotron-Super-49B-v1_5               │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceb…   │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Prompt              gym_step_traceback                                     │
+│   Gym Traceback       Enabled                                                │
+│   Run Name            traceback                                              │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 400 previous results from 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+🔄 Resuming processing: 400 already done, 100 remaining
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle 9bd62a0dce10434d (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found in response: To determine the optimal next move 
+from the current position [0,4], we analyze the grid and constraints:
+
+1. **Critical Path Requirements**:
+   - The path must eventually reach the **End Node (E)** at [4,0] and the 
+mandatory **Dot (.)** at [3,0]. Moving upward from [0,4] positions the path to 
+traverse the upper rows toward these objectives.
+   - Backtracking upward to [0,3] (marked 'V') is permissible under the 
+revisiting rule, as it retraces the existing path segment. This allows 
+progression toward the unexplored upper regions.
+
+2. **Grid Analysis**:
+   - Moving **RIGHT (0)** to [1,4] leads into a '+' cell but risks creating a 
+loop away from the upper targets.
+   - Moving **DOWN (3)** to [0,5] reaches a valid '+' but isolates the path 
+further from the upper goals, with limited viable exits.
+   - Moving **UP (1)** to [0,3] (a visited cell) is valid for backtracking and 
+opens a clear route upward toward the mandatory Dot and End Node. Subsequent 
+moves from [0,3] can proceed to [0,2], [0,1], [0,0], and rightward toward [3,0] 
+and [4,0].
+
+3. **Region and Rule Compliance**:
+   - No immediate region violations are evident in the upward path, and the Dot 
+at [3,0] remains accessible if this route is taken.
+
+Thus, moving **UP (1)** is the most strategic choice to align with path 
+requirements and grid constraints.
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle 71cda8beb94a1e5 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found in response: Final: <digit>
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+
+✅ Processing completed successfully!
+
+
+       📊 SPaRC Dataset Processing Results (Gym (Step-by-Step))       
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 56              │ 11.2%           │
+│ Failed                         │ 444             │ 88.8%           │
+│                                │                 │                 │
+│ Avg Steps Taken                │ 33.4 steps      │                 │
+│ Min Steps                      │ 1 steps         │                 │
+│ Max Steps                      │ 100 steps       │                 │
+│ Reached End                    │ 421             │ 84.2%           │
+│ No Legal Actions               │ 79              │ 15.8%           │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 25/86           │ 29.1%           │
+│ Difficulty 2 Solved            │ 23/118          │ 19.5%           │
+│ Difficulty 3 Solved            │ 6/121           │ 5.0%            │
+│ Difficulty 4 Solved            │ 2/86            │ 2.3%            │
+│ Difficulty 5 Solved            │ 0/89            │ 0.0%            │
+│                                │                 │                 │
+│ Total Time                     │ 2736056.7       │                 │
+│                                │ seconds         │                 │
+│ Avg Time per Puzzle            │ 5472.11 seconds │                 │
+│ Puzzles per Minute             │ 0.0             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                               Time      Reached                
+  Puzzle ID     Difficul…   Status    Steps    (s)       End         No Legal   
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05ed8…   3           ❌ FAIL   24       3981.00   Yes         No         
+  ebc9c10093…   3           ❌ FAIL   31       5380.43   Yes         No         
+  ed40414d61…   3           ❌ FAIL   5        857.13    Yes         No         
+  dce20e150e…   5           ❌ FAIL   20       3393.72   Yes         No         
+  3fe8a85b76…   1           ❌ FAIL   100      13275.…   No          Yes        
+  1284a7249a…   3           ❌ FAIL   12       2688.21   Yes         No         
+  cbeb87b359…   3           ❌ FAIL   9        1679.66   Yes         No         
+  c80d64b5c5…   5           ❌ FAIL   29       4706.37   Yes         No         
+  24e8876585…   5           ❌ FAIL   44       7520.94   Yes         No         
+  196a88635b…   4           ❌ FAIL   13       2158.84   Yes         No         
+  e82bd665d7…   2           ✅ PASS   18       2920.20   Yes         No         
+  c6739963a7…   3           ❌ FAIL   10       2335.97   Yes         No         
+  953c10f2e4…   2           ✅ PASS   3        444.42    Yes         No         
+  d91761f3ba…   4           ❌ FAIL   15       2384.87   Yes         No         
+  bc66c2e18f…   3           ❌ FAIL   26       4520.39   Yes         No         
+  4b236c53ea…   3           ❌ FAIL   5        1007.66   Yes         No         
+  5f9a92945a…   1           ❌ FAIL   25       5442.38   Yes         No         
+  860fbc1cfd…   3           ❌ FAIL   100      14924.…   No          Yes        
+  5b5d43da94…   4           ✅ PASS   15       2591.89   Yes         No         
+  971ad9f45d…   5           ❌ FAIL   100      14243.…   No          Yes        
+                                                                                
+
+📁 Final results saved to 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+[2026-02-07 04:34:09] Job complete.
+============ Job Information ===================================================
+Submitted: 2026-02-05T23:46:10
+Started: 2026-02-06T05:03:41
+Ended: 2026-02-07T04:34:09
+Elapsed: 1411 min, Limit: 2880 min, Difference: 1469 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 3527.50 core-hours
+================================================================================

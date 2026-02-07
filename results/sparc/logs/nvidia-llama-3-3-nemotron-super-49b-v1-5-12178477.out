@@ -1,0 +1,70 @@
+================================================================================
+JobID = 12178477
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu155
+================================================================================
+[2026-01-12 06:22:17] Job starting on ggpu155
+⌛ Waiting for vLLM..................................................................................................................................................................................................................................................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 99 previous results from 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ──────────────────────────────────────────────────────────────────────────  │
+│   Dataset Size        500                                                    │
+│   Already Processed   99                                                     │
+│   Remaining           401                                                    │
+│   Model               nvidia/Llama-3_3-Nemotron-Super-49B-v1_5               │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceb…   │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8003/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Gym Traceback       Enabled                                                │
+│   Run Name            traceback                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 99 previous results from 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+🔄 Resuming processing: 99 already done, 401 remaining
+⚠️  Connection error on puzzle 95baf8b98ab6874 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: \boxed{2}
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a305fe218d16e612 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 0**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 95baf8b98ab6874 (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: $$
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a305fe218d16e612 (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: $$
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 1b23ec5dcd81c575 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 2**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 1796837aa68c2b76 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 1** (Move Up)
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle 8b47902d43ed5c7 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 3** (down)
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 8b47902d43ed5c7 (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 1**
+🔄 Retrying in 2 seconds...
+[2026-01-12T14:51:27.452] error: *** JOB 12178477 ON ggpu155 CANCELLED AT 2026-01-12T14:51:27 DUE to SIGNAL Terminated ***
+============ Job Information ===================================================
+Submitted: 2026-01-11T17:13:32
+Started: 2026-01-12T06:22:14
+Ended: 2026-01-12T14:51:27
+Elapsed: 510 min, Limit: 2880 min, Difference: 2370 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 1275.00 core-hours
+================================================================================

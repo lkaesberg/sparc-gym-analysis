@@ -1,0 +1,175 @@
+================================================================================
+JobID = 12513378
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu156
+================================================================================
+[2026-02-06 11:53:20] Job starting on ggpu156
+⌛ Waiting for vLLM............................................................................................................................................................................................................................................................ ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 0 previous results from allenai_Olmo-3.1-32B-Think.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ──────────────────────────────────────────────────────                      │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               allenai/Olmo-3.1-32B-Think                             │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        allenai_Olmo-3.1-32B-Think.jsonl                       │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Single-shot                                            │
+│   Prompt              single_shot                                            │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 0 previous results from allenai_Olmo-3.1-32B-Think.jsonl
+🔄 Resuming processing: 0 already done, 500 remaining
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+
+✅ Processing completed successfully!
+
+
+          📊 SPaRC Dataset Processing Results (Single-Shot)           
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 81              │ 16.2%           │
+│ Failed                         │ 419             │ 83.8%           │
+│                                │                 │                 │
+│ Fully Valid Paths              │ 374             │ 74.8%           │
+│ Connected Paths                │ 425             │ 85.0%           │
+│ Correct Start/End              │ 473             │ 94.6%           │
+│ Non-Intersecting               │ 482             │ 96.4%           │
+│ No Rule Violations             │ 450             │ 90.0%           │
+│                                │                 │                 │
+│ Avg Path Length                │ 16.1 steps      │                 │
+│ Min Path Length                │ 2 steps         │                 │
+│ Max Path Length                │ 64 steps        │                 │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 44/86           │ 51.2%           │
+│ Difficulty 2 Solved            │ 24/118          │ 20.3%           │
+│ Difficulty 3 Solved            │ 11/121          │ 9.1%            │
+│ Difficulty 4 Solved            │ 2/86            │ 2.3%            │
+│ Difficulty 5 Solved            │ 0/89            │ 0.0%            │
+│                                │                 │                 │
+│ Total Time                     │ 255778.8        │                 │
+│                                │ seconds         │                 │
+│ Avg Time per Puzzle            │ 511.56 seconds  │                 │
+│ Puzzles per Minute             │ 0.1             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                Path      Time                                  
+  Puzzle ID   Diffic…   Stat…   Length    (s)      Issues                       
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05e…   3         ❌      23        632.94   None                         
+                        FAIL                                                    
+  ebc9c100…   3         ❌      26        558.96   None                         
+                        FAIL                                                    
+  ed40414d…   3         ❌      10        462.99   None                         
+                        FAIL                                                    
+  dce20e15…   5         ❌      19        569.39   None                         
+                        FAIL                                                    
+  3fe8a85b…   1         ❌      24        390.01   None                         
+                        FAIL                                                    
+  1284a724…   3         ❌      5         617.50   None                         
+                        FAIL                                                    
+  cbeb87b3…   3         ❌      10        369.73   rules                        
+                        FAIL                                                    
+  c80d64b5…   5         ❌      22        533.65   disconnected                 
+                        FAIL                                                    
+  24e88765…   5         ❌      5         571.49   None                         
+                        FAIL                                                    
+  196a8863…   4         ❌      14        586.00   rules                        
+                        FAIL                                                    
+  e82bd665…   2         ✅      19        550.56   None                         
+                        PASS                                                    
+  c6739963…   3         ❌      9         448.42   None                         
+                        FAIL                                                    
+  953c10f2…   2         ❌      12        484.75   rules                        
+                        FAIL                                                    
+  d91761f3…   4         ❌      14        521.15   None                         
+                        FAIL                                                    
+  bc66c2e1…   3         ❌      9         484.81   None                         
+                        FAIL                                                    
+  4b236c53…   3         ❌      6         447.18   None                         
+                        FAIL                                                    
+  5f9a9294…   1         ✅      8         409.14   None                         
+                        PASS                                                    
+  860fbc1c…   3         ❌      19        579.18   start/end, disconnected,     
+                        FAIL                       intersecting                 
+  5b5d43da…   4         ✅      10        497.39   None                         
+                        PASS                                                    
+  971ad9f4…   5         ❌      16        584.07   start/end, intersecting      
+                        FAIL                                                    
+                                                                                
+
+📁 Final results saved to allenai_Olmo-3.1-32B-Think.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_*.csv
+[2026-02-06 16:38:14] Job complete.
+============ Job Information ===================================================
+Submitted: 2026-02-06T10:56:39
+Started: 2026-02-06T11:53:17
+Ended: 2026-02-06T16:38:14
+Elapsed: 285 min, Limit: 2880 min, Difference: 2595 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 712.50 core-hours
+================================================================================

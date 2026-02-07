@@ -1,0 +1,172 @@
+================================================================================
+JobID = 12490555
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu196
+================================================================================
+[2026-02-05 08:55:55] Job starting on ggpu196
+⌛ Waiting for vLLM............................................................................................................................................................................................................................................................................................................. ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ─────────────────────────────────────────────────                           │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               google/gemma-3-27b-it                                  │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        google_gemma-3-27b-it.jsonl                            │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8006/v1                               │
+│   Mode                Single-shot                                            │
+│   Prompt              single_shot                                            │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+
+✅ Processing completed successfully!
+
+
+          📊 SPaRC Dataset Processing Results (Single-Shot)           
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 4               │ 0.8%            │
+│ Failed                         │ 496             │ 99.2%           │
+│                                │                 │                 │
+│ Fully Valid Paths              │ 77              │ 15.4%           │
+│ Connected Paths                │ 376             │ 75.2%           │
+│ Correct Start/End              │ 486             │ 97.2%           │
+│ Non-Intersecting               │ 379             │ 75.8%           │
+│ No Rule Violations             │ 87              │ 17.4%           │
+│                                │                 │                 │
+│ Avg Path Length                │ 17.6 steps      │                 │
+│ Min Path Length                │ 1 steps         │                 │
+│ Max Path Length                │ 126 steps       │                 │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 1/86            │ 1.2%            │
+│ Difficulty 2 Solved            │ 1/118           │ 0.8%            │
+│ Difficulty 3 Solved            │ 2/121           │ 1.7%            │
+│ Difficulty 4 Solved            │ 0/86            │ 0.0%            │
+│ Difficulty 5 Solved            │ 0/89            │ 0.0%            │
+│                                │                 │                 │
+│ Total Time                     │ 10252.6 seconds │                 │
+│ Avg Time per Puzzle            │ 20.51 seconds   │                 │
+│ Puzzles per Minute             │ 2.9             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                Path      Time                                  
+  Puzzle ID   Diffic…   Stat…   Length    (s)      Issues                       
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05e…   3         ❌      50        29.49    disconnected, rules          
+                        FAIL                                                    
+  ebc9c100…   3         ❌      16        26.78    start/end, disconnected      
+                        FAIL                                                    
+  ed40414d…   3         ❌      12        23.09    intersecting, rules          
+                        FAIL                                                    
+  dce20e15…   5         ❌      19        31.02    rules                        
+                        FAIL                                                    
+  3fe8a85b…   1         ❌      3         29.10    start/end                    
+                        FAIL                                                    
+  1284a724…   3         ❌      13        33.43    rules                        
+                        FAIL                                                    
+  cbeb87b3…   3         ❌      14        29.96    rules                        
+                        FAIL                                                    
+  c80d64b5…   5         ❌      18        26.78    rules                        
+                        FAIL                                                    
+  24e88765…   5         ❌      5         28.79    None                         
+                        FAIL                                                    
+  196a8863…   4         ❌      27        28.36    start/end, intersecting,     
+                        FAIL                       rules                        
+  e82bd665…   2         ❌      27        25.38    rules                        
+                        FAIL                                                    
+  c6739963…   3         ❌      15        29.40    rules                        
+                        FAIL                                                    
+  953c10f2…   2         ❌      14        29.52    intersecting, rules          
+                        FAIL                                                    
+  d91761f3…   4         ❌      22        30.24    rules                        
+                        FAIL                                                    
+  bc66c2e1…   3         ❌      11        23.94    rules                        
+                        FAIL                                                    
+  4b236c53…   3         ❌      38        30.66    disconnected, intersecting,  
+                        FAIL                       rules                        
+  5f9a9294…   1         ❌      14        27.11    rules                        
+                        FAIL                                                    
+  860fbc1c…   3         ❌      3         27.33    start/end                    
+                        FAIL                                                    
+  5b5d43da…   4         ❌      13        30.08    disconnected, rules          
+                        FAIL                                                    
+  971ad9f4…   5         ❌      29        35.08    intersecting, rules          
+                        FAIL                                                    
+                                                                                
+
+📁 Final results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+[2026-02-05 09:14:04] Job complete.
+============ Job Information ===================================================
+Submitted: 2026-02-05T01:14:34
+Started: 2026-02-05T08:55:52
+Ended: 2026-02-05T09:14:04
+Elapsed: 19 min, Limit: 2880 min, Difference: 2861 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 47.50 core-hours
+================================================================================

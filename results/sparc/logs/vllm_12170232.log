@@ -1,0 +1,457 @@
+[0;36m(APIServer pid=496742)[0;0m INFO 01-09 23:14:03 [api_server.py:1351] vLLM API server version 0.13.0
+[0;36m(APIServer pid=496742)[0;0m INFO 01-09 23:14:03 [utils.py:253] non-default args: {'model_tag': 'allenai/Olmo-3.1-32B-Think', 'port': 8001, 'model': 'allenai/Olmo-3.1-32B-Think', 'trust_remote_code': True, 'download_dir': '/scratch-scc/users/u16096/huggingface', 'tensor_parallel_size': 4}
+[0;36m(APIServer pid=496742)[0;0m The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[0;36m(APIServer pid=496742)[0;0m INFO 01-09 23:14:20 [model.py:514] Resolved architecture: Olmo2ForCausalLM
+[0;36m(APIServer pid=496742)[0;0m INFO 01-09 23:14:20 [model.py:1661] Using max model len 65536
+[0;36m(APIServer pid=496742)[0;0m INFO 01-09 23:14:21 [scheduler.py:230] Chunked prefill is enabled with max_num_batched_tokens=2048.
+[0;36m(EngineCore_DP0 pid=497062)[0;0m INFO 01-09 23:14:41 [core.py:93] Initializing a V1 LLM engine (v0.13.0) with config: model='allenai/Olmo-3.1-32B-Think', speculative_config=None, tokenizer='allenai/Olmo-3.1-32B-Think', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=65536, download_dir='/scratch-scc/users/u16096/huggingface', load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser='', reasoning_parser_plugin='', enable_in_reasoning=False), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None, kv_cache_metrics=False, kv_cache_metrics_sample=0.01, cudagraph_metrics=False, enable_layerwise_nvtx_tracing=False), seed=0, served_model_name=allenai/Olmo-3.1-32B-Think, enable_prefix_caching=True, enable_chunked_prefill=True, pooler_config=None, compilation_config={'level': None, 'mode': <CompilationMode.VLLM_COMPILE: 3>, 'debug_dump_path': None, 'cache_dir': '', 'compile_cache_save_format': 'binary', 'backend': 'inductor', 'custom_ops': ['none'], 'splitting_ops': ['vllm::unified_attention', 'vllm::unified_attention_with_output', 'vllm::unified_mla_attention', 'vllm::unified_mla_attention_with_output', 'vllm::mamba_mixer2', 'vllm::mamba_mixer', 'vllm::short_conv', 'vllm::linear_attention', 'vllm::plamo2_mamba_mixer', 'vllm::gdn_attention_core', 'vllm::kda_attention', 'vllm::sparse_attn_indexer'], 'compile_mm_encoder': False, 'compile_sizes': [], 'compile_ranges_split_points': [2048], 'inductor_compile_config': {'enable_auto_functionalized_v2': False, 'combo_kernels': True, 'benchmark_combo_kernel': True}, 'inductor_passes': {}, 'cudagraph_mode': <CUDAGraphMode.FULL_AND_PIECEWISE: (2, 1)>, 'cudagraph_num_of_warmups': 1, 'cudagraph_capture_sizes': [1, 2, 4, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 272, 288, 304, 320, 336, 352, 368, 384, 400, 416, 432, 448, 464, 480, 496, 512], 'cudagraph_copy_inputs': False, 'cudagraph_specialize_lora': True, 'use_inductor_graph_partition': False, 'pass_config': {'fuse_norm_quant': False, 'fuse_act_quant': False, 'fuse_attn_quant': False, 'eliminate_noops': True, 'enable_sp': False, 'fuse_gemm_comms': False, 'fuse_allreduce_rms': False}, 'max_cudagraph_capture_size': 512, 'dynamic_shapes_config': {'type': <DynamicShapesType.BACKED: 'backed'>, 'evaluate_guards': False}, 'local_cache_dir': None}
+[0;36m(EngineCore_DP0 pid=497062)[0;0m WARNING 01-09 23:14:41 [multiproc_executor.py:882] Reducing Torch parallelism from 32 threads to 1 to avoid unnecessary CPU contention. Set OMP_NUM_THREADS in the external environment to tune this value as needed.
+INFO 01-09 23:14:59 [parallel_state.py:1203] world_size=4 rank=1 local_rank=1 distributed_init_method=tcp://127.0.0.1:59019 backend=nccl
+INFO 01-09 23:14:59 [parallel_state.py:1203] world_size=4 rank=2 local_rank=2 distributed_init_method=tcp://127.0.0.1:59019 backend=nccl
+INFO 01-09 23:14:59 [parallel_state.py:1203] world_size=4 rank=3 local_rank=3 distributed_init_method=tcp://127.0.0.1:59019 backend=nccl
+INFO 01-09 23:14:59 [parallel_state.py:1203] world_size=4 rank=0 local_rank=0 distributed_init_method=tcp://127.0.0.1:59019 backend=nccl
+INFO 01-09 23:14:59 [pynccl.py:111] vLLM is using nccl==2.27.5
+WARNING 01-09 23:15:00 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+WARNING 01-09 23:15:00 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+WARNING 01-09 23:15:00 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+WARNING 01-09 23:15:00 [symm_mem.py:67] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+INFO 01-09 23:15:01 [parallel_state.py:1411] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 1, EP rank 1
+INFO 01-09 23:15:01 [parallel_state.py:1411] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 2, EP rank 2
+INFO 01-09 23:15:01 [parallel_state.py:1411] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 3, EP rank 3
+INFO 01-09 23:15:01 [parallel_state.py:1411] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, PCP rank 0, TP rank 0, EP rank 0
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:15:02 [gpu_model_runner.py:3562] Starting to load model allenai/Olmo-3.1-32B-Think...
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:15:03 [cuda.py:351] Using FLASH_ATTN attention backend out of potential backends: ('FLASH_ATTN', 'FLASHINFER', 'TRITON_ATTN', 'FLEX_ATTENTION')
+[0;36m(Worker_TP3 pid=497167)[0;0m INFO 01-09 23:23:25 [weight_utils.py:487] Time spent downloading weights for allenai/Olmo-3.1-32B-Think: 500.656665 seconds
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/14 [00:00<?, ?it/s]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:   7% Completed | 1/14 [00:07<01:34,  7.28s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  14% Completed | 2/14 [00:15<01:34,  7.91s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  21% Completed | 3/14 [00:23<01:28,  8.03s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  29% Completed | 4/14 [00:31<01:20,  8.06s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  36% Completed | 5/14 [00:40<01:13,  8.15s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  43% Completed | 6/14 [00:48<01:05,  8.15s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  50% Completed | 7/14 [00:57<00:58,  8.41s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  57% Completed | 8/14 [01:05<00:50,  8.42s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  64% Completed | 9/14 [01:13<00:41,  8.33s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  71% Completed | 10/14 [01:21<00:32,  8.17s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  79% Completed | 11/14 [01:30<00:24,  8.25s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  86% Completed | 12/14 [01:31<00:12,  6.08s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards:  93% Completed | 13/14 [01:39<00:06,  6.62s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards: 100% Completed | 14/14 [01:47<00:00,  7.17s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m Loading safetensors checkpoint shards: 100% Completed | 14/14 [01:47<00:00,  7.68s/it]
+[0;36m(Worker_TP0 pid=497164)[0;0m 
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:25:14 [default_loader.py:308] Loading weights took 107.74 seconds
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:25:15 [gpu_model_runner.py:3659] Model loading took 15.1669 GiB memory and 611.798378 seconds
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:25:29 [backends.py:643] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/b636fb35bf/rank_0_0/backbone for vLLM's torch.compile
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:25:29 [backends.py:703] Dynamo bytecode transform time: 13.84 s
+[0;36m(Worker_TP2 pid=497166)[0;0m [rank2]:W0109 23:25:39.860000 497166 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP3 pid=497167)[0;0m [rank3]:W0109 23:25:39.860000 497167 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP0 pid=497164)[0;0m [rank0]:W0109 23:25:39.863000 497164 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP1 pid=497165)[0;0m [rank1]:W0109 23:25:39.913000 497165 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP0 pid=497164)[0;0m [rank0]:W0109 23:25:41.121000 497164 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP3 pid=497167)[0;0m [rank3]:W0109 23:25:41.156000 497167 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP2 pid=497166)[0;0m [rank2]:W0109 23:25:41.158000 497166 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP1 pid=497165)[0;0m [rank1]:W0109 23:25:41.192000 497165 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:25:42 [backends.py:261] Cache the graph of compile range (1, 2048) for later use
+[0;36m(Worker_TP3 pid=497167)[0;0m INFO 01-09 23:25:42 [backends.py:261] Cache the graph of compile range (1, 2048) for later use
+[0;36m(Worker_TP2 pid=497166)[0;0m INFO 01-09 23:25:42 [backends.py:261] Cache the graph of compile range (1, 2048) for later use
+[0;36m(Worker_TP1 pid=497165)[0;0m INFO 01-09 23:25:42 [backends.py:261] Cache the graph of compile range (1, 2048) for later use
+[0;36m(Worker_TP2 pid=497166)[0;0m [rank2]:W0109 23:25:43.426000 497166 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP0 pid=497164)[0;0m [rank0]:W0109 23:25:43.433000 497164 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP3 pid=497167)[0;0m [rank3]:W0109 23:25:43.441000 497167 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP1 pid=497165)[0;0m [rank1]:W0109 23:25:43.459000 497165 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP2 pid=497166)[0;0m [rank2]:W0109 23:25:43.621000 497166 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP0 pid=497164)[0;0m [rank0]:W0109 23:25:43.629000 497164 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP3 pid=497167)[0;0m [rank3]:W0109 23:25:43.642000 497167 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP1 pid=497165)[0;0m [rank1]:W0109 23:25:43.666000 497165 torch/_inductor/codegen/triton_combo_kernel.py:97] ComboKernels: 1 long reduction nodes are separated
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:25:51 [backends.py:278] Compiling a graph for compile range (1, 2048) takes 13.35 s
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:25:51 [monitor.py:34] torch.compile takes 27.19 s in total
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:25:52 [gpu_worker.py:375] Available KV cache memory: 18.92 GiB
+[0;36m(EngineCore_DP0 pid=497062)[0;0m INFO 01-09 23:25:53 [kv_cache_utils.py:1291] GPU KV cache size: 309,968 tokens
+[0;36m(EngineCore_DP0 pid=497062)[0;0m INFO 01-09 23:25:53 [kv_cache_utils.py:1296] Maximum concurrency for 65,536 tokens per request: 14.76x
+[0;36m(Worker_TP0 pid=497164)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/51 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   2%|▏         | 1/51 [00:00<00:07,  6.41it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   4%|▍         | 2/51 [00:00<00:06,  7.13it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   6%|▌         | 3/51 [00:00<00:06,  7.38it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   8%|▊         | 4/51 [00:00<00:06,  7.51it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  10%|▉         | 5/51 [00:00<00:05,  7.83it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 6/51 [00:00<00:05,  8.00it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  14%|█▎        | 7/51 [00:00<00:05,  8.08it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▌        | 8/51 [00:01<00:05,  8.15it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  18%|█▊        | 9/51 [00:01<00:05,  8.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  20%|█▉        | 10/51 [00:01<00:04,  8.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  22%|██▏       | 11/51 [00:01<00:04,  8.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  24%|██▎       | 12/51 [00:01<00:04,  8.20it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 13/51 [00:01<00:04,  8.23it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  27%|██▋       | 14/51 [00:01<00:04,  8.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  29%|██▉       | 15/51 [00:01<00:04,  8.16it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  31%|███▏      | 16/51 [00:01<00:04,  8.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  33%|███▎      | 17/51 [00:02<00:04,  7.44it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  35%|███▌      | 18/51 [00:02<00:04,  7.62it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  37%|███▋      | 19/51 [00:02<00:04,  7.77it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 20/51 [00:02<00:03,  7.84it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  41%|████      | 21/51 [00:02<00:03,  7.88it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 22/51 [00:02<00:03,  7.91it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  45%|████▌     | 23/51 [00:02<00:03,  7.75it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  47%|████▋     | 24/51 [00:03<00:03,  7.78it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  49%|████▉     | 25/51 [00:03<00:03,  7.81it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  51%|█████     | 26/51 [00:03<00:03,  7.86it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  53%|█████▎    | 27/51 [00:03<00:03,  7.70it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  55%|█████▍    | 28/51 [00:03<00:02,  7.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 29/51 [00:03<00:02,  7.80it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  59%|█████▉    | 30/51 [00:03<00:02,  7.79it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 31/51 [00:03<00:02,  7.82it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  63%|██████▎   | 32/51 [00:04<00:02,  7.83it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  65%|██████▍   | 33/51 [00:04<00:02,  7.76it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  67%|██████▋   | 34/51 [00:04<00:02,  7.74it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  69%|██████▊   | 35/51 [00:04<00:02,  7.68it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  71%|███████   | 36/51 [00:04<00:01,  7.68it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  73%|███████▎  | 37/51 [00:04<00:01,  7.62it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 38/51 [00:04<00:01,  7.58it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  76%|███████▋  | 39/51 [00:04<00:01,  7.54it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  78%|███████▊  | 40/51 [00:05<00:01,  7.52it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  80%|████████  | 41/51 [00:05<00:01,  7.50it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  82%|████████▏ | 42/51 [00:05<00:01,  7.45it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▍ | 43/51 [00:05<00:01,  7.42it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  86%|████████▋ | 44/51 [00:05<00:00,  7.41it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 45/51 [00:05<00:00,  7.39it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  90%|█████████ | 46/51 [00:05<00:00,  7.35it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  92%|█████████▏| 47/51 [00:06<00:00,  7.19it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  94%|█████████▍| 48/51 [00:06<00:00,  6.97it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  96%|█████████▌| 49/51 [00:06<00:00,  7.03it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  98%|█████████▊| 50/51 [00:06<00:00,  7.07it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:06<00:00,  6.43it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 51/51 [00:06<00:00,  7.60it/s]
+[0;36m(Worker_TP0 pid=497164)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   3%|▎         | 1/35 [00:00<00:07,  4.62it/s]Capturing CUDA graphs (decode, FULL):   6%|▌         | 2/35 [00:00<00:05,  6.29it/s]Capturing CUDA graphs (decode, FULL):   9%|▊         | 3/35 [00:00<00:04,  7.22it/s]Capturing CUDA graphs (decode, FULL):  11%|█▏        | 4/35 [00:00<00:04,  7.70it/s]Capturing CUDA graphs (decode, FULL):  14%|█▍        | 5/35 [00:00<00:03,  7.95it/s]Capturing CUDA graphs (decode, FULL):  17%|█▋        | 6/35 [00:00<00:03,  8.17it/s]Capturing CUDA graphs (decode, FULL):  20%|██        | 7/35 [00:00<00:03,  8.22it/s]Capturing CUDA graphs (decode, FULL):  23%|██▎       | 8/35 [00:01<00:03,  8.25it/s]Capturing CUDA graphs (decode, FULL):  26%|██▌       | 9/35 [00:01<00:03,  8.32it/s]Capturing CUDA graphs (decode, FULL):  29%|██▊       | 10/35 [00:01<00:02,  8.40it/s]Capturing CUDA graphs (decode, FULL):  31%|███▏      | 11/35 [00:01<00:02,  8.46it/s]Capturing CUDA graphs (decode, FULL):  34%|███▍      | 12/35 [00:01<00:02,  8.33it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 13/35 [00:01<00:02,  8.41it/s]Capturing CUDA graphs (decode, FULL):  40%|████      | 14/35 [00:01<00:02,  8.48it/s]Capturing CUDA graphs (decode, FULL):  43%|████▎     | 15/35 [00:01<00:02,  8.52it/s]Capturing CUDA graphs (decode, FULL):  46%|████▌     | 16/35 [00:01<00:02,  8.51it/s]Capturing CUDA graphs (decode, FULL):  49%|████▊     | 17/35 [00:02<00:02,  8.44it/s]Capturing CUDA graphs (decode, FULL):  51%|█████▏    | 18/35 [00:02<00:02,  8.47it/s]Capturing CUDA graphs (decode, FULL):  54%|█████▍    | 19/35 [00:02<00:01,  8.49it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 20/35 [00:02<00:01,  8.50it/s]Capturing CUDA graphs (decode, FULL):  60%|██████    | 21/35 [00:02<00:01,  8.33it/s]Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 22/35 [00:02<00:01,  8.36it/s]Capturing CUDA graphs (decode, FULL):  66%|██████▌   | 23/35 [00:02<00:01,  8.42it/s]Capturing CUDA graphs (decode, FULL):  69%|██████▊   | 24/35 [00:02<00:01,  8.43it/s]Capturing CUDA graphs (decode, FULL):  71%|███████▏  | 25/35 [00:03<00:01,  8.48it/s]Capturing CUDA graphs (decode, FULL):  74%|███████▍  | 26/35 [00:03<00:01,  8.52it/s]Capturing CUDA graphs (decode, FULL):  77%|███████▋  | 27/35 [00:03<00:00,  8.54it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 28/35 [00:03<00:00,  8.56it/s]Capturing CUDA graphs (decode, FULL):  83%|████████▎ | 29/35 [00:03<00:00,  8.59it/s]Capturing CUDA graphs (decode, FULL):  86%|████████▌ | 30/35 [00:03<00:00,  8.60it/s]Capturing CUDA graphs (decode, FULL):  89%|████████▊ | 31/35 [00:03<00:00,  8.59it/s]Capturing CUDA graphs (decode, FULL):  91%|█████████▏| 32/35 [00:03<00:00,  8.56it/s]Capturing CUDA graphs (decode, FULL):  94%|█████████▍| 33/35 [00:03<00:00,  8.56it/s]Capturing CUDA graphs (decode, FULL):  97%|█████████▋| 34/35 [00:04<00:00,  8.57it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:04<00:00,  8.78it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:04<00:00,  8.32it/s]
+[0;36m(Worker_TP3 pid=497167)[0;0m INFO 01-09 23:26:04 [custom_all_reduce.py:216] Registering 11094 cuda graph addresses
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:26:04 [custom_all_reduce.py:216] Registering 11094 cuda graph addresses
+[0;36m(Worker_TP1 pid=497165)[0;0m INFO 01-09 23:26:04 [custom_all_reduce.py:216] Registering 11094 cuda graph addresses
+[0;36m(Worker_TP2 pid=497166)[0;0m INFO 01-09 23:26:04 [custom_all_reduce.py:216] Registering 11094 cuda graph addresses
+[0;36m(Worker_TP0 pid=497164)[0;0m INFO 01-09 23:26:05 [gpu_model_runner.py:4587] Graph capturing finished in 12 secs, took 2.63 GiB
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] WorkerProc hit an exception.
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4302, in _dummy_sampler_run
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampler_output = self.sampler(
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                      ^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 96, in forward
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampled, processed_logprobs = self.sample(logits, sampling_metadata)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 187, in sample
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     random_sampled, processed_logprobs = self.topk_topp_sampler(
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                          ^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 104, in forward_native
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits = self.apply_top_k_top_p(logits, k, p)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 258, in apply_top_k_top_p
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits_sort, logits_idx = logits.sort(dim=-1, descending=False)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 196.00 MiB. GPU 1 has a total capacity of 39.49 GiB of which 84.31 MiB is free. Including non-PyTorch memory, this process has 39.40 GiB memory in use. Of the allocated memory 34.66 GiB is allocated by PyTorch, with 71.88 MiB allocated in private pools (e.g., CUDA Graphs), and 162.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] The above exception was the direct cause of the following exception:
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 819, in worker_busy_loop
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     output = func(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 538, in compile_or_warm_up_model
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     self.model_runner._dummy_sampler_run(hidden_states=last_hidden_states)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return func(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4307, in _dummy_sampler_run
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     raise RuntimeError(
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] RuntimeError: CUDA out of memory occurred when warming up sampler with 256 dummy requests. Please try lowering `max_num_seqs` or `gpu_memory_utilization` when initializing the engine.
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4302, in _dummy_sampler_run
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampler_output = self.sampler(
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                      ^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 96, in forward
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampled, processed_logprobs = self.sample(logits, sampling_metadata)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 187, in sample
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     random_sampled, processed_logprobs = self.topk_topp_sampler(
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                          ^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 104, in forward_native
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits = self.apply_top_k_top_p(logits, k, p)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 258, in apply_top_k_top_p
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits_sort, logits_idx = logits.sort(dim=-1, descending=False)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 196.00 MiB. GPU 1 has a total capacity of 39.49 GiB of which 84.31 MiB is free. Including non-PyTorch memory, this process has 39.40 GiB memory in use. Of the allocated memory 34.66 GiB is allocated by PyTorch, with 71.88 MiB allocated in private pools (e.g., CUDA Graphs), and 162.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] The above exception was the direct cause of the following exception:
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 819, in worker_busy_loop
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     output = func(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 538, in compile_or_warm_up_model
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     self.model_runner._dummy_sampler_run(hidden_states=last_hidden_states)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return func(*args, **kwargs)
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4307, in _dummy_sampler_run
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     raise RuntimeError(
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] RuntimeError: CUDA out of memory occurred when warming up sampler with 256 dummy requests. Please try lowering `max_num_seqs` or `gpu_memory_utilization` when initializing the engine.
+[0;36m(Worker_TP1 pid=497165)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] WorkerProc hit an exception.
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4302, in _dummy_sampler_run
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampler_output = self.sampler(
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                      ^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 96, in forward
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampled, processed_logprobs = self.sample(logits, sampling_metadata)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 187, in sample
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     random_sampled, processed_logprobs = self.topk_topp_sampler(
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                          ^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 104, in forward_native
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits = self.apply_top_k_top_p(logits, k, p)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 258, in apply_top_k_top_p
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits_sort, logits_idx = logits.sort(dim=-1, descending=False)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 196.00 MiB. GPU 0 has a total capacity of 39.49 GiB of which 84.31 MiB is free. Including non-PyTorch memory, this process has 39.40 GiB memory in use. Of the allocated memory 34.66 GiB is allocated by PyTorch, with 71.88 MiB allocated in private pools (e.g., CUDA Graphs), and 162.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] The above exception was the direct cause of the following exception:
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 819, in worker_busy_loop
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     output = func(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 538, in compile_or_warm_up_model
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     self.model_runner._dummy_sampler_run(hidden_states=last_hidden_states)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return func(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4307, in _dummy_sampler_run
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     raise RuntimeError(
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] RuntimeError: CUDA out of memory occurred when warming up sampler with 256 dummy requests. Please try lowering `max_num_seqs` or `gpu_memory_utilization` when initializing the engine.
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4302, in _dummy_sampler_run
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampler_output = self.sampler(
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                      ^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 96, in forward
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampled, processed_logprobs = self.sample(logits, sampling_metadata)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 187, in sample
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     random_sampled, processed_logprobs = self.topk_topp_sampler(
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                          ^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 104, in forward_native
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits = self.apply_top_k_top_p(logits, k, p)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 258, in apply_top_k_top_p
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits_sort, logits_idx = logits.sort(dim=-1, descending=False)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 196.00 MiB. GPU 0 has a total capacity of 39.49 GiB of which 84.31 MiB is free. Including non-PyTorch memory, this process has 39.40 GiB memory in use. Of the allocated memory 34.66 GiB is allocated by PyTorch, with 71.88 MiB allocated in private pools (e.g., CUDA Graphs), and 162.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] The above exception was the direct cause of the following exception:
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 819, in worker_busy_loop
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     output = func(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 538, in compile_or_warm_up_model
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     self.model_runner._dummy_sampler_run(hidden_states=last_hidden_states)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return func(*args, **kwargs)
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4307, in _dummy_sampler_run
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     raise RuntimeError(
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] RuntimeError: CUDA out of memory occurred when warming up sampler with 256 dummy requests. Please try lowering `max_num_seqs` or `gpu_memory_utilization` when initializing the engine.
+[0;36m(Worker_TP0 pid=497164)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] WorkerProc hit an exception.
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4302, in _dummy_sampler_run
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampler_output = self.sampler(
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                      ^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 96, in forward
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampled, processed_logprobs = self.sample(logits, sampling_metadata)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 187, in sample
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     random_sampled, processed_logprobs = self.topk_topp_sampler(
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                          ^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 104, in forward_native
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits = self.apply_top_k_top_p(logits, k, p)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 258, in apply_top_k_top_p
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits_sort, logits_idx = logits.sort(dim=-1, descending=False)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 196.00 MiB. GPU 2 has a total capacity of 39.49 GiB of which 84.31 MiB is free. Including non-PyTorch memory, this process has 39.40 GiB memory in use. Of the allocated memory 34.66 GiB is allocated by PyTorch, with 71.88 MiB allocated in private pools (e.g., CUDA Graphs), and 162.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] The above exception was the direct cause of the following exception:
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 819, in worker_busy_loop
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     output = func(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 538, in compile_or_warm_up_model
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     self.model_runner._dummy_sampler_run(hidden_states=last_hidden_states)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return func(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4307, in _dummy_sampler_run
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     raise RuntimeError(
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] RuntimeError: CUDA out of memory occurred when warming up sampler with 256 dummy requests. Please try lowering `max_num_seqs` or `gpu_memory_utilization` when initializing the engine.
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4302, in _dummy_sampler_run
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampler_output = self.sampler(
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                      ^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 96, in forward
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampled, processed_logprobs = self.sample(logits, sampling_metadata)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 187, in sample
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     random_sampled, processed_logprobs = self.topk_topp_sampler(
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                          ^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 104, in forward_native
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits = self.apply_top_k_top_p(logits, k, p)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 258, in apply_top_k_top_p
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits_sort, logits_idx = logits.sort(dim=-1, descending=False)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 196.00 MiB. GPU 2 has a total capacity of 39.49 GiB of which 84.31 MiB is free. Including non-PyTorch memory, this process has 39.40 GiB memory in use. Of the allocated memory 34.66 GiB is allocated by PyTorch, with 71.88 MiB allocated in private pools (e.g., CUDA Graphs), and 162.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] The above exception was the direct cause of the following exception:
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 819, in worker_busy_loop
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     output = func(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 538, in compile_or_warm_up_model
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     self.model_runner._dummy_sampler_run(hidden_states=last_hidden_states)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return func(*args, **kwargs)
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4307, in _dummy_sampler_run
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     raise RuntimeError(
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] RuntimeError: CUDA out of memory occurred when warming up sampler with 256 dummy requests. Please try lowering `max_num_seqs` or `gpu_memory_utilization` when initializing the engine.
+[0;36m(Worker_TP2 pid=497166)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] WorkerProc hit an exception.
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4302, in _dummy_sampler_run
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampler_output = self.sampler(
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                      ^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 96, in forward
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampled, processed_logprobs = self.sample(logits, sampling_metadata)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 187, in sample
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     random_sampled, processed_logprobs = self.topk_topp_sampler(
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                          ^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 104, in forward_native
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits = self.apply_top_k_top_p(logits, k, p)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 258, in apply_top_k_top_p
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits_sort, logits_idx = logits.sort(dim=-1, descending=False)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 196.00 MiB. GPU 3 has a total capacity of 39.49 GiB of which 84.31 MiB is free. Including non-PyTorch memory, this process has 39.40 GiB memory in use. Of the allocated memory 34.66 GiB is allocated by PyTorch, with 71.88 MiB allocated in private pools (e.g., CUDA Graphs), and 162.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] The above exception was the direct cause of the following exception:
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 819, in worker_busy_loop
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     output = func(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 538, in compile_or_warm_up_model
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     self.model_runner._dummy_sampler_run(hidden_states=last_hidden_states)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return func(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4307, in _dummy_sampler_run
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     raise RuntimeError(
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] RuntimeError: CUDA out of memory occurred when warming up sampler with 256 dummy requests. Please try lowering `max_num_seqs` or `gpu_memory_utilization` when initializing the engine.
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4302, in _dummy_sampler_run
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampler_output = self.sampler(
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                      ^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 96, in forward
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     sampled, processed_logprobs = self.sample(logits, sampling_metadata)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/sampler.py", line 187, in sample
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     random_sampled, processed_logprobs = self.topk_topp_sampler(
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                                          ^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return self._call_impl(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return forward_call(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 104, in forward_native
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits = self.apply_top_k_top_p(logits, k, p)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 258, in apply_top_k_top_p
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     logits_sort, logits_idx = logits.sort(dim=-1, descending=False)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 196.00 MiB. GPU 3 has a total capacity of 39.49 GiB of which 84.31 MiB is free. Including non-PyTorch memory, this process has 39.40 GiB memory in use. Of the allocated memory 34.66 GiB is allocated by PyTorch, with 71.88 MiB allocated in private pools (e.g., CUDA Graphs), and 162.25 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] The above exception was the direct cause of the following exception:
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] Traceback (most recent call last):
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 819, in worker_busy_loop
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     output = func(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]              ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_worker.py", line 538, in compile_or_warm_up_model
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     self.model_runner._dummy_sampler_run(hidden_states=last_hidden_states)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     return func(*args, **kwargs)
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]            ^^^^^^^^^^^^^^^^^^^^^
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/worker/gpu_model_runner.py", line 4307, in _dummy_sampler_run
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824]     raise RuntimeError(
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] RuntimeError: CUDA out of memory occurred when warming up sampler with 256 dummy requests. Please try lowering `max_num_seqs` or `gpu_memory_utilization` when initializing the engine.
+[0;36m(Worker_TP3 pid=497167)[0;0m ERROR 01-09 23:26:05 [multiproc_executor.py:824] 
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866] EngineCore failed to start.
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866] Traceback (most recent call last):
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 857, in run_engine_core
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]     engine_core = EngineCoreProc(*args, **kwargs)
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 637, in __init__
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]     super().__init__(
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 109, in __init__
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]     num_gpu_blocks, num_cpu_blocks, kv_cache_config = self._initialize_kv_caches(
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/engine/core.py", line 256, in _initialize_kv_caches
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]     self.model_executor.initialize_from_config(kv_cache_configs)
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/abstract.py", line 116, in initialize_from_config
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]     self.collective_rpc("compile_or_warm_up_model")
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 359, in collective_rpc
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]     return aggregate(get_response())
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]                      ^^^^^^^^^^^^^^
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]   File "/usr/local/lib/python3.12/dist-packages/vllm/v1/executor/multiproc_executor.py", line 342, in get_response
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866]     raise RuntimeError(
+[0;36m(EngineCore_DP0 pid=497062)[0;0m ERROR 01-09 23:26:05 [core.py:866] RuntimeError: Worker failed with error 'CUDA out of memory occurred when warming up sampler with 256 dummy requests. Please try lowering `max_num_seqs` or `gpu_memory_utilization` when initializing the engine.', please check the stack trace above for the root cause

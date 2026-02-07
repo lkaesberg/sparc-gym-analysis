@@ -1,0 +1,81 @@
+================================================================================
+JobID = 12455881
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu153
+================================================================================
+[2026-02-02 18:28:05] Job starting on ggpu153
+⌛ Waiting for vLLM................................................................................................................................................................................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 200 previous results from 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ──────────────────────────────────────────────────────────────────────────  │
+│   Dataset Size        500                                                    │
+│   Already Processed   200                                                    │
+│   Remaining           300                                                    │
+│   Model               nvidia/Llama-3_3-Nemotron-Super-49B-v1_5               │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceb…   │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Prompt              gym_step_traceback                                     │
+│   Gym Traceback       Enabled                                                │
+│   Run Name            traceback                                              │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 200 previous results from 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+🔄 Resuming processing: 200 already done, 300 remaining
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle cc060a01c6f06fab (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found in response: Final:
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle e776bbdf9faf8a36 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found in response: \boxed{2}
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+[2026-02-04T18:28:21.083] error: *** JOB 12455881 ON ggpu153 CANCELLED AT 2026-02-04T18:28:21 DUE TO TIME LIMIT ***
+============ Job Information ===================================================
+Submitted: 2026-02-02T15:16:49
+Started: 2026-02-02T18:28:02
+Ended: 2026-02-04T18:28:21
+Elapsed: 2881 min, Limit: 2880 min, Difference: -1 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 7202.50 core-hours
+================================================================================

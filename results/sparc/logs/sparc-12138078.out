@@ -1,0 +1,2391 @@
+================================================================================
+JobID = 12138078
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu139
+================================================================================
+[2026-01-04 22:33:19] Job starting on ggpu139
+⌛ Waiting for vLLM.................INFO 01-04 22:33:36 [__init__.py:216] Automatically detected platform cuda.
+..........[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:33:47 [api_server.py:1839] vLLM API server version 0.11.0
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:33:47 [utils.py:233] non-default args: {'model': 'Qwen/Qwen3-14B', 'trust_remote_code': True, 'tensor_parallel_size': 4}
+[1;36m(APIServer pid=3739825)[0;0m The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+.[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:33:48 [model.py:547] Resolved architecture: Qwen3ForCausalLM
+[1;36m(APIServer pid=3739825)[0;0m `torch_dtype` is deprecated! Use `dtype` instead!
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:33:48 [model.py:1510] Using max model len 40960
+.[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:33:49 [scheduler.py:205] Chunked prefill is enabled with max_num_batched_tokens=2048.
+......INFO 01-04 22:33:55 [__init__.py:216] Automatically detected platform cuda.
+....[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:33:59 [core.py:644] Waiting for init message from front-end.
+[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:33:59 [core.py:77] Initializing a V1 LLM engine (v0.11.0) with config: model='Qwen/Qwen3-14B', speculative_config=None, tokenizer='Qwen/Qwen3-14B', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, data_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto, device_config=cuda, structured_outputs_config=StructuredOutputsConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_parser=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=Qwen/Qwen3-14B, enable_prefix_caching=True, chunked_prefill_enabled=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2","vllm.mamba_mixer","vllm.short_conv","vllm.linear_attention","vllm.plamo2_mamba_mixer","vllm.gdn_attention","vllm.sparse_attn_indexer"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"cudagraph_mode":[2,1],"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"use_inductor_graph_partition":false,"pass_config":{},"max_capture_size":512,"local_cache_dir":null}
+[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:33:59 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3], buffer_handle=(4, 16777216, 10, 'psm_9a120e8f'), local_subscribe_addr='ipc:///local/jobs/u16096_12138078/bcaf206c-0d6b-46a4-9d7b-4363ea6fc6e9', remote_subscribe_addr=None, remote_addr_ipv6=False)
+.....INFO 01-04 22:34:03 [__init__.py:216] Automatically detected platform cuda.
+INFO 01-04 22:34:03 [__init__.py:216] Automatically detected platform cuda.
+INFO 01-04 22:34:03 [__init__.py:216] Automatically detected platform cuda.
+INFO 01-04 22:34:03 [__init__.py:216] Automatically detected platform cuda.
+.........INFO 01-04 22:34:13 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_335e40ff'), local_subscribe_addr='ipc:///local/jobs/u16096_12138078/cdc7b622-c4bd-44bc-94c9-fc739db4fb07', remote_subscribe_addr=None, remote_addr_ipv6=False)
+INFO 01-04 22:34:13 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_72a86529'), local_subscribe_addr='ipc:///local/jobs/u16096_12138078/6d9fa3ee-0fba-468d-9808-d60c664264be', remote_subscribe_addr=None, remote_addr_ipv6=False)
+INFO 01-04 22:34:13 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_1090a04a'), local_subscribe_addr='ipc:///local/jobs/u16096_12138078/cf7a1efa-a25d-4ae4-8bb5-02526cec1720', remote_subscribe_addr=None, remote_addr_ipv6=False)
+INFO 01-04 22:34:13 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_d2a4f003'), local_subscribe_addr='ipc:///local/jobs/u16096_12138078/f3fa480c-ee01-4e87-87c2-2ec211305120', remote_subscribe_addr=None, remote_addr_ipv6=False)
+..[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+INFO 01-04 22:34:14 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 01-04 22:34:14 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 01-04 22:34:14 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 01-04 22:34:14 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 01-04 22:34:14 [pynccl.py:103] vLLM is using nccl==2.27.3
+INFO 01-04 22:34:14 [pynccl.py:103] vLLM is using nccl==2.27.3
+INFO 01-04 22:34:14 [pynccl.py:103] vLLM is using nccl==2.27.3
+INFO 01-04 22:34:14 [pynccl.py:103] vLLM is using nccl==2.27.3
+WARNING 01-04 22:34:15 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+WARNING 01-04 22:34:15 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+WARNING 01-04 22:34:15 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+WARNING 01-04 22:34:15 [symm_mem.py:58] SymmMemCommunicator: Device capability 8.0 not supported, communicator is not available.
+INFO 01-04 22:34:15 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+INFO 01-04 22:34:15 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+INFO 01-04 22:34:15 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+INFO 01-04 22:34:15 [custom_all_reduce.py:35] Skipping P2P check and trusting the driver's P2P report.
+INFO 01-04 22:34:15 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_7ae4b74f'), local_subscribe_addr='ipc:///local/jobs/u16096_12138078/3a762d30-c25d-4a3d-832f-c167398d55fc', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 1 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 0 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 2 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+[Gloo] Rank 3 is connected to 3 peer ranks. Expected number of connected peer ranks is : 3
+INFO 01-04 22:34:15 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 01-04 22:34:15 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 01-04 22:34:15 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 01-04 22:34:15 [pynccl.py:103] vLLM is using nccl==2.27.3
+INFO 01-04 22:34:15 [pynccl.py:103] vLLM is using nccl==2.27.3
+INFO 01-04 22:34:15 [pynccl.py:103] vLLM is using nccl==2.27.3
+INFO 01-04 22:34:15 [__init__.py:1384] Found nccl from library libnccl.so.2
+INFO 01-04 22:34:15 [pynccl.py:103] vLLM is using nccl==2.27.3
+.INFO 01-04 22:34:15 [parallel_state.py:1208] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 3, EP rank 3
+INFO 01-04 22:34:15 [parallel_state.py:1208] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2
+INFO 01-04 22:34:15 [parallel_state.py:1208] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+INFO 01-04 22:34:15 [parallel_state.py:1208] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+WARNING 01-04 22:34:15 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+WARNING 01-04 22:34:15 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+WARNING 01-04 22:34:15 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:34:15 [gpu_model_runner.py:2602] Starting to load model Qwen/Qwen3-14B...
+[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:34:15 [gpu_model_runner.py:2602] Starting to load model Qwen/Qwen3-14B...
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:34:15 [gpu_model_runner.py:2602] Starting to load model Qwen/Qwen3-14B...
+[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:34:16 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:34:16 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:34:16 [gpu_model_runner.py:2634] Loading model from scratch...
+WARNING 01-04 22:34:16 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:34:16 [gpu_model_runner.py:2602] Starting to load model Qwen/Qwen3-14B...
+[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:34:16 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:34:16 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:34:16 [cuda.py:366] Using Flash Attention backend on V1 engine.
+.[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:34:16 [gpu_model_runner.py:2634] Loading model from scratch...
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:34:16 [cuda.py:366] Using Flash Attention backend on V1 engine.
+[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:34:16 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:34:16 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:34:16 [weight_utils.py:392] Using model weights format ['*.safetensors']
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:34:17 [weight_utils.py:392] Using model weights format ['*.safetensors']
+.[1;36m(Worker_TP0 pid=3739931)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/8 [00:00<?, ?it/s]
+.......[1;36m(Worker_TP0 pid=3739931)[0;0m Loading safetensors checkpoint shards:  12% Completed | 1/8 [00:06<00:48,  6.89s/it]
+.......[1;36m(Worker_TP0 pid=3739931)[0;0m Loading safetensors checkpoint shards:  25% Completed | 2/8 [00:14<00:43,  7.30s/it]
+........[1;36m(Worker_TP0 pid=3739931)[0;0m Loading safetensors checkpoint shards:  38% Completed | 3/8 [00:21<00:36,  7.35s/it]
+.......[1;36m(Worker_TP0 pid=3739931)[0;0m Loading safetensors checkpoint shards:  50% Completed | 4/8 [00:29<00:29,  7.43s/it]
+........[1;36m(Worker_TP0 pid=3739931)[0;0m Loading safetensors checkpoint shards:  62% Completed | 5/8 [00:36<00:22,  7.36s/it]
+.......[1;36m(Worker_TP0 pid=3739931)[0;0m Loading safetensors checkpoint shards:  75% Completed | 6/8 [00:43<00:14,  7.24s/it]
+..[1;36m(Worker_TP0 pid=3739931)[0;0m Loading safetensors checkpoint shards:  88% Completed | 7/8 [00:46<00:05,  5.65s/it]
+......[1;36m(Worker_TP0 pid=3739931)[0;0m Loading safetensors checkpoint shards: 100% Completed | 8/8 [00:51<00:00,  5.67s/it]
+[1;36m(Worker_TP0 pid=3739931)[0;0m Loading safetensors checkpoint shards: 100% Completed | 8/8 [00:51<00:00,  6.47s/it]
+[1;36m(Worker_TP0 pid=3739931)[0;0m 
+[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:35:09 [default_loader.py:267] Loading weights took 52.49 seconds
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:35:09 [default_loader.py:267] Loading weights took 51.91 seconds
+[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:35:09 [default_loader.py:267] Loading weights took 52.25 seconds
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:35:09 [default_loader.py:267] Loading weights took 51.50 seconds
+[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:35:10 [gpu_model_runner.py:2653] Model loading took 6.9456 GiB and 53.536792 seconds
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:35:10 [gpu_model_runner.py:2653] Model loading took 6.9456 GiB and 53.325501 seconds
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:35:10 [gpu_model_runner.py:2653] Model loading took 6.9456 GiB and 53.623656 seconds
+.[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:35:10 [gpu_model_runner.py:2653] Model loading took 6.9456 GiB and 53.639937 seconds
+...............[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:35:25 [backends.py:548] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/72095521b3/rank_2_0/backbone for vLLM's torch.compile
+[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:35:25 [backends.py:548] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/72095521b3/rank_3_0/backbone for vLLM's torch.compile
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:35:25 [backends.py:548] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/72095521b3/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:35:25 [backends.py:559] Dynamo bytecode transform time: 14.67 s
+[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:35:25 [backends.py:559] Dynamo bytecode transform time: 14.57 s
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:35:25 [backends.py:559] Dynamo bytecode transform time: 14.74 s
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:35:25 [backends.py:548] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/72095521b3/rank_1_0/backbone for vLLM's torch.compile
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:35:25 [backends.py:559] Dynamo bytecode transform time: 14.72 s
+....[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:35:29 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 3.471 s
+[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:35:29 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 3.586 s
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:35:29 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 3.654 s
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:35:30 [backends.py:164] Directly load the compiled graph(s) for dynamic shape from the cache, took 4.093 s
+....[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:35:33 [monitor.py:34] torch.compile takes 14.57 s in total
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:35:33 [monitor.py:34] torch.compile takes 14.72 s in total
+[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:35:33 [monitor.py:34] torch.compile takes 14.67 s in total
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:35:33 [monitor.py:34] torch.compile takes 14.74 s in total
+.[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:35:34 [gpu_worker.py:298] Available KV cache memory: 62.46 GiB
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:35:34 [gpu_worker.py:298] Available KV cache memory: 62.46 GiB
+[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:35:34 [gpu_worker.py:298] Available KV cache memory: 62.46 GiB
+[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:35:34 [gpu_worker.py:298] Available KV cache memory: 62.46 GiB
+[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:35:35 [kv_cache_utils.py:1087] GPU KV cache size: 1,637,280 tokens
+[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:35:35 [kv_cache_utils.py:1091] Maximum concurrency for 40,960 tokens per request: 39.97x
+[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:35:35 [kv_cache_utils.py:1087] GPU KV cache size: 1,637,280 tokens
+[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:35:35 [kv_cache_utils.py:1091] Maximum concurrency for 40,960 tokens per request: 39.97x
+[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:35:35 [kv_cache_utils.py:1087] GPU KV cache size: 1,637,280 tokens
+[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:35:35 [kv_cache_utils.py:1091] Maximum concurrency for 40,960 tokens per request: 39.97x
+[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:35:35 [kv_cache_utils.py:1087] GPU KV cache size: 1,637,280 tokens
+[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:35:35 [kv_cache_utils.py:1091] Maximum concurrency for 40,960 tokens per request: 39.97x
+.[1;36m(Worker_TP0 pid=3739931)[0;0m Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   3%|▎         | 2/67 [00:00<00:03, 16.90it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):   7%|▋         | 5/67 [00:00<00:03, 19.11it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  12%|█▏        | 8/67 [00:00<00:02, 20.05it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  16%|█▋        | 11/67 [00:00<00:02, 20.63it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  21%|██        | 14/67 [00:00<00:02, 20.88it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  25%|██▌       | 17/67 [00:00<00:02, 21.18it/s].Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  30%|██▉       | 20/67 [00:00<00:02, 21.80it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  34%|███▍      | 23/67 [00:01<00:01, 22.19it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  39%|███▉      | 26/67 [00:01<00:01, 22.43it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  43%|████▎     | 29/67 [00:01<00:01, 22.61it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  48%|████▊     | 32/67 [00:01<00:01, 22.70it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  52%|█████▏    | 35/67 [00:01<00:01, 20.66it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  57%|█████▋    | 38/67 [00:01<00:01, 21.08it/s].Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  61%|██████    | 41/67 [00:01<00:01, 21.25it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  66%|██████▌   | 44/67 [00:02<00:01, 21.47it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  70%|███████   | 47/67 [00:02<00:00, 21.43it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  75%|███████▍  | 50/67 [00:02<00:00, 21.48it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  79%|███████▉  | 53/67 [00:02<00:00, 21.26it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  84%|████████▎ | 56/67 [00:02<00:00, 21.18it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  88%|████████▊ | 59/67 [00:02<00:00, 21.08it/s].Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  93%|█████████▎| 62/67 [00:02<00:00, 20.83it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE):  97%|█████████▋| 65/67 [00:03<00:00, 19.48it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:03<00:00, 17.31it/s]Capturing CUDA graphs (mixed prefill-decode, PIECEWISE): 100%|██████████| 67/67 [00:03<00:00, 20.55it/s]
+[1;36m(Worker_TP0 pid=3739931)[0;0m Capturing CUDA graphs (decode, FULL):   0%|          | 0/35 [00:00<?, ?it/s]Capturing CUDA graphs (decode, FULL):   3%|▎         | 1/35 [00:00<00:05,  5.88it/s]Capturing CUDA graphs (decode, FULL):   9%|▊         | 3/35 [00:00<00:02, 12.16it/s]Capturing CUDA graphs (decode, FULL):  14%|█▍        | 5/35 [00:00<00:01, 15.20it/s]Capturing CUDA graphs (decode, FULL):  23%|██▎       | 8/35 [00:00<00:01, 17.45it/s].Capturing CUDA graphs (decode, FULL):  29%|██▊       | 10/35 [00:00<00:01, 18.15it/s]Capturing CUDA graphs (decode, FULL):  37%|███▋      | 13/35 [00:00<00:01, 19.18it/s]Capturing CUDA graphs (decode, FULL):  43%|████▎     | 15/35 [00:00<00:01, 19.38it/s]Capturing CUDA graphs (decode, FULL):  51%|█████▏    | 18/35 [00:01<00:00, 19.65it/s]Capturing CUDA graphs (decode, FULL):  57%|█████▋    | 20/35 [00:01<00:00, 19.35it/s]Capturing CUDA graphs (decode, FULL):  63%|██████▎   | 22/35 [00:01<00:00, 19.38it/s]Capturing CUDA graphs (decode, FULL):  69%|██████▊   | 24/35 [00:01<00:00, 19.39it/s]Capturing CUDA graphs (decode, FULL):  74%|███████▍  | 26/35 [00:01<00:00, 19.53it/s]Capturing CUDA graphs (decode, FULL):  80%|████████  | 28/35 [00:01<00:00, 19.58it/s].Capturing CUDA graphs (decode, FULL):  89%|████████▊ | 31/35 [00:01<00:00, 19.69it/s]Capturing CUDA graphs (decode, FULL):  94%|█████████▍| 33/35 [00:01<00:00, 19.59it/s]Capturing CUDA graphs (decode, FULL): 100%|██████████| 35/35 [00:01<00:00, 18.55it/s]
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:35:40 [custom_all_reduce.py:203] Registering 8262 cuda graph addresses
+[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:35:40 [custom_all_reduce.py:203] Registering 8262 cuda graph addresses
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:35:40 [custom_all_reduce.py:203] Registering 8262 cuda graph addresses
+[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:35:40 [custom_all_reduce.py:203] Registering 8262 cuda graph addresses
+[1;36m(Worker_TP3 pid=3739934)[0;0m INFO 01-04 22:35:41 [gpu_model_runner.py:3480] Graph capturing finished in 6 secs, took 0.95 GiB
+[1;36m(Worker_TP0 pid=3739931)[0;0m INFO 01-04 22:35:41 [gpu_model_runner.py:3480] Graph capturing finished in 6 secs, took 0.95 GiB
+[1;36m(Worker_TP2 pid=3739933)[0;0m INFO 01-04 22:35:41 [gpu_model_runner.py:3480] Graph capturing finished in 6 secs, took 0.95 GiB
+[1;36m(Worker_TP1 pid=3739932)[0;0m INFO 01-04 22:35:41 [gpu_model_runner.py:3480] Graph capturing finished in 6 secs, took 0.95 GiB
+[1;36m(EngineCore_DP0 pid=3739904)[0;0m INFO 01-04 22:35:41 [core.py:210] init engine (profile, create kv cache, warmup model) took 30.63 seconds
+.[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:42 [loggers.py:147] Engine 000: vllm cache_config_info with initialization after num_gpu_blocks is: 102330
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [api_server.py:1634] Supported_tasks: ['generate']
+[1;36m(APIServer pid=3739825)[0;0m WARNING 01-04 22:35:43 [model.py:1389] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [serving_responses.py:137] Using default chat sampling params from model: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [serving_chat.py:139] Using default chat sampling params from model: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
+.[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [serving_completion.py:76] Using default completion sampling params from model: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [api_server.py:1912] Starting vLLM API server 0 on http://0.0.0.0:8000
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:34] Available routes are:
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /openapi.json, Methods: HEAD, GET
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /docs, Methods: HEAD, GET
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /docs/oauth2-redirect, Methods: HEAD, GET
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /redoc, Methods: HEAD, GET
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /health, Methods: GET
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /load, Methods: GET
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /ping, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /ping, Methods: GET
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /tokenize, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /detokenize, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v1/models, Methods: GET
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /version, Methods: GET
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v1/responses, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v1/responses/{response_id}, Methods: GET
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v1/responses/{response_id}/cancel, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v1/chat/completions, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v1/completions, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v1/embeddings, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /pooling, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /classify, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /score, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v1/score, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v1/audio/transcriptions, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v1/audio/translations, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /rerank, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v1/rerank, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /v2/rerank, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /scale_elastic_ep, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /is_scaling_elastic_ep, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /invocations, Methods: POST
+[1;36m(APIServer pid=3739825)[0;0m INFO 01-04 22:35:43 [launcher.py:42] Route: /metrics, Methods: GET
+[1;36m(APIServer pid=3739825)[0;0m INFO:     Started server process [3739825]
+[1;36m(APIServer pid=3739825)[0;0m INFO:     Waiting for application startup.
+[1;36m(APIServer pid=3739825)[0;0m INFO:     Application startup complete.
+ … ready.
+[22:35:44] Server output silenced (see /mnt/vast-standard/home/kaesberg1/u16096/sparc/logs/vllm_12138078.log if needed)
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ──────────────────────────────────────────────                              │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               Qwen/Qwen3-14B                                         │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        Qwen_Qwen3-14B_gym.jsonl                               │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 1284a7249a4fa10f (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle cbeb87b359947c42 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c80d64b5c5e39d7b (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 24e8876585456ee5 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 196a88635b1c83b4 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle e82bd665d710bb75 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c6739963a7308111 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 953c10f2e4d6fd6 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d91761f3ba340d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle bc66c2e18fd6231b (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4b236c53ea5fbbdf (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5f9a92945a4ab62e (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 860fbc1cfd446f7c (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5b5d43da944a752d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 971ad9f45d1bd53b (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 1284a7249a4fa10f (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle cbeb87b359947c42 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle c80d64b5c5e39d7b (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 24e8876585456ee5 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 196a88635b1c83b4 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle e82bd665d710bb75 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle c6739963a7308111 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 953c10f2e4d6fd6 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle d91761f3ba340d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle bc66c2e18fd6231b (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4b236c53ea5fbbdf (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5f9a92945a4ab62e (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 860fbc1cfd446f7c (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5b5d43da944a752d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 971ad9f45d1bd53b (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 1284a7249a4fa10f (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle cbeb87b359947c42 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle c80d64b5c5e39d7b (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 24e8876585456ee5 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 196a88635b1c83b4 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle e82bd665d710bb75 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle c6739963a7308111 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 953c10f2e4d6fd6 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle d91761f3ba340d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle bc66c2e18fd6231b (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4b236c53ea5fbbdf (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 5f9a92945a4ab62e (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 860fbc1cfd446f7c (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 5b5d43da944a752d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 971ad9f45d1bd53b (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle aa31d05ed8fdb273 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle ebc9c10093a1255a after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle ed40414d615431d6 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle dce20e150e7fcced after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 3fe8a85b768ae5b7 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 1284a7249a4fa10f after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle cbeb87b359947c42 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle c80d64b5c5e39d7b after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 24e8876585456ee5 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 196a88635b1c83b4 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle e82bd665d710bb75 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle c6739963a7308111 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 953c10f2e4d6fd6 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle d91761f3ba340d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle bc66c2e18fd6231b after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 4b236c53ea5fbbdf after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 5f9a92945a4ab62e after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 860fbc1cfd446f7c after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 5b5d43da944a752d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 971ad9f45d1bd53b after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+💾 Results saved to Qwen_Qwen3-14B_gym.jsonl
+⚠️  Connection error on puzzle 5b3d4d35ac301050 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 69a08c785ce5fcac (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a814bed4f6905ba4 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle f32fe4e5b37fedaa (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3ba7fc567dd14312 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 7ce0b04c1a28cca6 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 8635ff1b1bcf0c2e (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 21df75919e7080e4 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle daa2db8c01da0bfa (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 6443d25f8c289548 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 91158b440e1d1942 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 1ba6ec5d1f0c3bc6 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle de0f40e0c4c5852a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 7c2cc9e25acdc10f (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 146a216115846f70 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 704931925890a56c (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 22c41f4911d10461 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 75761871763e88e3 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle fee7fa98ecbf4534 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3abef01e5d890e13 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5b3d4d35ac301050 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 69a08c785ce5fcac (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a814bed4f6905ba4 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle f32fe4e5b37fedaa (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 3ba7fc567dd14312 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 7ce0b04c1a28cca6 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 8635ff1b1bcf0c2e (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 21df75919e7080e4 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle daa2db8c01da0bfa (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 6443d25f8c289548 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 91158b440e1d1942 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 1ba6ec5d1f0c3bc6 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle de0f40e0c4c5852a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 7c2cc9e25acdc10f (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 146a216115846f70 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 704931925890a56c (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 22c41f4911d10461 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 75761871763e88e3 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle fee7fa98ecbf4534 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 3abef01e5d890e13 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5b3d4d35ac301050 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 69a08c785ce5fcac (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle a814bed4f6905ba4 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle f32fe4e5b37fedaa (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 3ba7fc567dd14312 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 7ce0b04c1a28cca6 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 8635ff1b1bcf0c2e (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 21df75919e7080e4 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle daa2db8c01da0bfa (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 6443d25f8c289548 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 91158b440e1d1942 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 1ba6ec5d1f0c3bc6 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle de0f40e0c4c5852a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 7c2cc9e25acdc10f (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 146a216115846f70 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 704931925890a56c (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 22c41f4911d10461 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 75761871763e88e3 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle fee7fa98ecbf4534 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 3abef01e5d890e13 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle 5b3d4d35ac301050 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 69a08c785ce5fcac after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle a814bed4f6905ba4 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle f32fe4e5b37fedaa after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 3ba7fc567dd14312 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 7ce0b04c1a28cca6 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 8635ff1b1bcf0c2e after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 21df75919e7080e4 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle daa2db8c01da0bfa after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 6443d25f8c289548 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 91158b440e1d1942 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 1ba6ec5d1f0c3bc6 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle de0f40e0c4c5852a after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 7c2cc9e25acdc10f after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 146a216115846f70 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 704931925890a56c after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 22c41f4911d10461 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 75761871763e88e3 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle fee7fa98ecbf4534 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 3abef01e5d890e13 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+💾 Results saved to Qwen_Qwen3-14B_gym.jsonl
+⚠️  Connection error on puzzle a71c3513799bf094 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3b229c1d0453a603 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ba867d9c182c1124 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 22ee8177bb6b927d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 200a2fdec77f69b6 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4c7b5bd02c9270d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle efb560f2141edf82 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle b7b817f9033f188 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4cc3d963aecb0aec (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 6a4a59d9017e80e2 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a483b2ad65b79823 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c611d73335c05ea3 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 9fc7d6795a3be635 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 9b4f3b36495c1615 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 1b62c846b90e5d1d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 934d99322aa22dff (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle cd5b6b24c51fb69a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle bb9d7db6f55f1f1e (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d1e03bb313e747a9 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle e1b6f8b19d2f4176 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a71c3513799bf094 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 3b229c1d0453a603 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ba867d9c182c1124 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 22ee8177bb6b927d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 200a2fdec77f69b6 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4c7b5bd02c9270d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle efb560f2141edf82 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle b7b817f9033f188 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4cc3d963aecb0aec (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 6a4a59d9017e80e2 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a483b2ad65b79823 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle c611d73335c05ea3 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 9fc7d6795a3be635 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 9b4f3b36495c1615 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 1b62c846b90e5d1d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 934d99322aa22dff (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle cd5b6b24c51fb69a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle bb9d7db6f55f1f1e (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle d1e03bb313e747a9 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle e1b6f8b19d2f4176 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a71c3513799bf094 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 3b229c1d0453a603 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ba867d9c182c1124 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 22ee8177bb6b927d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 200a2fdec77f69b6 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4c7b5bd02c9270d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle efb560f2141edf82 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle b7b817f9033f188 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4cc3d963aecb0aec (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 6a4a59d9017e80e2 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle a483b2ad65b79823 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle c611d73335c05ea3 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 9fc7d6795a3be635 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 9b4f3b36495c1615 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 1b62c846b90e5d1d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 934d99322aa22dff (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle cd5b6b24c51fb69a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle bb9d7db6f55f1f1e (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle d1e03bb313e747a9 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle e1b6f8b19d2f4176 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle a71c3513799bf094 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 3b229c1d0453a603 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle ba867d9c182c1124 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 22ee8177bb6b927d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 200a2fdec77f69b6 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 4c7b5bd02c9270d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle efb560f2141edf82 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle b7b817f9033f188 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 4cc3d963aecb0aec after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 6a4a59d9017e80e2 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle a483b2ad65b79823 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle c611d73335c05ea3 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 9fc7d6795a3be635 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 9b4f3b36495c1615 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 1b62c846b90e5d1d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 934d99322aa22dff after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle cd5b6b24c51fb69a after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle bb9d7db6f55f1f1e after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle d1e03bb313e747a9 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle e1b6f8b19d2f4176 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+💾 Results saved to Qwen_Qwen3-14B_gym.jsonl
+⚠️  Connection error on puzzle c09ea70a605760d3 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 58a0f5bca3ff514c (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 625730bf3883005c (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 8211b75bfb0c714d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 12adf37a767b56ea (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4582b19904d9a029 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 62035ff8ad16cb71 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5c3f4379847796c4 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle bc71d833fad658fb (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 77da6edaa689f44a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 7326259652efbc9d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 85f95e3fbcd76abb (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle bb667cb09578b4a3 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ad8f394763490f26 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3d1c8a00f582892 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle b10c07139b1aa490 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5d259263ec5a5c9e (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 62d5ef592f8f91fc (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle be49f0eca3cd4c32 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 220246750ec56ccb (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c09ea70a605760d3 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 58a0f5bca3ff514c (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 625730bf3883005c (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 8211b75bfb0c714d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 12adf37a767b56ea (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4582b19904d9a029 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 62035ff8ad16cb71 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5c3f4379847796c4 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle bc71d833fad658fb (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 77da6edaa689f44a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 7326259652efbc9d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 85f95e3fbcd76abb (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle bb667cb09578b4a3 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ad8f394763490f26 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 3d1c8a00f582892 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle b10c07139b1aa490 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5d259263ec5a5c9e (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 62d5ef592f8f91fc (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle be49f0eca3cd4c32 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 220246750ec56ccb (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle c09ea70a605760d3 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 58a0f5bca3ff514c (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 625730bf3883005c (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 8211b75bfb0c714d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 12adf37a767b56ea (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4582b19904d9a029 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 62035ff8ad16cb71 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 5c3f4379847796c4 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle bc71d833fad658fb (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 77da6edaa689f44a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 7326259652efbc9d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 85f95e3fbcd76abb (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle bb667cb09578b4a3 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ad8f394763490f26 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 3d1c8a00f582892 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle b10c07139b1aa490 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 5d259263ec5a5c9e (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 62d5ef592f8f91fc (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle be49f0eca3cd4c32 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 220246750ec56ccb (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle c09ea70a605760d3 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 58a0f5bca3ff514c after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 625730bf3883005c after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 8211b75bfb0c714d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 12adf37a767b56ea after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 4582b19904d9a029 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 62035ff8ad16cb71 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 5c3f4379847796c4 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle bc71d833fad658fb after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 77da6edaa689f44a after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 7326259652efbc9d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 85f95e3fbcd76abb after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle bb667cb09578b4a3 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle ad8f394763490f26 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 3d1c8a00f582892 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle b10c07139b1aa490 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 5d259263ec5a5c9e after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 62d5ef592f8f91fc after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle be49f0eca3cd4c32 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 220246750ec56ccb after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+💾 Results saved to Qwen_Qwen3-14B_gym.jsonl
+⚠️  Connection error on puzzle f425a63fc423ced0 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle b3e3c52cd5223942 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ce576f59fcd8e5b5 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d71204c97803d9a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle cc4ff7682e293a1b (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle b25e33c50909fc03 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle f271fc95525040b1 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 9390c84b6360b4bb (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a454bd9c3ad0168a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle db130c08db23e907 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5c59a67541d92c71 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 745deea1055373eb (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 440d97e917325fb0 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle dbd181183bb9f775 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle fef8e390bd7a2a7a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3987c3fc8d33089e (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 851365be4fc5c5e (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle e20e6b6a00158bdc (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 841b2d97bb365b8b (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle b4d66071dc728f44 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle f425a63fc423ced0 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle b3e3c52cd5223942 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ce576f59fcd8e5b5 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle d71204c97803d9a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle cc4ff7682e293a1b (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle b25e33c50909fc03 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle f271fc95525040b1 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 9390c84b6360b4bb (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a454bd9c3ad0168a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle db130c08db23e907 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5c59a67541d92c71 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 745deea1055373eb (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 440d97e917325fb0 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle dbd181183bb9f775 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle fef8e390bd7a2a7a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 3987c3fc8d33089e (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 851365be4fc5c5e (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle e20e6b6a00158bdc (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 841b2d97bb365b8b (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle b4d66071dc728f44 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle f425a63fc423ced0 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle b3e3c52cd5223942 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ce576f59fcd8e5b5 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle d71204c97803d9a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle cc4ff7682e293a1b (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle b25e33c50909fc03 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle f271fc95525040b1 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 9390c84b6360b4bb (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle a454bd9c3ad0168a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle db130c08db23e907 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 5c59a67541d92c71 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 745deea1055373eb (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 440d97e917325fb0 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle dbd181183bb9f775 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle fef8e390bd7a2a7a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 3987c3fc8d33089e (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 851365be4fc5c5e (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle e20e6b6a00158bdc (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 841b2d97bb365b8b (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle b4d66071dc728f44 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle f425a63fc423ced0 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle b3e3c52cd5223942 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle ce576f59fcd8e5b5 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle d71204c97803d9a after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle cc4ff7682e293a1b after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle b25e33c50909fc03 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle f271fc95525040b1 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 9390c84b6360b4bb after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle a454bd9c3ad0168a after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle db130c08db23e907 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 5c59a67541d92c71 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 745deea1055373eb after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 440d97e917325fb0 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle dbd181183bb9f775 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle fef8e390bd7a2a7a after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 3987c3fc8d33089e after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 851365be4fc5c5e after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle e20e6b6a00158bdc after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 841b2d97bb365b8b after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle b4d66071dc728f44 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+💾 Results saved to Qwen_Qwen3-14B_gym.jsonl
+⚠️  Connection error on puzzle 1e7c5367fa438e3b (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle b8eb6f7dd1cc9b86 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 1796837aa68c2b76 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 598f03a76e659bbd (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a8ea92dd47f4186b (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a305fe218d16e612 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d58e426a05bbebe0 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 95baf8b98ab6874 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d72e6e1a7317b676 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle b2888d9633744522 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle fb69acc1bff1c7b5 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 1b23ec5dcd81c575 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle dedb9695c830d9a1 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 94e6829bc5fe599b (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 7f61e30cde11dfd2 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ac07176ade6d4fcc (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle aecb916b87a88a32 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 6a3a112c0f2e831b (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle e836ae53a1a6b880 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 58d9c6f1f97d78c1 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 1e7c5367fa438e3b (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle b8eb6f7dd1cc9b86 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 1796837aa68c2b76 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 598f03a76e659bbd (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a8ea92dd47f4186b (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a305fe218d16e612 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle d58e426a05bbebe0 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 95baf8b98ab6874 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle d72e6e1a7317b676 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle b2888d9633744522 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle fb69acc1bff1c7b5 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 1b23ec5dcd81c575 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle dedb9695c830d9a1 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 94e6829bc5fe599b (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 7f61e30cde11dfd2 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ac07176ade6d4fcc (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle aecb916b87a88a32 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 6a3a112c0f2e831b (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle e836ae53a1a6b880 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 58d9c6f1f97d78c1 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 1e7c5367fa438e3b (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle b8eb6f7dd1cc9b86 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 1796837aa68c2b76 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 598f03a76e659bbd (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle a8ea92dd47f4186b (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle a305fe218d16e612 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle d58e426a05bbebe0 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 95baf8b98ab6874 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle d72e6e1a7317b676 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle b2888d9633744522 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle fb69acc1bff1c7b5 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 1b23ec5dcd81c575 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle dedb9695c830d9a1 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 94e6829bc5fe599b (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 7f61e30cde11dfd2 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ac07176ade6d4fcc (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle aecb916b87a88a32 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 6a3a112c0f2e831b (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle e836ae53a1a6b880 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 58d9c6f1f97d78c1 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle 1e7c5367fa438e3b after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle b8eb6f7dd1cc9b86 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 1796837aa68c2b76 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 598f03a76e659bbd after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle a8ea92dd47f4186b after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle a305fe218d16e612 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle d58e426a05bbebe0 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 95baf8b98ab6874 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle d72e6e1a7317b676 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle b2888d9633744522 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle fb69acc1bff1c7b5 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 1b23ec5dcd81c575 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle dedb9695c830d9a1 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 94e6829bc5fe599b after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 7f61e30cde11dfd2 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle ac07176ade6d4fcc after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle aecb916b87a88a32 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 6a3a112c0f2e831b after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle e836ae53a1a6b880 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 58d9c6f1f97d78c1 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+💾 Results saved to Qwen_Qwen3-14B_gym.jsonl
+⚠️  Connection error on puzzle 10bea253035c791c (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5569f16359d15a33 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d4af13ed1d455209 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4efa50053369c63c (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4088920d22fbc15a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 9ecc1e98360e6c0d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 8b47902d43ed5c7 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 6911f7c1419318bb (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ed62498f9a7cf7a5 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4b518615758126ef (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a2a967199664a80 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 93c544fa7b73dc1a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle b54da7bdff2713e1 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 2c5ddc804e5b35ba (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 241a28965ab741d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4a5c32111bf61aae (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 65171c970b77339e (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 70c971586d6ab721 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle dd196820fff0f585 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 683d3d2b64d8d1fb (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 10bea253035c791c (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5569f16359d15a33 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle d4af13ed1d455209 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4efa50053369c63c (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4088920d22fbc15a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 9ecc1e98360e6c0d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 8b47902d43ed5c7 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 6911f7c1419318bb (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ed62498f9a7cf7a5 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4b518615758126ef (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a2a967199664a80 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 93c544fa7b73dc1a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle b54da7bdff2713e1 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 2c5ddc804e5b35ba (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 241a28965ab741d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4a5c32111bf61aae (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 65171c970b77339e (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 70c971586d6ab721 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle dd196820fff0f585 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 683d3d2b64d8d1fb (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 10bea253035c791c (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 5569f16359d15a33 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle d4af13ed1d455209 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4efa50053369c63c (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4088920d22fbc15a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 9ecc1e98360e6c0d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 8b47902d43ed5c7 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 6911f7c1419318bb (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ed62498f9a7cf7a5 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4b518615758126ef (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle a2a967199664a80 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 93c544fa7b73dc1a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle b54da7bdff2713e1 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 2c5ddc804e5b35ba (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 241a28965ab741d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4a5c32111bf61aae (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 65171c970b77339e (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 70c971586d6ab721 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle dd196820fff0f585 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 683d3d2b64d8d1fb (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle 10bea253035c791c after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 5569f16359d15a33 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle d4af13ed1d455209 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 4efa50053369c63c after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 4088920d22fbc15a after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 9ecc1e98360e6c0d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 8b47902d43ed5c7 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 6911f7c1419318bb after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle ed62498f9a7cf7a5 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 4b518615758126ef after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle a2a967199664a80 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 93c544fa7b73dc1a after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle b54da7bdff2713e1 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 2c5ddc804e5b35ba after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 241a28965ab741d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 4a5c32111bf61aae after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 65171c970b77339e after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 70c971586d6ab721 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle dd196820fff0f585 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 683d3d2b64d8d1fb after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+💾 Results saved to Qwen_Qwen3-14B_gym.jsonl
+⚠️  Connection error on puzzle 3ca9fa7e19e2188c (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 581706995f65f93d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 8f5dd8ca7b23f826 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4c6a9d610b717d17 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle f701ba6827f8ceff (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 24dd9a735b612dc1 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 138e21433d2e6a52 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 72a1fec5c73b6560 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 86c16115d5cda6a0 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 2790e863a5831db9 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ab298046d34718be (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ad8274727f965b1c (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a722e79130881da0 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 9435f4bc2b1cf34d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 2e4b26ec1c401cbe (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 8b308dfba88e4ac (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 701d6d1daff25a25 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle f42b8d86bfb89096 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c4341ab9fd5c439c (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 97be11048bb04a30 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3ca9fa7e19e2188c (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 581706995f65f93d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 8f5dd8ca7b23f826 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4c6a9d610b717d17 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle f701ba6827f8ceff (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 24dd9a735b612dc1 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 138e21433d2e6a52 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 72a1fec5c73b6560 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 86c16115d5cda6a0 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 2790e863a5831db9 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ab298046d34718be (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ad8274727f965b1c (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a722e79130881da0 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 9435f4bc2b1cf34d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 2e4b26ec1c401cbe (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 8b308dfba88e4ac (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 701d6d1daff25a25 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle f42b8d86bfb89096 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle c4341ab9fd5c439c (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 97be11048bb04a30 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 3ca9fa7e19e2188c (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 581706995f65f93d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 8f5dd8ca7b23f826 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4c6a9d610b717d17 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle f701ba6827f8ceff (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 24dd9a735b612dc1 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 138e21433d2e6a52 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 72a1fec5c73b6560 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 86c16115d5cda6a0 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 2790e863a5831db9 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ab298046d34718be (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ad8274727f965b1c (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle a722e79130881da0 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 9435f4bc2b1cf34d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 2e4b26ec1c401cbe (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 8b308dfba88e4ac (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 701d6d1daff25a25 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle f42b8d86bfb89096 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle c4341ab9fd5c439c (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 97be11048bb04a30 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle 3ca9fa7e19e2188c after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 581706995f65f93d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 8f5dd8ca7b23f826 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 4c6a9d610b717d17 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle f701ba6827f8ceff after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 24dd9a735b612dc1 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 138e21433d2e6a52 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 72a1fec5c73b6560 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 86c16115d5cda6a0 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 2790e863a5831db9 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle ab298046d34718be after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle ad8274727f965b1c after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle a722e79130881da0 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 9435f4bc2b1cf34d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 2e4b26ec1c401cbe after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 8b308dfba88e4ac after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 701d6d1daff25a25 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle f42b8d86bfb89096 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle c4341ab9fd5c439c after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 97be11048bb04a30 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+💾 Results saved to Qwen_Qwen3-14B_gym.jsonl
+⚠️  Connection error on puzzle 7f403db698db059f (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 9e892fbdd6f4c4a9 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle b7672ba95aff4ff6 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle e0e6857dd441101b (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a12c7a055e6395a2 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle e8f814f726cb4612 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle fc19c4a5e89d29f4 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4ec9d16a5a573d4e (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 8bbb1046d8c49095 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 8e231f18dc7d476f (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 50ed62dcb0f1bce3 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 154515f7b4e4fe2b (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 1a43bd0f8e35bd1d (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 281ee792644831c5 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c881c033239a38de (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a92cdc81d7a94775 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 9283bfdf68bc92a8 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle b7cbcba402c57078 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 11846421c28ce2aa (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 2a0e2b1240764998 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 7f403db698db059f (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 9e892fbdd6f4c4a9 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle b7672ba95aff4ff6 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle e0e6857dd441101b (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a12c7a055e6395a2 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle e8f814f726cb4612 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle fc19c4a5e89d29f4 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4ec9d16a5a573d4e (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 8bbb1046d8c49095 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 8e231f18dc7d476f (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 50ed62dcb0f1bce3 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 154515f7b4e4fe2b (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 1a43bd0f8e35bd1d (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 281ee792644831c5 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle c881c033239a38de (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a92cdc81d7a94775 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 9283bfdf68bc92a8 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle b7cbcba402c57078 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 11846421c28ce2aa (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 2a0e2b1240764998 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 7f403db698db059f (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 9e892fbdd6f4c4a9 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle b7672ba95aff4ff6 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle e0e6857dd441101b (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle a12c7a055e6395a2 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle e8f814f726cb4612 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle fc19c4a5e89d29f4 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4ec9d16a5a573d4e (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 8bbb1046d8c49095 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 8e231f18dc7d476f (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 50ed62dcb0f1bce3 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 154515f7b4e4fe2b (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 1a43bd0f8e35bd1d (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 281ee792644831c5 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle c881c033239a38de (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle a92cdc81d7a94775 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 9283bfdf68bc92a8 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle b7cbcba402c57078 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 11846421c28ce2aa (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 2a0e2b1240764998 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle 7f403db698db059f after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 9e892fbdd6f4c4a9 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle b7672ba95aff4ff6 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle e0e6857dd441101b after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle a12c7a055e6395a2 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle e8f814f726cb4612 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle fc19c4a5e89d29f4 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 4ec9d16a5a573d4e after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 8bbb1046d8c49095 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 8e231f18dc7d476f after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 50ed62dcb0f1bce3 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 154515f7b4e4fe2b after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 1a43bd0f8e35bd1d after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 281ee792644831c5 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle c881c033239a38de after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle a92cdc81d7a94775 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 9283bfdf68bc92a8 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle b7cbcba402c57078 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 11846421c28ce2aa after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+❌ ERROR on puzzle 2a0e2b1240764998 after 3 retries: name 
+'generate_prompt_step_by_step' is not defined
+💾 Results saved to Qwen_Qwen3-14B_gym.jsonl
+⚠️  Connection error on puzzle 577d6771b88eca36 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 9c31840855436adc (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 495da6f2a1c1f750 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 544628c3b3077982 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 95bd7bebb5849554 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5daa7098e5e15b8a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 2d360e53c1cbf48e (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ad210a7535f9228a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4d1f8e4f341d8ba (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c0bf87685a69078a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle e155b38ad467ae03 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 525f7011d139f68e (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 85ace8079f2972ab (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d79be6059dc29292 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle bc2d315cd19b8b76 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 336018fab47f526a (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 9a0559017cacdd9c (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5d4260bea3b7d613 (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 14738c1f0e0cf17e (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 23f41583d9fe02ee (attempt 1/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 577d6771b88eca36 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 9c31840855436adc (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 495da6f2a1c1f750 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 544628c3b3077982 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 95bd7bebb5849554 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5daa7098e5e15b8a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 2d360e53c1cbf48e (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ad210a7535f9228a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4d1f8e4f341d8ba (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle c0bf87685a69078a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle e155b38ad467ae03 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 525f7011d139f68e (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 85ace8079f2972ab (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle d79be6059dc29292 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle bc2d315cd19b8b76 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 336018fab47f526a (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 9a0559017cacdd9c (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5d4260bea3b7d613 (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 14738c1f0e0cf17e (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 23f41583d9fe02ee (attempt 2/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 577d6771b88eca36 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 9c31840855436adc (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 495da6f2a1c1f750 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 544628c3b3077982 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 95bd7bebb5849554 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+[2026-01-04T23:10:57.587] error: *** JOB 12138078 ON ggpu139 CANCELLED AT 2026-01-04T23:10:57 DUE to SIGNAL Terminated ***
+⚠️  Connection error on puzzle 5daa7098e5e15b8a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 2d360e53c1cbf48e (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ad210a7535f9228a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4d1f8e4f341d8ba (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle c0bf87685a69078a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle e155b38ad467ae03 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 525f7011d139f68e (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 85ace8079f2972ab (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle d79be6059dc29292 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle bc2d315cd19b8b76 (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 336018fab47f526a (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 9a0559017cacdd9c (attempt 3/4): name 
+'generate_prompt_step_by_step' is not defined
+🔄 Retrying in 4 seconds...
+============ Job Information ===================================================
+Submitted: 2026-01-04T22:32:57
+Started: 2026-01-04T22:33:14
+Ended: 2026-01-04T23:11:27
+Elapsed: 38 min, Limit: 2880 min, Difference: 2842 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 95.00 core-hours
+================================================================================

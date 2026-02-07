@@ -1,0 +1,53 @@
+================================================================================
+JobID = 12178475
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu197
+================================================================================
+[2026-01-11 17:13:36] Job starting on ggpu197
+⌛ Waiting for vLLM........................................................................................................................................................................................................................................................ ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 0 previous results from allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ────────────────────────────────────────────────────────────────────        │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               allenai/Olmo-3.1-32B-Think                             │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl         │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8001/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Gym Traceback       Enabled                                                │
+│   Run Name            traceback                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 0 previous results from allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+🔄 Resuming processing: 0 already done, 500 remaining
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+[2026-01-12T14:51:35.847] error: *** JOB 12178475 ON ggpu197 CANCELLED AT 2026-01-12T14:51:35 DUE to SIGNAL Terminated ***
+============ Job Information ===================================================
+Submitted: 2026-01-11T17:13:32
+Started: 2026-01-11T17:13:33
+Ended: 2026-01-12T14:51:36
+Elapsed: 1299 min, Limit: 2880 min, Difference: 1581 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 3247.50 core-hours
+================================================================================

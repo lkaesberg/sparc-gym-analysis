@@ -1,0 +1,150 @@
+================================================================================
+JobID = 12203250
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu144
+================================================================================
+[2026-01-13 23:18:19] Job starting on ggpu144
+⌛ Waiting for vLLM................................................................................................................................................................................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ────────────────────────────────────────────────────────────────────        │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               allenai/Olmo-3.1-32B-Think                             │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl         │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8001/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Gym Traceback       Enabled                                                │
+│   Run Name            traceback                                              │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+💾 Results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+
+✅ Processing completed successfully!
+
+
+       📊 SPaRC Dataset Processing Results (Gym (Step-by-Step))       
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 46              │ 9.2%            │
+│ Failed                         │ 454             │ 90.8%           │
+│                                │                 │                 │
+│ Avg Steps Taken                │ 13.7 steps      │                 │
+│ Min Steps                      │ 1 steps         │                 │
+│ Max Steps                      │ 100 steps       │                 │
+│ Reached End                    │ 494             │ 98.8%           │
+│ No Legal Actions               │ 6               │ 1.2%            │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 19/86           │ 22.1%           │
+│ Difficulty 2 Solved            │ 17/118          │ 14.4%           │
+│ Difficulty 3 Solved            │ 8/121           │ 6.6%            │
+│ Difficulty 4 Solved            │ 2/86            │ 2.3%            │
+│ Difficulty 5 Solved            │ 0/89            │ 0.0%            │
+│                                │                 │                 │
+│ Total Time                     │ 1049465.6       │                 │
+│                                │ seconds         │                 │
+│ Avg Time per Puzzle            │ 2098.93 seconds │                 │
+│ Puzzles per Minute             │ 0.0             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                               Time      Reached                
+  Puzzle ID     Difficul…   Status    Steps    (s)       End         No Legal   
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05ed8…   3           ❌ FAIL   18       2856.17   Yes         No         
+  ebc9c10093…   3           ❌ FAIL   7        1116.33   Yes         No         
+  ed40414d61…   3           ❌ FAIL   7        1384.03   Yes         No         
+  dce20e150e…   5           ❌ FAIL   18       2656.32   Yes         No         
+  3fe8a85b76…   1           ❌ FAIL   7        1235.20   Yes         No         
+  1284a7249a…   3           ❌ FAIL   8        1608.73   Yes         No         
+  cbeb87b359…   3           ❌ FAIL   9        1358.97   Yes         No         
+  c80d64b5c5…   5           ❌ FAIL   11       1820.68   Yes         No         
+  24e8876585…   5           ❌ FAIL   12       2305.82   Yes         No         
+  196a88635b…   4           ❌ FAIL   7        1515.59   Yes         No         
+  e82bd665d7…   2           ❌ FAIL   14       2020.05   Yes         No         
+  c6739963a7…   3           ✅ PASS   8        958.96    Yes         No         
+  953c10f2e4…   2           ✅ PASS   1        202.11    Yes         No         
+  d91761f3ba…   4           ❌ FAIL   13       1935.01   Yes         No         
+  bc66c2e18f…   3           ❌ FAIL   10       1478.00   Yes         No         
+  4b236c53ea…   3           ❌ FAIL   5        924.52    Yes         No         
+  5f9a92945a…   1           ✅ PASS   7        1080.71   Yes         No         
+  860fbc1cfd…   3           ❌ FAIL   17       2644.93   Yes         No         
+  5b5d43da94…   4           ✅ PASS   9        1390.01   Yes         No         
+  971ad9f45d…   5           ❌ FAIL   12       1887.45   Yes         No         
+                                                                                
+
+📁 Final results saved to allenai_Olmo-3.1-32B-Think_gym_traceback.jsonl
+📑 CSV tables saved with prefix allenai_Olmo-3.1-32B-Think_gym_traceback_*.csv
+[2026-01-15 19:55:03] Job complete.
+============ Job Information ===================================================
+Submitted: 2026-01-13T18:13:24
+Started: 2026-01-13T23:18:16
+Ended: 2026-01-15T19:55:03
+Elapsed: 2677 min, Limit: 2880 min, Difference: 203 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 6692.50 core-hours
+================================================================================

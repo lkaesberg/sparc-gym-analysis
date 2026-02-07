@@ -1,0 +1,155 @@
+================================================================================
+JobID = 12361666
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu155
+================================================================================
+[2026-01-27 10:32:09] Job starting on ggpu155
+⌛ Waiting for vLLM................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ─────────────────────────────────────────────────────────────────           │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               Qwen/Qwen3-VL-32B-Thinking                             │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl            │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Gym (step-by-step) + Visual                            │
+│   Prompt              gym_visual                                             │
+│   Gym Traceback       Disabled                                               │
+│   Plot Type           original                                               │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 535c2440-4d35-490d-ab60-0456121eef0f)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/main/README.md
+Retrying in 1s [Retry 1/5].
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 532a4cd5-7915-4dae-a3f0-4475995e3c96)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/195579019ab44fce4f394bb03af04bf598956e4b/.huggingface.yaml
+Retrying in 1s [Retry 1/5].
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+💾 Results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+
+✅ Processing completed successfully!
+
+
+       📊 SPaRC Dataset Processing Results (Gym (Step-by-Step))       
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 18              │ 3.6%            │
+│ Failed                         │ 482             │ 96.4%           │
+│                                │                 │                 │
+│ Avg Steps Taken                │ 14.2 steps      │                 │
+│ Min Steps                      │ 1 steps         │                 │
+│ Max Steps                      │ 41 steps        │                 │
+│ Reached End                    │ 164             │ 32.8%           │
+│ No Legal Actions               │ 336             │ 67.2%           │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 12/86           │ 14.0%           │
+│ Difficulty 2 Solved            │ 4/118           │ 3.4%            │
+│ Difficulty 3 Solved            │ 2/121           │ 1.7%            │
+│ Difficulty 4 Solved            │ 0/86            │ 0.0%            │
+│ Difficulty 5 Solved            │ 0/89            │ 0.0%            │
+│                                │                 │                 │
+│ Total Time                     │ 1120182.4       │                 │
+│                                │ seconds         │                 │
+│ Avg Time per Puzzle            │ 2240.36 seconds │                 │
+│ Puzzles per Minute             │ 0.0             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                               Time      Reached                
+  Puzzle ID     Difficul…   Status    Steps    (s)       End         No Legal   
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05ed8…   3           ❌ FAIL   19       2897.79   No          Yes        
+  ebc9c10093…   3           ❌ FAIL   8        1461.73   No          Yes        
+  ed40414d61…   3           ❌ FAIL   6        1459.95   Yes         No         
+  dce20e150e…   5           ❌ FAIL   25       3026.37   No          Yes        
+  3fe8a85b76…   1           ❌ FAIL   1        250.80    Yes         No         
+  1284a7249a…   3           ❌ FAIL   8        1153.62   Yes         No         
+  cbeb87b359…   3           ❌ FAIL   20       2856.97   No          Yes        
+  c80d64b5c5…   5           ❌ FAIL   13       1666.04   No          Yes        
+  24e8876585…   5           ❌ FAIL   25       2633.62   No          Yes        
+  196a88635b…   4           ❌ FAIL   14       2041.48   Yes         No         
+  e82bd665d7…   2           ❌ FAIL   17       2614.84   No          Yes        
+  c6739963a7…   3           ❌ FAIL   9        1590.85   No          Yes        
+  953c10f2e4…   2           ❌ FAIL   16       2110.33   No          Yes        
+  d91761f3ba…   4           ❌ FAIL   11       2239.86   No          Yes        
+  bc66c2e18f…   3           ❌ FAIL   12       1783.92   Yes         No         
+  4b236c53ea…   3           ❌ FAIL   12       1951.13   No          Yes        
+  5f9a92945a…   1           ✅ PASS   9        1809.24   Yes         No         
+  860fbc1cfd…   3           ❌ FAIL   23       4503.10   No          Yes        
+  5b5d43da94…   4           ❌ FAIL   8        1606.85   No          Yes        
+  971ad9f45d…   5           ❌ FAIL   11       2088.37   No          Yes        
+                                                                                
+
+📁 Final results saved to Qwen_Qwen3-VL-32B-Thinking_gym_visual.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-VL-32B-Thinking_gym_visual_*.csv
+[2026-01-28 13:33:18] Job complete.
+============ Job Information ===================================================
+Submitted: 2026-01-27T09:48:08
+Started: 2026-01-27T10:28:04
+Ended: 2026-01-28T13:33:19
+Elapsed: 1626 min, Limit: 2880 min, Difference: 1254 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 4065.00 core-hours
+================================================================================

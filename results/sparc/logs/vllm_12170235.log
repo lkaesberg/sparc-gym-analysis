@@ -1,0 +1,3 @@
+[0;36m(APIServer pid=972771)[0;0m INFO 01-11 17:11:10 [api_server.py:1351] vLLM API server version 0.13.0
+[0;36m(APIServer pid=972771)[0;0m INFO 01-11 17:11:10 [utils.py:253] non-default args: {'model_tag': 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'port': 8004, 'model': 'deepseek-ai/DeepSeek-R1-Distill-Qwen-32B', 'trust_remote_code': True, 'download_dir': '/scratch-scc/users/u16096/huggingface', 'tensor_parallel_size': 4}
+[0;36m(APIServer pid=972771)[0;0m The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.

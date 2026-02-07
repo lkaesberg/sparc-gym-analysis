@@ -1,0 +1,172 @@
+================================================================================
+JobID = 12490554
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu196
+================================================================================
+[2026-02-05 07:29:53] Job starting on ggpu196
+⌛ Waiting for vLLM............................................................................................................................................................................................................ ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ──────────────────────────────────────────────────────────                  │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               mistralai/Magistral-Small-2507                         │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        mistralai_Magistral-Small-2507.jsonl                   │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8005/v1                               │
+│   Mode                Single-shot                                            │
+│   Prompt              single_shot                                            │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+💾 Results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+
+✅ Processing completed successfully!
+
+
+          📊 SPaRC Dataset Processing Results (Single-Shot)           
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 8               │ 1.6%            │
+│ Failed                         │ 492             │ 98.4%           │
+│                                │                 │                 │
+│ Fully Valid Paths              │ 77              │ 15.4%           │
+│ Connected Paths                │ 398             │ 79.6%           │
+│ Correct Start/End              │ 451             │ 90.2%           │
+│ Non-Intersecting               │ 391             │ 78.2%           │
+│ No Rule Violations             │ 97              │ 19.4%           │
+│                                │                 │                 │
+│ Avg Path Length                │ 20.3 steps      │                 │
+│ Min Path Length                │ 1 steps         │                 │
+│ Max Path Length                │ 873 steps       │                 │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 3/86            │ 3.5%            │
+│ Difficulty 2 Solved            │ 3/118           │ 2.5%            │
+│ Difficulty 3 Solved            │ 1/121           │ 0.8%            │
+│ Difficulty 4 Solved            │ 1/86            │ 1.2%            │
+│ Difficulty 5 Solved            │ 0/89            │ 0.0%            │
+│                                │                 │                 │
+│ Total Time                     │ 20477.8 seconds │                 │
+│ Avg Time per Puzzle            │ 40.96 seconds   │                 │
+│ Puzzles per Minute             │ 1.5             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                Path      Time                                  
+  Puzzle ID   Diffic…   Stat…   Length    (s)      Issues                       
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05e…   3         ❌      19        16.87    rules                        
+                        FAIL                                                    
+  ebc9c100…   3         ❌      34        177.09   rules                        
+                        FAIL                                                    
+  ed40414d…   3         ❌      8         63.57    start/end, disconnected,     
+                        FAIL                       intersecting                 
+  dce20e15…   5         ❌      73        17.93    start/end, rules             
+                        FAIL                                                    
+  3fe8a85b…   1         ❌      33        14.97    disconnected, intersecting,  
+                        FAIL                       rules                        
+  1284a724…   3         ❌      5         6.14     None                         
+                        FAIL                                                    
+  cbeb87b3…   3         ❌      10        26.32    rules                        
+                        FAIL                                                    
+  c80d64b5…   5         ❌      8         13.77    None                         
+                        FAIL                                                    
+  24e88765…   5         ❌      5         57.56    None                         
+                        FAIL                                                    
+  196a8863…   4         ❌      15        18.65    disconnected, intersecting,  
+                        FAIL                       rules                        
+  e82bd665…   2         ❌      0         6.91     start/end, disconnected,     
+                        FAIL                       intersecting, rules          
+  c6739963…   3         ❌      25        13.34    disconnected, intersecting,  
+                        FAIL                       rules                        
+  953c10f2…   2         ✅      2         107.67   None                         
+                        PASS                                                    
+  d91761f3…   4         ❌      12        15.54    disconnected, rules          
+                        FAIL                                                    
+  bc66c2e1…   3         ❌      27        11.95    rules                        
+                        FAIL                                                    
+  4b236c53…   3         ❌      59        26.49    start/end, intersecting,     
+                        FAIL                       rules                        
+  5f9a9294…   1         ❌      8         92.55    rules                        
+                        FAIL                                                    
+  860fbc1c…   3         ❌      10        16.55    start/end, rules             
+                        FAIL                                                    
+  5b5d43da…   4         ❌      12        13.06    rules                        
+                        FAIL                                                    
+  971ad9f4…   5         ❌      9         16.96    rules                        
+                        FAIL                                                    
+                                                                                
+
+📁 Final results saved to mistralai_Magistral-Small-2507.jsonl
+📑 CSV tables saved with prefix mistralai_Magistral-Small-2507_*.csv
+[2026-02-05 08:54:40] Job complete.
+============ Job Information ===================================================
+Submitted: 2026-02-05T01:14:34
+Started: 2026-02-05T07:29:50
+Ended: 2026-02-05T08:54:41
+Elapsed: 85 min, Limit: 2880 min, Difference: 2795 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 212.50 core-hours
+================================================================================

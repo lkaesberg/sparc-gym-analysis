@@ -1,0 +1,683 @@
+================================================================================
+JobID = 10377513
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu156
+================================================================================
+[2025-08-14 17:40:11] Job starting on ggpu156
+Collecting vllm[serve]
+  Downloading vllm-0.10.0-cp38-abi3-manylinux1_x86_64.whl (386.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 386.6/386.6 MB 5.7 MB/s eta 0:00:00
+WARNING: vllm 0.10.0 does not provide the extra 'serve'
+Collecting depyf==0.19.0
+  Downloading depyf-0.19.0-py3-none-any.whl (39 kB)
+Collecting fastapi[standard]>=0.115.0
+  Downloading fastapi-0.116.1-py3-none-any.whl (95 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 95.6/95.6 kB 4.3 MB/s eta 0:00:00
+Collecting ninja
+  Downloading ninja-1.13.0-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (180 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 180.7/180.7 kB 4.2 MB/s eta 0:00:00
+Collecting scipy
+  Downloading scipy-1.15.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (37.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 37.7/37.7 MB 23.0 MB/s eta 0:00:00
+Collecting numba==0.61.2
+  Downloading numba-0.61.2-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (3.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 28.0 MB/s eta 0:00:00
+Collecting diskcache==5.6.3
+  Downloading diskcache-5.6.3-py3-none-any.whl (45 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.5/45.5 kB 1.6 MB/s eta 0:00:00
+Collecting regex
+  Downloading regex-2025.7.34-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (789 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 789.8/789.8 kB 15.3 MB/s eta 0:00:00
+Collecting torch==2.7.1
+  Downloading torch-2.7.1-cp310-cp310-manylinux_2_28_x86_64.whl (821.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 821.2/821.2 MB 3.5 MB/s eta 0:00:00
+Collecting partial-json-parser
+  Downloading partial_json_parser-0.2.1.1.post6-py3-none-any.whl (10 kB)
+Collecting watchfiles
+  Downloading watchfiles-1.1.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (453 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 453.1/453.1 kB 5.9 MB/s eta 0:00:00
+Collecting pybase64
+  Downloading pybase64-1.4.2-cp310-cp310-manylinux1_x86_64.manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_5_x86_64.whl (68 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 68.9/68.9 kB 930.3 kB/s eta 0:00:00
+Collecting sentencepiece
+  Downloading sentencepiece-0.2.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 18.0 MB/s eta 0:00:00
+Collecting xgrammar==0.1.21
+  Downloading xgrammar-0.1.21-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (11.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.8/11.8 MB 34.0 MB/s eta 0:00:00
+Collecting openai<=1.90.0,>=1.87.0
+  Downloading openai-1.90.0-py3-none-any.whl (734 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 734.6/734.6 kB 9.6 MB/s eta 0:00:00
+Collecting llguidance<0.8.0,>=0.7.11
+  Downloading llguidance-0.7.30-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (15.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 15.0/15.0 MB 33.6 MB/s eta 0:00:00
+Collecting pyyaml
+  Downloading PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 751.2/751.2 kB 11.5 MB/s eta 0:00:00
+Collecting torchvision==0.22.1
+  Downloading torchvision-0.22.1-cp310-cp310-manylinux_2_28_x86_64.whl (7.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.5/7.5 MB 39.6 MB/s eta 0:00:00
+Collecting mistral_common[audio,image]>=1.8.2
+  Downloading mistral_common-1.8.3-py3-none-any.whl (6.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.5/6.5 MB 34.0 MB/s eta 0:00:00
+Collecting compressed-tensors==0.10.2
+  Downloading compressed_tensors-0.10.2-py3-none-any.whl (169 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 169.0/169.0 kB 4.2 MB/s eta 0:00:00
+Collecting msgspec
+  Downloading msgspec-0.19.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (211 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 211.6/211.6 kB 7.3 MB/s eta 0:00:00
+Collecting psutil
+  Downloading psutil-7.0.0-cp36-abi3-manylinux_2_12_x86_64.manylinux2010_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (277 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 278.0/278.0 kB 15.7 MB/s eta 0:00:00
+Collecting aiohttp
+  Downloading aiohttp-3.12.15-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.6/1.6 MB 29.1 MB/s eta 0:00:00
+Collecting pydantic>=2.10
+  Downloading pydantic-2.11.7-py3-none-any.whl (444 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 444.8/444.8 kB 14.9 MB/s eta 0:00:00
+Collecting cloudpickle
+  Downloading cloudpickle-3.1.1-py3-none-any.whl (20 kB)
+Collecting blake3
+  Downloading blake3-1.0.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (385 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 385.5/385.5 kB 4.3 MB/s eta 0:00:00
+Collecting py-cpuinfo
+  Downloading py_cpuinfo-9.0.0-py3-none-any.whl (22 kB)
+Collecting outlines_core==0.2.10
+  Downloading outlines_core-0.2.10-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 29.6 MB/s eta 0:00:00
+Collecting xformers==0.0.31
+  Downloading xformers-0.0.31-cp39-abi3-manylinux_2_28_x86_64.whl (117.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.1/117.1 MB 13.2 MB/s eta 0:00:00
+Collecting ray[cgraph]!=2.44.*,>=2.43.0
+  Downloading ray-2.48.0-cp310-cp310-manylinux2014_x86_64.whl (69.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 69.9/69.9 MB 14.4 MB/s eta 0:00:00
+Collecting torchaudio==2.7.1
+  Downloading torchaudio-2.7.1-cp310-cp310-manylinux_2_28_x86_64.whl (3.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.5/3.5 MB 20.8 MB/s eta 0:00:00
+Collecting numpy
+  Downloading numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.8/16.8 MB 21.0 MB/s eta 0:00:00
+Collecting protobuf
+  Downloading protobuf-6.31.1-cp39-abi3-manylinux2014_x86_64.whl (321 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 321.1/321.1 kB 11.1 MB/s eta 0:00:00
+Collecting filelock>=3.16.1
+  Downloading filelock-3.18.0-py3-none-any.whl (16 kB)
+Collecting transformers>=4.53.2
+  Downloading transformers-4.55.2-py3-none-any.whl (11.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.3/11.3 MB 23.0 MB/s eta 0:00:00
+Collecting requests>=2.26.0
+  Downloading requests-2.32.4-py3-none-any.whl (64 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.8/64.8 kB 1.0 MB/s eta 0:00:00
+Collecting prometheus-fastapi-instrumentator>=7.0.0
+  Downloading prometheus_fastapi_instrumentator-7.1.0-py3-none-any.whl (19 kB)
+Collecting pyzmq>=25.0.0
+  Downloading pyzmq-27.0.1-cp310-cp310-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl (853 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 853.8/853.8 kB 12.7 MB/s eta 0:00:00
+Collecting tiktoken>=0.6.0
+  Downloading tiktoken-0.11.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 24.4 MB/s eta 0:00:00
+Collecting python-json-logger
+  Downloading python_json_logger-3.3.0-py3-none-any.whl (15 kB)
+Collecting huggingface-hub[hf_xet]>=0.33.0
+  Downloading huggingface_hub-0.34.4-py3-none-any.whl (561 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 561.5/561.5 kB 14.5 MB/s eta 0:00:00
+Collecting typing_extensions>=4.10
+  Downloading typing_extensions-4.14.1-py3-none-any.whl (43 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.9/43.9 kB 925.2 kB/s eta 0:00:00
+Collecting prometheus_client>=0.18.0
+  Downloading prometheus_client-0.22.1-py3-none-any.whl (58 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 58.7/58.7 kB 4.2 MB/s eta 0:00:00
+Collecting cbor2
+  Downloading cbor2-5.7.0-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (247 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 247.2/247.2 kB 4.3 MB/s eta 0:00:00
+Collecting pillow
+  Downloading pillow-11.3.0-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.6/6.6 MB 30.1 MB/s eta 0:00:00
+Collecting tqdm
+  Downloading tqdm-4.67.1-py3-none-any.whl (78 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.5/78.5 kB 2.4 MB/s eta 0:00:00
+Collecting lark==1.2.2
+  Downloading lark-1.2.2-py3-none-any.whl (111 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 111.0/111.0 kB 3.5 MB/s eta 0:00:00
+Collecting opencv-python-headless>=4.11.0
+  Downloading opencv_python_headless-4.12.0.88-cp37-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (54.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 54.0/54.0 MB 20.8 MB/s eta 0:00:00
+Collecting einops
+  Downloading einops-0.8.1-py3-none-any.whl (64 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 64.4/64.4 kB 3.6 MB/s eta 0:00:00
+Collecting lm-format-enforcer<0.11,>=0.10.11
+  Downloading lm_format_enforcer-0.10.12-py3-none-any.whl (44 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 44.3/44.3 kB 1.2 MB/s eta 0:00:00
+Collecting tokenizers>=0.21.1
+  Downloading tokenizers-0.21.4-cp39-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.1/3.1 MB 34.7 MB/s eta 0:00:00
+Collecting cachetools
+  Downloading cachetools-6.1.0-py3-none-any.whl (11 kB)
+Collecting gguf>=0.13.0
+  Downloading gguf-0.17.1-py3-none-any.whl (96 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 96.2/96.2 kB 3.4 MB/s eta 0:00:00
+Collecting astor
+  Downloading astor-0.8.1-py2.py3-none-any.whl (27 kB)
+Collecting dill
+  Downloading dill-0.4.0-py3-none-any.whl (119 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 119.7/119.7 kB 5.2 MB/s eta 0:00:00
+Collecting llvmlite<0.45,>=0.44.0dev0
+  Downloading llvmlite-0.44.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (42.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.4/42.4 MB 21.2 MB/s eta 0:00:00
+Collecting nvidia-nvjitlink-cu12==12.6.85
+  Downloading nvidia_nvjitlink_cu12-12.6.85-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (19.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 19.7/19.7 MB 22.0 MB/s eta 0:00:00
+Collecting nvidia-curand-cu12==10.3.7.77
+  Downloading nvidia_curand_cu12-10.3.7.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (56.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 56.3/56.3 MB 16.1 MB/s eta 0:00:00
+Collecting nvidia-nvtx-cu12==12.6.77
+  Downloading nvidia_nvtx_cu12-12.6.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (89 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.3/89.3 kB 1.1 MB/s eta 0:00:00
+Collecting jinja2
+  Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.9/134.9 kB 2.3 MB/s eta 0:00:00
+Collecting nvidia-cusparse-cu12==12.5.4.2
+  Downloading nvidia_cusparse_cu12-12.5.4.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (216.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 216.6/216.6 MB 7.2 MB/s eta 0:00:00
+Collecting nvidia-cufile-cu12==1.11.1.6
+  Downloading nvidia_cufile_cu12-1.11.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 9.0 MB/s eta 0:00:00
+Collecting sympy>=1.13.3
+  Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 15.5 MB/s eta 0:00:00
+Collecting networkx
+  Downloading networkx-3.4.2-py3-none-any.whl (1.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 17.1 MB/s eta 0:00:00
+Collecting nvidia-cufft-cu12==11.3.0.4
+  Downloading nvidia_cufft_cu12-11.3.0.4-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (200.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 200.2/200.2 MB 8.7 MB/s eta 0:00:00
+Collecting fsspec
+  Downloading fsspec-2025.7.0-py3-none-any.whl (199 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 199.6/199.6 kB 9.6 MB/s eta 0:00:00
+Collecting triton==3.3.1
+  Downloading triton-3.3.1-cp310-cp310-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (155.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 155.6/155.6 MB 13.1 MB/s eta 0:00:00
+Collecting nvidia-cublas-cu12==12.6.4.1
+  Downloading nvidia_cublas_cu12-12.6.4.1-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (393.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 393.1/393.1 MB 5.1 MB/s eta 0:00:00
+Collecting nvidia-nccl-cu12==2.26.2
+  Downloading nvidia_nccl_cu12-2.26.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (201.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 201.3/201.3 MB 9.2 MB/s eta 0:00:00
+Collecting nvidia-cuda-nvrtc-cu12==12.6.77
+  Downloading nvidia_cuda_nvrtc_cu12-12.6.77-py3-none-manylinux2014_x86_64.whl (23.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.7/23.7 MB 42.6 MB/s eta 0:00:00
+Collecting nvidia-cusparselt-cu12==0.6.3
+  Downloading nvidia_cusparselt_cu12-0.6.3-py3-none-manylinux2014_x86_64.whl (156.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 156.8/156.8 MB 10.1 MB/s eta 0:00:00
+Collecting nvidia-cuda-cupti-cu12==12.6.80
+  Downloading nvidia_cuda_cupti_cu12-12.6.80-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.9/8.9 MB 28.8 MB/s eta 0:00:00
+Collecting nvidia-cuda-runtime-cu12==12.6.77
+  Downloading nvidia_cuda_runtime_cu12-12.6.77-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (897 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 897.7/897.7 kB 20.4 MB/s eta 0:00:00
+Collecting nvidia-cusolver-cu12==11.7.1.2
+  Downloading nvidia_cusolver_cu12-11.7.1.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (158.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 158.2/158.2 MB 11.5 MB/s eta 0:00:00
+Collecting nvidia-cudnn-cu12==9.5.1.17
+  Downloading nvidia_cudnn_cu12-9.5.1.17-py3-none-manylinux_2_28_x86_64.whl (571.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 571.0/571.0 MB 4.5 MB/s eta 0:00:00
+Requirement already satisfied: setuptools>=40.8.0 in /mnt/vast-standard/home/kaesberg1/u16096/.venv_llm/lib/python3.10/site-packages (from triton==3.3.1->torch==2.7.1->vllm[serve]) (65.5.0)
+Collecting starlette<0.48.0,>=0.40.0
+  Downloading starlette-0.47.2-py3-none-any.whl (72 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.0/73.0 kB 4.3 MB/s eta 0:00:00
+Collecting uvicorn[standard]>=0.12.0
+  Downloading uvicorn-0.35.0-py3-none-any.whl (66 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.4/66.4 kB 1.4 MB/s eta 0:00:00
+Collecting fastapi-cli[standard]>=0.0.8
+  Downloading fastapi_cli-0.0.8-py3-none-any.whl (10 kB)
+Collecting httpx>=0.23.0
+  Downloading httpx-0.28.1-py3-none-any.whl (73 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 73.5/73.5 kB 1.8 MB/s eta 0:00:00
+Collecting python-multipart>=0.0.18
+  Downloading python_multipart-0.0.20-py3-none-any.whl (24 kB)
+Collecting email-validator>=2.0.0
+  Downloading email_validator-2.2.0-py3-none-any.whl (33 kB)
+Collecting packaging>=20.9
+  Downloading packaging-25.0-py3-none-any.whl (66 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.5/66.5 kB 1.3 MB/s eta 0:00:00
+Collecting hf-xet<2.0.0,>=1.1.3
+  Downloading hf_xet-1.1.7-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.2/3.2 MB 16.2 MB/s eta 0:00:00
+Collecting interegular>=0.3.2
+  Downloading interegular-0.3.3-py37-none-any.whl (23 kB)
+Collecting jsonschema>=4.21.1
+  Downloading jsonschema-4.25.0-py3-none-any.whl (89 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 89.2/89.2 kB 5.3 MB/s eta 0:00:00
+Collecting pydantic-extra-types[pycountry]>=2.10.5
+  Downloading pydantic_extra_types-2.10.5-py3-none-any.whl (38 kB)
+Collecting jiter<1,>=0.4.0
+  Downloading jiter-0.10.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (352 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 352.5/352.5 kB 8.3 MB/s eta 0:00:00
+Collecting sniffio
+  Downloading sniffio-1.3.1-py3-none-any.whl (10 kB)
+Collecting distro<2,>=1.7.0
+  Downloading distro-1.9.0-py3-none-any.whl (20 kB)
+Collecting anyio<5,>=3.5.0
+  Downloading anyio-4.10.0-py3-none-any.whl (107 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 107.2/107.2 kB 5.7 MB/s eta 0:00:00
+Collecting pydantic-core==2.33.2
+  Downloading pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.0/2.0 MB 33.0 MB/s eta 0:00:00
+Collecting typing-inspection>=0.4.0
+  Downloading typing_inspection-0.4.1-py3-none-any.whl (14 kB)
+Collecting annotated-types>=0.6.0
+  Downloading annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Collecting click>=7.0
+  Downloading click-8.2.1-py3-none-any.whl (102 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 102.2/102.2 kB 6.5 MB/s eta 0:00:00
+Collecting msgpack<2.0.0,>=1.0.0
+  Downloading msgpack-1.1.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (408 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 408.6/408.6 kB 10.2 MB/s eta 0:00:00
+Collecting cupy-cuda12x
+  Downloading cupy_cuda12x-13.5.1-cp310-cp310-manylinux2014_x86_64.whl (112.4 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 112.4/112.4 MB 12.2 MB/s eta 0:00:00
+Collecting charset_normalizer<4,>=2
+  Downloading charset_normalizer-3.4.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (152 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 152.4/152.4 kB 4.9 MB/s eta 0:00:00
+Collecting idna<4,>=2.5
+  Downloading idna-3.10-py3-none-any.whl (70 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 70.4/70.4 kB 1.2 MB/s eta 0:00:00
+Collecting urllib3<3,>=1.21.1
+  Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 129.8/129.8 kB 4.6 MB/s eta 0:00:00
+Collecting certifi>=2017.4.17
+  Downloading certifi-2025.8.3-py3-none-any.whl (161 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 161.2/161.2 kB 12.9 MB/s eta 0:00:00
+Collecting safetensors>=0.4.3
+  Downloading safetensors-0.6.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (485 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 485.8/485.8 kB 24.4 MB/s eta 0:00:00
+Collecting async-timeout<6.0,>=4.0
+  Downloading async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
+Collecting attrs>=17.3.0
+  Downloading attrs-25.3.0-py3-none-any.whl (63 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 63.8/63.8 kB 2.3 MB/s eta 0:00:00
+Collecting multidict<7.0,>=4.5
+  Downloading multidict-6.6.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (241 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 241.6/241.6 kB 4.4 MB/s eta 0:00:00
+Collecting frozenlist>=1.1.1
+  Downloading frozenlist-1.7.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (222 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 222.9/222.9 kB 7.7 MB/s eta 0:00:00
+Collecting aiohappyeyeballs>=2.5.0
+  Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Collecting yarl<2.0,>=1.17.0
+  Downloading yarl-1.20.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (326 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 326.1/326.1 kB 19.7 MB/s eta 0:00:00
+Collecting aiosignal>=1.4.0
+  Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Collecting propcache>=0.2.0
+  Downloading propcache-0.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (198 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 198.3/198.3 kB 7.7 MB/s eta 0:00:00
+Collecting exceptiongroup>=1.0.2
+  Downloading exceptiongroup-1.3.0-py3-none-any.whl (16 kB)
+Collecting dnspython>=2.0.0
+  Downloading dnspython-2.7.0-py3-none-any.whl (313 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 313.6/313.6 kB 7.6 MB/s eta 0:00:00
+Collecting rich-toolkit>=0.14.8
+  Downloading rich_toolkit-0.15.0-py3-none-any.whl (29 kB)
+Collecting typer>=0.15.1
+  Downloading typer-0.16.0-py3-none-any.whl (46 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 46.3/46.3 kB 5.1 MB/s eta 0:00:00
+Collecting fastapi-cloud-cli>=0.1.1
+  Downloading fastapi_cloud_cli-0.1.5-py3-none-any.whl (18 kB)
+Collecting httpcore==1.*
+  Downloading httpcore-1.0.9-py3-none-any.whl (78 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 78.8/78.8 kB 1.5 MB/s eta 0:00:00
+Collecting h11>=0.16
+  Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+Collecting MarkupSafe>=2.0
+  Downloading MarkupSafe-3.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (20 kB)
+Collecting referencing>=0.28.4
+  Downloading referencing-0.36.2-py3-none-any.whl (26 kB)
+Collecting jsonschema-specifications>=2023.03.6
+  Downloading jsonschema_specifications-2025.4.1-py3-none-any.whl (18 kB)
+Collecting rpds-py>=0.7.1
+  Downloading rpds_py-0.27.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (383 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 383.7/383.7 kB 9.5 MB/s eta 0:00:00
+Collecting pycountry>=23
+  Downloading pycountry-24.6.1-py3-none-any.whl (6.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 31.4 MB/s eta 0:00:00
+Collecting mpmath<1.4,>=1.1.0
+  Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 14.3 MB/s eta 0:00:00
+Collecting httptools>=0.6.3
+  Downloading httptools-0.6.4-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (442 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 442.1/442.1 kB 11.4 MB/s eta 0:00:00
+Collecting websockets>=10.4
+  Downloading websockets-15.0.1-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (181 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 181.6/181.6 kB 4.3 MB/s eta 0:00:00
+Collecting python-dotenv>=0.13
+  Downloading python_dotenv-1.1.1-py3-none-any.whl (20 kB)
+Collecting uvloop>=0.15.1
+  Downloading uvloop-0.21.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.8/3.8 MB 25.5 MB/s eta 0:00:00
+Collecting fastrlock>=0.5
+  Downloading fastrlock-0.8.3-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_28_x86_64.whl (53 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 53.3/53.3 kB 2.4 MB/s eta 0:00:00
+Collecting soundfile>=0.12.1
+  Downloading soundfile-0.13.1-py2.py3-none-manylinux_2_28_x86_64.whl (1.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 16.2 MB/s eta 0:00:00
+Collecting soxr>=0.5.0
+  Downloading soxr-0.5.0.post1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (252 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 252.8/252.8 kB 16.2 MB/s eta 0:00:00
+Collecting sentry-sdk>=2.20.0
+  Downloading sentry_sdk-2.34.1-py2.py3-none-any.whl (357 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 357.7/357.7 kB 8.3 MB/s eta 0:00:00
+Collecting rignore>=0.5.1
+  Downloading rignore-0.6.4-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (950 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 950.3/950.3 kB 17.6 MB/s eta 0:00:00
+Collecting rich>=13.7.1
+  Downloading rich-14.1.0-py3-none-any.whl (243 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 243.4/243.4 kB 6.7 MB/s eta 0:00:00
+Collecting cffi>=1.0
+  Downloading cffi-1.17.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (446 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 446.2/446.2 kB 10.2 MB/s eta 0:00:00
+Collecting shellingham>=1.3.0
+  Downloading shellingham-1.5.4-py2.py3-none-any.whl (9.8 kB)
+Collecting pycparser
+  Downloading pycparser-2.22-py3-none-any.whl (117 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 117.6/117.6 kB 4.2 MB/s eta 0:00:00
+Collecting pygments<3.0.0,>=2.13.0
+  Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 22.1 MB/s eta 0:00:00
+Collecting markdown-it-py>=2.2.0
+  Downloading markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 87.3/87.3 kB 2.0 MB/s eta 0:00:00
+Collecting mdurl~=0.1
+  Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Installing collected packages: py-cpuinfo, nvidia-cusparselt-cu12, mpmath, fastrlock, blake3, websockets, uvloop, urllib3, typing_extensions, triton, tqdm, sympy, sniffio, shellingham, sentencepiece, safetensors, rpds-py, rignore, regex, pyzmq, pyyaml, python-multipart, python-json-logger, python-dotenv, pygments, pycparser, pycountry, pybase64, psutil, protobuf, propcache, prometheus_client, pillow, partial-json-parser, packaging, outlines_core, nvidia-nvtx-cu12, nvidia-nvjitlink-cu12, nvidia-nccl-cu12, nvidia-curand-cu12, nvidia-cufile-cu12, nvidia-cuda-runtime-cu12, nvidia-cuda-nvrtc-cu12, nvidia-cuda-cupti-cu12, nvidia-cublas-cu12, numpy, ninja, networkx, msgspec, msgpack, mdurl, MarkupSafe, llvmlite, llguidance, lark, jiter, interegular, idna, httptools, hf-xet, h11, fsspec, frozenlist, filelock, einops, dnspython, distro, diskcache, dill, cloudpickle, click, charset_normalizer, certifi, cbor2, cachetools, attrs, async-timeout, astor, annotated-types, aiohappyeyeballs, uvicorn, typing-inspection, soxr, sentry-sdk, scipy, requests, referencing, pydantic-core, opencv-python-headless, nvidia-cusparse-cu12, nvidia-cufft-cu12, nvidia-cudnn-cu12, numba, multidict, markdown-it-py, jinja2, httpcore, gguf, exceptiongroup, email-validator, depyf, cupy-cuda12x, cffi, aiosignal, yarl, tiktoken, soundfile, rich, pydantic, nvidia-cusolver-cu12, jsonschema-specifications, huggingface-hub, anyio, watchfiles, typer, torch, tokenizers, starlette, rich-toolkit, pydantic-extra-types, lm-format-enforcer, jsonschema, httpx, aiohttp, xformers, transformers, torchvision, torchaudio, ray, prometheus-fastapi-instrumentator, openai, fastapi, xgrammar, mistral_common, fastapi-cloud-cli, fastapi-cli, compressed-tensors, vllm
+Successfully installed MarkupSafe-3.0.2 aiohappyeyeballs-2.6.1 aiohttp-3.12.15 aiosignal-1.4.0 annotated-types-0.7.0 anyio-4.10.0 astor-0.8.1 async-timeout-5.0.1 attrs-25.3.0 blake3-1.0.5 cachetools-6.1.0 cbor2-5.7.0 certifi-2025.8.3 cffi-1.17.1 charset_normalizer-3.4.3 click-8.2.1 cloudpickle-3.1.1 compressed-tensors-0.10.2 cupy-cuda12x-13.5.1 depyf-0.19.0 dill-0.4.0 diskcache-5.6.3 distro-1.9.0 dnspython-2.7.0 einops-0.8.1 email-validator-2.2.0 exceptiongroup-1.3.0 fastapi-0.116.1 fastapi-cli-0.0.8 fastapi-cloud-cli-0.1.5 fastrlock-0.8.3 filelock-3.18.0 frozenlist-1.7.0 fsspec-2025.7.0 gguf-0.17.1 h11-0.16.0 hf-xet-1.1.7 httpcore-1.0.9 httptools-0.6.4 httpx-0.28.1 huggingface-hub-0.34.4 idna-3.10 interegular-0.3.3 jinja2-3.1.6 jiter-0.10.0 jsonschema-4.25.0 jsonschema-specifications-2025.4.1 lark-1.2.2 llguidance-0.7.30 llvmlite-0.44.0 lm-format-enforcer-0.10.12 markdown-it-py-4.0.0 mdurl-0.1.2 mistral_common-1.8.3 mpmath-1.3.0 msgpack-1.1.1 msgspec-0.19.0 multidict-6.6.4 networkx-3.4.2 ninja-1.13.0 numba-0.61.2 numpy-2.2.6 nvidia-cublas-cu12-12.6.4.1 nvidia-cuda-cupti-cu12-12.6.80 nvidia-cuda-nvrtc-cu12-12.6.77 nvidia-cuda-runtime-cu12-12.6.77 nvidia-cudnn-cu12-9.5.1.17 nvidia-cufft-cu12-11.3.0.4 nvidia-cufile-cu12-1.11.1.6 nvidia-curand-cu12-10.3.7.77 nvidia-cusolver-cu12-11.7.1.2 nvidia-cusparse-cu12-12.5.4.2 nvidia-cusparselt-cu12-0.6.3 nvidia-nccl-cu12-2.26.2 nvidia-nvjitlink-cu12-12.6.85 nvidia-nvtx-cu12-12.6.77 openai-1.90.0 opencv-python-headless-4.12.0.88 outlines_core-0.2.10 packaging-25.0 partial-json-parser-0.2.1.1.post6 pillow-11.3.0 prometheus-fastapi-instrumentator-7.1.0 prometheus_client-0.22.1 propcache-0.3.2 protobuf-6.31.1 psutil-7.0.0 py-cpuinfo-9.0.0 pybase64-1.4.2 pycountry-24.6.1 pycparser-2.22 pydantic-2.11.7 pydantic-core-2.33.2 pydantic-extra-types-2.10.5 pygments-2.19.2 python-dotenv-1.1.1 python-json-logger-3.3.0 python-multipart-0.0.20 pyyaml-6.0.2 pyzmq-27.0.1 ray-2.48.0 referencing-0.36.2 regex-2025.7.34 requests-2.32.4 rich-14.1.0 rich-toolkit-0.15.0 rignore-0.6.4 rpds-py-0.27.0 safetensors-0.6.2 scipy-1.15.3 sentencepiece-0.2.1 sentry-sdk-2.34.1 shellingham-1.5.4 sniffio-1.3.1 soundfile-0.13.1 soxr-0.5.0.post1 starlette-0.47.2 sympy-1.14.0 tiktoken-0.11.0 tokenizers-0.21.4 torch-2.7.1 torchaudio-2.7.1 torchvision-0.22.1 tqdm-4.67.1 transformers-4.55.2 triton-3.3.1 typer-0.16.0 typing-inspection-0.4.1 typing_extensions-4.14.1 urllib3-2.5.0 uvicorn-0.35.0 uvloop-0.21.0 vllm-0.10.0 watchfiles-1.1.0 websockets-15.0.1 xformers-0.0.31 xgrammar-0.1.21 yarl-1.20.1
+WARNING: There was an error checking the latest version of pip.
+⌛ Waiting for vLLM...........INFO 08-14 17:48:43 [__init__.py:235] Automatically detected platform cuda.
+...INFO 08-14 17:48:45 [api_server.py:1755] vLLM API server version 0.10.0
+INFO 08-14 17:48:45 [cli_args.py:261] non-default args: {'model': 'qwen/qwen3-4b', 'trust_remote_code': True, 'tensor_parallel_size': 4}
+............INFO 08-14 17:48:57 [config.py:1604] Using max model len 40960
+INFO 08-14 17:48:58 [config.py:2434] Chunked prefill is enabled with max_num_batched_tokens=2048.
+...............INFO 08-14 17:49:13 [__init__.py:235] Automatically detected platform cuda.
+..INFO 08-14 17:49:15 [core.py:572] Waiting for init message from front-end.
+INFO 08-14 17:49:15 [core.py:71] Initializing a V1 LLM engine (v0.10.0) with config: model='qwen/qwen3-4b', speculative_config=None, tokenizer='qwen/qwen3-4b', skip_tokenizer_init=False, tokenizer_mode=auto, revision=None, override_neuron_config={}, tokenizer_revision=None, trust_remote_code=True, dtype=torch.bfloat16, max_seq_len=40960, download_dir=None, load_format=auto, tensor_parallel_size=4, pipeline_parallel_size=1, disable_custom_all_reduce=False, quantization=None, enforce_eager=False, kv_cache_dtype=auto,  device_config=cuda, decoding_config=DecodingConfig(backend='auto', disable_fallback=False, disable_any_whitespace=False, disable_additional_properties=False, reasoning_backend=''), observability_config=ObservabilityConfig(show_hidden_metrics_for_version=None, otlp_traces_endpoint=None, collect_detailed_traces=None), seed=0, served_model_name=qwen/qwen3-4b, num_scheduler_steps=1, multi_step_stream_outputs=True, enable_prefix_caching=True, chunked_prefill_enabled=True, use_async_output_proc=True, pooler_config=None, compilation_config={"level":3,"debug_dump_path":"","cache_dir":"","backend":"","custom_ops":[],"splitting_ops":["vllm.unified_attention","vllm.unified_attention_with_output","vllm.mamba_mixer2"],"use_inductor":true,"compile_sizes":[],"inductor_compile_config":{"enable_auto_functionalized_v2":false},"inductor_passes":{},"use_cudagraph":true,"cudagraph_num_of_warmups":1,"cudagraph_capture_sizes":[512,504,496,488,480,472,464,456,448,440,432,424,416,408,400,392,384,376,368,360,352,344,336,328,320,312,304,296,288,280,272,264,256,248,240,232,224,216,208,200,192,184,176,168,160,152,144,136,128,120,112,104,96,88,80,72,64,56,48,40,32,24,16,8,4,2,1],"cudagraph_copy_inputs":false,"full_cuda_graph":false,"max_capture_size":512,"local_cache_dir":null}
+INFO 08-14 17:49:15 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0, 1, 2, 3], buffer_handle=(4, 16777216, 10, 'psm_732f6ae1'), local_subscribe_addr='ipc:///local/jobs/u16096_10377513/3152791d-e6ee-494a-8aa4-9d02d9a0fb1c', remote_subscribe_addr=None, remote_addr_ipv6=False)
+......INFO 08-14 17:49:20 [__init__.py:235] Automatically detected platform cuda.
+INFO 08-14 17:49:20 [__init__.py:235] Automatically detected platform cuda.
+INFO 08-14 17:49:20 [__init__.py:235] Automatically detected platform cuda.
+INFO 08-14 17:49:20 [__init__.py:235] Automatically detected platform cuda.
+.....[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:49:25 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_28af5dae'), local_subscribe_addr='ipc:///local/jobs/u16096_10377513/717e3271-3ab4-433e-9894-cca3202a0328', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:49:25 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_bf5bbf6a'), local_subscribe_addr='ipc:///local/jobs/u16096_10377513/b1e14bb4-ed50-4528-89f1-7a215df7e93c', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:49:25 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_49cdda70'), local_subscribe_addr='ipc:///local/jobs/u16096_10377513/e254bde8-f6c6-4ab3-b8ed-820ebebd02bf', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:49:25 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[0], buffer_handle=(1, 10485760, 10, 'psm_a33f6bb9'), local_subscribe_addr='ipc:///local/jobs/u16096_10377513/ab157429-b59a-4d06-a7be-7b8dbca6b0b8', remote_subscribe_addr=None, remote_addr_ipv6=False)
+.[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:49:27 [__init__.py:1375] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:49:27 [__init__.py:1375] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:49:27 [__init__.py:1375] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:49:27 [__init__.py:1375] Found nccl from library libnccl.so.2
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:49:27 [pynccl.py:70] vLLM is using nccl==2.26.2
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:49:27 [pynccl.py:70] vLLM is using nccl==2.26.2
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:49:27 [pynccl.py:70] vLLM is using nccl==2.26.2
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:49:27 [pynccl.py:70] vLLM is using nccl==2.26.2
+.[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:49:27 [custom_all_reduce_utils.py:246] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:49:27 [custom_all_reduce_utils.py:246] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:49:27 [custom_all_reduce_utils.py:246] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:49:27 [custom_all_reduce_utils.py:246] reading GPU P2P access cache from /user/kaesberg1/u16096/.cache/vllm/gpu_p2p_access_cache_for_0,1,2,3.json
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:49:27 [shm_broadcast.py:289] vLLM message queue communication handle: Handle(local_reader_ranks=[1, 2, 3], buffer_handle=(3, 4194304, 6, 'psm_ab04c173'), local_subscribe_addr='ipc:///local/jobs/u16096_10377513/24bca547-332e-4ef0-ac7e-d72e311ab58c', remote_subscribe_addr=None, remote_addr_ipv6=False)
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:49:27 [parallel_state.py:1102] rank 2 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 2, EP rank 2
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:49:27 [parallel_state.py:1102] rank 0 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 0, EP rank 0
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:49:27 [parallel_state.py:1102] rank 3 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 3, EP rank 3
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:49:27 [parallel_state.py:1102] rank 1 in world size 4 is assigned as DP rank 0, PP rank 0, TP rank 1, EP rank 1
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m WARNING 08-14 17:49:27 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m WARNING 08-14 17:49:27 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m WARNING 08-14 17:49:27 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m WARNING 08-14 17:49:27 [topk_topp_sampler.py:59] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:49:27 [gpu_model_runner.py:1843] Starting to load model qwen/qwen3-4b...
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:49:27 [gpu_model_runner.py:1843] Starting to load model qwen/qwen3-4b...
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:49:27 [gpu_model_runner.py:1843] Starting to load model qwen/qwen3-4b...
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:49:27 [gpu_model_runner.py:1843] Starting to load model qwen/qwen3-4b...
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:49:28 [gpu_model_runner.py:1875] Loading model from scratch...
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:49:28 [gpu_model_runner.py:1875] Loading model from scratch...
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:49:28 [gpu_model_runner.py:1875] Loading model from scratch...
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:49:28 [gpu_model_runner.py:1875] Loading model from scratch...
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:49:28 [cuda.py:290] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:49:28 [cuda.py:290] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:49:28 [cuda.py:290] Using Flash Attention backend on V1 engine.
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:49:28 [cuda.py:290] Using Flash Attention backend on V1 engine.
+.[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:49:28 [weight_utils.py:296] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:49:29 [weight_utils.py:296] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:49:29 [weight_utils.py:296] Using model weights format ['*.safetensors']
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:49:29 [weight_utils.py:296] Using model weights format ['*.safetensors']
+.............................................................[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:50:29 [weight_utils.py:312] Time spent downloading weights for qwen/qwen3-4b: 61.031586 seconds
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/3 [00:00<?, ?it/s]
+.[1;36m(VllmWorker rank=0 pid=1388874)[0;0m Loading safetensors checkpoint shards:  33% Completed | 1/3 [00:00<00:00,  2.64it/s]
+.........[1;36m(VllmWorker rank=0 pid=1388874)[0;0m Loading safetensors checkpoint shards:  67% Completed | 2/3 [00:09<00:05,  5.44s/it]
+..........[1;36m(VllmWorker rank=0 pid=1388874)[0;0m Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:19<00:00,  7.48s/it]
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m Loading safetensors checkpoint shards: 100% Completed | 3/3 [00:19<00:00,  6.42s/it]
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m 
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:50:49 [default_loader.py:262] Loading weights took 19.32 seconds
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:50:49 [default_loader.py:262] Loading weights took 17.51 seconds
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:50:49 [default_loader.py:262] Loading weights took 18.20 seconds
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:50:49 [default_loader.py:262] Loading weights took 18.79 seconds
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:50:50 [gpu_model_runner.py:1892] Model loading took 1.8947 GiB and 81.566617 seconds
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:50:50 [gpu_model_runner.py:1892] Model loading took 1.8947 GiB and 81.650883 seconds
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:50:50 [gpu_model_runner.py:1892] Model loading took 1.8947 GiB and 81.673433 seconds
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:50:50 [gpu_model_runner.py:1892] Model loading took 1.8947 GiB and 81.600661 seconds
+..........[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:51:01 [backends.py:530] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/3ea6a0d487/rank_2_0/backbone for vLLM's torch.compile
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:51:01 [backends.py:530] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/3ea6a0d487/rank_3_0/backbone for vLLM's torch.compile
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:51:01 [backends.py:541] Dynamo bytecode transform time: 10.56 s
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:51:01 [backends.py:541] Dynamo bytecode transform time: 10.56 s
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:51:01 [backends.py:530] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/3ea6a0d487/rank_1_0/backbone for vLLM's torch.compile
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:51:01 [backends.py:541] Dynamo bytecode transform time: 10.57 s
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:51:01 [backends.py:530] Using cache directory: /user/kaesberg1/u16096/.cache/vllm/torch_compile_cache/3ea6a0d487/rank_0_0/backbone for vLLM's torch.compile
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:51:01 [backends.py:541] Dynamo bytecode transform time: 10.60 s
+......[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:51:07 [backends.py:194] Cache the graph for dynamic shape for later use
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:51:07 [backends.py:194] Cache the graph for dynamic shape for later use
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:51:07 [backends.py:194] Cache the graph for dynamic shape for later use
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:51:07 [backends.py:194] Cache the graph for dynamic shape for later use
+..................................[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:51:41 [backends.py:215] Compiling a graph for dynamic shape takes 39.79 s
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:51:41 [backends.py:215] Compiling a graph for dynamic shape takes 39.85 s
+.[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:51:41 [backends.py:215] Compiling a graph for dynamic shape takes 40.03 s
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:51:41 [backends.py:215] Compiling a graph for dynamic shape takes 40.27 s
+.......[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:51:49 [monitor.py:34] torch.compile takes 50.82 s in total
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:51:49 [monitor.py:34] torch.compile takes 50.39 s in total
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:51:49 [monitor.py:34] torch.compile takes 50.60 s in total
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:51:49 [monitor.py:34] torch.compile takes 50.41 s in total
+.[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:51:50 [gpu_worker.py:255] Available KV cache memory: 66.20 GiB
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:51:50 [gpu_worker.py:255] Available KV cache memory: 66.06 GiB
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:51:50 [gpu_worker.py:255] Available KV cache memory: 66.06 GiB
+.[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:51:50 [gpu_worker.py:255] Available KV cache memory: 66.20 GiB
+INFO 08-14 17:51:50 [kv_cache_utils.py:833] GPU KV cache size: 1,928,304 tokens
+INFO 08-14 17:51:50 [kv_cache_utils.py:837] Maximum concurrency for 40,960 tokens per request: 47.08x
+INFO 08-14 17:51:50 [kv_cache_utils.py:833] GPU KV cache size: 1,924,208 tokens
+INFO 08-14 17:51:50 [kv_cache_utils.py:837] Maximum concurrency for 40,960 tokens per request: 46.98x
+INFO 08-14 17:51:50 [kv_cache_utils.py:833] GPU KV cache size: 1,924,208 tokens
+INFO 08-14 17:51:50 [kv_cache_utils.py:837] Maximum concurrency for 40,960 tokens per request: 46.98x
+INFO 08-14 17:51:50 [kv_cache_utils.py:833] GPU KV cache size: 1,928,304 tokens
+INFO 08-14 17:51:50 [kv_cache_utils.py:837] Maximum concurrency for 40,960 tokens per request: 47.08x
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m Capturing CUDA graph shapes:   0%|          | 0/67 [00:00<?, ?it/s]Capturing CUDA graph shapes:   4%|▍         | 3/67 [00:00<00:02, 25.31it/s].Capturing CUDA graph shapes:   9%|▉         | 6/67 [00:00<00:02, 27.19it/s]Capturing CUDA graph shapes:  13%|█▎        | 9/67 [00:00<00:02, 27.71it/s]Capturing CUDA graph shapes:  18%|█▊        | 12/67 [00:00<00:01, 28.01it/s]Capturing CUDA graph shapes:  22%|██▏       | 15/67 [00:00<00:01, 28.07it/s]Capturing CUDA graph shapes:  27%|██▋       | 18/67 [00:00<00:01, 27.95it/s]Capturing CUDA graph shapes:  31%|███▏      | 21/67 [00:00<00:01, 27.84it/s]Capturing CUDA graph shapes:  36%|███▌      | 24/67 [00:00<00:01, 27.58it/s]Capturing CUDA graph shapes:  40%|████      | 27/67 [00:00<00:01, 27.45it/s]Capturing CUDA graph shapes:  45%|████▍     | 30/67 [00:01<00:01, 27.30it/s].Capturing CUDA graph shapes:  49%|████▉     | 33/67 [00:01<00:01, 27.06it/s]Capturing CUDA graph shapes:  54%|█████▎    | 36/67 [00:01<00:01, 26.60it/s]Capturing CUDA graph shapes:  58%|█████▊    | 39/67 [00:01<00:01, 26.35it/s]Capturing CUDA graph shapes:  63%|██████▎   | 42/67 [00:01<00:00, 26.00it/s]Capturing CUDA graph shapes:  67%|██████▋   | 45/67 [00:01<00:00, 25.48it/s]Capturing CUDA graph shapes:  72%|███████▏  | 48/67 [00:01<00:00, 25.17it/s]Capturing CUDA graph shapes:  76%|███████▌  | 51/67 [00:01<00:00, 25.00it/s]Capturing CUDA graph shapes:  81%|████████  | 54/67 [00:02<00:00, 24.66it/s]Capturing CUDA graph shapes:  85%|████████▌ | 57/67 [00:02<00:00, 23.98it/s].Capturing CUDA graph shapes:  90%|████████▉ | 60/67 [00:02<00:00, 23.67it/s]Capturing CUDA graph shapes:  94%|█████████▍| 63/67 [00:02<00:00, 22.70it/s]Capturing CUDA graph shapes:  99%|█████████▊| 66/67 [00:02<00:00, 22.64it/s][1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:51:53 [custom_all_reduce.py:196] Registering 4891 cuda graph addresses
+Capturing CUDA graph shapes: 100%|██████████| 67/67 [00:02<00:00, 25.32it/s]
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:51:53 [custom_all_reduce.py:196] Registering 4891 cuda graph addresses
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:51:53 [custom_all_reduce.py:196] Registering 4891 cuda graph addresses
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:51:54 [custom_all_reduce.py:196] Registering 4891 cuda graph addresses
+[1;36m(VllmWorker rank=3 pid=1388877)[0;0m INFO 08-14 17:51:54 [gpu_model_runner.py:2485] Graph capturing finished in 3 secs, took 0.60 GiB
+[1;36m(VllmWorker rank=2 pid=1388876)[0;0m INFO 08-14 17:51:54 [gpu_model_runner.py:2485] Graph capturing finished in 3 secs, took 0.60 GiB
+[1;36m(VllmWorker rank=0 pid=1388874)[0;0m INFO 08-14 17:51:54 [gpu_model_runner.py:2485] Graph capturing finished in 3 secs, took 0.60 GiB
+[1;36m(VllmWorker rank=1 pid=1388875)[0;0m INFO 08-14 17:51:54 [gpu_model_runner.py:2485] Graph capturing finished in 3 secs, took 0.60 GiB
+INFO 08-14 17:51:54 [core.py:193] init engine (profile, create kv cache, warmup model) took 63.74 seconds
+..INFO 08-14 17:51:55 [loggers.py:141] Engine 000: vllm cache_config_info with initialization after num_gpu_blocks is: 120263
+WARNING 08-14 17:51:56 [config.py:1528] Default sampling parameters have been overridden by the model's Hugging Face generation config recommended from the model creator. If this is not intended, please relaunch vLLM instance with `--generation-config vllm`.
+INFO 08-14 17:51:56 [serving_responses.py:89] Using default chat sampling params from model: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
+.INFO 08-14 17:51:56 [serving_chat.py:122] Using default chat sampling params from model: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
+INFO 08-14 17:51:56 [serving_completion.py:77] Using default completion sampling params from model: {'temperature': 0.6, 'top_k': 20, 'top_p': 0.95}
+INFO 08-14 17:51:56 [api_server.py:1818] Starting vLLM API server 0 on http://0.0.0.0:8000
+INFO 08-14 17:51:56 [launcher.py:29] Available routes are:
+INFO 08-14 17:51:56 [launcher.py:37] Route: /openapi.json, Methods: HEAD, GET
+INFO 08-14 17:51:56 [launcher.py:37] Route: /docs, Methods: HEAD, GET
+INFO 08-14 17:51:56 [launcher.py:37] Route: /docs/oauth2-redirect, Methods: HEAD, GET
+INFO 08-14 17:51:56 [launcher.py:37] Route: /redoc, Methods: HEAD, GET
+INFO 08-14 17:51:56 [launcher.py:37] Route: /health, Methods: GET
+INFO 08-14 17:51:56 [launcher.py:37] Route: /load, Methods: GET
+INFO 08-14 17:51:56 [launcher.py:37] Route: /ping, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /ping, Methods: GET
+INFO 08-14 17:51:56 [launcher.py:37] Route: /tokenize, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /detokenize, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v1/models, Methods: GET
+INFO 08-14 17:51:56 [launcher.py:37] Route: /version, Methods: GET
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v1/responses, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v1/responses/{response_id}, Methods: GET
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v1/responses/{response_id}/cancel, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v1/chat/completions, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v1/completions, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v1/embeddings, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /pooling, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /classify, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /score, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v1/score, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v1/audio/transcriptions, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v1/audio/translations, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /rerank, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v1/rerank, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /v2/rerank, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /scale_elastic_ep, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /is_scaling_elastic_ep, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /invocations, Methods: POST
+INFO 08-14 17:51:56 [launcher.py:37] Route: /metrics, Methods: GET
+INFO:     Started server process [1388563]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+ … ready.
+[17:51:57] Server output silenced (see /mnt/vast-standard/home/kaesberg1/u16096/sparc/logs/vllm_10377513.log if needed)
+Collecting sparc-puzzle
+  Downloading sparc_puzzle-0.3.1-py3-none-any.whl (18 kB)
+Collecting datasets<4.0.0,>=3.6.0
+  Downloading datasets-3.6.0-py3-none-any.whl (491 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 491.5/491.5 kB 17.4 MB/s eta 0:00:00
+Collecting rich<14.0.0,>=13.0.0
+  Downloading rich-13.9.4-py3-none-any.whl (242 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 242.4/242.4 kB 15.1 MB/s eta 0:00:00
+Collecting tqdm<5.0.0,>=4.60.0
+  Using cached tqdm-4.67.1-py3-none-any.whl (78 kB)
+Collecting openai<2.0.0,>=1.86.0
+  Downloading openai-1.99.9-py3-none-any.whl (786 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 786.8/786.8 kB 28.6 MB/s eta 0:00:00
+Collecting numpy>=1.17
+  Using cached numpy-2.2.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (16.8 MB)
+Collecting fsspec[http]<=2025.3.0,>=2023.1.0
+  Downloading fsspec-2025.3.0-py3-none-any.whl (193 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 193.6/193.6 kB 10.0 MB/s eta 0:00:00
+Collecting pandas
+  Downloading pandas-2.3.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.3/12.3 MB 79.9 MB/s eta 0:00:00
+Collecting filelock
+  Using cached filelock-3.18.0-py3-none-any.whl (16 kB)
+Collecting pyyaml>=5.1
+  Using cached PyYAML-6.0.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (751 kB)
+Collecting dill<0.3.9,>=0.3.0
+  Downloading dill-0.3.8-py3-none-any.whl (116 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 116.3/116.3 kB 8.7 MB/s eta 0:00:00
+Collecting multiprocess<0.70.17
+  Downloading multiprocess-0.70.16-py310-none-any.whl (134 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 134.8/134.8 kB 6.8 MB/s eta 0:00:00
+Collecting pyarrow>=15.0.0
+  Downloading pyarrow-21.0.0-cp310-cp310-manylinux_2_28_x86_64.whl (42.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 42.7/42.7 MB 30.8 MB/s eta 0:00:00
+Collecting packaging
+  Using cached packaging-25.0-py3-none-any.whl (66 kB)
+Collecting xxhash
+  Downloading xxhash-3.5.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (194 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 194.1/194.1 kB 13.9 MB/s eta 0:00:00
+Collecting requests>=2.32.2
+  Using cached requests-2.32.4-py3-none-any.whl (64 kB)
+Collecting huggingface-hub>=0.24.0
+  Using cached huggingface_hub-0.34.4-py3-none-any.whl (561 kB)
+Collecting typing-extensions<5,>=4.11
+  Using cached typing_extensions-4.14.1-py3-none-any.whl (43 kB)
+Collecting sniffio
+  Using cached sniffio-1.3.1-py3-none-any.whl (10 kB)
+Collecting anyio<5,>=3.5.0
+  Using cached anyio-4.10.0-py3-none-any.whl (107 kB)
+Collecting httpx<1,>=0.23.0
+  Using cached httpx-0.28.1-py3-none-any.whl (73 kB)
+Collecting pydantic<3,>=1.9.0
+  Using cached pydantic-2.11.7-py3-none-any.whl (444 kB)
+Collecting distro<2,>=1.7.0
+  Using cached distro-1.9.0-py3-none-any.whl (20 kB)
+Collecting jiter<1,>=0.4.0
+  Using cached jiter-0.10.0-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (352 kB)
+Collecting markdown-it-py>=2.2.0
+  Using cached markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
+Collecting pygments<3.0.0,>=2.13.0
+  Using cached pygments-2.19.2-py3-none-any.whl (1.2 MB)
+Collecting idna>=2.8
+  Using cached idna-3.10-py3-none-any.whl (70 kB)
+Collecting exceptiongroup>=1.0.2
+  Using cached exceptiongroup-1.3.0-py3-none-any.whl (16 kB)
+Collecting aiohttp!=4.0.0a0,!=4.0.0a1
+  Using cached aiohttp-3.12.15-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (1.6 MB)
+Collecting httpcore==1.*
+  Using cached httpcore-1.0.9-py3-none-any.whl (78 kB)
+Collecting certifi
+  Using cached certifi-2025.8.3-py3-none-any.whl (161 kB)
+Collecting h11>=0.16
+  Using cached h11-0.16.0-py3-none-any.whl (37 kB)
+Collecting hf-xet<2.0.0,>=1.1.3
+  Using cached hf_xet-1.1.7-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.2 MB)
+Collecting mdurl~=0.1
+  Using cached mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+Collecting pydantic-core==2.33.2
+  Using cached pydantic_core-2.33.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.0 MB)
+Collecting typing-inspection>=0.4.0
+  Using cached typing_inspection-0.4.1-py3-none-any.whl (14 kB)
+Collecting annotated-types>=0.6.0
+  Using cached annotated_types-0.7.0-py3-none-any.whl (13 kB)
+Collecting urllib3<3,>=1.21.1
+  Using cached urllib3-2.5.0-py3-none-any.whl (129 kB)
+Collecting charset_normalizer<4,>=2
+  Using cached charset_normalizer-3.4.3-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (152 kB)
+Collecting tzdata>=2022.7
+  Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 kB 18.9 MB/s eta 0:00:00
+Collecting python-dateutil>=2.8.2
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 14.6 MB/s eta 0:00:00
+Collecting pytz>=2020.1
+  Downloading pytz-2025.2-py2.py3-none-any.whl (509 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 509.2/509.2 kB 29.2 MB/s eta 0:00:00
+Collecting attrs>=17.3.0
+  Using cached attrs-25.3.0-py3-none-any.whl (63 kB)
+Collecting aiohappyeyeballs>=2.5.0
+  Using cached aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+Collecting propcache>=0.2.0
+  Using cached propcache-0.3.2-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (198 kB)
+Collecting frozenlist>=1.1.1
+  Using cached frozenlist-1.7.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_17_x86_64.manylinux2014_x86_64.whl (222 kB)
+Collecting aiosignal>=1.4.0
+  Using cached aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+Collecting yarl<2.0,>=1.17.0
+  Using cached yarl-1.20.1-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (326 kB)
+Collecting async-timeout<6.0,>=4.0
+  Using cached async_timeout-5.0.1-py3-none-any.whl (6.2 kB)
+Collecting multidict<7.0,>=4.5
+  Using cached multidict-6.6.4-cp310-cp310-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (241 kB)
+Collecting six>=1.5
+  Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: pytz, xxhash, urllib3, tzdata, typing-extensions, tqdm, sniffio, six, pyyaml, pygments, pyarrow, propcache, packaging, numpy, mdurl, jiter, idna, hf-xet, h11, fsspec, frozenlist, filelock, distro, dill, charset_normalizer, certifi, attrs, async-timeout, annotated-types, aiohappyeyeballs, typing-inspection, requests, python-dateutil, pydantic-core, multiprocess, multidict, markdown-it-py, httpcore, exceptiongroup, aiosignal, yarl, rich, pydantic, pandas, huggingface-hub, anyio, httpx, aiohttp, openai, datasets, sparc-puzzle
+Successfully installed aiohappyeyeballs-2.6.1 aiohttp-3.12.15 aiosignal-1.4.0 annotated-types-0.7.0 anyio-4.10.0 async-timeout-5.0.1 attrs-25.3.0 certifi-2025.8.3 charset_normalizer-3.4.3 datasets-3.6.0 dill-0.3.8 distro-1.9.0 exceptiongroup-1.3.0 filelock-3.18.0 frozenlist-1.7.0 fsspec-2025.3.0 h11-0.16.0 hf-xet-1.1.7 httpcore-1.0.9 httpx-0.28.1 huggingface-hub-0.34.4 idna-3.10 jiter-0.10.0 markdown-it-py-4.0.0 mdurl-0.1.2 multidict-6.6.4 multiprocess-0.70.16 numpy-2.2.6 openai-1.99.9 packaging-25.0 pandas-2.3.1 propcache-0.3.2 pyarrow-21.0.0 pydantic-2.11.7 pydantic-core-2.33.2 pygments-2.19.2 python-dateutil-2.9.0.post0 pytz-2025.2 pyyaml-6.0.2 requests-2.32.4 rich-13.9.4 six-1.17.0 sniffio-1.3.1 sparc-puzzle-0.3.1 tqdm-4.67.1 typing-extensions-4.14.1 typing-inspection-0.4.1 tzdata-2025.2 urllib3-2.5.0 xxhash-3.5.0 yarl-1.20.1
+WARNING: There was an error checking the latest version of pip.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.venv_sparc/bin/sparc", line 5, in <module>
+    from sparc.sparc import main
+  File "/user/kaesberg1/u16096/.venv_sparc/lib/python3.10/site-packages/sparc/sparc.py", line 15, in <module>
+    from sparc.prompt import generate_prompt
+  File "/user/kaesberg1/u16096/.venv_sparc/lib/python3.10/site-packages/sparc/prompt.py", line 23
+    polyshapes_str += f"Shape {shape_id}:\n{'\n'.join(map(str, shape_def))}\n\n"
+                                                                                ^
+SyntaxError: f-string expression part cannot include a backslash
+[17:53:16] Cleaning up…
+============ Job Information ===================================================
+Submitted: 2025-08-14T17:35:37
+Started: 2025-08-14T17:39:47
+Ended: 2025-08-14T17:53:21
+Elapsed: 14 min, Limit: 2880 min, Difference: 2866 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 35.00 core-hours
+================================================================================

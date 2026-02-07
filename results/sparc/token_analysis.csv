@@ -1,0 +1,19 @@
+Model,File Type,Num Puzzles,Avg Tokens per Puzzle,Median Tokens,Std Dev,Min Tokens,Max Tokens,Total Tokens
+Qwen/Qwen3-0.6B,standard,483,41047.3,37819.0,28658.3,740,168162,19825863
+Qwen/Qwen3-14B,standard,500,42618.7,38161.5,23938.7,2649,143417,21309360
+Qwen/Qwen3-32B,standard,500,54155.9,47168.0,31476.8,4061,251581,27077939
+Qwen/Qwen3-32B,traceback,440,124098.2,76878.0,123513.9,2305,527395,54603224
+Qwen/Qwen3-4B,standard,500,49887.8,46076.5,27324.2,1551,161027,24943884
+Qwen/Qwen3-VL-32B-Thinking,visual,500,95263.0,92626.0,41666.5,4344,245109,47631506
+allenai/Olmo-3.1-32B-Think,standard,500,76637.2,64658.0,70170.7,3168,770293,38318576
+allenai/Olmo-3.1-32B-Think,traceback,420,160189.6,97646.5,172788.8,4370,708098,67279615
+deepseek-ai/DeepSeek-R1-Distill-Qwen-32B,standard,500,33820.7,32076.5,16415.7,873,91751,16910358
+deepseek-ai/DeepSeek-R1-Distill-Qwen-32B,traceback,500,99525.9,72635.5,87395.3,264,362848,49762947
+google/gemma-3-27b-it,standard,500,3136.8,3010.0,1787.3,72,10965,1568416
+google/gemma-3-27b-it,traceback,500,16367.2,16893.5,12446.9,105,35320,8183577
+mistralai/Magistral-Small-2507,standard,0,0.0,0.0,0.0,0,0,0
+mistralai/Magistral-Small-2507,traceback,495,31419.4,23938.0,27267.5,4,151253,15552611
+nvidia/Llama-3_3-Nemotron-Super-49B-v1_5,standard,500,99694.1,77142.0,100037.6,3934,757346,49847070
+nvidia/Llama-3_3-Nemotron-Super-49B-v1_5,traceback,380,224862.1,124330.0,216900.1,3449,830422,85447606
+openai/gpt-oss-120b,standard,500,57.9,56.0,32.7,4,204,28967
+openai/gpt-oss-120b,traceback,500,86.8,56.0,99.2,4,400,43420

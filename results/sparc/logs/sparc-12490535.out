@@ -1,0 +1,41 @@
+================================================================================
+JobID = 12490535
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu211
+================================================================================
+[2026-02-05 02:03:46] Job starting on ggpu211
+⌛ Waiting for vLLM......................................................................................................................................................................................................................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ─────────────────────────────────────────────────────────────               │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               openai/gpt-oss-120b                                    │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        openai_gpt-oss-120b_gym_traceback.jsonl                │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Prompt              gym_step_traceback                                     │
+│   Gym Traceback       Enabled                                                │
+│   Run Name            traceback                                              │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+[2026-02-05T02:11:03.836] error: *** JOB 12490535 ON ggpu211 CANCELLED AT 2026-02-05T02:11:03 DUE to SIGNAL Terminated ***
+============ Job Information ===================================================
+Submitted: 2026-02-05T01:13:17
+Started: 2026-02-05T02:03:42
+Ended: 2026-02-05T02:11:04
+Elapsed: 8 min, Limit: 2880 min, Difference: 2872 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 20.00 core-hours
+================================================================================

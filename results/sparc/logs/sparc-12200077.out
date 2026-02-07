@@ -1,0 +1,123 @@
+================================================================================
+JobID = 12200077
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu155
+================================================================================
+[2026-01-13 13:34:24] Job starting on ggpu155
+⌛ Waiting for vLLM.................................................................................................................. ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 2 previous results from openai_gpt-oss-120b_gym.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ───────────────────────────────────────────────────                         │
+│   Dataset Size        500                                                    │
+│   Already Processed   2                                                      │
+│   Remaining           498                                                    │
+│   Model               openai/gpt-oss-120b                                    │
+│   Temperature         1.0                                                    │
+│   Batch Size          5                                                      │
+│   Results File        openai_gpt-oss-120b_gym.jsonl                          │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Gym Traceback       Disabled                                               │
+│   Timeout             20000.0s                                               │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 2 previous results from openai_gpt-oss-120b_gym.jsonl
+🔄 Resuming processing: 2 already done, 498 remaining
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 1/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 1/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 1/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 1/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 1/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 2/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 2/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 2/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 2/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 2/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 3/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 3/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 3/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 3/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 3/4): 'NoneType' object
+has no attribute 'strip'
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle dce20e150e7fcced after 3 retries: 'NoneType' object has no 
+attribute 'strip'
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 119, in process_puzzle_step_by_step
+    reply = response.choices[0].message.content.strip()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strip'
+❌ ERROR on puzzle ed40414d615431d6 after 3 retries: 'NoneType' object has no 
+attribute 'strip'
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 119, in process_puzzle_step_by_step
+    reply = response.choices[0].message.content.strip()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strip'
+❌ ERROR on puzzle 3fe8a85b768ae5b7 after 3 retries: 'NoneType' object has no 
+attribute 'strip'
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 119, in process_puzzle_step_by_step
+    reply = response.choices[0].message.content.strip()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strip'
+❌ ERROR on puzzle ebc9c10093a1255a after 3 retries: 'NoneType' object has no 
+attribute 'strip'
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 119, in process_puzzle_step_by_step
+    reply = response.choices[0].message.content.strip()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strip'
+❌ ERROR on puzzle aa31d05ed8fdb273 after 3 retries: 'NoneType' object has no 
+attribute 'strip'
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 119, in process_puzzle_step_by_step
+    reply = response.choices[0].message.content.strip()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'strip'
+💾 Results saved to openai_gpt-oss-120b_gym.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_gym_*.csv
+[2026-01-13T17:08:53.272] error: *** JOB 12200077 ON ggpu155 CANCELLED AT 2026-01-13T17:08:53 DUE to SIGNAL Terminated ***
+============ Job Information ===================================================
+Submitted: 2026-01-13T13:30:32
+Started: 2026-01-13T13:34:21
+Ended: 2026-01-13T17:08:53
+Elapsed: 215 min, Limit: 2880 min, Difference: 2665 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 537.50 core-hours
+================================================================================

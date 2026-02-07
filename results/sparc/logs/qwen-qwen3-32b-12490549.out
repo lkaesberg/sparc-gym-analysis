@@ -1,0 +1,173 @@
+================================================================================
+JobID = 12490549
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu196
+================================================================================
+[2026-02-05 03:44:21] Job starting on ggpu196
+⌛ Waiting for vLLM....................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ──────────────────────────────────────────────                              │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               Qwen/Qwen3-32B                                         │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        Qwen_Qwen3-32B.jsonl                                   │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Single-shot                                            │
+│   Prompt              single_shot                                            │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+💾 Results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+
+✅ Processing completed successfully!
+
+
+          📊 SPaRC Dataset Processing Results (Single-Shot)           
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 26              │ 5.2%            │
+│ Failed                         │ 474             │ 94.8%           │
+│                                │                 │                 │
+│ Fully Valid Paths              │ 114             │ 22.8%           │
+│ Connected Paths                │ 464             │ 92.8%           │
+│ Correct Start/End              │ 491             │ 98.2%           │
+│ Non-Intersecting               │ 426             │ 85.2%           │
+│ No Rule Violations             │ 126             │ 25.2%           │
+│                                │                 │                 │
+│ Avg Path Length                │ 20.0 steps      │                 │
+│ Min Path Length                │ 2 steps         │                 │
+│ Max Path Length                │ 96 steps        │                 │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 17/86           │ 19.8%           │
+│ Difficulty 2 Solved            │ 5/118           │ 4.2%            │
+│ Difficulty 3 Solved            │ 3/121           │ 2.5%            │
+│ Difficulty 4 Solved            │ 1/86            │ 1.2%            │
+│ Difficulty 5 Solved            │ 0/89            │ 0.0%            │
+│                                │                 │                 │
+│ Total Time                     │ 183983.4        │                 │
+│                                │ seconds         │                 │
+│ Avg Time per Puzzle            │ 367.97 seconds  │                 │
+│ Puzzles per Minute             │ 0.2             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                Path      Time                                  
+  Puzzle ID   Diffic…   Stat…   Length    (s)      Issues                       
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05e…   3         ❌      41        350.86   intersecting, rules          
+                        FAIL                                                    
+  ebc9c100…   3         ❌      28        284.67   rules                        
+                        FAIL                                                    
+  ed40414d…   3         ❌      10        381.86   rules                        
+                        FAIL                                                    
+  dce20e15…   5         ❌      23        527.24   None                         
+                        FAIL                                                    
+  3fe8a85b…   1         ❌      36        471.24   intersecting, rules          
+                        FAIL                                                    
+  1284a724…   3         ❌      15        546.47   rules                        
+                        FAIL                                                    
+  cbeb87b3…   3         ❌      16        384.93   rules                        
+                        FAIL                                                    
+  c80d64b5…   5         ❌      34        512.44   intersecting, rules          
+                        FAIL                                                    
+  24e88765…   5         ❌      35        537.69   start/end, intersecting,     
+                        FAIL                       rules                        
+  196a8863…   4         ❌      34        384.72   None                         
+                        FAIL                                                    
+  e82bd665…   2         ❌      17        383.04   rules                        
+                        FAIL                                                    
+  c6739963…   3         ❌      11        229.90   rules                        
+                        FAIL                                                    
+  953c10f2…   2         ✅      2         257.35   None                         
+                        PASS                                                    
+  d91761f3…   4         ❌      20        371.06   None                         
+                        FAIL                                                    
+  bc66c2e1…   3         ❌      23        405.70   rules                        
+                        FAIL                                                    
+  4b236c53…   3         ❌      28        499.70   rules                        
+                        FAIL                                                    
+  5f9a9294…   1         ❌      10        524.36   rules                        
+                        FAIL                                                    
+  860fbc1c…   3         ❌      20        420.23   None                         
+                        FAIL                                                    
+  5b5d43da…   4         ✅      10        260.29   None                         
+                        PASS                                                    
+  971ad9f4…   5         ❌      19        487.84   intersecting, rules          
+                        FAIL                                                    
+                                                                                
+
+📁 Final results saved to Qwen_Qwen3-32B.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_*.csv
+[2026-02-05 07:29:32] Job complete.
+============ Job Information ===================================================
+Submitted: 2026-02-05T01:14:33
+Started: 2026-02-05T03:44:17
+Ended: 2026-02-05T07:29:32
+Elapsed: 226 min, Limit: 2880 min, Difference: 2654 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 565.00 core-hours
+================================================================================

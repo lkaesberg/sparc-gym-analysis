@@ -1,0 +1,153 @@
+================================================================================
+JobID = 9805665
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu197
+================================================================================
+[2025-07-16 10:59:26] Job starting on ggpu197
+⌛ Waiting for vLLMtail: cannot open '/mnt/vast-standard/home/kaesberg1/u16096/logs/vllm_9805665.log' for reading: No such file or directory
+tail: no files remaining
+............................................................................................................................................................................................................................................................................................ … ready.
+[11:04:13] Server output silenced (see /mnt/vast-standard/home/kaesberg1/u16096/logs/vllm_9805665.log if needed)
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 220 previous results from google_gemma-3-27b-it.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ─────────────────────────────────────────────────                           │
+│   Dataset Size        500                                                    │
+│   Already Processed   220                                                    │
+│   Remaining           280                                                    │
+│   Model               google/gemma-3-27b-it                                  │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        google_gemma-3-27b-it.jsonl                            │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 220 previous results from google_gemma-3-27b-it.jsonl
+🔄 Resuming processing: 220 already done, 280 remaining
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+💾 Results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+
+✅ Processing completed successfully!
+
+
+                 📊 SPaRC Dataset Processing Results                  
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 11              │ 2.2%            │
+│ Failed                         │ 489             │ 97.8%           │
+│                                │                 │                 │
+│ Fully Valid Paths              │ 73              │ 14.6%           │
+│ Connected Paths                │ 370             │ 74.0%           │
+│ Correct Start/End              │ 462             │ 92.4%           │
+│ Non-Intersecting               │ 374             │ 74.8%           │
+│ No Rule Violations             │ 88              │ 17.6%           │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 4/86            │ 4.7%            │
+│ Difficulty 2 Solved            │ 2/118           │ 1.7%            │
+│ Difficulty 3 Solved            │ 3/121           │ 2.5%            │
+│ Difficulty 4 Solved            │ 2/86            │ 2.3%            │
+│ Difficulty 5 Solved            │ 0/89            │ 0.0%            │
+│                                │                 │                 │
+│ Avg Path Length                │ 18.0 steps      │                 │
+│ Min Path Length                │ 1 steps         │                 │
+│ Max Path Length                │ 66 steps        │                 │
+│                                │                 │                 │
+│ Total Time                     │ 9647.2 seconds  │                 │
+│ Avg Time per Puzzle            │ 19.29 seconds   │                 │
+│ Puzzles per Minute             │ 3.1             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                Path      Time                                  
+  Puzzle ID   Diffic…   Stat…   Length    (s)      Issues                       
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05e…   3         ❌      42        35.45    disconnected, rules          
+                        FAIL                                                    
+  ebc9c100…   3         ❌      8         30.48    rules                        
+                        FAIL                                                    
+  ed40414d…   3         ❌      9         20.37    start/end, rules             
+                        FAIL                                                    
+  dce20e15…   5         ❌      19        24.80    rules                        
+                        FAIL                                                    
+  3fe8a85b…   1         ❌      2         25.40    None                         
+                        FAIL                                                    
+  1284a724…   3         ❌      13        23.43    intersecting, rules          
+                        FAIL                                                    
+  cbeb87b3…   3         ❌      16        26.63    disconnected, rules          
+                        FAIL                                                    
+  c80d64b5…   5         ❌      24        24.52    rules                        
+                        FAIL                                                    
+  24e88765…   5         ❌      5         33.17    None                         
+                        FAIL                                                    
+  196a8863…   4         ❌      22        26.53    rules                        
+                        FAIL                                                    
+  e82bd665…   2         ❌      15        25.57    rules                        
+                        FAIL                                                    
+  c6739963…   3         ✅      9         26.01    None                         
+                        PASS                                                    
+  953c10f2…   2         ❌      4         32.32    None                         
+                        FAIL                                                    
+  d91761f3…   4         ❌      22        27.02    rules                        
+                        FAIL                                                    
+  bc66c2e1…   3         ❌      17        28.46    rules                        
+                        FAIL                                                    
+  4b236c53…   3         ❌      20        24.70    disconnected, intersecting,  
+                        FAIL                       rules                        
+  5f9a9294…   1         ❌      12        21.85    disconnected, rules          
+                        FAIL                                                    
+  860fbc1c…   3         ❌      3         22.57    start/end                    
+                        FAIL                                                    
+  5b5d43da…   4         ❌      23        24.85    disconnected, intersecting,  
+                        FAIL                       rules                        
+  971ad9f4…   5         ❌      9         23.42    disconnected, rules          
+                        FAIL                                                    
+                                                                                
+
+📁 Final results saved to google_gemma-3-27b-it.jsonl
+📑 CSV tables saved with prefix google_gemma-3-27b-it_*.csv
+[2025-07-16 11:10:45] sparc finished — job complete.
+[11:10:45] Cleaning up…
+============ Job Information ===================================================
+Submitted: 2025-07-16T10:57:43
+Started: 2025-07-16T10:59:03
+Ended: 2025-07-16T11:10:51
+Elapsed: 12 min, Limit: 2880 min, Difference: 2868 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 30.00 core-hours
+================================================================================

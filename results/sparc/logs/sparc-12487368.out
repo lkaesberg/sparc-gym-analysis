@@ -1,0 +1,109 @@
+================================================================================
+JobID = 12487368
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu196
+================================================================================
+[2026-02-04 20:21:12] Job starting on ggpu196
+⌛ Waiting for vLLM................................................................................................................................................................................................................................................................ ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 440 previous results from Qwen_Qwen3-32B_gym_traceback.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ────────────────────────────────────────────────────────                    │
+│   Dataset Size        500                                                    │
+│   Already Processed   440                                                    │
+│   Remaining           60                                                     │
+│   Model               Qwen/Qwen3-32B                                         │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        Qwen_Qwen3-32B_gym_traceback.jsonl                     │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Prompt              gym_step_traceback                                     │
+│   Gym Traceback       Enabled                                                │
+│   Run Name            traceback                                              │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 440 previous results from Qwen_Qwen3-32B_gym_traceback.jsonl
+🔄 Resuming processing: 440 already done, 60 remaining
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+💾 Results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+
+✅ Processing completed successfully!
+
+
+       📊 SPaRC Dataset Processing Results (Gym (Step-by-Step))       
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 48              │ 9.6%            │
+│ Failed                         │ 452             │ 90.4%           │
+│                                │                 │                 │
+│ Avg Steps Taken                │ 29.3 steps      │                 │
+│ Min Steps                      │ 1 steps         │                 │
+│ Max Steps                      │ 100 steps       │                 │
+│ Reached End                    │ 444             │ 88.8%           │
+│ No Legal Actions               │ 56              │ 11.2%           │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 27/86           │ 31.4%           │
+│ Difficulty 2 Solved            │ 14/118          │ 11.9%           │
+│ Difficulty 3 Solved            │ 3/121           │ 2.5%            │
+│ Difficulty 4 Solved            │ 4/86            │ 4.7%            │
+│ Difficulty 5 Solved            │ 0/89            │ 0.0%            │
+│                                │                 │                 │
+│ Total Time                     │ 1244129.9       │                 │
+│                                │ seconds         │                 │
+│ Avg Time per Puzzle            │ 2488.26 seconds │                 │
+│ Puzzles per Minute             │ 0.0             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                               Time      Reached                
+  Puzzle ID     Difficul…   Status    Steps    (s)       End         No Legal   
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05ed8…   3           ❌ FAIL   24       1894.38   Yes         No         
+  ebc9c10093…   3           ❌ FAIL   29       2691.60   Yes         No         
+  ed40414d61…   3           ❌ FAIL   7        684.23    Yes         No         
+  dce20e150e…   5           ❌ FAIL   36       2890.38   Yes         No         
+  3fe8a85b76…   1           ❌ FAIL   9        1040.30   Yes         No         
+  1284a7249a…   3           ❌ FAIL   4        294.34    Yes         No         
+  cbeb87b359…   3           ❌ FAIL   11       1048.58   Yes         No         
+  c80d64b5c5…   5           ❌ FAIL   39       2814.29   Yes         No         
+  24e8876585…   5           ❌ FAIL   24       2236.77   Yes         No         
+  196a88635b…   4           ❌ FAIL   25       2040.95   Yes         No         
+  e82bd665d7…   2           ✅ PASS   20       1700.16   Yes         No         
+  c6739963a7…   3           ✅ PASS   12       1149.95   Yes         No         
+  953c10f2e4…   2           ✅ PASS   3        347.94    Yes         No         
+  d91761f3ba…   4           ❌ FAIL   17       1533.23   Yes         No         
+  bc66c2e18f…   3           ❌ FAIL   10       788.59    Yes         No         
+  4b236c53ea…   3           ❌ FAIL   5        373.10    Yes         No         
+  5f9a92945a…   1           ✅ PASS   9        845.82    Yes         No         
+  860fbc1cfd…   3           ❌ FAIL   27       2367.11   Yes         No         
+  5b5d43da94…   4           ✅ PASS   9        700.42    Yes         No         
+  971ad9f45d…   5           ❌ FAIL   22       1707.13   Yes         No         
+                                                                                
+
+📁 Final results saved to Qwen_Qwen3-32B_gym_traceback.jsonl
+📑 CSV tables saved with prefix Qwen_Qwen3-32B_gym_traceback_*.csv
+[2026-02-05 02:53:35] Job complete.
+============ Job Information ===================================================
+Submitted: 2026-02-04T16:59:56
+Started: 2026-02-04T20:21:08
+Ended: 2026-02-05T02:53:35
+Elapsed: 393 min, Limit: 2880 min, Difference: 2487 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 982.50 core-hours
+================================================================================

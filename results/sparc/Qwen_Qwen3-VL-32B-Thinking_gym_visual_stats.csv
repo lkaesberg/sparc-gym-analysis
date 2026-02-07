@@ -1,0 +1,20 @@
+Metric,Value,Percentage
+Total Puzzles Processed,500,100.0%
+Correctly Solved,18,3.6%
+Failed,482,96.4%
+,,
+Avg Steps Taken,14.2 steps,
+Min Steps,1 steps,
+Max Steps,41 steps,
+Reached End,164,32.8%
+No Legal Actions,336,67.2%
+,,
+Difficulty 1 Solved,12/86,14.0%
+Difficulty 2 Solved,4/118,3.4%
+Difficulty 3 Solved,2/121,1.7%
+Difficulty 4 Solved,0/86,0.0%
+Difficulty 5 Solved,0/89,0.0%
+,,
+Total Time,1120182.4 seconds,
+Avg Time per Puzzle,2240.36 seconds,
+Puzzles per Minute,0.0,

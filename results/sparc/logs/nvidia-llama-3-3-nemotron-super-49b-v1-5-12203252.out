@@ -1,0 +1,235 @@
+================================================================================
+JobID = 12203252
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu152
+================================================================================
+[2026-01-14 00:31:19] Job starting on ggpu152
+⌛ Waiting for vLLM.......................................................................................................................................................................................................................................................................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ──────────────────────────────────────────────────────────────────────────  │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               nvidia/Llama-3_3-Nemotron-Super-49B-v1_5               │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceb…   │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8003/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Gym Traceback       Enabled                                                │
+│   Run Name            traceback                                              │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: $$
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle fee7fa98ecbf4534 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 0**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3ba7fc567dd14312 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: `Final: 2` (Move left to column 8).
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 22c41f4911d10461 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 2**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 6443d25f8c289548 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 1**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 7c2cc9e25acdc10f (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Prioritizing progress toward 
+unvisited dots and avoiding immediate rule violations, the safest move is to 
+backtrack left (2) to explore alternative paths toward the required dots. This 
+adheres to the rule allowing backtracking along the existing path. 
+</think>Final: 2
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 7c2cc9e25acdc10f (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Therefore, the agent should move 
+right (0) to [4,7], progressing towards the dot and the End Node. </think>Final:
+0
+🔄 Retrying in 2 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle a71c3513799bf094 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 2**
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle 62d5ef592f8f91fc (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: </evaluate>
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c09ea70a605760d3 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 1**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle be49f0eca3cd4c32 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 2**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c09ea70a605760d3 (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final**: 2
+🔄 Retrying in 2 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle b25e33c50909fc03 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: $$
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle b4d66071dc728f44 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final**: 0
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 745deea1055373eb (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final:** 3
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3987c3fc8d33089e (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Thus, the best next action is left 
+(2). </think>Final: 2
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle dedb9695c830d9a1 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: $$
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d58e426a05bbebe0 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final**: 3
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 58d9c6f1f97d78c1 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 3** (down) to backtrack and
+adjust the path.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 58d9c6f1f97d78c1 (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Therefore, the most logical next 
+move is down (action 3). </think>Final: 3
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ac07176ade6d4fcc (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Final: **2**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ac07176ade6d4fcc (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: ```
+🔄 Retrying in 2 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle 683d3d2b64d8d1fb (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 2**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5569f16359d15a33 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: ["Final: 3"]
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle f42b8d86bfb89096 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Since moving right allows the path 
+to extend forward and potentially open up paths downward, which is necessary to 
+reach row 10, I'll choose to move right. This avoids backtracking immediately 
+and progresses the path towards the lower rows where the target is located. 
+</think>Final: 0
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3ca9fa7e19e2188c (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Assuming the agent is at row2, 
+column4 (L), legal moves right and left. Moving right towards the target's 
+direction seems logical. So action 0. </think>Final: 0
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ad8274727f965b1c (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 2**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ab298046d34718be (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Final: \boxed{1}
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle f42b8d86bfb89096 (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 1**
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ad8274727f965b1c (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final**: 1
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ad8274727f965b1c (attempt 3/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Final: 1</think>
+🔄 Retrying in 4 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle 8e231f18dc7d476f (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 2**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 281ee792644831c5 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Final: **3** (Down)
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 281ee792644831c5 (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 0**
+🔄 Retrying in 2 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: d45871e2-7b72-461b-a6e1-249584dcce5f)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/main/README.md
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 3466f2b1-0a9e-4dbf-a0a2-482ed44786b0)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/195579019ab44fce4f394bb03af04bf598956e4b/SPaRC.py
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 0936633e-0a39-412a-afee-310802ee3e7e)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/195579019ab44fce4f394bb03af04bf598956e4b/.huggingface.yaml
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 40b9c187-492a-45bf-90d8-4106b1c7b06a)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/195579019ab44fce4f394bb03af04bf598956e4b/.huggingface.yaml
+Retrying in 2s [Retry 2/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 479f84fb-872f-4c40-9175-5679c829a54b)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/195579019ab44fce4f394bb03af04bf598956e4b/dataset_infos.json
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: b7712123-f6f4-4234-bab3-2c82a4eeaf80)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/main/README.md
+Retrying in 1s [Retry 1/5].
+'(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: 7a58099f-4ced-4510-80bb-72145269ba41)')' thrown while requesting HEAD https://huggingface.co/datasets/lkaesberg/SPaRC/resolve/main/README.md
+Retrying in 2s [Retry 2/5].
+⚠️  Connection error on puzzle 2d360e53c1cbf48e (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Final: 2 </think>Final: 2
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 85ace8079f2972ab (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Final: \boxed{3}
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 2d360e53c1cbf48e (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: ```
+🔄 Retrying in 2 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle 664bfd4472be694f (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: ```
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 6989cd6ab3949a4f (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: </think>
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 6989cd6ab3949a4f (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Given that the End node is up and 
+left, I think moving up first is logical. So Final: 1 (up). </think>Final: 1
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 624d40ea5ad58707 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Considering the collected dots 
+(1/3), but no dots visible in the current grid, they might be in other areas. 
+Backtracking left might explore unvisited regions, but the legal_actions allow 
+both directions. Given the End's position, right (action 0) is chosen to move 
+towards it, assuming the environment permits moving into visited nodes as part 
+of path extension. </think>Final: 0
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 664bfd4472be694f (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 3**
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 624d40ea5ad58707 (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: So, the decision is to move down 
+(3). </think>Final: 3
+🔄 Retrying in 2 seconds...
+[2026-01-16T00:33:00.489] error: *** JOB 12203252 ON ggpu152 CANCELLED AT 2026-01-16T00:33:00 DUE TO TIME LIMIT ***
+============ Job Information ===================================================
+Submitted: 2026-01-13T18:13:24
+Started: 2026-01-14T00:31:16
+Ended: 2026-01-16T00:33:00
+Elapsed: 2881 min, Limit: 2880 min, Difference: -1 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 7202.50 core-hours
+================================================================================

@@ -1,0 +1,139 @@
+================================================================================
+JobID = 12170234
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu197
+================================================================================
+[2026-01-10 10:58:28] Job starting on ggpu197
+⌛ Waiting for vLLM.............................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................. ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ──────────────────────────────────────────────────────────────────────────  │
+│   Dataset Size        500                                                    │
+│   Already Processed   0                                                      │
+│   Remaining           500                                                    │
+│   Model               nvidia/Llama-3_3-Nemotron-Super-49B-v1_5               │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceb…   │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8003/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Gym Traceback       Enabled                                                │
+│   Run Name            traceback                                              │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+🔄 Resuming processing: 0 already done, 500 remaining
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Hmm. So moving down may not help 
+much. Moving right might be better. Let's proceed with right. </think>Final: 0
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c80d64b5c5e39d7b (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 2**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final:** 3
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: $$
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: $$
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 3/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 1**
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle aa31d05ed8fdb273 after 3 retries: Invalid model output, no 
+'Final: <0-3>' found. Last line: **Final: 3**
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 122, in process_puzzle_step_by_step
+    raise ValueError(f"Invalid model output, no 'Final: <0-3>' found. Last line: {last_line}")
+ValueError: Invalid model output, no 'Final: <0-3>' found. Last line: **Final: 3**
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle f32fe4e5b37fedaa (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Final: \boxed{3}
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle 22ee8177bb6b927d (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 2**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 934d99322aa22dff (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 3**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 22ee8177bb6b927d (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Thus, the best action is to move 
+left (action 2). </think>Final: 2
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 934d99322aa22dff (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 3**
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle bb9d7db6f55f1f1e (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: </think>
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle c09ea70a605760d3 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: So the best choice here is to move 
+right. </think>Final: 0
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4582b19904d9a029 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 0**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 62035ff8ad16cb71 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 1**
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle f271fc95525040b1 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 1**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle e20e6b6a00158bdc (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 1**
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle f271fc95525040b1 (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: $$
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle e20e6b6a00158bdc (attempt 2/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 2**
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle e20e6b6a00158bdc (attempt 3/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: \boxed{2}
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 841b2d97bb365b8b (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Final: \boxed{0}
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d71204c97803d9a (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Final: 3 (down)
+🔄 Retrying in 1 seconds...
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_traceback_*.csv
+⚠️  Connection error on puzzle 1e7c5367fa438e3b (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final**: 3 (down)
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle aecb916b87a88a32 (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: Final decision: **Move right (0)** 
+to [6,3].
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle a8ea92dd47f4186b (attempt 1/4): Invalid model 
+output, no 'Final: <0-3>' found. Last line: **Final: 3**
+🔄 Retrying in 1 seconds...
+[2026-01-11T17:10:54.965] error: *** JOB 12170234 ON ggpu197 CANCELLED AT 2026-01-11T17:10:54 DUE to SIGNAL Terminated ***
+============ Job Information ===================================================
+Submitted: 2026-01-09T17:31:17
+Started: 2026-01-10T10:58:25
+Ended: 2026-01-11T17:10:55
+Elapsed: 1813 min, Limit: 2880 min, Difference: 1067 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 4532.50 core-hours
+================================================================================

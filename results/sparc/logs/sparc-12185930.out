@@ -1,0 +1,2126 @@
+================================================================================
+JobID = 12185930
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu155
+================================================================================
+[2026-01-12 16:59:24] Job starting on ggpu155
+⌛ Waiting for vLLM....................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 2 previous results from openai_gpt-oss-120b_gym.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ───────────────────────────────────────────────────                         │
+│   Dataset Size        500                                                    │
+│   Already Processed   2                                                      │
+│   Remaining           498                                                    │
+│   Model               openai/gpt-oss-120b                                    │
+│   Temperature         1.0                                                    │
+│   Batch Size          5                                                      │
+│   Results File        openai_gpt-oss-120b_gym.jsonl                          │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8000/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Gym Traceback       Disabled                                               │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 2 previous results from openai_gpt-oss-120b_gym.jsonl
+🔄 Resuming processing: 2 already done, 498 remaining
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle ebc9c10093a1255a (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 3fe8a85b768ae5b7 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle dce20e150e7fcced (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle ed40414d615431d6 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle aa31d05ed8fdb273 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle 3fe8a85b768ae5b7 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle dce20e150e7fcced after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle ed40414d615431d6 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle ebc9c10093a1255a after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle aa31d05ed8fdb273 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+💾 Results saved to openai_gpt-oss-120b_gym.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_gym_*.csv
+⚠️  Connection error on puzzle 24e8876585456ee5 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle cbeb87b359947c42 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 196a88635b1c83b4 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c80d64b5c5e39d7b (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 1284a7249a4fa10f (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 24e8876585456ee5 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle cbeb87b359947c42 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle c80d64b5c5e39d7b (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 196a88635b1c83b4 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 1284a7249a4fa10f (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle c80d64b5c5e39d7b (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 196a88635b1c83b4 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 24e8876585456ee5 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle cbeb87b359947c42 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 1284a7249a4fa10f (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle cbeb87b359947c42 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle 24e8876585456ee5 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle 196a88635b1c83b4 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle 1284a7249a4fa10f after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle c80d64b5c5e39d7b after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+💾 Results saved to openai_gpt-oss-120b_gym.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_gym_*.csv
+⚠️  Connection error on puzzle c6739963a7308111 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle bc66c2e18fd6231b (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 953c10f2e4d6fd6 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle e82bd665d710bb75 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle d91761f3ba340d (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle c6739963a7308111 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle e82bd665d710bb75 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle d91761f3ba340d (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle bc66c2e18fd6231b (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 953c10f2e4d6fd6 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle d91761f3ba340d (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle e82bd665d710bb75 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle c6739963a7308111 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle bc66c2e18fd6231b (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 953c10f2e4d6fd6 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle 953c10f2e4d6fd6 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle e82bd665d710bb75 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle bc66c2e18fd6231b after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle d91761f3ba340d after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle c6739963a7308111 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+💾 Results saved to openai_gpt-oss-120b_gym.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_gym_*.csv
+⚠️  Connection error on puzzle 5f9a92945a4ab62e (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 971ad9f45d1bd53b (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 860fbc1cfd446f7c (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5b5d43da944a752d (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 4b236c53ea5fbbdf (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5f9a92945a4ab62e (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5b5d43da944a752d (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 971ad9f45d1bd53b (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 860fbc1cfd446f7c (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 4b236c53ea5fbbdf (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 860fbc1cfd446f7c (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 5b5d43da944a752d (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 971ad9f45d1bd53b (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 5f9a92945a4ab62e (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 4b236c53ea5fbbdf (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle 5f9a92945a4ab62e after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle 971ad9f45d1bd53b after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle 5b5d43da944a752d after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle 860fbc1cfd446f7c after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle 4b236c53ea5fbbdf after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+💾 Results saved to openai_gpt-oss-120b_gym.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_gym_*.csv
+⚠️  Connection error on puzzle a814bed4f6905ba4 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle f32fe4e5b37fedaa (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 69a08c785ce5fcac (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3ba7fc567dd14312 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 5b3d4d35ac301050 (attempt 1/4): Request timed out.
+🔄 Retrying in 1 seconds...
+⚠️  Connection error on puzzle 3ba7fc567dd14312 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle a814bed4f6905ba4 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle f32fe4e5b37fedaa (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 69a08c785ce5fcac (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle 5b3d4d35ac301050 (attempt 2/4): Request timed out.
+🔄 Retrying in 2 seconds...
+⚠️  Connection error on puzzle f32fe4e5b37fedaa (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 69a08c785ce5fcac (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 3ba7fc567dd14312 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle a814bed4f6905ba4 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+⚠️  Connection error on puzzle 5b3d4d35ac301050 (attempt 3/4): Request timed out.
+🔄 Retrying in 4 seconds...
+❌ ERROR on puzzle 3ba7fc567dd14312 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle a814bed4f6905ba4 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle f32fe4e5b37fedaa after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle 69a08c785ce5fcac after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+❌ ERROR on puzzle 5b3d4d35ac301050 after 3 retries: Request timed out.
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 394, in handle_async_request
+    resp = await self._pool.handle_async_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 256, in handle_async_request
+    raise exc from None
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection_pool.py", line 236, in handle_async_request
+    response = await connection.handle_async_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/connection.py", line 103, in handle_async_request
+    return await self._connection.handle_async_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 136, in handle_async_request
+    raise exc
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 106, in handle_async_request
+    ) = await self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 177, in _receive_response_headers
+    event = await self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_async/http11.py", line 217, in _receive_event
+    data = await self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_backends/anyio.py", line 32, in read
+    with map_exceptions(exc_map):
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1529, in request
+    response = await self._client.send(
+               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1629, in send
+    response = await self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1657, in _send_handling_auth
+    response = await self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1694, in _send_handling_redirects
+    response = await self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_client.py", line 1730, in _send_single_request
+    response = await transport.handle_async_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 393, in handle_async_request
+    with map_httpcore_exceptions():
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/sparc/process_puzzle.py", line 113, in process_puzzle_step_by_step
+    response = await client.chat.completions.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/resources/chat/completions/completions.py", line 2603, in create
+    return await self._post(
+           ^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1794, in post
+    return await self.request(cast_to, opts, stream=stream, stream_cls=stream_cls)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/user/kaesberg1/u16096/.conda/envs/vllm/lib/python3.12/site-packages/openai/_base_client.py", line 1547, in request
+    raise APITimeoutError(request=request) from err
+openai.APITimeoutError: Request timed out.
+💾 Results saved to openai_gpt-oss-120b_gym.jsonl
+📑 CSV tables saved with prefix openai_gpt-oss-120b_gym_*.csv
+[2026-01-13T13:20:36.722] error: *** JOB 12185930 ON ggpu155 CANCELLED AT 2026-01-13T13:20:36 DUE to SIGNAL Terminated ***
+============ Job Information ===================================================
+Submitted: 2026-01-12T16:59:15
+Started: 2026-01-12T16:59:20
+Ended: 2026-01-13T13:20:37
+Elapsed: 1222 min, Limit: 2880 min, Difference: 1658 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 3055.00 core-hours
+================================================================================

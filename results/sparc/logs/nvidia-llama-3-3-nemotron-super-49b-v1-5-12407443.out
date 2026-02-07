@@ -1,0 +1,117 @@
+================================================================================
+JobID = 12407443
+User = u16096, Account = ag_gipp
+Partition = scc-gpu, Nodelist = ggpu138
+================================================================================
+[2026-01-30 01:23:52] Job starting on ggpu138
+⌛ Waiting for vLLM.................................................................................................................................................................................................................................................................................................................................................................................................................... ready.
+╭───────────────────────────────────────────────────────╮
+│ 🧩 SPaRC: Spatial Pathfinding and Reasoning Challenge │
+╰───────────────────────────────────────────────────────╯
+📂 Loaded 420 previous results from 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym.jsonl
+╭─────────────────────────────── Configuration ────────────────────────────────╮
+│                                                                              │
+│   Setting             Value                                                  │
+│  ────────────────────────────────────────────────────────────────────────    │
+│   Dataset Size        500                                                    │
+│   Already Processed   420                                                    │
+│   Remaining           80                                                     │
+│   Model               nvidia/Llama-3_3-Nemotron-Super-49B-v1_5               │
+│   Temperature         1.0                                                    │
+│   Batch Size          20                                                     │
+│   Results File        nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym.jsonl     │
+│   Max New             All                                                    │
+│   Base URL            http://127.0.0.1:8003/v1                               │
+│   Mode                Gym (step-by-step)                                     │
+│   Prompt              gym_step_traceback                                     │
+│   Gym Traceback       Enabled                                                │
+│   Timeout             1200.0s                                                │
+│                                                                              │
+╰──────────────────────────────────────────────────────────────────────────────╯
+💡 Press Ctrl+C to gracefully stop after current batch
+📂 Loaded 420 previous results from 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym.jsonl
+🔄 Resuming processing: 420 already done, 80 remaining
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_*.csv
+💾 Results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_*.csv
+
+✅ Processing completed successfully!
+
+
+       📊 SPaRC Dataset Processing Results (Gym (Step-by-Step))       
+╭────────────────────────────────┬─────────────────┬─────────────────╮
+│ Metric                         │ Value           │ Percentage      │
+├────────────────────────────────┼─────────────────┼─────────────────┤
+│ Total Puzzles Processed        │ 500             │ 100.0%          │
+│ Correctly Solved               │ 55              │ 11.0%           │
+│ Failed                         │ 445             │ 89.0%           │
+│                                │                 │                 │
+│ Avg Steps Taken                │ 18.1 steps      │                 │
+│ Min Steps                      │ 1 steps         │                 │
+│ Max Steps                      │ 100 steps       │                 │
+│ Reached End                    │ 324             │ 64.8%           │
+│ No Legal Actions               │ 176             │ 35.2%           │
+│                                │                 │                 │
+│ Difficulty 1 Solved            │ 28/86           │ 32.6%           │
+│ Difficulty 2 Solved            │ 17/118          │ 14.4%           │
+│ Difficulty 3 Solved            │ 7/121           │ 5.8%            │
+│ Difficulty 4 Solved            │ 1/86            │ 1.2%            │
+│ Difficulty 5 Solved            │ 2/89            │ 2.2%            │
+│                                │                 │                 │
+│ Total Time                     │ 1279150.4       │                 │
+│                                │ seconds         │                 │
+│ Avg Time per Puzzle            │ 2558.30 seconds │                 │
+│ Puzzles per Minute             │ 0.0             │                 │
+╰────────────────────────────────┴─────────────────┴─────────────────╯
+
+
+                 🔍 Detailed Results (showing first 20 puzzles)                 
+                                                                                
+                                               Time      Reached                
+  Puzzle ID     Difficul…   Status    Steps    (s)       End         No Legal   
+ ────────────────────────────────────────────────────────────────────────────── 
+  aa31d05ed8…   3           ❌ FAIL   27       3972.25   No          Yes        
+  ebc9c10093…   3           ❌ FAIL   17       2274.66   No          Yes        
+  ed40414d61…   3           ❌ FAIL   5        979.67    Yes         No         
+  dce20e150e…   5           ❌ FAIL   27       4059.92   No          Yes        
+  3fe8a85b76…   1           ❌ FAIL   26       3639.62   No          Yes        
+  1284a7249a…   3           ❌ FAIL   8        1363.80   Yes         No         
+  cbeb87b359…   3           ❌ FAIL   13       1810.81   Yes         No         
+  c80d64b5c5…   5           ❌ FAIL   27       3481.88   Yes         No         
+  24e8876585…   5           ❌ FAIL   31       4221.68   No          Yes        
+  196a88635b…   4           ❌ FAIL   13       1705.48   Yes         No         
+  e82bd665d7…   2           ❌ FAIL   14       2387.05   Yes         No         
+  c6739963a7…   3           ❌ FAIL   8        1301.30   Yes         No         
+  953c10f2e4…   2           ❌ FAIL   15       2223.62   Yes         No         
+  d91761f3ba…   4           ❌ FAIL   13       1440.56   Yes         No         
+  bc66c2e18f…   3           ❌ FAIL   14       1689.93   No          Yes        
+  4b236c53ea…   3           ❌ FAIL   16       2382.05   No          Yes        
+  5f9a92945a…   1           ❌ FAIL   9        1303.91   No          Yes        
+  860fbc1cfd…   3           ❌ FAIL   23       3210.82   No          Yes        
+  5b5d43da94…   4           ✅ PASS   9        1327.23   Yes         No         
+  971ad9f45d…   5           ❌ FAIL   23       3151.05   No          Yes        
+                                                                                
+
+📁 Final results saved to nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym.jsonl
+📑 CSV tables saved with prefix 
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5_gym_*.csv
+[2026-01-30 19:32:13] Job complete.
+============ Job Information ===================================================
+Submitted: 2026-01-30T01:08:59
+Started: 2026-01-30T01:23:49
+Ended: 2026-01-30T19:32:13
+Elapsed: 1089 min, Limit: 2880 min, Difference: 1791 min
+CPUs: 32, Nodes: 1
+Estimated Consumption: 2722.50 core-hours
+================================================================================
