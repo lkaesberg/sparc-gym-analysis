@@ -1,5 +1,5 @@
 """
-Script to create a correlation heatmap between difficulty, steps taken, path length, and success.
+Script to create correlation heatmaps for SPARC, SPARC-Gym, and Traceback variants.
 """
 import matplotlib.pyplot as plt
 import numpy as np
@@ -9,7 +9,7 @@ from pathlib import Path
 
 from plot_config import (
     setup_plot_style,
-    COLUMN_WIDTH_INCHES,
+    TEXT_WIDTH_INCHES,
 )
 
 
@@ -45,34 +45,54 @@ def clean_path(path):
     return cleaned
 
 
-def extract_all_data(results_dir):
-    """Extract all relevant metrics from SPARC-Gym Traceback files."""
+def extract_data_for_variant(results_dir, variant):
+    """Extract metrics from files for a specific variant."""
     results_path = Path(results_dir)
     
     records = []
     
-    for jsonl_file in results_path.glob("*_gym_traceback.jsonl"):
+    if variant == 'sparc':
+        pattern = "*.jsonl"
+        suffix_to_remove = ""
+    elif variant == 'gym':
+        pattern = "*_gym.jsonl"
+        suffix_to_remove = "_gym"
+    else:  # traceback
+        pattern = "*_gym_traceback.jsonl"
+        suffix_to_remove = "_gym_traceback"
+    
+    for jsonl_file in results_path.glob(pattern):
+        # Skip files that don't match the exact variant
+        if variant == 'sparc' and "_gym" in jsonl_file.name:
+            continue
+        if variant == 'gym' and "traceback" in jsonl_file.name:
+            continue
         if "archive" in str(jsonl_file) or "visual" in jsonl_file.name:
             continue
         
-        model_name = jsonl_file.stem.replace("_gym_traceback", "")
+        model_name = jsonl_file.stem
+        if suffix_to_remove:
+            model_name = model_name.replace(suffix_to_remove, "")
+        
         data = load_jsonl_data(jsonl_file)
         
         for entry in data:
-            # Data structure: puzzle info at top level, result nested under 'result'
             result = entry.get('result', {})
             
             difficulty = entry.get('difficulty_score')
-            steps_taken = result.get('steps_taken')
             extracted_path = result.get('extracted_path', [])
-            solved = result.get('solved', False)  # 'solved' not 'correct'
+            solved = result.get('solved', False)
+            
+            # For SPARC (single-turn), steps_taken is 1
+            # For gym/traceback, get actual steps_taken
+            if variant == 'sparc':
+                steps_taken = 1
+            else:
+                steps_taken = result.get('steps_taken')
             
             if difficulty is not None and steps_taken is not None:
-                # Clean path and get edges (moves)
                 cleaned = clean_path(extracted_path)
                 path_edges = max(0, len(cleaned) - 1) if cleaned else 0
-                
-                # Calculate efficiency (avoid div by zero)
                 efficiency = path_edges / steps_taken if steps_taken > 0 else 0
                 
                 records.append({
@@ -87,79 +107,135 @@ def extract_all_data(results_dir):
     return pd.DataFrame(records)
 
 
+def get_models_with_all_variants(results_dir):
+    """Get list of models that have all 3 variants."""
+    results_path = Path(results_dir)
+    
+    sparc_models = set()
+    gym_models = set()
+    traceback_models = set()
+    
+    for f in results_path.glob("*.jsonl"):
+        if "_gym" not in f.name and "visual" not in f.name and "archive" not in str(f):
+            sparc_models.add(f.stem)
+    
+    for f in results_path.glob("*_gym.jsonl"):
+        if "traceback" not in f.name and "visual" not in f.name and "archive" not in str(f):
+            gym_models.add(f.stem.replace("_gym", ""))
+    
+    for f in results_path.glob("*_gym_traceback.jsonl"):
+        if "visual" not in f.name and "archive" not in str(f):
+            traceback_models.add(f.stem.replace("_gym_traceback", ""))
+    
+    return sparc_models & gym_models & traceback_models
+
+
 def create_correlation_heatmap(results_dir, output_path=None):
-    """Create a correlation heatmap."""
+    """Create 3 correlation heatmaps as subplots for each variant."""
     setup_plot_style(use_latex=True)
     
-    print("Extracting data...")
-    df = extract_all_data(results_dir)
-    print(f"Total records: {len(df)}")
+    # Get models with all 3 variants
+    complete_models = get_models_with_all_variants(results_dir)
+    print(f"Models with all 3 variants: {len(complete_models)}")
+    print(f"  {sorted(complete_models)}")
     
-    # Select columns for correlation
+    variants = ['gym', 'traceback']
+    variant_labels = ['SPARC-Gym', 'Traceback']
+    
     cols = ['difficulty', 'steps_taken', 'path_length', 'success', 'efficiency']
-    labels = ['Difficulty', 'Steps Taken', 'Path Length', 'Success', 'Efficiency']
+    labels = ['Difficulty', 'Steps', 'Path Len', 'Success', 'Efficiency']
     
-    # Calculate correlation matrix
-    corr_matrix = df[cols].corr()
+    # Create figure with 2 subplots
+    fig, axes = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, TEXT_WIDTH_INCHES / 2.5 + 0.3))
     
-    # Create figure
-    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, COLUMN_WIDTH_INCHES * 0.9))
+    corr_matrices = {}
     
-    # Create heatmap
-    im = ax.imshow(corr_matrix.values, cmap='RdBu_r', vmin=-1, vmax=1, aspect='auto')
+    for idx, (variant, var_label, ax) in enumerate(zip(variants, variant_labels, axes)):
+        print(f"\nExtracting {variant} data...")
+        df = extract_data_for_variant(results_dir, variant)
+        
+        if len(df) == 0:
+            print(f"  No data for {variant}")
+            ax.text(0.5, 0.5, 'No data', ha='center', va='center', transform=ax.transAxes)
+            ax.set_title(var_label, fontsize=10, fontweight='bold')
+            continue
+        
+        # Filter to complete models only
+        df = df[df['model'].isin(complete_models)]
+        print(f"  Records for {variant}: {len(df)}")
+        
+        if len(df) == 0:
+            ax.text(0.5, 0.5, 'No data', ha='center', va='center', transform=ax.transAxes)
+            ax.set_title(var_label, fontsize=10, fontweight='bold')
+            continue
+        
+        # Calculate correlation matrix
+        corr_matrix = df[cols].corr()
+        corr_matrices[variant] = corr_matrix
+        
+        # Create heatmap
+        im = ax.imshow(corr_matrix.values, cmap='RdBu_r', vmin=-1, vmax=1, aspect='auto')
+        
+        # Set ticks
+        ax.set_xticks(np.arange(len(labels)))
+        ax.set_yticks(np.arange(len(labels)))
+        ax.set_xticklabels(labels, fontsize=7, rotation=45, ha='right')
+        if idx == 0:
+            ax.set_yticklabels(labels, fontsize=7)
+        else:
+            ax.set_yticklabels([])
+        
+        # Add correlation values as text
+        for i in range(len(labels)):
+            for j in range(len(labels)):
+                val = corr_matrix.values[i, j]
+                color = 'white' if abs(val) > 0.5 else 'black'
+                ax.text(j, i, f'{val:.2f}', ha='center', va='center', 
+                       color=color, fontsize=6, fontweight='bold')
+        
+        # Remove spines
+        for spine in ax.spines.values():
+            spine.set_visible(False)
+        
+        ax.set_title(var_label, fontsize=10, fontweight='bold')
     
     # Add colorbar
-    cbar = fig.colorbar(im, ax=ax, fraction=0.046, pad=0.04)
+    cbar = fig.colorbar(im, ax=axes, fraction=0.02, pad=0.02)
     cbar.set_label('Correlation', fontsize=9)
     
-    # Set ticks
-    ax.set_xticks(np.arange(len(labels)))
-    ax.set_yticks(np.arange(len(labels)))
-    ax.set_xticklabels(labels, fontsize=8, rotation=45, ha='right')
-    ax.set_yticklabels(labels, fontsize=8)
-    
-    # Add correlation values as text
-    for i in range(len(labels)):
-        for j in range(len(labels)):
-            val = corr_matrix.values[i, j]
-            color = 'white' if abs(val) > 0.5 else 'black'
-            ax.text(j, i, f'{val:.2f}', ha='center', va='center', 
-                   color=color, fontsize=8, fontweight='bold')
-    
-    # Remove spines
-    for spine in ax.spines.values():
-        spine.set_visible(False)
-    
-    plt.tight_layout()
+    plt.subplots_adjust(left=0.1, right=0.88, wspace=0.1)
     
     if output_path:
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
-        print(f"Figure saved to: {output_path}")
+        print(f"\nFigure saved to: {output_path}")
+        if str(output_path).endswith('.pdf'):
+            png_path = str(output_path).replace('.pdf', '.png')
+            plt.savefig(png_path, dpi=300, bbox_inches='tight')
+            print(f"Figure saved to: {png_path}")
     
-    # Print correlation insights
-    print("\nKey correlations:")
-    print(f"  Difficulty vs Success: {corr_matrix.loc['difficulty', 'success']:.3f}")
-    print(f"  Difficulty vs Steps: {corr_matrix.loc['difficulty', 'steps_taken']:.3f}")
-    print(f"  Steps vs Success: {corr_matrix.loc['steps_taken', 'success']:.3f}")
-    print(f"  Path Length vs Steps: {corr_matrix.loc['path_length', 'steps_taken']:.3f}")
-    print(f"  Efficiency vs Success: {corr_matrix.loc['efficiency', 'success']:.3f}")
+    # Print correlation insights for each variant
+    for variant, var_label in zip(variants, variant_labels):
+        if variant in corr_matrices:
+            corr = corr_matrices[variant]
+            print(f"\n{var_label} key correlations:")
+            print(f"  Difficulty vs Success: {corr.loc['difficulty', 'success']:.3f}")
+            print(f"  Difficulty vs Steps: {corr.loc['difficulty', 'steps_taken']:.3f}")
+            print(f"  Steps vs Success: {corr.loc['steps_taken', 'success']:.3f}")
     
     plt.close(fig)
-    return fig, ax, corr_matrix
+    return fig, axes, corr_matrices
 
 
 def main():
     results_dir = Path(__file__).parent / "results" / "sparc"
     
     print("=" * 60)
-    print("Creating correlation heatmap...")
+    print("Creating correlation heatmaps for all 3 variants...")
     print("=" * 60)
     
     output_pdf = Path(__file__).parent / "correlation_heatmap.pdf"
-    output_png = Path(__file__).parent / "correlation_heatmap.png"
     
     create_correlation_heatmap(results_dir, output_pdf)
-    create_correlation_heatmap(results_dir, output_png)
 
 
 if __name__ == "__main__":

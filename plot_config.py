@@ -178,7 +178,8 @@ def get_model_imagebox(model_name):
         "human.png": (64, 64, 1/8),
         "openai.png": (64, 64, 1/7),
         "gemini.png": (64, 64, 1/7),
-        "olmo.jpg": (64, 64, 1/7),
+        "olmo.png": (64, 64, 1/7),
+        "mistral.png": (64, 64, 1/7),
     }
 
     LOGO_MAPPING = {
@@ -189,7 +190,8 @@ def get_model_imagebox(model_name):
         "Llama": "llama.png",
         "Nemotron": "llama.png",
         "GPT": "openai.png",
-        "OLMo": "olmo.jpg",
+        "OLMo": "olmo.png",
+        "Magistral": "mistral.png",
     }
 
     logo_path = None

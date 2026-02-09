@@ -1,0 +1,26 @@
+Model,File Type,Num Puzzles,Avg Tokens per Puzzle
+google/gemma-3-27b-it,sparc,500,787.428
+nvidia/Llama-3_3-Nemotron-Super-49B-v1_5,sparc,500,17242.46
+openai/gpt-oss-120b,sparc,500,10937.146
+allenai/Olmo-3.1-32B-Think,sparc,500,17818.514
+Qwen/Qwen3-32B,sparc,500,15159.398
+deepseek-ai/DeepSeek-R1-Distill-Qwen-32B,sparc,500,8837.622
+mistralai/Magistral-Small-2507,sparc,500,3230.882
+Qwen/Qwen3-14B,gym,500,42618.72
+Qwen/Qwen3-32B,gym,500,54155.878
+nvidia/Llama-3_3-Nemotron-Super-49B-v1_5,gym,500,99694.14
+Qwen/Qwen3-4B,gym,500,49887.768
+allenai/Olmo-3.1-32B-Think,gym,500,76637.152
+openai/gpt-oss-120b,gym,500,17064.042
+mistralai/Magistral-Small-2507,gym,500,7951.604
+9Tobi/ragen_sparc_qwen3_4B_CW3,gym,500,51976.958
+google/gemma-3-27b-it,gym,500,3136.832
+deepseek-ai/DeepSeek-R1-Distill-Qwen-32B,gym,500,33820.716
+Qwen/Qwen3-0.6B,gym,483,41047.335403726705
+allenai/Olmo-3.1-32B-Think,traceback,500,162673.32
+mistralai/Magistral-Small-2507,traceback,495,31419.416161616162
+nvidia/Llama-3_3-Nemotron-Super-49B-v1_5,traceback,500,219270.778
+Qwen/Qwen3-32B,traceback,500,127640.236
+openai/gpt-oss-120b,traceback,500,31188.134
+deepseek-ai/DeepSeek-R1-Distill-Qwen-32B,traceback,500,99525.894
+google/gemma-3-27b-it,traceback,500,16367.154
