@@ -71,11 +71,10 @@ def extract_accuracy_from_stats(stats_file):
     return 0.0
 
 
-# Models to exclude (only keep Qwen 32B from Qwen family)
+# Models to exclude (only keep Qwen 32B and 0.6B from Qwen family)
 EXCLUDED_MODELS = {
     "Qwen_Qwen3-14B",
     "Qwen_Qwen3-4B",
-    "Qwen_Qwen3-0.6B",
     "9Tobi_ragen_sparc_qwen3_4B_CW3",
 }
 
@@ -124,7 +123,7 @@ def create_accuracy_bar_chart(model_data, output_path=None):
     setup_plot_style(use_latex=True)
     
     # Create figure
-    fig, ax = plt.subplots(figsize=(TEXT_WIDTH_INCHES, 2.5))
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES*1.3, 2.5))
     
     # Add human as first entry
     all_display_names = ['Human'] + [m['display_name'] for m in model_data]
@@ -144,35 +143,39 @@ def create_accuracy_bar_chart(model_data, output_path=None):
     for i, (bar, acc, color) in enumerate(zip(bars, all_accuracies, all_colors)):
         height = bar.get_height()
         
-        # Add percentage label
-        ax.annotate(f'{acc:.1f}\\%',
-                    xy=(bar.get_x() + bar.get_width() / 2, height),
-                    xytext=(0, 3),  # 3 points vertical offset
-                    textcoords="offset points",
-                    ha='center', va='bottom',
-                    fontsize=9,
-                    fontweight='bold',
-                    color=color)
-        
-        # Add logo above the percentage (skip human at index 0)
-        if i > 0:
-            m = model_data[i - 1]
-            imagebox = get_model_imagebox(m['display_name'])
+        if i == 0:
+            # Human bar: put text and icon at the top of the bar
+            ax.annotate(f'{acc:.0f}\\%',
+                        xy=(bar.get_x() + bar.get_width() / 2, height - 18),
+                        ha='center', va='top',
+                        fontsize=8,
+                        fontweight='bold',
+                        color='white')
+            # Add human logo inside the bar (above the text)
+            imagebox = get_model_imagebox('Human')
             if imagebox:
-                # Position logo above the bar (above the percentage label)
-                ab = AnnotationBbox(imagebox, (bar.get_x() + bar.get_width() / 2, height),
-                                   xybox=(0, 22),  # Offset above percentage
+                ab = AnnotationBbox(imagebox, (bar.get_x() + bar.get_width() / 2, height - 8),
                                    xycoords='data',
-                                   boxcoords="offset points",
                                    frameon=False,
                                    pad=0)
                 ax.add_artist(ab)
         else:
-            # Add human logo
-            imagebox = get_model_imagebox('Human')
+            # Model bars: percentage label above
+            ax.annotate(f'{acc:.1f}\\%',
+                        xy=(bar.get_x() + bar.get_width() / 2, height),
+                        xytext=(0, 3),  # 3 points vertical offset
+                        textcoords="offset points",
+                        ha='center', va='bottom',
+                        fontsize=8,
+                        fontweight='bold',
+                        color=color)
+            
+            # Add logo above the percentage
+            m = model_data[i - 1]
+            imagebox = get_model_imagebox(m['display_name'])
             if imagebox:
                 ab = AnnotationBbox(imagebox, (bar.get_x() + bar.get_width() / 2, height),
-                                   xybox=(0, 22),
+                                   xybox=(0, 20),  # Offset above percentage
                                    xycoords='data',
                                    boxcoords="offset points",
                                    frameon=False,
@@ -189,7 +192,7 @@ def create_accuracy_bar_chart(model_data, output_path=None):
     
     # Set axis limits
     ax.set_xlim(-0.5, len(all_display_names) - 0.5)
-    ax.set_ylim(0, max(all_accuracies) * 1.15)
+    ax.set_ylim(0, 100)
     
     # Remove top and right spines
     ax.spines['top'].set_visible(False)
