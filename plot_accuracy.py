@@ -29,6 +29,7 @@ MODEL_FAMILY_COLORS = {
     "nvidia": "#76B900",      # Nvidia Green
     "allenai": "#FF615C",     # Red for AllenAI
     "9Tobi": "#FFD93D",       # Yellow for fine-tuned
+    "mistralai": "#FF69B4",   # Pink for Magistral
 }
 
 # Model display name mapping
@@ -43,6 +44,7 @@ MODEL_DISPLAY_NAMES = {
     "deepseek-ai_DeepSeek-R1-Distill-Qwen-32B": "R1 Distill 32B",
     "google_gemma-3-27b-it": "Gemma 3 27B",
     "9Tobi_ragen_sparc_qwen3_4B_CW3": "Qwen 3 4B (FT)",
+    "mistralai_Magistral-Small-2507": "Magistral Small",
 }
 
 
@@ -69,6 +71,18 @@ def extract_accuracy_from_stats(stats_file):
     return 0.0
 
 
+# Models to exclude (only keep Qwen 32B from Qwen family)
+EXCLUDED_MODELS = {
+    "Qwen_Qwen3-14B",
+    "Qwen_Qwen3-4B",
+    "Qwen_Qwen3-0.6B",
+    "9Tobi_ragen_sparc_qwen3_4B_CW3",
+}
+
+# Human solve rate for reference
+HUMAN_SOLVE_RATE = 98.0
+
+
 def load_all_model_stats(results_dir):
     """Load accuracy stats for all non-traceback models."""
     results_path = Path(results_dir)
@@ -83,6 +97,10 @@ def load_all_model_stats(results_dir):
     for stats_file in stats_files:
         # Extract model name from filename
         model_name = stats_file.name.replace("_gym_stats.csv", "")
+        
+        # Skip excluded models (non-32B Qwen variants)
+        if model_name in EXCLUDED_MODELS:
+            continue
         
         accuracy = extract_accuracy_from_stats(stats_file)
         display_name = MODEL_DISPLAY_NAMES.get(model_name, model_name)
@@ -106,21 +124,24 @@ def create_accuracy_bar_chart(model_data, output_path=None):
     setup_plot_style(use_latex=True)
     
     # Create figure
-    fig, ax = plt.subplots(figsize=(TEXT_WIDTH_INCHES, 3.5))
+    fig, ax = plt.subplots(figsize=(TEXT_WIDTH_INCHES, 2.5))
     
-    # Extract data for plotting
-    display_names = [m['display_name'] for m in model_data]
-    accuracies = [m['accuracy'] for m in model_data]
-    colors = [m['color'] for m in model_data]
+    # Add human as first entry
+    all_display_names = ['Human'] + [m['display_name'] for m in model_data]
+    all_accuracies = [HUMAN_SOLVE_RATE] + [m['accuracy'] for m in model_data]
+    all_colors = ['#2E86AB'] + [m['color'] for m in model_data]  # Blue for human
     
     # Create bar positions
-    x_pos = np.arange(len(display_names))
+    x_pos = np.arange(len(all_display_names))
     
     # Create bars
-    bars = ax.bar(x_pos, accuracies, color=colors, edgecolor='white', linewidth=0.5)
+    bars = ax.bar(x_pos, all_accuracies, color=all_colors, edgecolor='white', linewidth=0.5, zorder=2)
+    
+    # Add dashed vertical line to separate human from models
+    ax.axvline(x=0.5, color='gray', linestyle='--', linewidth=1.5, alpha=0.7, zorder=1)
     
     # Add percentage labels and logos on top of bars
-    for i, (bar, acc, m) in enumerate(zip(bars, accuracies, model_data)):
+    for i, (bar, acc, color) in enumerate(zip(bars, all_accuracies, all_colors)):
         height = bar.get_height()
         
         # Add percentage label
@@ -131,30 +152,44 @@ def create_accuracy_bar_chart(model_data, output_path=None):
                     ha='center', va='bottom',
                     fontsize=9,
                     fontweight='bold',
-                    color=colors[i])
+                    color=color)
         
-        # Add logo above the percentage
-        imagebox = get_model_imagebox(m['display_name'])
-        if imagebox:
-            # Position logo above the bar (above the percentage label)
-            ab = AnnotationBbox(imagebox, (bar.get_x() + bar.get_width() / 2, height),
-                               xybox=(0, 22),  # Offset above percentage
-                               xycoords='data',
-                               boxcoords="offset points",
-                               frameon=False,
-                               pad=0)
-            ax.add_artist(ab)
+        # Add logo above the percentage (skip human at index 0)
+        if i > 0:
+            m = model_data[i - 1]
+            imagebox = get_model_imagebox(m['display_name'])
+            if imagebox:
+                # Position logo above the bar (above the percentage label)
+                ab = AnnotationBbox(imagebox, (bar.get_x() + bar.get_width() / 2, height),
+                                   xybox=(0, 22),  # Offset above percentage
+                                   xycoords='data',
+                                   boxcoords="offset points",
+                                   frameon=False,
+                                   pad=0)
+                ax.add_artist(ab)
+        else:
+            # Add human logo
+            imagebox = get_model_imagebox('Human')
+            if imagebox:
+                ab = AnnotationBbox(imagebox, (bar.get_x() + bar.get_width() / 2, height),
+                                   xybox=(0, 22),
+                                   xycoords='data',
+                                   boxcoords="offset points",
+                                   frameon=False,
+                                   pad=0)
+                ax.add_artist(ab)
     
     # Customize axes
     ax.set_ylabel('Accuracy (\\%)')
     ax.set_xticks(x_pos)
-    ax.set_xticklabels(display_names, rotation=45, ha='right', fontsize=9)
+    ax.set_xticklabels(all_display_names, rotation=45, ha='right', fontsize=9)
     
     # Add horizontal dashed line at y=0 for reference
     ax.axhline(y=0, color='gray', linestyle='-', linewidth=0.5)
     
-    # Set y-axis limits (more space for logos)
-    ax.set_ylim(0, max(accuracies) * 1.35)  # More padding on top for logos
+    # Set axis limits
+    ax.set_xlim(-0.5, len(all_display_names) - 0.5)
+    ax.set_ylim(0, max(all_accuracies) * 1.15)
     
     # Remove top and right spines
     ax.spines['top'].set_visible(False)
