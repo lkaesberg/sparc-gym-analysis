@@ -25,6 +25,7 @@ MODEL_FAMILY_COLORS = {
     "google": "#4285F4",      # Google Blue
     "nvidia": "#76B900",      # Nvidia Green
     "allenai": "#FF615C",     # Red for AllenAI
+    "mistralai": "#FF9500",   # Orange for Mistral
 }
 
 # Model display name mapping
@@ -35,6 +36,7 @@ MODEL_DISPLAY_NAMES = {
     "Qwen_Qwen3-32B": "Qwen 3 32B",
     "deepseek-ai_DeepSeek-R1-Distill-Qwen-32B": "R1 Distill 32B",
     "google_gemma-3-27b-it": "Gemma 3 27B",
+    "mistralai_Magistral-Small-2507": "Magistral Small",
 }
 
 

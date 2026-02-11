@@ -32,6 +32,18 @@ MODEL_DISPLAY_NAMES = {
     '9Tobi_ragen_sparc_qwen3_4B_CW3': 'RAGEN',
 }
 
+# Models to include (matching accuracy plot)
+MODELS_TO_INCLUDE = {
+    'openai_gpt-oss-120b',
+    'allenai_Olmo-3.1-32B-Think',
+    'nvidia_Llama-3_3-Nemotron-Super-49B-v1_5',
+    'Qwen_Qwen3-32B',
+    'deepseek-ai_DeepSeek-R1-Distill-Qwen-32B',
+    'google_gemma-3-27b-it',
+    'Qwen_Qwen3-0.6B',
+    'mistralai_Magistral-Small-2507',
+}
+
 
 def load_jsonl_data(filepath):
     """Load all entries from a JSONL file."""
@@ -66,6 +78,11 @@ def get_model_solved_puzzles(results_dir, variant='gym'):
             continue
         
         model_name = jsonl_file.stem.replace(suffix, "")
+        
+        # Filter to only include models from the accuracy plot
+        if model_name not in MODELS_TO_INCLUDE:
+            continue
+        
         data = load_jsonl_data(jsonl_file)
         
         solved_puzzles = set()
@@ -84,7 +101,8 @@ def get_model_solved_puzzles(results_dir, variant='gym'):
 
 def calculate_agreement_matrix(model_solved):
     """Calculate agreement (Jaccard similarity) between all model pairs."""
-    models = sorted(model_solved.keys())
+    # Sort models by number of puzzles solved (descending) - proxy for performance
+    models = sorted(model_solved.keys(), key=lambda m: len(model_solved[m]), reverse=True)
     n = len(models)
     
     # Jaccard similarity matrix
