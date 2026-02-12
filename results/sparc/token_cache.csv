@@ -2,8 +2,11 @@ Model,File Type,Num Puzzles,Avg Tokens per Puzzle
 google/gemma-3-27b-it,sparc,500,787.428
 nvidia/Llama-3_3-Nemotron-Super-49B-v1_5,sparc,500,17242.46
 openai/gpt-oss-120b,sparc,500,10937.146
+Qwen/Qwen3-14B,sparc,500,13033.234
 allenai/Olmo-3.1-32B-Think,sparc,500,17818.514
 Qwen/Qwen3-32B,sparc,500,15159.398
+Qwen/Qwen3-4B,sparc,500,12929.628
+Qwen/Qwen3-0.6B,sparc,500,5974.426
 deepseek-ai/DeepSeek-R1-Distill-Qwen-32B,sparc,500,8837.622
 mistralai/Magistral-Small-2507,sparc,500,3230.882
 Qwen/Qwen3-14B,gym,500,42618.72
