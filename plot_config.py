@@ -89,6 +89,7 @@ MODEL_COLORS = {
     # Rule-based agents
     "Rule Agent": "#707070",  # Gray
     "Random Agent": "#A0A0A0",  # Light Gray
+    "A*": "#505050",  # Dark Gray for A* search
     # Human players
     "Human": "#6B5E62",  # Dark Navy
 }
