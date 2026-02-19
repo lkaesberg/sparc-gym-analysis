@@ -41,13 +41,6 @@ MODEL_DISPLAY_NAMES = {
 }
 
 
-EXCLUDED_MODELS = {
-    "Qwen_Qwen3-14B",
-    "Qwen_Qwen3-4B",
-    "9Tobi_ragen_sparc_qwen3_4B_CW3",
-}
-
-
 def get_model_family_color(model_name):
     """Get color based on model family/provider."""
     for family, color in MODEL_FAMILY_COLORS.items():
@@ -81,8 +74,6 @@ def load_sparc_gym_comparison(results_dir):
     model_data = []
     for sparc_file in sparc_files:
         model_name = sparc_file.name.replace("_stats.csv", "")
-        if model_name in EXCLUDED_MODELS:
-            continue
         gym_file = results_path / f"{model_name}_gym_stats.csv"
         if not gym_file.exists():
             continue
@@ -117,8 +108,6 @@ def load_traceback_comparison(results_dir):
     model_data = []
     for main_file in main_stats_files:
         model_name = main_file.name.replace("_gym_stats.csv", "")
-        if model_name in EXCLUDED_MODELS:
-            continue
         traceback_file = results_path / f"{model_name}_gym_traceback_stats.csv"
         if not traceback_file.exists():
             continue
