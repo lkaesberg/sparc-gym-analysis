@@ -1,7 +1,6 @@
 """
-Script to create a line plot showing average accuracy by difficulty level
-for SPARC, SPARC-Gym, and SPARC-Gym Traceback variants.
-Shows mean with standard deviation bands.
+Script to create a 3-panel line plot showing accuracy by difficulty level
+for each model individually, with subplots for SPARC, SPARC-Gym, and SPARC-Gym Traceback.
 """
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -13,29 +12,82 @@ from plot_config import (
     setup_plot_style,
     TEXT_WIDTH_INCHES,
     COLUMN_WIDTH_INCHES,
-    LOGOBLAU,
-    LOGOMITTELBLAU,
-    LOGOHELLBLAU,
+    get_model_color,
+    MODEL_COLORS,
 )
 
-# Define colors for the three variants
-VARIANT_COLORS = {
-    "SPARC": "#153268",           # Dark blue (UNIBLAU)
-    "SPARC-Gym": "#0091c8",       # Medium blue (LOGOMITTELBLAU)
-    "SPARC-Gym Traceback": "#50a5d2",  # Light blue (LOGOHELLBLAU)
+# Model display name mapping
+MODEL_DISPLAY_NAMES = {
+    "openai_gpt-oss-120b": "GPT-OSS 120B",
+    "allenai_Olmo-3.1-32B-Think": "OLMo 3.1 32B",
+    "nvidia_Llama-3_3-Nemotron-Super-49B-v1_5": "Nemotron 49B",
+    "Qwen_Qwen3-32B": "Qwen 3 32B",
+    "Qwen_Qwen3-14B": "Qwen 3 14B",
+    "Qwen_Qwen3-4B": "Qwen 3 4B",
+    "Qwen_Qwen3-0.6B": "Qwen 3 0.6B",
+    "deepseek-ai_DeepSeek-R1-Distill-Qwen-32B": "R1 Distill 32B",
+    "google_gemma-3-27b-it": "Gemma 3 27B",
+    "9Tobi_ragen_sparc_qwen3_4B_CW3": "Qwen 3 4B (FT)",
+    "mistralai_Magistral-Small-2507": "Magistral Small",
+    "Qwen_Qwen3-VL-32B-Thinking": "Qwen 3 VL 32B",
 }
 
-VARIANT_MARKERS = {
-    "SPARC": "o",
-    "SPARC-Gym": "s",
-    "SPARC-Gym Traceback": "^",
+# Model family colors (for models not in MODEL_COLORS)
+MODEL_FAMILY_COLORS = {
+    "openai": "#F79F1F",
+    "Qwen": "#A47AFF",
+    "deepseek": "#61DB7E",
+    "google": "#4285F4",
+    "nvidia": "#76B900",
+    "allenai": "#FF615C",
+    "9Tobi": "#FFD93D",
+    "mistralai": "#FF69B4",
 }
+
+MODEL_MARKERS = {
+    "GPT-OSS 120B": "o",
+    "OLMo 3.1 32B": "s",
+    "Nemotron 49B": "^",
+    "Qwen 3 32B": "D",
+    "Qwen 3 14B": "v",
+    "Qwen 3 4B": "p",
+    "Qwen 3 0.6B": "h",
+    "R1 Distill 32B": "P",
+    "Gemma 3 27B": "*",
+    "Magistral Small": "X",
+    "Qwen 3 4B (FT)": "8",
+}
+
+# Skip no-reason / visual / ablation variants
+SKIP_PATTERNS = ["no-reason", "no_reason", "visual", "ablation", "baseline", "astar", "random"]
+
+# Only include the models from the main accuracy chart
+INCLUDED_MODELS = {
+    "GPT-OSS 120B",
+    "OLMo 3.1 32B",
+    "Nemotron 49B",
+    "Qwen 3 32B",
+    "Qwen 3 0.6B",
+    "R1 Distill 32B",
+    "Gemma 3 27B",
+    "Magistral Small",
+}
+
+
+def get_color_for_model(display_name, internal_name):
+    """Get color for a model, trying MODEL_COLORS first, then family colors."""
+    if display_name in MODEL_COLORS:
+        return MODEL_COLORS[display_name]
+    for family, color in MODEL_FAMILY_COLORS.items():
+        if family.lower() in internal_name.lower():
+            return color
+    return "#808080"
 
 
 def extract_difficulty_accuracies(stats_file):
     """Extract accuracy percentages for each difficulty level from a stats CSV file."""
     df = pd.read_csv(stats_file)
-    
+
     difficulties = {}
     for i in range(1, 6):
         row = df[df['Metric'] == f'Difficulty {i} Solved']
@@ -44,157 +96,142 @@ def extract_difficulty_accuracies(stats_file):
             match = re.search(r'([\d.]+)%', str(percentage_str))
             if match:
                 difficulties[i] = float(match.group(1))
-    
+
     return difficulties
+
+
+def get_internal_name(filename, variant):
+    """Extract internal model name from filename based on variant type."""
+    if variant == "SPARC-Gym Traceback":
+        return filename.replace("_gym_traceback_stats.csv", "")
+    elif variant == "SPARC-Gym":
+        return filename.replace("_gym_stats.csv", "")
+    else:
+        return filename.replace("_stats.csv", "")
 
 
 def categorize_stats_files(results_dir):
     """Categorize stats files into SPARC, SPARC-Gym, and SPARC-Gym Traceback."""
     results_path = Path(results_dir)
-    
-    sparc_files = []
-    gym_files = []
-    traceback_files = []
-    
-    for stats_file in results_path.glob("*_stats.csv"):
-        # Skip archive folder
+
+    categories = {"SPARC": [], "SPARC-Gym": [], "SPARC-Gym Traceback": []}
+
+    for stats_file in sorted(results_path.glob("*_stats.csv")):
         if "archive" in str(stats_file):
             continue
-        # Skip visual files
-        if "visual" in stats_file.name:
-            continue
-            
+
         filename = stats_file.name
-        
+
+        # Skip unwanted variants
+        if any(p in filename.lower() for p in SKIP_PATTERNS):
+            continue
+
         if "_gym_traceback_stats.csv" in filename:
-            traceback_files.append(stats_file)
+            categories["SPARC-Gym Traceback"].append(stats_file)
         elif "_gym_stats.csv" in filename:
-            gym_files.append(stats_file)
+            categories["SPARC-Gym"].append(stats_file)
         elif "_stats.csv" in filename and "_gym_" not in filename:
-            sparc_files.append(stats_file)
-    
-    return {
-        "SPARC": sparc_files,
-        "SPARC-Gym": gym_files,
-        "SPARC-Gym Traceback": traceback_files,
-    }
+            categories["SPARC"].append(stats_file)
 
-
-def calculate_mean_std_by_difficulty(files):
-    """Calculate mean and std accuracy for each difficulty level across all files."""
-    all_data = {i: [] for i in range(1, 6)}
-    
-    for f in files:
-        diff_acc = extract_difficulty_accuracies(f)
-        for level, acc in diff_acc.items():
-            all_data[level].append(acc)
-    
-    means = {}
-    stds = {}
-    for level in range(1, 6):
-        if all_data[level]:
-            means[level] = np.mean(all_data[level])
-            stds[level] = np.std(all_data[level])
-        else:
-            means[level] = 0
-            stds[level] = 0
-    
-    return means, stds
+    return categories
 
 
 def create_difficulty_comparison_plot(categorized_files, output_path=None):
-    """Create the line plot comparing variants by difficulty."""
+    """Create 3-panel line plot with individual model lines."""
     setup_plot_style(use_latex=True)
-    
-    # Create figure
-    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 2.8))
-    
+
+    variant_names = ["SPARC", "SPARC-Gym", "SPARC-Gym Traceback"]
+
+    fig, axes = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 3.0), sharey=True)
+
     difficulties = np.array([1, 2, 3, 4, 5])
-    
-    for variant_name, files in categorized_files.items():
+
+    # Collect all models across panels for unified legend
+    all_models_seen = {}
+
+    for ax, variant in zip(axes, variant_names):
+        files = categorized_files.get(variant, [])
         if not files:
+            ax.set_title(variant, fontsize=10)
             continue
-            
-        means, stds = calculate_mean_std_by_difficulty(files)
-        
-        mean_values = np.array([means[i] for i in difficulties])
-        std_values = np.array([stds[i] for i in difficulties])
-        
-        color = VARIANT_COLORS[variant_name]
-        marker = VARIANT_MARKERS[variant_name]
-        
-        # Plot line with markers
-        ax.plot(difficulties, mean_values, 
-                color=color, marker=marker, markersize=5,
-                linewidth=1.5, label=variant_name)
-        
-        # Add shaded band for standard deviation
-        ax.fill_between(difficulties, 
-                        mean_values - std_values, 
-                        mean_values + std_values,
-                        color=color, alpha=0.2)
-    
-    # Customize axes
-    ax.set_xlabel('Difficulty Level')
-    ax.set_ylabel('Accuracy (\\%)')
-    ax.set_xticks(difficulties)
-    ax.set_xlim(0.5, 5.5)
-    ax.set_ylim(0, None)
-    
-    # Remove top and right spines
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    
-    # Add subtle grid
-    ax.yaxis.grid(True, linestyle='--', alpha=0.3)
-    ax.set_axisbelow(True)
-    
-    # Add legend
-    ax.legend(loc='upper right', frameon=True, framealpha=0.9)
-    
-    plt.tight_layout()
-    
+
+        for stats_file in files:
+            internal_name = get_internal_name(stats_file.name, variant)
+            display_name = MODEL_DISPLAY_NAMES.get(internal_name, internal_name)
+
+            # Only include models from the main accuracy chart
+            if display_name not in INCLUDED_MODELS:
+                continue
+
+            diff_acc = extract_difficulty_accuracies(stats_file)
+            if not diff_acc:
+                continue
+
+            values = np.array([diff_acc.get(i, 0) for i in difficulties])
+            color = get_color_for_model(display_name, internal_name)
+            marker = MODEL_MARKERS.get(display_name, "o")
+
+            ax.plot(difficulties, values,
+                    color=color, marker=marker, markersize=4,
+                    linewidth=1.2, label=display_name,
+                    markeredgecolor='white', markeredgewidth=0.3)
+
+            if display_name not in all_models_seen:
+                all_models_seen[display_name] = (color, marker)
+
+        ax.set_title(variant, fontsize=10)
+        ax.set_xlabel('Difficulty Level')
+        ax.set_xticks(difficulties)
+        ax.set_xlim(0.7, 5.3)
+        ax.spines['top'].set_visible(False)
+        ax.spines['right'].set_visible(False)
+        ax.yaxis.grid(True, linestyle='--', alpha=0.3)
+        ax.set_axisbelow(True)
+
+    axes[0].set_ylabel('Solve Rate (\\%)')
+
+    # Create unified legend below the plot — deduplicate across panels
+    seen_labels = set()
+    handles = []
+    labels = []
+    for ax in axes:
+        for h, l in zip(*ax.get_legend_handles_labels()):
+            if l not in seen_labels:
+                seen_labels.add(l)
+                handles.append(h)
+                labels.append(l)
+
+    fig.legend(handles, labels, loc='lower center',
+               ncol=4, fontsize=7, frameon=False,
+               bbox_to_anchor=(0.5, -0.02))
+
+    plt.tight_layout(rect=[0, 0.12, 1, 1])
+
     # Save figure
     if output_path:
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         print(f"Figure saved to: {output_path}")
-    
+
     plt.close(fig)
-    
-    return fig, ax
 
 
 def main():
-    # Define paths
     results_dir = Path(__file__).parent / "results" / "sparc"
     output_pdf = Path(__file__).parent / "difficulty_comparison.pdf"
     output_png = Path(__file__).parent / "difficulty_comparison.png"
-    
-    # Categorize files
+
     print("Categorizing stats files...")
     categorized_files = categorize_stats_files(results_dir)
-    
-    # Print summary
+
     print("\nFiles found:")
     for variant, files in categorized_files.items():
         print(f"  {variant}: {len(files)} models")
         for f in files:
-            print(f"    - {f.name}")
-    
-    # Calculate and print statistics
-    print("\nMean accuracy by difficulty level:")
-    print("-" * 70)
-    print(f"{'Variant':<25} {'D1':>8} {'D2':>8} {'D3':>8} {'D4':>8} {'D5':>8}")
-    print("-" * 70)
-    
-    for variant_name, files in categorized_files.items():
-        if files:
-            means, stds = calculate_mean_std_by_difficulty(files)
-            print(f"{variant_name:<25} {means[1]:>7.1f}% {means[2]:>7.1f}% {means[3]:>7.1f}% {means[4]:>7.1f}% {means[5]:>7.1f}%")
-    print("-" * 70)
-    
-    # Create chart
-    print("\nCreating line plot...")
+            internal = get_internal_name(f.name, variant)
+            display = MODEL_DISPLAY_NAMES.get(internal, internal)
+            print(f"    - {display}")
+
+    print("\nCreating plot...")
     create_difficulty_comparison_plot(categorized_files, output_pdf)
     create_difficulty_comparison_plot(categorized_files, output_png)
 

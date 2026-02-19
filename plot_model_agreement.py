@@ -243,6 +243,123 @@ def create_agreement_heatmap(results_dir, output_path=None, variant='gym'):
     return fig, (jaccard, overlap, conditional)
 
 
+def get_model_solved_puzzles_with_difficulty(results_dir, variant='gym'):
+    """Get solved puzzle IDs with difficulty levels for each model."""
+    results_path = Path(results_dir)
+
+    model_solved = {}   # model -> set of puzzle_ids
+    puzzle_difficulty = {}  # puzzle_id -> difficulty_level
+
+    if variant == 'gym':
+        pattern = "*_gym.jsonl"
+        suffix = "_gym"
+    elif variant == 'traceback':
+        pattern = "*_gym_traceback.jsonl"
+        suffix = "_gym_traceback"
+    else:
+        pattern = "*.jsonl"
+        suffix = ""
+
+    for jsonl_file in results_path.glob(pattern):
+        if variant == 'sparc' and "_gym" in jsonl_file.name:
+            continue
+        if "archive" in str(jsonl_file) or "visual" in jsonl_file.name:
+            continue
+
+        model_name = jsonl_file.stem.replace(suffix, "")
+        if model_name not in MODELS_TO_INCLUDE:
+            continue
+
+        data = load_jsonl_data(jsonl_file)
+        solved_puzzles = set()
+        for entry in data:
+            puzzle_id = entry.get('id')
+            diff = entry.get('difficulty_level')
+            if puzzle_id and diff is not None:
+                puzzle_difficulty[puzzle_id] = diff
+            result = entry.get('result', {})
+            if puzzle_id and result.get('solved', False):
+                solved_puzzles.add(puzzle_id)
+
+        model_solved[model_name] = solved_puzzles
+
+    return model_solved, puzzle_difficulty
+
+
+def create_unique_solves_by_difficulty_chart(results_dir, output_path=None, variant='gym'):
+    """Create a grouped bar chart showing unique solves per difficulty level per model."""
+    setup_plot_style(use_latex=True)
+
+    model_solved, puzzle_difficulty = get_model_solved_puzzles_with_difficulty(results_dir, variant)
+    models = sorted(model_solved.keys())
+
+    difficulty_levels = [1, 2, 3, 4, 5]
+
+    unique_by_diff = {}
+    for model in models:
+        others_solved = set()
+        for m in models:
+            if m != model:
+                others_solved.update(model_solved[m])
+        unique = model_solved[model] - others_solved
+        counts = {d: 0 for d in difficulty_levels}
+        for pid in unique:
+            d = puzzle_difficulty.get(pid)
+            if d in counts:
+                counts[d] += 1
+        unique_by_diff[model] = counts
+
+    total_unique = {m: sum(unique_by_diff[m].values()) for m in models}
+    sorted_models = sorted(models, key=lambda m: -total_unique[m])
+
+    display_names = [MODEL_DISPLAY_NAMES.get(m, m[:10]) for m in sorted_models]
+
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES * 1.3, 2.8))
+
+    x = np.arange(len(sorted_models))
+    n_diff = len(difficulty_levels)
+    width = 0.8 / n_diff
+
+    diff_colors = ['#4CAF50', '#8BC34A', '#FFC107', '#FF9800', '#F44336']
+
+    for idx, d in enumerate(difficulty_levels):
+        vals = [unique_by_diff[m][d] for m in sorted_models]
+        offset = (idx - n_diff / 2 + 0.5) * width
+        ax.bar(x + offset, vals, width, label=f'D{d}', color=diff_colors[idx],
+               edgecolor='white', linewidth=0.4)
+
+    ax.set_xticks(x)
+    ax.set_xticklabels(display_names, fontsize=7, rotation=45, ha='right')
+    ax.set_ylabel('Uniquely Solved Puzzles')
+    ax.legend(fontsize=7, title='Difficulty', title_fontsize=7, ncol=5,
+              loc='upper right', framealpha=0.9)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.yaxis.grid(True, linestyle='--', alpha=0.3)
+    ax.set_axisbelow(True)
+    ax.set_title('Uniquely Solved Puzzles by Difficulty', fontsize=10, fontweight='bold')
+
+    plt.tight_layout()
+
+    if output_path:
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        print(f"\nFigure saved to: {output_path}")
+        if str(output_path).endswith('.pdf'):
+            png_path = str(output_path).replace('.pdf', '.png')
+            plt.savefig(png_path, dpi=300, bbox_inches='tight')
+            print(f"Figure saved to: {png_path}")
+
+    plt.close(fig)
+
+    print("\nUniquely solved puzzles by difficulty:")
+    for m in sorted_models:
+        n = MODEL_DISPLAY_NAMES.get(m, m)
+        counts_str = ", ".join(f"D{d}:{unique_by_diff[m][d]}" for d in difficulty_levels)
+        print(f"  {n}: total={total_unique[m]} ({counts_str})")
+
+    return fig, ax
+
+
 def create_unique_solves_chart(results_dir, output_path=None, variant='gym'):
     """Create a bar chart showing puzzles each model uniquely solves."""
     setup_plot_style(use_latex=True)
@@ -326,6 +443,13 @@ def main():
     
     output_unique = Path(__file__).parent / "model_unique_solves.pdf"
     create_unique_solves_chart(results_dir, output_unique, variant='gym')
+    
+    print("\n" + "=" * 60)
+    print("Creating unique solves by difficulty chart...")
+    print("=" * 60)
+    
+    output_unique_diff = Path(__file__).parent / "model_unique_solves_by_difficulty.pdf"
+    create_unique_solves_by_difficulty_chart(results_dir, output_unique_diff, variant='gym')
 
 
 if __name__ == "__main__":

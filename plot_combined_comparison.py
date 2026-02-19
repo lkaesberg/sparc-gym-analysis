@@ -34,9 +34,17 @@ MODEL_DISPLAY_NAMES = {
     "allenai_Olmo-3.1-32B-Think": "OLMo 3.1 32B",
     "nvidia_Llama-3_3-Nemotron-Super-49B-v1_5": "Nemotron 49B",
     "Qwen_Qwen3-32B": "Qwen 3 32B",
+    "Qwen_Qwen3-0.6B": "Qwen 3 0.6B",
     "deepseek-ai_DeepSeek-R1-Distill-Qwen-32B": "R1 Distill 32B",
     "google_gemma-3-27b-it": "Gemma 3 27B",
     "mistralai_Magistral-Small-2507": "Magistral Small",
+}
+
+
+EXCLUDED_MODELS = {
+    "Qwen_Qwen3-14B",
+    "Qwen_Qwen3-4B",
+    "9Tobi_ragen_sparc_qwen3_4B_CW3",
 }
 
 
@@ -73,6 +81,8 @@ def load_sparc_gym_comparison(results_dir):
     model_data = []
     for sparc_file in sparc_files:
         model_name = sparc_file.name.replace("_stats.csv", "")
+        if model_name in EXCLUDED_MODELS:
+            continue
         gym_file = results_path / f"{model_name}_gym_stats.csv"
         if not gym_file.exists():
             continue
@@ -107,6 +117,8 @@ def load_traceback_comparison(results_dir):
     model_data = []
     for main_file in main_stats_files:
         model_name = main_file.name.replace("_gym_stats.csv", "")
+        if model_name in EXCLUDED_MODELS:
+            continue
         traceback_file = results_path / f"{model_name}_gym_traceback_stats.csv"
         if not traceback_file.exists():
             continue
