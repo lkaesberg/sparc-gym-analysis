@@ -20,6 +20,7 @@ MODEL_DISPLAY_NAMES = {
     "allenai_Olmo-3.1-32B-Think": "OLMo 3.1 32B",
     "nvidia_Llama-3_3-Nemotron-Super-49B-v1_5": "Nemotron 49B",
     "Qwen_Qwen3-32B": "Qwen 3 32B",
+    "Qwen_Qwen3-0.6B": "Qwen 3 0.6B",
     "deepseek-ai_DeepSeek-R1-Distill-Qwen-32B": "R1 Distill 32B",
     "google_gemma-3-27b-it": "Gemma 3 27B",
     "mistralai_Magistral-Small-2507": "Magistral Small",
@@ -31,6 +32,7 @@ INCLUDED_MODELS = {
     "allenai_Olmo-3.1-32B-Think",
     "nvidia_Llama-3_3-Nemotron-Super-49B-v1_5",
     "Qwen_Qwen3-32B",
+    "Qwen_Qwen3-0.6B",
     "deepseek-ai_DeepSeek-R1-Distill-Qwen-32B",
     "google_gemma-3-27b-it",
     "mistralai_Magistral-Small-2507",
@@ -182,7 +184,7 @@ def create_navigation_comparison():
         Patch(facecolor='#888888', edgecolor='black', linewidth=0.5, label='Finished'),
         Patch(facecolor='#E8E8E8', edgecolor='black', linewidth=0.5, hatch='////', label='Deadlocked')
     ]
-    ax1.legend(handles=legend_elements, loc='upper right', fontsize=7, framealpha=0.9, ncol=2)
+    ax1.legend(handles=legend_elements, loc='upper center', fontsize=7, framealpha=0.9, ncol=2)
     
     # === Right plot: SPARC-Gym Traceback ===
     labels2 = [m['display_name'] for m in traceback_data]
@@ -217,7 +219,7 @@ def create_navigation_comparison():
     ax2.set_axisbelow(True)
     
     # Add legend to right plot
-    ax2.legend(handles=legend_elements, loc='upper right', fontsize=7, framealpha=0.9, ncol=2)
+    ax2.legend(handles=legend_elements, loc='upper center', fontsize=7, framealpha=0.9, ncol=2)
     
     # Tight layout
     plt.tight_layout()
