@@ -1,6 +1,6 @@
 """
 Script to create a 3-panel line plot showing accuracy by difficulty level
-for each model individually, with subplots for SPARC, SPARC-Gym, and SPARC-Gym Traceback.
+for each model individually, with subplots for SPARC, Gym w/o traceback, and Gym w/ traceback.
 """
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -102,19 +102,19 @@ def extract_difficulty_accuracies(stats_file):
 
 def get_internal_name(filename, variant):
     """Extract internal model name from filename based on variant type."""
-    if variant == "SPARC-Gym Traceback":
+    if variant == "Gym w/ traceback":
         return filename.replace("_gym_traceback_stats.csv", "")
-    elif variant == "SPARC-Gym":
+    elif variant == "Gym w/o traceback":
         return filename.replace("_gym_stats.csv", "")
     else:
         return filename.replace("_stats.csv", "")
 
 
 def categorize_stats_files(results_dir):
-    """Categorize stats files into SPARC, SPARC-Gym, and SPARC-Gym Traceback."""
+    """Categorize stats files into SPARC, Gym w/o traceback, and Gym w/ traceback."""
     results_path = Path(results_dir)
 
-    categories = {"SPARC": [], "SPARC-Gym": [], "SPARC-Gym Traceback": []}
+    categories = {"SPARC": [], "Gym w/o traceback": [], "Gym w/ traceback": []}
 
     for stats_file in sorted(results_path.glob("*_stats.csv")):
         if "archive" in str(stats_file):
@@ -127,9 +127,9 @@ def categorize_stats_files(results_dir):
             continue
 
         if "_gym_traceback_stats.csv" in filename:
-            categories["SPARC-Gym Traceback"].append(stats_file)
+            categories["Gym w/ traceback"].append(stats_file)
         elif "_gym_stats.csv" in filename:
-            categories["SPARC-Gym"].append(stats_file)
+            categories["Gym w/o traceback"].append(stats_file)
         elif "_stats.csv" in filename and "_gym_" not in filename:
             categories["SPARC"].append(stats_file)
 
@@ -140,7 +140,7 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
     """Create 3-panel line plot with individual model lines."""
     setup_plot_style(use_latex=True)
 
-    variant_names = ["SPARC", "SPARC-Gym", "SPARC-Gym Traceback"]
+    variant_names = ["SPARC", "Gym w/o traceback", "Gym w/ traceback"]
 
     fig, axes = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 3.0), sharey=True)
 
