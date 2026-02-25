@@ -240,7 +240,7 @@ def create_subplot(ax, difficulty_scores, values, title, color, ylabel=True):
     ax.set_title(title, fontsize=9, fontweight='bold')
     ax.set_xlabel('Difficulty Score')
     if ylabel:
-        ax.set_ylabel('Steps / Path Length')
+        ax.set_ylabel('Path Length')
     
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
@@ -304,9 +304,9 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
                    VARIANT_COLORS["True Solution"], ylabel=True)
     create_subplot(axes[1], sparc_diff, sparc_steps, "(b) SPARC", 
                    VARIANT_COLORS["SPARC"], ylabel=False)
-    create_subplot(axes[2], gym_diff, gym_steps, "(c) SPARC-Gym", 
+    create_subplot(axes[2], gym_diff, gym_steps, "(c) Gym w/o traceback", 
                    VARIANT_COLORS["SPARC-Gym"], ylabel=False)
-    create_subplot(axes[3], traceback_diff, traceback_steps, "(d) SPARC-Gym Traceback", 
+    create_subplot(axes[3], traceback_diff, traceback_steps, "(d) Gym w/ traceback", 
                    VARIANT_COLORS["SPARC-Gym Traceback"], ylabel=False)
     
     # Compute shared y-limits

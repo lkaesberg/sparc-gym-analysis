@@ -3,6 +3,7 @@ Script to create a comparison of Qwen 3 model scaling (0.6B, 4B, 14B, 32B)
 across SPARC and SPARC-Gym variants.
 """
 import matplotlib.pyplot as plt
+import matplotlib.patheffects as pe
 import pandas as pd
 import numpy as np
 from pathlib import Path
@@ -144,87 +145,63 @@ def extract_path_stats(jsonl_file):
 
 
 def create_qwen_scaling_plot(results_dir, output_path=None):
-    """Create a comparison plot showing Qwen scaling across SPARC and SPARC-Gym."""
+    """Create a plot showing Qwen scaling across SPARC and SPARC-Gym."""
     setup_plot_style(use_latex=True)
     
     data = load_qwen_data(results_dir)
     
-    # Create figure with 2 subplots
-    fig, axes = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.5))
-    
-    # --- Subplot 1: Overall accuracy by model size ---
-    ax1 = axes[0]
-    
+    # Accuracy values for convenience
     sparc_accs = [data['sparc'].get(size, 0) for size in QWEN_SIZES]
     gym_accs = [data['gym'].get(size, 0) for size in QWEN_SIZES]
     
-    x = np.arange(len(QWEN_SIZES))
-    width = 0.35
-    
-    bars1 = ax1.bar(x - width/2, sparc_accs, width, label='SPARC', color=COLORS['sparc'], edgecolor='white')
-    bars2 = ax1.bar(x + width/2, gym_accs, width, label='SPARC-Gym', color=COLORS['gym'], edgecolor='white')
-    
-    # Add value labels
-    for bars in [bars1, bars2]:
-        for bar in bars:
-            height = bar.get_height()
-            if height > 0:
-                ax1.annotate(f'{height:.1f}',
-                            xy=(bar.get_x() + bar.get_width() / 2, height),
-                            xytext=(0, 2),
-                            textcoords="offset points",
-                            ha='center', va='bottom',
-                            fontsize=7)
-    
-    ax1.set_ylabel('Accuracy (\\%)')
-    ax1.set_xlabel('Model Size')
-    ax1.set_xticks(x)
-    ax1.set_xticklabels(QWEN_SIZES)
-    ax1.legend(loc='upper left', framealpha=0.9, fontsize=8)
-    ax1.spines['top'].set_visible(False)
-    ax1.spines['right'].set_visible(False)
-    ax1.yaxis.grid(True, linestyle='--', alpha=0.3)
-    ax1.set_axisbelow(True)
-    
-    # --- Subplot 2: Cost-effectiveness (accuracy per PFLOPs) for both variants ---
-    ax2 = axes[1]
+    # --- Single subplot: Accuracy vs compute (FLOPs) for both variants ---
+    fig, ax2 = plt.subplots(1, 1, figsize=(COLUMN_WIDTH_INCHES, 2.5))
     
     # Get tokens per puzzle for both variants
     sparc_tokens = [data['sparc_tokens'].get(size, 0) for size in QWEN_SIZES]
     gym_tokens = [data['gym_tokens'].get(size, 0) for size in QWEN_SIZES]
     
     # Estimate FLOPs: ~2 × params × tokens (standard transformer inference estimate)
-    # Convert to PFLOPs (10^15) for readability: divide by 10^6
-    sparc_pflops = [2 * QWEN_PARAMS[i] * sparc_tokens[i] / 1e6 for i in range(len(QWEN_SIZES))]
-    gym_pflops = [2 * QWEN_PARAMS[i] * gym_tokens[i] / 1e6 for i in range(len(QWEN_SIZES))]
+    # Use raw FLOPs (log-scaled axis keeps values readable)
+    sparc_flops = [2 * QWEN_PARAMS[i] * sparc_tokens[i] for i in range(len(QWEN_SIZES))]
+    gym_flops = [2 * QWEN_PARAMS[i] * gym_tokens[i] for i in range(len(QWEN_SIZES))]
     
-    # Cost-effectiveness: accuracy % gained per PFLOPs spent
-    sparc_efficiency = [sparc_accs[i] / sparc_pflops[i] if sparc_pflops[i] > 0 else 0 
-                        for i in range(len(QWEN_SIZES))]
-    gym_efficiency = [gym_accs[i] / gym_pflops[i] if gym_pflops[i] > 0 else 0 
-                      for i in range(len(QWEN_SIZES))]
+    # Plot accuracy vs FLOPs
+    # Use lines with markers so scaling trend is easier to see
+    ax2.plot(sparc_flops, sparc_accs, label='SPARC',
+             color=COLORS['sparc'], marker='o', linewidth=1.5)
+    ax2.plot(gym_flops, gym_accs, label='SPARC-Gym',
+             color=COLORS['gym'], marker='s', linewidth=1.5)
     
-    width = 0.35
-    bars1 = ax2.bar(x - width/2, sparc_efficiency, width, label='SPARC', color=COLORS['sparc'], edgecolor='white')
-    bars2 = ax2.bar(x + width/2, gym_efficiency, width, label='SPARC-Gym', color=COLORS['gym'], edgecolor='white')
+    # Annotate points with model size and a thin white outline for readability
+    for size, x_val, y_val in zip(QWEN_SIZES, sparc_flops, sparc_accs):
+        if x_val > 0 and y_val > 0:
+            txt = ax2.annotate(
+                size,
+                xy=(x_val, y_val),
+                xytext=(4, 4),
+                textcoords="offset points",
+                fontsize=8,
+                color=COLORS["sparc"],
+            )
+            txt.set_path_effects([pe.withStroke(linewidth=1.5, foreground="white")])
+
+    for size, x_val, y_val in zip(QWEN_SIZES, gym_flops, gym_accs):
+        if x_val > 0 and y_val > 0:
+            txt = ax2.annotate(
+                size,
+                xy=(x_val, y_val),
+                xytext=(4, -10),
+                textcoords="offset points",
+                fontsize=8,
+                color=COLORS["gym"],
+            )
+            txt.set_path_effects([pe.withStroke(linewidth=1.5, foreground="white")])
     
-    # Add value labels
-    for bars in [bars1, bars2]:
-        for bar in bars:
-            height = bar.get_height()
-            if height > 0:
-                ax2.annotate(f'{height:.2f}',
-                            xy=(bar.get_x() + bar.get_width() / 2, height),
-                            xytext=(0, 2),
-                            textcoords="offset points",
-                            ha='center', va='bottom',
-                            fontsize=7)
-    
-    ax2.set_ylabel('Efficiency (acc\\% / PFLOPs)')
-    ax2.set_xlabel('Model Size')
-    ax2.set_xticks(x)
-    ax2.set_xticklabels(QWEN_SIZES)
-    ax2.legend(loc='upper right', framealpha=0.9, fontsize=8)
+    ax2.set_xscale('log')
+    ax2.set_ylabel('Accuracy (\\%)')
+    ax2.set_xlabel('Estimated Compute (FLOPs, log scale)')
+    ax2.legend(loc='upper left', framealpha=0.9, fontsize=8)
     ax2.spines['top'].set_visible(False)
     ax2.spines['right'].set_visible(False)
     ax2.yaxis.grid(True, linestyle='--', alpha=0.3)

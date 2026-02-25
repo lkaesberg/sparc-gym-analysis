@@ -61,27 +61,30 @@ def get_model_family_color(model_name):
 def extract_navigation_stats(stats_file):
     """Extract navigation outcome stats from a stats CSV file."""
     df = pd.read_csv(stats_file)
-    
-    # Find the "Reached End" row
-    reached_row = df[df['Metric'] == 'Reached End']
-    stuck_row = df[df['Metric'] == 'No Legal Actions']
-    
+
     reached_pct = 0.0
     stuck_pct = 0.0
-    
+    solve_rate = 0.0
+
+    reached_row = df[df['Metric'] == 'Reached End']
     if len(reached_row) > 0:
-        pct_str = reached_row['Percentage'].values[0]
-        match = re.search(r'([\d.]+)%', str(pct_str))
+        match = re.search(r'([\d.]+)%', str(reached_row['Percentage'].values[0]))
         if match:
             reached_pct = float(match.group(1))
-    
+
+    stuck_row = df[df['Metric'] == 'No Legal Actions']
     if len(stuck_row) > 0:
-        pct_str = stuck_row['Percentage'].values[0]
-        match = re.search(r'([\d.]+)%', str(pct_str))
+        match = re.search(r'([\d.]+)%', str(stuck_row['Percentage'].values[0]))
         if match:
             stuck_pct = float(match.group(1))
-    
-    return reached_pct, stuck_pct
+
+    solved_row = df[df['Metric'] == 'Correctly Solved']
+    if len(solved_row) > 0:
+        match = re.search(r'([\d.]+)%', str(solved_row['Percentage'].values[0]))
+        if match:
+            solve_rate = float(match.group(1))
+
+    return reached_pct, stuck_pct, solve_rate
 
 
 def load_navigation_stats(results_dir, variant='gym'):
@@ -113,7 +116,7 @@ def load_navigation_stats(results_dir, variant='gym'):
         if model_name not in INCLUDED_MODELS:
             continue
         
-        reached_pct, stuck_pct = extract_navigation_stats(stats_file)
+        reached_pct, stuck_pct, solve_rate = extract_navigation_stats(stats_file)
         display_name = MODEL_DISPLAY_NAMES.get(model_name, model_name)
         color = get_model_family_color(model_name)
         
@@ -122,11 +125,9 @@ def load_navigation_stats(results_dir, variant='gym'):
             'display_name': display_name,
             'reached': reached_pct,
             'stuck': stuck_pct,
+            'solve_rate': solve_rate,
             'color': color
         })
-    
-    # Sort by reached percentage (descending)
-    model_data.sort(key=lambda x: x['reached'], reverse=True)
     
     return model_data
 
@@ -139,7 +140,15 @@ def create_navigation_comparison():
     
     # Load data for both variants
     gym_data = load_navigation_stats(results_dir, 'gym')
-    traceback_data = load_navigation_stats(results_dir, 'traceback')
+    traceback_data_unsorted = load_navigation_stats(results_dir, 'traceback')
+
+    # Sort gym data by solve rate (descending)
+    gym_data.sort(key=lambda x: x['solve_rate'], reverse=True)
+
+    # Reorder traceback data to match gym ordering
+    gym_order = [m['model_name'] for m in gym_data]
+    tb_by_name = {m['model_name']: m for m in traceback_data_unsorted}
+    traceback_data = [tb_by_name[name] for name in gym_order if name in tb_by_name]
     
     # Create figure with two subplots
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.8))
@@ -168,7 +177,7 @@ def create_navigation_comparison():
                         fontsize=7, fontweight='bold', color='white')
     
     ax1.set_ylabel('Rate (\\%)')
-    ax1.set_title('SPARC-Gym', fontsize=10, fontweight='bold')
+    ax1.set_title('Gym w/o traceback', fontsize=10, fontweight='bold')
     ax1.set_xticks(x1)
     ax1.set_xticklabels(labels1, fontsize=7, rotation=45, ha='right')
     ax1.set_ylim(0, 120)
@@ -208,7 +217,7 @@ def create_navigation_comparison():
                         fontsize=7, fontweight='bold', color='white')
     
     ax2.set_ylabel('Rate (\\%)')
-    ax2.set_title('SPARC-Gym Traceback', fontsize=10, fontweight='bold')
+    ax2.set_title('Gym w/ traceback', fontsize=10, fontweight='bold')
     ax2.set_xticks(x2)
     ax2.set_xticklabels(labels2, fontsize=7, rotation=45, ha='right')
     ax2.set_ylim(0, 120)
