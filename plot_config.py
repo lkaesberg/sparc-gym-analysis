@@ -175,6 +175,7 @@ def get_model_imagebox(model_name, zoom_factor=1.0, rotation=0):
     LOGO_CONFIG = {
         "gemma.png": (64, 64, 1/7),
         "qwen.png": (64, 64, 1/7.5),
+        "qwen-no-reason.png": (64, 64, 1/7.5),
         "deepseek.png": (64, 64, 1/6),
         "llama.png": (64, 64, 1/6),
         "nvidia.png": (64, 64, 1/6),
@@ -188,6 +189,7 @@ def get_model_imagebox(model_name, zoom_factor=1.0, rotation=0):
     LOGO_MAPPING = {
         "Human": "human.png",
         "Gemma": "gemma.png",
+        "Qwen No Reason": "qwen-no-reason.png",
         "Qwen": "qwen.png",
         "R1": "deepseek.png",
         "Llama": "llama.png",

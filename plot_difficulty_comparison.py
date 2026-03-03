@@ -207,9 +207,9 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
     plt.tight_layout(rect=[0, 0.12, 1, 1])
 
     leg = fig.legend(handles, labels, loc='lower center',
-               ncol=4, fontsize=7, frameon=False,
+               ncol=4, fontsize=7, framealpha=0,
                bbox_to_anchor=(0.5, -0.02),
-               handlelength=2, handletextpad=2.0)
+               handlelength=2, handletextpad=1.4)
 
     # Add logos to legend - need to draw first to get positions
     fig.canvas.draw()
@@ -221,7 +221,7 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
             continue
 
         ab = AnnotationBbox(imagebox, (0.5, 0.5),
-                           xybox=(15, 0),
+                           xybox=(19, 0),
                            xycoords=legend_handle,
                            boxcoords="offset points",
                            frameon=False,

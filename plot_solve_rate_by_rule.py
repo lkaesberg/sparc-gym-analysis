@@ -10,7 +10,22 @@ from collections import defaultdict
 from plot_config import (
     setup_plot_style,
     COLUMN_WIDTH_INCHES,
+    TEXT_WIDTH_INCHES,
 )
+
+
+def style_polar_grid(ax, yticks):
+    """Draw visible concentric rings and style the polar grid."""
+    ax.yaxis.grid(False)
+    ax.xaxis.grid(True, linewidth=0.3, color='#bbbbbb')
+    theta_ring = np.linspace(0, 2 * np.pi, 200)
+    for r in yticks:
+        ax.plot(theta_ring, [r] * len(theta_ring), color='#999999', linewidth=0.5, zorder=1.5)
+    # Draw one extra outer ring at the ylim boundary (no ytick label)
+    outer = ax.get_ylim()[1]
+    if outer > yticks[-1]:
+        ax.plot(theta_ring, [outer] * len(theta_ring), color='#999999', linewidth=0.5, zorder=1.5)
+    ax.spines['polar'].set_visible(False)
 
 
 def load_jsonl_data(filepath):
@@ -167,25 +182,35 @@ def create_radar_plot(results_dir, output_path=None):
     variants = ['SPaRC', 'SPaRC-Gym', 'Traceback']
     colors = ['#1976D2', '#7B1FA2', '#E65100']
     
+    # Rotate so that Polyomino faces up
+    if 'Polyomino' in rules:
+        poly_idx = rules.index('Polyomino')
+        ax.set_theta_offset(np.pi / 2 - angles[poly_idx])
+
     for variant, color in zip(variants, colors):
         values = [solve_rates[rule].get(variant, 0) for rule in rules]
         values += values[:1]  # Complete the loop
-        
-        ax.plot(angles, values, 'o-', linewidth=2, label=variant, color=color, markersize=4)
-        ax.fill(angles, values, alpha=0.15, color=color)
-    
+
+        ax.plot(angles, values, 'o-', linewidth=1.5,
+                label=variant, color=color, markersize=4, zorder=3)
+        ax.fill(angles, values, alpha=0.1, color=color, zorder=2)
+
     # Set the labels
     ax.set_xticks(angles[:-1])
     ax.set_xticklabels(rules, fontsize=8)
-    
+
     # Set y-axis - adjusted for actual data range
     max_val = max([max(solve_rates[r].values()) for r in rules])
-    ax.set_ylim(0, max(12, max_val * 1.15))
+    y_max = max_val * 1.15
+    ax.set_ylim(0, y_max)
     ax.set_yticks([2, 4, 6, 8, 10])
     ax.set_yticklabels(['2\\%', '4\\%', '6\\%', '8\\%', '10\\%'], fontsize=7)
-    
+    ax.yaxis.set_tick_params(labelsize=7)
+
+    style_polar_grid(ax, [2, 4, 6, 8, 10])
+
     # Add legend below the plot
-    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=3, fontsize=8, frameon=True, framealpha=0.9)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=3, fontsize=8, frameon=False)
     
     plt.tight_layout()
     
@@ -328,22 +353,30 @@ def create_radar_plot_single_model(results_dir, model_filter, model_display_name
     variants = ['SPaRC', 'SPaRC-Gym', 'Traceback']
     colors = ['#1976D2', '#7B1FA2', '#E65100']
     
+    # Rotate so that Polyomino faces up
+    if 'Polyomino' in rules:
+        poly_idx = rules.index('Polyomino')
+        ax.set_theta_offset(np.pi / 2 - angles[poly_idx])
+
     for variant, color in zip(variants, colors):
         values = [solve_rates[rule].get(variant, 0) for rule in rules]
         values += values[:1]
-        ax.plot(angles, values, 'o-', linewidth=2, label=variant, color=color, markersize=4)
-        ax.fill(angles, values, alpha=0.15, color=color)
-    
+        ax.plot(angles, values, 'o-', linewidth=1.5,
+                label=variant, color=color, markersize=4, zorder=3)
+        ax.fill(angles, values, alpha=0.1, color=color, zorder=2)
+
     ax.set_xticks(angles[:-1])
     ax.set_xticklabels(rules, fontsize=8)
-    
+
     max_val = max([max(solve_rates[r].values()) for r in rules if solve_rates[r].values()])
-    ax.set_ylim(0, max(12, max_val * 1.15))
+    ax.set_ylim(0, max_val * 1.15)
     ax.set_yticks([5, 10, 15, 20])
     ax.set_yticklabels(['5\\%', '10\\%', '15\\%', '20\\%'], fontsize=7)
-    
+
+    style_polar_grid(ax, [5, 10, 15, 20])
+
     ax.set_title(model_display_name, fontsize=10, fontweight='bold', pad=10)
-    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=3, fontsize=8, frameon=True, framealpha=0.9)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=3, fontsize=8, frameon=False)
     
     plt.tight_layout()
     
@@ -357,6 +390,95 @@ def create_radar_plot_single_model(results_dir, model_filter, model_display_name
     
     plt.close(fig)
     return fig, ax
+
+
+def create_combined_radar_plot(results_dir, output_path=None):
+    """Create a side-by-side radar plot (all models + GPT-OSS-120B) at text width with shared legend."""
+    setup_plot_style(use_latex=True)
+
+    solve_rates_all, rule_stats_all = calculate_solve_rates_by_rule(results_dir)
+    rules_all = [r for r in solve_rates_all.keys() if rule_stats_all[r]['SPaRC-Gym']['total'] >= 100]
+    rules_all = sorted(rules_all)
+
+    solve_rates_gpt, rule_stats_gpt = calculate_solve_rates_by_rule_single_model(results_dir, "gpt-oss-120b")
+    rules_gpt = [r for r in solve_rates_gpt.keys() if rule_stats_gpt[r]['SPaRC-Gym']['total'] > 0]
+    rules_gpt = sorted(rules_gpt)
+
+    variants = ['SPaRC', 'SPaRC-Gym', 'Traceback']
+    colors = ['#1976D2', '#7B1FA2', '#E65100']
+
+    panel_h = TEXT_WIDTH_INCHES / 2
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, panel_h + 0.4),
+                                    subplot_kw=dict(polar=True))
+
+    # Panel (a): All models
+    N1 = len(rules_all)
+    angles1 = np.linspace(0, 2 * np.pi, N1, endpoint=False).tolist()
+    angles1 += angles1[:1]
+
+    # Rotate panel (a) so Polyomino faces up
+    if 'Polyomino' in rules_all:
+        poly_idx = rules_all.index('Polyomino')
+        ax1.set_theta_offset(np.pi / 2 - angles1[poly_idx])
+
+    legend_handles = []
+    for variant, color in zip(variants, colors):
+        values = [solve_rates_all[rule].get(variant, 0) for rule in rules_all]
+        values += values[:1]
+        line, = ax1.plot(angles1, values, 'o-', linewidth=1.5,
+                         label=variant, color=color, markersize=4, zorder=3)
+        ax1.fill(angles1, values, alpha=0.1, color=color, zorder=2)
+        legend_handles.append(line)
+
+    ax1.set_xticks(angles1[:-1])
+    ax1.set_xticklabels(rules_all, fontsize=8)
+    max_val1 = max([max(solve_rates_all[r].values()) for r in rules_all])
+    ax1.set_ylim(0, max_val1 * 1.15)
+    ax1.set_yticks([2, 4, 6, 8, 10])
+    ax1.set_yticklabels(['2\\%', '4\\%', '6\\%', '8\\%', '10\\%'], fontsize=7)
+    style_polar_grid(ax1, [2, 4, 6, 8, 10])
+    ax1.set_title('(a) All Models', fontsize=10)
+
+    # Panel (b): GPT-OSS-120B
+    N2 = len(rules_gpt)
+    angles2 = np.linspace(0, 2 * np.pi, N2, endpoint=False).tolist()
+    angles2 += angles2[:1]
+
+    # Rotate panel (b) so Polyomino faces up
+    if 'Polyomino' in rules_gpt:
+        poly_idx = rules_gpt.index('Polyomino')
+        ax2.set_theta_offset(np.pi / 2 - angles2[poly_idx])
+
+    for variant, color in zip(variants, colors):
+        values = [solve_rates_gpt[rule].get(variant, 0) for rule in rules_gpt]
+        values += values[:1]
+        ax2.plot(angles2, values, 'o-', linewidth=1.5,
+                 label=variant, color=color, markersize=4, zorder=3)
+        ax2.fill(angles2, values, alpha=0.1, color=color, zorder=2)
+
+    ax2.set_xticks(angles2[:-1])
+    ax2.set_xticklabels(rules_gpt, fontsize=8)
+    max_val2 = max([max(solve_rates_gpt[r].values()) for r in rules_gpt if solve_rates_gpt[r].values()])
+    ax2.set_ylim(0, max(12, max_val2 * 1.15))
+    ax2.set_yticks([5, 10, 15, 20])
+    ax2.set_yticklabels(['5\\%', '10\\%', '15\\%', '20\\%'], fontsize=7)
+    style_polar_grid(ax2, [5, 10, 15, 20])
+    ax2.set_title('(b) GPT-OSS-120B', fontsize=10)
+
+    plt.tight_layout(rect=[0, 0.1, 1, 1])
+
+    fig.legend(legend_handles, variants, loc='lower center', bbox_to_anchor=(0.5, 0.0),
+               ncol=3, fontsize=8, frameon=False)
+
+    if output_path:
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        print(f"\nFigure saved to: {output_path}")
+        if str(output_path).endswith('.pdf'):
+            png_path = str(output_path).replace('.pdf', '.png')
+            plt.savefig(png_path, dpi=300, bbox_inches='tight')
+            print(f"Figure saved to: {png_path}")
+
+    plt.close(fig)
 
 
 def main():
@@ -375,6 +497,13 @@ def main():
     
     output_pdf_gpt = Path(__file__).parent / "solve_rate_by_rule_gpt_oss.pdf"
     create_radar_plot_single_model(results_dir, "gpt-oss-120b", "GPT-OSS-120B", output_pdf_gpt)
+
+    print("\n" + "=" * 60)
+    print("Creating combined radar plot (all models + GPT-OSS-120B)...")
+    print("=" * 60)
+
+    output_pdf_combined = Path(__file__).parent / "solve_rate_by_rule_combined.pdf"
+    create_combined_radar_plot(results_dir, output_pdf_combined)
 
 
 if __name__ == "__main__":

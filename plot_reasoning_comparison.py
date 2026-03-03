@@ -9,11 +9,13 @@ import numpy as np
 import re
 from pathlib import Path
 from matplotlib.patches import Patch
+from matplotlib.offsetbox import AnnotationBbox
 
 from plot_config import (
     setup_plot_style,
     TEXT_WIDTH_INCHES,
     get_model_color,
+    get_model_imagebox,
 )
 
 RESULTS_DIR = Path(__file__).parent / "results" / "sparc"
@@ -91,7 +93,8 @@ def create_reasoning_comparison():
     color_reasoning = get_model_color("Qwen 3 32B")
     color_no_reasoning = "#C8B8E8"
 
-    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 2.4))
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 2.2),
+                                        gridspec_kw={'width_ratios': [1, 1, 1.2]})
 
     x = np.arange(len(MODEL_SIZES))
     width = 0.35
@@ -108,22 +111,23 @@ def create_reasoning_comparison():
     for bar, val in zip(bars1a, sparc_reason):
         ax1.annotate(f'{val:.1f}\\%', xy=(bar.get_x() + bar.get_width()/2, val),
                     xytext=(0, 2), textcoords="offset points",
-                    ha='center', va='bottom', fontsize=7, fontweight='bold')
+                    ha='center', va='bottom', fontsize=6, fontweight='bold')
     for bar, val in zip(bars1b, sparc_no_reason):
         ax1.annotate(f'{val:.1f}\\%', xy=(bar.get_x() + bar.get_width()/2, val),
                     xytext=(0, 2), textcoords="offset points",
-                    ha='center', va='bottom', fontsize=7, fontweight='bold')
+                    ha='center', va='bottom', fontsize=6, fontweight='bold')
 
-    ax1.set_title('SPaRC', fontsize=10, fontweight='bold')
-    ax1.set_ylabel('Accuracy (\\%)')
+    ax1.set_title('SPaRC', fontsize=8, fontweight='bold')
+    ax1.set_ylabel('Accuracy (\\%)', fontsize=8)
     ax1.set_xticks(x)
-    ax1.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=8)
+    ax1.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=7)
+
     ax1.set_ylim(0, max(max(sparc_reason), max(sparc_no_reason)) * 1.4)
     ax1.spines['top'].set_visible(False)
     ax1.spines['right'].set_visible(False)
     ax1.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax1.set_axisbelow(True)
-    ax1.legend(fontsize=6, loc='upper right', ncol=1)
+    ax1.tick_params(axis='y', labelsize=7)
 
     # === Middle: SPaRC-Gym Accuracy ===
     gym_reason = [all_stats[s]['gym_reason'].get('solve_rate', 0) for s in MODEL_SIZES]
@@ -137,71 +141,124 @@ def create_reasoning_comparison():
     for bar, val in zip(bars2a, gym_reason):
         ax2.annotate(f'{val:.1f}\\%', xy=(bar.get_x() + bar.get_width()/2, val),
                     xytext=(0, 2), textcoords="offset points",
-                    ha='center', va='bottom', fontsize=7, fontweight='bold')
+                    ha='center', va='bottom', fontsize=6, fontweight='bold')
     for bar, val in zip(bars2b, gym_no_reason):
         ax2.annotate(f'{val:.1f}\\%', xy=(bar.get_x() + bar.get_width()/2, val),
                     xytext=(0, 2), textcoords="offset points",
-                    ha='center', va='bottom', fontsize=7, fontweight='bold')
+                    ha='center', va='bottom', fontsize=6, fontweight='bold')
 
-    ax2.set_title('SPaRC-Gym', fontsize=10, fontweight='bold')
-    ax2.set_ylabel('Accuracy (\\%)')
+    ax2.set_title('SPaRC-Gym', fontsize=8, fontweight='bold')
     ax2.set_xticks(x)
-    ax2.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=8)
-    ax2.set_ylim(0, max(max(gym_reason), max(gym_no_reason)) * 1.4)
+    ax2.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=7)
+    ax2.tick_params(labelleft=False)
     ax2.spines['top'].set_visible(False)
     ax2.spines['right'].set_visible(False)
     ax2.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax2.set_axisbelow(True)
-    ax2.legend(fontsize=6, loc='upper right', ncol=1)
 
-    # === Right: SPaRC-Gym Navigation Outcome ===
-    nav_labels = ["14B\nReason", "14B\nNo Reason", "32B\nReason", "32B\nNo Reason"]
-    finished = [
-        all_stats["14B"]["gym_reason"].get("finished", 0),
-        all_stats["14B"]["gym_no_reason"].get("finished", 0),
-        all_stats["32B"]["gym_reason"].get("finished", 0),
-        all_stats["32B"]["gym_no_reason"].get("finished", 0),
-    ]
-    stuck = [
-        all_stats["14B"]["gym_reason"].get("stuck", 0),
-        all_stats["14B"]["gym_no_reason"].get("stuck", 0),
-        all_stats["32B"]["gym_reason"].get("stuck", 0),
-        all_stats["32B"]["gym_no_reason"].get("stuck", 0),
-    ]
-    nav_colors = [color_reasoning, color_no_reasoning, color_reasoning, color_no_reasoning]
+    # === Right: SPaRC-Gym Navigation Outcome (grouped like ax1/ax2) ===
+    finished_reason = [all_stats[s]['gym_reason'].get('finished', 0) for s in MODEL_SIZES]
+    finished_no = [all_stats[s]['gym_no_reason'].get('finished', 0) for s in MODEL_SIZES]
+    stuck_reason = [all_stats[s]['gym_reason'].get('stuck', 0) for s in MODEL_SIZES]
+    stuck_no = [all_stats[s]['gym_no_reason'].get('stuck', 0) for s in MODEL_SIZES]
 
-    x3 = np.arange(len(nav_labels))
-    bars3a = ax3.bar(x3, finished, 0.6, color=nav_colors, edgecolor='black', linewidth=0.5)
-    ax3.bar(x3, stuck, 0.6, bottom=finished, color='#E8E8E8',
-            edgecolor='black', linewidth=0.5, hatch='////')
+    x3 = np.arange(len(MODEL_SIZES))
+    bars3a = ax3.bar(x3 - width/2, finished_reason, width, color=color_reasoning,
+                     edgecolor='black', linewidth=0.5)
+    ax3.bar(x3 - width/2, stuck_reason, width, bottom=finished_reason,
+            color='#E8E8E8', edgecolor='black', linewidth=0.5, hatch='////')
+    bars3b = ax3.bar(x3 + width/2, finished_no, width, color=color_no_reasoning,
+                     edgecolor='black', linewidth=0.5)
+    ax3.bar(x3 + width/2, stuck_no, width, bottom=finished_no,
+            color='#E8E8E8', edgecolor='black', linewidth=0.5, hatch='////')
 
-    for bar, val in zip(bars3a, finished):
+    for bar, val in zip(bars3a, finished_reason):
+        if val > 15:
+            ax3.annotate(f'{val:.0f}\\%', xy=(bar.get_x() + bar.get_width()/2, val/2),
+                        ha='center', va='center', fontsize=6, fontweight='bold', color='white')
+    for bar, val in zip(bars3b, finished_no):
         if val > 15:
             ax3.annotate(f'{val:.0f}\\%', xy=(bar.get_x() + bar.get_width()/2, val/2),
                         ha='center', va='center', fontsize=6, fontweight='bold', color='white')
 
-    ax3.axvline(x=1.5, ymin=0, ymax=100/120, color='gray', linestyle='--', linewidth=0.8, alpha=0.7)
-
-    ax3.set_title('Navigation Outcome', fontsize=10, fontweight='bold')
-    ax3.set_ylabel('Rate (\\%)')
+    ax3.set_title('Navigation Outcome', fontsize=8, fontweight='bold')
+    ax3.set_ylabel('Rate (\\%)', fontsize=8)
     ax3.set_xticks(x3)
-    ax3.set_xticklabels(nav_labels, fontsize=6)
+    ax3.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=7)
     ax3.set_ylim(0, 120)
     ax3.set_yticks([0, 25, 50, 75, 100])
+    ax3.tick_params(axis='y', labelsize=7)
     ax3.spines['top'].set_visible(False)
     ax3.spines['right'].set_visible(False)
     ax3.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax3.set_axisbelow(True)
 
-    legend_elements = [
+    # Navigation Outcome finished/deadlocked legend inside ax3
+    legend_nav = [
         Patch(facecolor='#888888', edgecolor='black', linewidth=0.5, label='Finished'),
-        Patch(facecolor='#E8E8E8', edgecolor='black', linewidth=0.5, hatch='////', label='Deadlocked')
+        Patch(facecolor='#E8E8E8', edgecolor='black', linewidth=0.5, hatch='////', label='Deadlocked'),
     ]
-    ax3.legend(handles=legend_elements, loc='upper center', fontsize=6, ncol=2)
+    ax3.legend(handles=legend_nav, loc='upper center', fontsize=6, ncol=2, framealpha=0.9, columnspacing=1, handlelength=1.4, handleheight=0.8)
 
-    plt.tight_layout()
+    # Unified Reasoning / No Reasoning legend below all panels
+    legend_reason = [
+        Patch(facecolor=color_reasoning, edgecolor='black', linewidth=0.5, label='Reasoning'),
+        Patch(facecolor=color_no_reasoning, edgecolor='black', linewidth=0.5, label='No Reasoning'),
+    ]
+    fig.legend(handles=legend_reason, loc='lower center', fontsize=6, ncol=2, frameon=False,
+               bbox_to_anchor=(0.5, 0.06))
+
+    plt.tight_layout(rect=[0, 0.08, 1, 1])
+    # Tighten gap between first two panels; pull ax3 along with ax2
+    pos1 = ax1.get_position()
+    pos2 = ax2.get_position()
+    pos3 = ax3.get_position()
+    gap = 0.01
+    shift = pos2.x0 - (pos1.x1 + gap)
+    ax2.set_position([pos1.x1 + gap, pos2.y0, pos2.width, pos2.height])
+    ax3.set_position([pos3.x0 - shift, pos3.y0, pos3.width, pos3.height])
 
     output_dir = Path(__file__).parent
+
+    # First pass: stabilise layout
+    fig.savefig(output_dir / "reasoning_comparison.pdf", bbox_inches='tight', dpi=300)
+
+    # Place logos above every individual bar
+
+    def place_logo(ax, x_data, y_top, logo_key, zoom=0.75, offset_pts=14):
+        imagebox = get_model_imagebox(logo_key, zoom_factor=zoom)
+        if not imagebox:
+            return
+        ab = AnnotationBbox(imagebox, (x_data, y_top),
+                            xybox=(0, offset_pts),
+                            xycoords='data',
+                            boxcoords='offset points',
+                            frameon=False,
+                            pad=0,
+                            box_alignment=(0.5, 0.0),
+                            zorder=10)
+        ax.add_artist(ab)
+
+    for i, size in enumerate(MODEL_SIZES):
+        logo_r  = f'Qwen 3 {size}'
+        logo_nr = f'Qwen No Reason {size}'  # maps to qwen-no-reason.png
+
+        # ax1 (SPaRC accuracy)
+        place_logo(ax1, x[i] - width/2, sparc_reason[i]-0.5,    logo_r)
+        place_logo(ax1, x[i] + width/2, sparc_no_reason[i]-0.5, logo_nr)
+
+        # ax2 (Gym accuracy)
+        place_logo(ax2, x[i] - width/2, gym_reason[i]-0.5,    logo_r)
+        place_logo(ax2, x[i] + width/2, gym_no_reason[i]-0.5, logo_nr)
+
+    # Set shared ylim to accommodate logos above tallest bars
+    all_acc = sparc_reason + sparc_no_reason + gym_reason + gym_no_reason
+    shared_ylim = (0, max(all_acc) * 1.45)
+    ax1.set_ylim(shared_ylim)
+    ax2.set_ylim(shared_ylim)
+    ax3.set_ylim(0, 120)
+
+    # Second pass: save with logos
     fig.savefig(output_dir / "reasoning_comparison.pdf", bbox_inches='tight', dpi=300)
     fig.savefig(output_dir / "reasoning_comparison.png", bbox_inches='tight', dpi=300)
     print("Saved reasoning_comparison.pdf and reasoning_comparison.png")
