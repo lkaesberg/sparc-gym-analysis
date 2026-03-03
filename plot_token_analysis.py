@@ -9,10 +9,13 @@ import json
 import tiktoken
 from pathlib import Path
 
+from matplotlib.offsetbox import AnnotationBbox
+
 from plot_config import (
     setup_plot_style,
     TEXT_WIDTH_INCHES,
     COLUMN_WIDTH_INCHES,
+    get_model_imagebox,
 )
 
 # Use cl100k_base encoding (used by GPT-4, GPT-3.5-turbo)
@@ -300,8 +303,10 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
     from matplotlib.lines import Line2D
     
     # Model legend (colors)
+    model_labels = sorted(plotted_models, key=lambda m: m if m in model_colors else '')
+    model_labels = [m for m in model_labels if m in model_colors]
     model_handles = [Line2D([0], [0], marker='o', color='w', markerfacecolor=model_colors.get(m, '#666'),
-                           markersize=8, label=m) for m in sorted(plotted_models) if m in model_colors]
+                           markersize=8, label=m) for m in model_labels]
     
     # Variant legend (shapes)  
     variant_handles = [Line2D([0], [0], marker=variant_markers[v], color='w', markerfacecolor='#444',
@@ -309,12 +314,28 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
     
     # Place legends inside plot
     leg1 = ax.legend(handles=model_handles, loc='upper left', fontsize=7, 
-                    frameon=True, framealpha=0.95, title='Model', title_fontsize=8)
+                    frameon=True, framealpha=0.95, title='Model', title_fontsize=8,
+                    handletextpad=2.0)
     ax.add_artist(leg1)
     leg2 = ax.legend(handles=variant_handles, loc='upper right', fontsize=8,
                     frameon=True, framealpha=0.95, title='Variant', title_fontsize=8)
     
     plt.tight_layout()
+
+    # Add logos to model legend handles
+    fig.canvas.draw()
+    for label, legend_handle in zip(model_labels, leg1.legend_handles):
+        imagebox = get_model_imagebox(label, zoom_factor=0.8)
+        if not imagebox:
+            continue
+        ab = AnnotationBbox(imagebox, (0.5, 0.5),
+                            xybox=(15, 0),
+                            xycoords=legend_handle,
+                            boxcoords="offset points",
+                            frameon=False,
+                            box_alignment=(0.5, 0.5),
+                            zorder=10)
+        fig.add_artist(ab)
     
     if output_path:
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
