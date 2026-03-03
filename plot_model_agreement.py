@@ -9,10 +9,13 @@ import json
 from pathlib import Path
 from collections import defaultdict
 
+from matplotlib.offsetbox import AnnotationBbox
+
 from plot_config import (
     setup_plot_style,
     TEXT_WIDTH_INCHES,
     COLUMN_WIDTH_INCHES,
+    get_model_imagebox,
 )
 
 # Display names for models
@@ -153,7 +156,7 @@ def create_agreement_heatmap(results_dir, output_path=None, variant='gym'):
         print(f"  {MODEL_DISPLAY_NAMES.get(m, m)}: {len(model_solved[m])} puzzles solved")
     
     # Create figure with two subplots
-    fig, axes = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 3.8))
+    fig, axes = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.7), sharey=True)
     
     # Plot 1: Jaccard similarity (symmetric)
     ax1 = axes[0]
@@ -185,7 +188,7 @@ def create_agreement_heatmap(results_dir, output_path=None, variant='gym'):
     ax2.set_xticks(np.arange(len(display_names)))
     ax2.set_yticks(np.arange(len(display_names)))
     ax2.set_xticklabels(display_names, fontsize=7, rotation=45, ha='right')
-    ax2.set_yticklabels(display_names, fontsize=7)
+    ax2.tick_params(axis='y', left=False, labelleft=False)
     
     # Add values
     for i in range(len(models)):
@@ -201,7 +204,50 @@ def create_agreement_heatmap(results_dir, output_path=None, variant='gym'):
     cbar2.ax.tick_params(labelsize=7)
     
     plt.tight_layout()
-    
+
+    # First pass: save to finalise layout so text positions are stable
+    if output_path:
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+
+    renderer = fig.canvas.get_renderer()
+
+    # Y-axis logos on ax1 only (shared axis)
+    for tick_label in ax1.get_yticklabels():
+        name = tick_label.get_text()
+        imagebox = get_model_imagebox(name, zoom_factor=0.65)
+        if not imagebox:
+            continue
+        bbox = tick_label.get_window_extent(renderer)
+        fig_x, fig_y = fig.transFigure.inverted().transform(
+            [bbox.x0, bbox.y0 + bbox.height / 2]
+        )
+        ab = AnnotationBbox(imagebox, (fig_x, fig_y+0.005),
+                           xycoords='figure fraction',
+                           frameon=False,
+                           box_alignment=(1.0, 0.5),
+                           pad=0)
+        fig.add_artist(ab)
+
+    # X-axis logos on both axes — placed at the start (upper-left) of each rotated label
+    for ax in [ax1, ax2]:
+        for tick_label in ax.get_xticklabels():
+            name = tick_label.get_text()
+            imagebox = get_model_imagebox(name, zoom_factor=0.65, rotation=45)
+            if not imagebox:
+                continue
+            bbox = tick_label.get_window_extent(renderer)
+            # For 45° ha='right' text, the word starts at the upper-left of the bbox
+            fig_x, fig_y = fig.transFigure.inverted().transform(
+                [bbox.x0, bbox.y0]
+            )
+            ab = AnnotationBbox(imagebox, (fig_x+0.01, fig_y),
+                               xycoords='figure fraction',
+                               frameon=False,
+                               box_alignment=(1.0, 0.5),
+                               pad=0)
+            fig.add_artist(ab)
+
+    # Second pass: save with logos in place
     if output_path:
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         print(f"\nFigure saved to: {output_path}")
@@ -209,7 +255,7 @@ def create_agreement_heatmap(results_dir, output_path=None, variant='gym'):
             png_path = str(output_path).replace('.pdf', '.png')
             plt.savefig(png_path, dpi=300, bbox_inches='tight')
             print(f"Figure saved to: {png_path}")
-    
+
     plt.close(fig)
     
     # Print interesting findings
@@ -341,6 +387,30 @@ def create_unique_solves_by_difficulty_chart(results_dir, output_path=None, vari
 
     plt.tight_layout()
 
+    # First pass: save to finalise layout so text positions are stable
+    if output_path:
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+
+    renderer = fig.canvas.get_renderer()
+
+    # X-axis logos — placed at the start of each rotated label
+    for tick_label in ax.get_xticklabels():
+        name = tick_label.get_text()
+        imagebox = get_model_imagebox(name, zoom_factor=0.65, rotation=45)
+        if not imagebox:
+            continue
+        bbox = tick_label.get_window_extent(renderer)
+        fig_x, fig_y = fig.transFigure.inverted().transform(
+            [bbox.x0, bbox.y0]
+        )
+        ab = AnnotationBbox(imagebox, (fig_x, fig_y),
+                           xycoords='figure fraction',
+                           frameon=False,
+                           box_alignment=(1.0, 0.5),
+                           pad=0)
+        fig.add_artist(ab)
+
+    # Second pass: save with logos in place
     if output_path:
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         print(f"\nFigure saved to: {output_path}")
@@ -408,7 +478,31 @@ def create_unique_solves_chart(results_dir, output_path=None, variant='gym'):
     ax.set_title('Total vs Uniquely Solved Puzzles', fontsize=10, fontweight='bold')
     
     plt.tight_layout()
-    
+
+    # First pass: save to finalise layout so text positions are stable
+    if output_path:
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+
+    renderer = fig.canvas.get_renderer()
+
+    # X-axis logos — placed at the start of each rotated label
+    for tick_label in ax.get_xticklabels():
+        name = tick_label.get_text()
+        imagebox = get_model_imagebox(name, zoom_factor=0.65, rotation=45)
+        if not imagebox:
+            continue
+        bbox = tick_label.get_window_extent(renderer)
+        fig_x, fig_y = fig.transFigure.inverted().transform(
+            [bbox.x0, bbox.y0]
+        )
+        ab = AnnotationBbox(imagebox, (fig_x - 0.01, fig_y),
+                           xycoords='figure fraction',
+                           frameon=False,
+                           box_alignment=(1.0, 0.5),
+                           pad=0)
+        fig.add_artist(ab)
+
+    # Second pass: save with logos in place
     if output_path:
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         print(f"\nFigure saved to: {output_path}")

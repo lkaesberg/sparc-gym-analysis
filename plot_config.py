@@ -10,10 +10,9 @@ from PIL import Image
 
 # LaTeX document dimensions in points
 # Convert to inches for matplotlib (1 pt = 1/72 inch)
-TEXT_WIDTH_PT = 455.24411  # pt
-COLUMN_WIDTH_PT = 219.08614  # pt
-TEXT_WIDTH_INCHES = TEXT_WIDTH_PT / 72.0  # inches
-COLUMN_WIDTH_INCHES = COLUMN_WIDTH_PT / 72.0  # inches
+
+TEXT_WIDTH_INCHES = 5.5  # inches
+COLUMN_WIDTH_INCHES = TEXT_WIDTH_INCHES/2.0  # inches
 
 
 def setup_plot_style(use_latex=True):
@@ -25,7 +24,7 @@ def setup_plot_style(use_latex=True):
 
     # Font configuration - Latin Modern Roman with LaTeX support
     plt.rcParams["font.family"] = "serif"
-    plt.rcParams["font.serif"] = ["Times"]
+    plt.rcParams["font.serif"] = ['Palatino', 'TeX Gyre Pagella', 'Times']
     plt.rcParams["text.usetex"] = use_latex
     plt.rcParams["mathtext.fontset"] = "cm"  # Computer Modern for math
 
@@ -165,9 +164,11 @@ def get_training_method_colors(method_names, warn_on_missing=True):
     return [get_training_method_color(name, warn_on_missing) for name in method_names]
 
 
-def get_model_imagebox(model_name):
+def get_model_imagebox(model_name, zoom_factor=1.0, rotation=0):
     """
     Get an OffsetImage (imagebox) for a model's logo.
+    zoom_factor: multiply the default zoom by this value (e.g. 0.7 for smaller logos).
+    rotation: counter-clockwise rotation in degrees applied to the logo image.
     """
     # Internal mapping for logo files - tuples of (width, height, zoom)
     # Some logos are taller, some are wider, adjust dimensions and zoom as needed
@@ -214,9 +215,13 @@ def get_model_imagebox(model_name):
     
     # Resize to thumbnail size while maintaining aspect ratio
     img_pil.thumbnail((width, height), Image.Resampling.LANCZOS)
-    
+
+    # Apply rotation if requested
+    if rotation != 0:
+        img_pil = img_pil.rotate(rotation, expand=True, resample=Image.Resampling.BICUBIC)
+
     # Create and return OffsetImage with specified zoom
-    imagebox = OffsetImage(np.array(img_pil), zoom=zoom)
+    imagebox = OffsetImage(np.array(img_pil), zoom=zoom * zoom_factor)
     
     return imagebox
 

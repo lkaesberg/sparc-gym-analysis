@@ -159,22 +159,22 @@ def add_bars_to_subplot(ax, model_data, title):
         if diff >= 0:
             va = 'bottom'
             y_offset = 3
-            logo_offset = 18
+            logo_offset = 13
         else:
             va = 'top'
             y_offset = -3
-            logo_offset = -18
-        
+            logo_offset = -11
+
         sign = '+' if diff > 0 else ''
         ax.annotate(f'{sign}{diff:.1f}\\%',
                     xy=(bar.get_x() + bar.get_width() / 2, height),
                     xytext=(0, y_offset),
                     textcoords="offset points",
                     ha='center', va=va,
-                    fontsize=8,
+                    fontsize=7,
                     fontweight='bold',
                     color=m['color'])
-        
+
         imagebox = get_model_imagebox(m['display_name'])
         if imagebox:
             ab = AnnotationBbox(imagebox, (bar.get_x() + bar.get_width() / 2, height),
@@ -201,7 +201,7 @@ def create_combined_chart(sparc_gym_data, traceback_data, output_path=None):
     """Create the combined figure with two subplots."""
     setup_plot_style(use_latex=True)
     
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 3.2))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 3.2), sharey=True)
     
     # Left subplot: SPARC-Gym vs SPARC
     add_bars_to_subplot(ax1, sparc_gym_data, "(a) SPARC-Gym vs SPARC")
@@ -217,14 +217,14 @@ def create_combined_chart(sparc_gym_data, traceback_data, output_path=None):
     shared_ylim = (y_min - padding, y_max + padding)
     
     ax1.set_ylim(shared_ylim)
-    ax2.set_ylim(shared_ylim)
-    
+    ax2.set_ylabel('')
+
     # Set yticks at 2.5 intervals
     from matplotlib.ticker import MultipleLocator
     ax1.yaxis.set_major_locator(MultipleLocator(2.5))
-    ax2.yaxis.set_major_locator(MultipleLocator(2.5))
     
     plt.tight_layout()
+    plt.subplots_adjust(wspace=0.08)
     
     if output_path:
         plt.savefig(output_path, dpi=300, bbox_inches='tight')

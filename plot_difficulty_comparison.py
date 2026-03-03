@@ -8,11 +8,14 @@ import numpy as np
 from pathlib import Path
 import re
 
+from matplotlib.offsetbox import AnnotationBbox
+
 from plot_config import (
     setup_plot_style,
     TEXT_WIDTH_INCHES,
     COLUMN_WIDTH_INCHES,
     get_model_color,
+    get_model_imagebox,
     MODEL_COLORS,
 )
 
@@ -201,11 +204,30 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
                 handles.append(h)
                 labels.append(l)
 
-    fig.legend(handles, labels, loc='lower center',
-               ncol=4, fontsize=7, frameon=False,
-               bbox_to_anchor=(0.5, -0.02))
-
     plt.tight_layout(rect=[0, 0.12, 1, 1])
+
+    leg = fig.legend(handles, labels, loc='lower center',
+               ncol=4, fontsize=7, frameon=False,
+               bbox_to_anchor=(0.5, -0.02),
+               handlelength=2, handletextpad=2.0)
+
+    # Add logos to legend - need to draw first to get positions
+    fig.canvas.draw()
+
+    # Add logos to legend handles
+    for label, legend_handle in zip(labels, leg.legend_handles):
+        imagebox = get_model_imagebox(label, zoom_factor=0.8)
+        if not imagebox:
+            continue
+
+        ab = AnnotationBbox(imagebox, (0.5, 0.5),
+                           xybox=(15, 0),
+                           xycoords=legend_handle,
+                           boxcoords="offset points",
+                           frameon=False,
+                           box_alignment=(0.5, 0.5),
+                           zorder=10)
+        fig.add_artist(ab)
 
     # Save figure
     if output_path:

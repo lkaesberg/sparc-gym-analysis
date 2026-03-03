@@ -76,6 +76,7 @@ EXCLUDED_MODELS = {
     "Qwen_Qwen3-14B",
     "Qwen_Qwen3-4B",
     "9Tobi_ragen_sparc_qwen3_4B_CW3",
+    "Qwen_Qwen3-VL-32B-Thinking"
 }
 
 # Human solve rate for reference

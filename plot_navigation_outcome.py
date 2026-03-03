@@ -8,10 +8,13 @@ import numpy as np
 from pathlib import Path
 import re
 
+from matplotlib.offsetbox import AnnotationBbox
+
 from plot_config import (
     setup_plot_style,
     TEXT_WIDTH_INCHES,
     get_model_color,
+    get_model_imagebox,
 )
 
 # Model display name mapping
@@ -151,9 +154,9 @@ def create_navigation_comparison():
     traceback_data = [tb_by_name[name] for name in gym_order if name in tb_by_name]
     
     # Create figure with two subplots
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.8))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.4), sharey=True)
     
-    width = 0.6
+    width = 0.75
     
     # === Left plot: SPARC-Gym ===
     labels1 = [m['display_name'] for m in gym_data]
@@ -174,7 +177,7 @@ def create_navigation_comparison():
             ax1.annotate(f'{value:.0f}\\%',
                         xy=(bar.get_x() + bar.get_width() / 2, value / 2),
                         ha='center', va='center',
-                        fontsize=7, fontweight='bold', color='white')
+                        fontsize=6, fontweight='bold', color='white')
     
     ax1.set_ylabel('Rate (\\%)')
     ax1.set_title('Gym w/o traceback', fontsize=10, fontweight='bold')
@@ -193,7 +196,7 @@ def create_navigation_comparison():
         Patch(facecolor='#888888', edgecolor='black', linewidth=0.5, label='Finished'),
         Patch(facecolor='#E8E8E8', edgecolor='black', linewidth=0.5, hatch='////', label='Deadlocked')
     ]
-    ax1.legend(handles=legend_elements, loc='upper center', fontsize=7, framealpha=0.9, ncol=2)
+    ax1.legend(handles=legend_elements, loc='upper center', fontsize=7, framealpha=0.9, ncol=2, bbox_to_anchor=(0.5, 1.04))
     
     # === Right plot: SPARC-Gym Traceback ===
     labels2 = [m['display_name'] for m in traceback_data]
@@ -214,7 +217,7 @@ def create_navigation_comparison():
             ax2.annotate(f'{value:.0f}\\%',
                         xy=(bar.get_x() + bar.get_width() / 2, value / 2),
                         ha='center', va='center',
-                        fontsize=7, fontweight='bold', color='white')
+                        fontsize=5, fontweight='bold', color='white')
     
     ax2.set_ylabel('Rate (\\%)')
     ax2.set_title('Gym w/ traceback', fontsize=10, fontweight='bold')
@@ -222,23 +225,48 @@ def create_navigation_comparison():
     ax2.set_xticklabels(labels2, fontsize=7, rotation=45, ha='right')
     ax2.set_ylim(0, 120)
     ax2.set_yticks([0, 25, 50, 75, 100])
+    ax2.tick_params(axis='y', left=False, labelleft=False)
+    ax2.set_ylabel('')
     ax2.spines['top'].set_visible(False)
     ax2.spines['right'].set_visible(False)
     ax2.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax2.set_axisbelow(True)
     
     # Add legend to right plot
-    ax2.legend(handles=legend_elements, loc='upper center', fontsize=7, framealpha=0.9, ncol=2)
+    ax2.legend(handles=legend_elements, loc='upper center', fontsize=7, framealpha=0.9, ncol=2, bbox_to_anchor=(0.5, 1.04))
     
     # Tight layout
     plt.tight_layout()
-    
-    # Save figures
+
+    # First pass: save to finalise layout so text positions are stable
     output_dir = Path(__file__).parent
+    fig.savefig(output_dir / "navigation_outcome.pdf", bbox_inches='tight', dpi=300)
+
+    renderer = fig.canvas.get_renderer()
+
+    # X-axis logos on both axes
+    for ax in [ax1, ax2]:
+        for tick_label in ax.get_xticklabels():
+            name = tick_label.get_text()
+            imagebox = get_model_imagebox(name, zoom_factor=0.65, rotation=45)
+            if not imagebox:
+                continue
+            bbox = tick_label.get_window_extent(renderer)
+            fig_x, fig_y = fig.transFigure.inverted().transform(
+                [bbox.x0, bbox.y0]
+            )
+            ab = AnnotationBbox(imagebox, (fig_x - 0.001, fig_y),
+                               xycoords='figure fraction',
+                               frameon=False,
+                               box_alignment=(1.0, 0.5),
+                               pad=0)
+            fig.add_artist(ab)
+
+    # Second pass: save with logos in place
     fig.savefig(output_dir / "navigation_outcome.pdf", bbox_inches='tight', dpi=300)
     fig.savefig(output_dir / "navigation_outcome.png", bbox_inches='tight', dpi=300)
     print(f"Saved navigation_outcome.pdf and navigation_outcome.png")
-    
+
     plt.close()
 
 

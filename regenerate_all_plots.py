@@ -10,6 +10,7 @@ import time
 # List of all plot scripts (excluding plot_config.py which is just configuration)
 PLOT_SCRIPTS = [
     "plot_accuracy.py",
+    "plot_baseline_comparison.py",
     "plot_traceback_diff.py",
     "plot_difficulty_comparison.py",
     "plot_sparc_gym_comparison.py",
@@ -18,10 +19,15 @@ PLOT_SCRIPTS = [
     "plot_traceback_steps_vs_path.py",
     "plot_correlation_heatmap.py",
     "plot_improvement_ceiling.py",
+    "plot_navigation_outcome.py",
     "plot_solve_rate_by_rule.py",
     "plot_model_ranking_bump.py",
     "plot_model_agreement.py",
+    "plot_qwen_scaling.py",
+    "plot_reasoning_comparison.py",
     "plot_token_analysis.py",
+    "plot_token_by_difficulty.py",
+    "plot_vision_comparison.py",
 ]
 
 
