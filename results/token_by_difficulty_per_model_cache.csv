@@ -1,0 +1,121 @@
+Internal Name,Display Name,File Type,Difficulty,Avg Tokens,Num Puzzles
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,sparc,3,5996.454545454545,121
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,sparc,5,5809.112359550561,89
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,sparc,1,5986.7441860465115,86
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,sparc,4,5890.430232558139,86
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,sparc,2,5992.983050847458,118
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,gym,3,39698.398305084746,118
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,gym,1,30106.0,81
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,gym,5,53397.2183908046,87
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,gym,4,46249.70731707317,82
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,gym,2,37085.495652173915,115
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,traceback,1,37549.458333333336,48
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,traceback,3,61127.433333333334,60
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,traceback,5,102779.325,40
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,traceback,4,111969.77777777778,45
+Qwen_Qwen3-0.6B,Qwen 3 0.6B,traceback,2,54588.703125,64
+Qwen_Qwen3-32B,Qwen 3 32B,sparc,3,15041.198347107438,121
+Qwen_Qwen3-32B,Qwen 3 32B,sparc,5,16456.56179775281,89
+Qwen_Qwen3-32B,Qwen 3 32B,sparc,1,12990.43023255814,86
+Qwen_Qwen3-32B,Qwen 3 32B,sparc,4,16254.918604651162,86
+Qwen_Qwen3-32B,Qwen 3 32B,sparc,2,15084.57627118644,118
+Qwen_Qwen3-32B,Qwen 3 32B,gym,3,50104.09917355372,121
+Qwen_Qwen3-32B,Qwen 3 32B,gym,5,74781.25842696629,89
+Qwen_Qwen3-32B,Qwen 3 32B,gym,1,43096.476744186046,86
+Qwen_Qwen3-32B,Qwen 3 32B,gym,4,57287.151162790695,86
+Qwen_Qwen3-32B,Qwen 3 32B,gym,2,48532.36440677966,118
+Qwen_Qwen3-32B,Qwen 3 32B,traceback,3,105487.23140495867,121
+Qwen_Qwen3-32B,Qwen 3 32B,traceback,5,150653.21348314607,89
+Qwen_Qwen3-32B,Qwen 3 32B,traceback,1,140026.43023255814,86
+Qwen_Qwen3-32B,Qwen 3 32B,traceback,4,138910.72093023255,86
+Qwen_Qwen3-32B,Qwen 3 32B,traceback,2,115757.89830508475,118
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,sparc,3,18116.14049586777,121
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,sparc,5,18946.6404494382,89
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,sparc,1,16232.348837209302,86
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,sparc,4,18302.267441860466,86
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,sparc,2,17465.898305084746,118
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,gym,3,72958.95867768595,121
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,gym,5,100945.68539325842,89
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,gym,1,67952.18604651163,86
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,gym,4,78146.8488372093,86
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,gym,2,67303.88983050847,118
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,traceback,3,147162.32231404958,121
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,traceback,5,178717.33707865168,89
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,traceback,1,180352.9534883721,86
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,traceback,4,162749.40697674418,86
+allenai_Olmo-3.1-32B-Think,OLMo 3.1 32B,traceback,2,153537.0593220339,118
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,sparc,3,9101.322314049587,121
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,sparc,5,8880.719101123595,89
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,sparc,1,7827.162790697675,86
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,sparc,4,9153.860465116279,86
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,sparc,2,9040.669491525423,118
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,gym,3,33022.67768595041,121
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,gym,5,39326.426966292136,89
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,gym,1,30544.96511627907,86
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,gym,4,35511.651162790695,86
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,gym,2,31641.466101694914,118
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,traceback,3,92340.54545454546,121
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,traceback,5,106831.85393258427,89
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,traceback,1,100963.88372093023,86
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,traceback,4,98585.97674418605,86
+deepseek-ai_DeepSeek-R1-Distill-Qwen-32B,R1 Distill 32B,traceback,2,101020.49152542373,118
+google_gemma-3-27b-it,Gemma 3 27B,sparc,3,807.3553719008264,121
+google_gemma-3-27b-it,Gemma 3 27B,sparc,5,820.1797752808989,89
+google_gemma-3-27b-it,Gemma 3 27B,sparc,1,751.2209302325581,86
+google_gemma-3-27b-it,Gemma 3 27B,sparc,4,802.6744186046511,86
+google_gemma-3-27b-it,Gemma 3 27B,sparc,2,757.5677966101695,118
+google_gemma-3-27b-it,Gemma 3 27B,gym,3,2952.619834710744,121
+google_gemma-3-27b-it,Gemma 3 27B,gym,5,3932.258426966292,89
+google_gemma-3-27b-it,Gemma 3 27B,gym,1,2335.139534883721,86
+google_gemma-3-27b-it,Gemma 3 27B,gym,4,3790.139534883721,86
+google_gemma-3-27b-it,Gemma 3 27B,gym,2,2833.9322033898306,118
+google_gemma-3-27b-it,Gemma 3 27B,traceback,3,16901.76859504132,121
+google_gemma-3-27b-it,Gemma 3 27B,traceback,5,17306.415730337078,89
+google_gemma-3-27b-it,Gemma 3 27B,traceback,1,14627.639534883721,86
+google_gemma-3-27b-it,Gemma 3 27B,traceback,4,18367.31395348837,86
+google_gemma-3-27b-it,Gemma 3 27B,traceback,2,14920.559322033898,118
+mistralai_Magistral-Small-2507,Magistral Small,sparc,3,2607.884297520661,121
+mistralai_Magistral-Small-2507,Magistral Small,sparc,5,3522.438202247191,89
+mistralai_Magistral-Small-2507,Magistral Small,sparc,1,2617.9186046511627,86
+mistralai_Magistral-Small-2507,Magistral Small,sparc,4,3740.406976744186,86
+mistralai_Magistral-Small-2507,Magistral Small,sparc,2,3725.2033898305085,118
+mistralai_Magistral-Small-2507,Magistral Small,gym,3,7347.2231404958675,121
+mistralai_Magistral-Small-2507,Magistral Small,gym,5,11824.505617977527,89
+mistralai_Magistral-Small-2507,Magistral Small,gym,1,4292.558139534884,86
+mistralai_Magistral-Small-2507,Magistral Small,gym,4,9274.988372093023,86
+mistralai_Magistral-Small-2507,Magistral Small,gym,2,7352.525423728814,118
+mistralai_Magistral-Small-2507,Magistral Small,traceback,3,31732.71186440678,118
+mistralai_Magistral-Small-2507,Magistral Small,traceback,5,41178.168539325845,89
+mistralai_Magistral-Small-2507,Magistral Small,traceback,1,21265.941176470587,85
+mistralai_Magistral-Small-2507,Magistral Small,traceback,4,36698.623529411765,85
+mistralai_Magistral-Small-2507,Magistral Small,traceback,2,27256.830508474577,118
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,sparc,3,17213.92561983471,121
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,sparc,5,16261.269662921348,89
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,sparc,1,16913.941860465115,86
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,sparc,4,17152.825581395347,86
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,sparc,2,18316.525423728814,118
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,gym,3,83822.21487603306,121
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,gym,5,120038.46067415731,89
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,gym,1,87651.75581395348,86
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,gym,4,117225.81395348837,86
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,gym,2,96624.47457627118,118
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,traceback,3,216962.61983471076,121
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,traceback,5,249079.8764044944,89
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,traceback,1,211115.41860465117,86
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,traceback,4,216008.18604651163,86
+nvidia_Llama-3_3-Nemotron-Super-49B-v1_5,Nemotron 49B,traceback,2,207476.04237288135,118
+openai_gpt-oss-120b,GPT-OSS 120B,sparc,3,10807.322314049587,121
+openai_gpt-oss-120b,GPT-OSS 120B,sparc,5,13563.483146067416,89
+openai_gpt-oss-120b,GPT-OSS 120B,sparc,1,6314.139534883721,86
+openai_gpt-oss-120b,GPT-OSS 120B,sparc,4,13059.53488372093,86
+openai_gpt-oss-120b,GPT-OSS 120B,sparc,2,10911.872881355932,118
+openai_gpt-oss-120b,GPT-OSS 120B,gym,3,15532.01652892562,121
+openai_gpt-oss-120b,GPT-OSS 120B,gym,5,22913.3595505618,89
+openai_gpt-oss-120b,GPT-OSS 120B,gym,1,12915.941860465116,86
+openai_gpt-oss-120b,GPT-OSS 120B,gym,4,19518.674418604653,86
+openai_gpt-oss-120b,GPT-OSS 120B,gym,2,15457.466101694916,118
+openai_gpt-oss-120b,GPT-OSS 120B,traceback,3,30512.214876033056,121
+openai_gpt-oss-120b,GPT-OSS 120B,traceback,5,34414.06741573034,89
+openai_gpt-oss-120b,GPT-OSS 120B,traceback,1,30403.03488372093,86
+openai_gpt-oss-120b,GPT-OSS 120B,traceback,4,30202.60465116279,86
+openai_gpt-oss-120b,GPT-OSS 120B,traceback,2,30738.57627118644,118

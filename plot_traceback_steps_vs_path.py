@@ -175,7 +175,7 @@ def create_comparison_plot(results_dir, output_path=None, filter_max_steps=True)
         path_edges_filtered = path_edges
         print(f"Data points: {len(steps)}")
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 3.0))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.7))
 
     # --- Left: scatter plot ---
     ax1.scatter(path_edges_filtered, steps_filtered, alpha=0.4, s=12,
@@ -202,10 +202,11 @@ def create_comparison_plot(results_dir, output_path=None, filter_max_steps=True)
     print(f"  Median efficiency: {np.median(efficiency):.3f}")
     print(f"  Slope interpretation: ~{z[0]:.1f} steps per path edge")
 
-    ax1.set_xlabel('Final Path Edges (moves)')
+    ax1.set_xlabel('Final Path Edges')
     ax1.set_ylabel('Total Steps Taken')
     ax1.set_xlim(0, max_path * 1.05)
-    ax1.set_ylim(0, max_steps * 1.05)
+    ax1.set_ylim(0, 120)
+    ax1.set_yticks(np.arange(0, 101, 20))
     ax1.spines['top'].set_visible(False)
     ax1.spines['right'].set_visible(False)
     ax1.yaxis.grid(True, linestyle='--', alpha=0.3)
@@ -272,14 +273,14 @@ def create_comparison_plot(results_dir, output_path=None, filter_max_steps=True)
         # X-axis logos on ax2 (per-model boxplot)
         for tick_label in ax2.get_xticklabels():
             name = tick_label.get_text()
-            imagebox = get_model_imagebox(name, zoom_factor=0.65, rotation=45)
+            imagebox = get_model_imagebox(name, zoom_factor=0.75, rotation=45)
             if not imagebox:
                 continue
             bbox = tick_label.get_window_extent(renderer)
             fig_x, fig_y = fig.transFigure.inverted().transform(
                 [bbox.x0, bbox.y0]
             )
-            ab = AnnotationBbox(imagebox, (fig_x - 0.01, fig_y),
+            ab = AnnotationBbox(imagebox, (fig_x - 0.005, fig_y),
                                xycoords='figure fraction',
                                frameon=False,
                                box_alignment=(1.0, 0.5),
