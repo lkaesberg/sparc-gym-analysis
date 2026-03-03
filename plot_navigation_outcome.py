@@ -127,7 +127,7 @@ def load_navigation_stats(results_dir, variant='gym'):
         
         reached_pct, stuck_pct, solve_rate = extract_navigation_stats(stats_file)
         display_name = MODEL_DISPLAY_NAMES.get(model_name, model_name)
-        color = get_model_family_color(model_name)
+        color = get_model_family_color(model_name, display_name)
         
         model_data.append({
             'model_name': model_name,
@@ -223,7 +223,7 @@ def create_navigation_comparison():
             ax2.annotate(f'{value:.0f}\\%',
                         xy=(bar.get_x() + bar.get_width() / 2, value / 2),
                         ha='center', va='center',
-                        fontsize=5, fontweight='bold', color='white')
+                        fontsize=6, fontweight='bold', color='white')
     
     ax2.set_ylabel('Rate (\\%)')
     ax2.set_title('Gym w/ traceback', fontsize=10, fontweight='bold')
