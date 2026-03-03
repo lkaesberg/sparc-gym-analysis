@@ -20,16 +20,19 @@ from plot_config import (
     MODEL_COLORS,
 )
 
-# Define colors for different model families
+# Define colors for different model families (logo-inspired fallback)
 MODEL_FAMILY_COLORS = {
-    "openai": "#F79F1F",      # Orange for OpenAI
-    "Qwen": "#A47AFF",        # Purple for Qwen
-    "deepseek": "#61DB7E",    # Green for DeepSeek
-    "google": "#4285F4",      # Google Blue
-    "nvidia": "#76B900",      # Nvidia Green
-    "allenai": "#FF615C",     # Red for AllenAI
-    "9Tobi": "#FFD93D",       # Yellow for fine-tuned
-    "mistralai": "#FF69B4",   # Pink for Magistral
+    "openai":    "#10A37F",  # GPT / OpenAI → ChatGPT teal-green
+    "gpt":       "#10A37F",
+    "google":    "#4E84C4",  # Gemma → blue (Gemma logo)
+    "gemma":     "#4E84C4",
+    "Qwen":      "#6040E0",  # Qwen → purple-indigo (Qwen logo)
+    "qwen":      "#6040E0",
+    "deepseek":  "#4A6EA8",  # R1 / DeepSeek → cobalt blue
+    "nvidia":    "#76B900",  # Nemotron → NVIDIA lime green
+    "allenai":   "#D43870",  # OLMo → hot pink (OLMo logo)
+    "9Tobi":     "#9070F0",  # Fine-tuned Qwen → Qwen purple
+    "mistralai": "#D96818",  # Magistral → warm orange (Mistral logo)
 }
 
 # Model display name mapping
@@ -48,8 +51,10 @@ MODEL_DISPLAY_NAMES = {
 }
 
 
-def get_model_family_color(model_name):
-    """Get color based on model family/provider."""
+def get_model_family_color(model_name, display_name=None):
+    """Get color based on model family/provider, checking MODEL_COLORS first."""
+    if display_name and display_name in MODEL_COLORS:
+        return MODEL_COLORS[display_name]
     for family, color in MODEL_FAMILY_COLORS.items():
         if family.lower() in model_name.lower():
             return color
@@ -104,7 +109,7 @@ def load_all_model_stats(results_dir):
         
         accuracy = extract_accuracy_from_stats(stats_file)
         display_name = MODEL_DISPLAY_NAMES.get(model_name, model_name)
-        color = get_model_family_color(model_name)
+        color = get_model_family_color(model_name, display_name)
         
         model_data.append({
             'model_name': model_name,

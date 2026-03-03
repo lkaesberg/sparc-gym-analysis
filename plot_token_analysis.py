@@ -15,7 +15,9 @@ from plot_config import (
     setup_plot_style,
     TEXT_WIDTH_INCHES,
     COLUMN_WIDTH_INCHES,
+    get_model_color,
     get_model_imagebox,
+    MODEL_COLORS,
 )
 
 # Use cl100k_base encoding (used by GPT-4, GPT-3.5-turbo)
@@ -238,22 +240,6 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
     
     fig, ax = plt.subplots(figsize=(TEXT_WIDTH_INCHES, 3.2))
     
-    # Define colors for models
-    model_colors = {
-        'GPT-OSS-120B': '#1f77b4',
-        'OLMo-3.1-32B': '#ff7f0e', 
-        'Nemotron-49B': '#2ca02c',
-        'Qwen3-32B': '#d62728',
-        'Qwen3-14B': '#9467bd',
-        'Qwen3-8B': '#8c564b',
-        'Qwen3-4B': '#e377c2',
-        'Qwen3-1.7B': '#7f7f7f',
-        'Qwen3-0.6B': '#bcbd22',
-        'R1-Distill-32B': '#17becf',
-        'Gemma-3-27B': '#aec7e8',
-        'Magistral-Small': '#ffbb78',
-    }
-    
     # Shapes for variants
     variant_markers = {'sparc': '^', 'gym': 'o', 'traceback': 's'}
     variant_labels = {'sparc': 'SPaRC', 'gym': 'SPaRC-Gym', 'traceback': 'Traceback'}
@@ -275,7 +261,7 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
             continue
         
         display_name = MODEL_DISPLAY_NAMES.get(model, model.split('/')[-1])
-        color = model_colors.get(display_name, '#666666')
+        color = MODEL_COLORS.get(display_name, get_model_color(display_name, warn_on_missing=False))
         marker = variant_markers.get(file_type, 'o')
         
         x = avg_tokens / 1000
@@ -303,9 +289,9 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
     from matplotlib.lines import Line2D
     
     # Model legend (colors)
-    model_labels = sorted(plotted_models, key=lambda m: m if m in model_colors else '')
-    model_labels = [m for m in model_labels if m in model_colors]
-    model_handles = [Line2D([0], [0], marker='o', color='w', markerfacecolor=model_colors.get(m, '#666'),
+    model_labels = sorted(plotted_models, key=lambda m: m if m in MODEL_COLORS else '')
+    model_labels = [m for m in model_labels if m in MODEL_COLORS]
+    model_handles = [Line2D([0], [0], marker='o', color='w', markerfacecolor=MODEL_COLORS.get(m, '#666'),
                            markersize=8, label=m) for m in model_labels]
     
     # Variant legend (shapes)  

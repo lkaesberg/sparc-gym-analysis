@@ -35,16 +35,19 @@ MODEL_DISPLAY_NAMES = {
     "Qwen_Qwen3-VL-32B-Thinking": "Qwen 3 VL 32B",
 }
 
-# Model family colors (for models not in MODEL_COLORS)
+# Logo-inspired fallback colors keyed on tokens in the internal model path/name
 MODEL_FAMILY_COLORS = {
-    "openai": "#F79F1F",
-    "Qwen": "#A47AFF",
-    "deepseek": "#61DB7E",
-    "google": "#4285F4",
-    "nvidia": "#76B900",
-    "allenai": "#FF615C",
-    "9Tobi": "#FFD93D",
-    "mistralai": "#FF69B4",
+    "openai":    "#10A37F",  # GPT / OpenAI → ChatGPT teal-green
+    "gpt":       "#10A37F",
+    "google":    "#4E84C4",  # Gemma → blue (Gemma logo)
+    "gemma":     "#4E84C4",
+    "Qwen":      "#6040E0",  # Qwen → purple-indigo (Qwen logo)
+    "qwen":      "#6040E0",
+    "deepseek":  "#4A6EA8",  # R1 / DeepSeek → cobalt blue
+    "nvidia":    "#76B900",  # Nemotron → NVIDIA lime green
+    "allenai":   "#D43870",  # OLMo → hot pink (OLMo logo)
+    "9Tobi":     "#9070F0",  # Fine-tuned Qwen → Qwen purple
+    "mistralai": "#D96818",  # Magistral → warm orange (Mistral logo)
 }
 
 MODEL_MARKERS = {
@@ -209,7 +212,7 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
     leg = fig.legend(handles, labels, loc='lower center',
                ncol=4, fontsize=7, framealpha=0,
                bbox_to_anchor=(0.5, -0.02),
-               handlelength=2, handletextpad=1.4)
+               handlelength=2, handletextpad=2)
 
     # Add logos to legend - need to draw first to get positions
     fig.canvas.draw()
@@ -220,7 +223,7 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
         if not imagebox:
             continue
 
-        ab = AnnotationBbox(imagebox, (0.5, 0.5),
+        ab = AnnotationBbox(imagebox, (0.25, 0.5),
                            xybox=(19, 0),
                            xycoords=legend_handle,
                            boxcoords="offset points",

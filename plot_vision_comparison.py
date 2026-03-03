@@ -11,26 +11,30 @@ import re
 from plot_config import (
     setup_plot_style,
     TEXT_WIDTH_INCHES,
+    MODEL_COLORS,
 )
 
 MODELS = {
     'text': {
         'file': 'Qwen_Qwen3-32B_gym_stats.csv',
         'label': 'Qwen3-32B',
+        'bar_label': 'Qwen3-32B',
         'short_label': 'Qwen3-32B (Text)',
-        'color': '#A47AFF',
+        'color': MODEL_COLORS.get('Qwen3-32B', '#4A20BE'),
         'marker': 'D',
     },
     'vl_text': {
         'file': 'Qwen_Qwen3-VL-32B-Thinking_gym_stats.csv',
         'label': 'Qwen3-VL-32B\n(Text)',
+        'bar_label': 'VL-32B\n(Text)',
         'short_label': 'Qwen3-VL-32B (Text)',
-        'color': '#C78EF0',
+        'color': MODEL_COLORS.get('Qwen3-VL-32B', '#7240CC'),
         'marker': 's',
     },
     'vision': {
         'file': 'Qwen_Qwen3-VL-32B-Thinking_gym_visual_stats.csv',
         'label': 'Qwen3-VL-32B\n(Vision)',
+        'bar_label': 'VL-32B\n(Vision)',
         'short_label': 'Qwen3-VL-32B (Vision)',
         'color': '#9B59B6',
         'marker': 'o',
@@ -93,7 +97,7 @@ def create_vision_comparison(results_dir, output_path=None):
 
     # --- Subplot 1: Overall accuracy ---
     keys = list(MODELS.keys())
-    labels = [MODELS[k]['label'] for k in keys]
+    labels = [MODELS[k]['bar_label'] for k in keys]
     accuracies = [model_stats[k]['accuracy'] for k in keys]
     colors = [MODELS[k]['color'] for k in keys]
 

@@ -30,7 +30,7 @@ MODELS = [
     {"label": "Qwen 3\n0.6B", "file": "Qwen_Qwen3-0.6B_gym_stats.csv",
      "color": get_model_color("Qwen 3 0.6B"), "logo_name": "Qwen 3 0.6B"},
     {"label": "GPT-OSS\n120B", "file": "openai_gpt-oss-120b_gym_stats.csv",
-     "color": "#F79F1F", "logo_name": "GPT-OSS 120B"},
+     "color": get_model_color("GPT-OSS 120B"), "logo_name": "GPT-OSS 120B"},
 ]
 
 

@@ -15,6 +15,7 @@ from plot_config import (
     TEXT_WIDTH_INCHES,
     get_model_color,
     get_model_imagebox,
+    MODEL_COLORS,
 )
 
 # Model display name mapping
@@ -41,20 +42,25 @@ INCLUDED_MODELS = {
     "mistralai_Magistral-Small-2507",
 }
 
-# Model family colors
+# Logo-inspired fallback colors keyed on tokens in the internal model path/name
 MODEL_FAMILY_COLORS = {
-    "openai": "#F79F1F",
-    "Qwen": "#A47AFF",
-    "deepseek": "#61DB7E",
-    "google": "#4285F4",
-    "nvidia": "#76B900",
-    "allenai": "#FF615C",
-    "mistralai": "#FF69B4",
+    "openai":    "#10A37F",  # GPT / OpenAI → ChatGPT teal-green
+    "gpt":       "#10A37F",
+    "google":    "#4E84C4",  # Gemma → blue (Gemma logo)
+    "gemma":     "#4E84C4",
+    "Qwen":      "#6040E0",  # Qwen → purple-indigo (Qwen logo)
+    "qwen":      "#6040E0",
+    "deepseek":  "#4A6EA8",  # R1 / DeepSeek → cobalt blue
+    "nvidia":    "#76B900",  # Nemotron → NVIDIA lime green
+    "allenai":   "#D43870",  # OLMo → hot pink (OLMo logo)
+    "mistralai": "#D96818",  # Magistral → warm orange (Mistral logo)
 }
 
 
-def get_model_family_color(model_name):
-    """Get color based on model family/provider."""
+def get_model_family_color(model_name, display_name=None):
+    """Get color based on model family/provider, checking MODEL_COLORS first."""
+    if display_name and display_name in MODEL_COLORS:
+        return MODEL_COLORS[display_name]
     for family, color in MODEL_FAMILY_COLORS.items():
         if family.lower() in model_name.lower():
             return color

@@ -17,6 +17,7 @@ from plot_config import (
     setup_plot_style,
     COLUMN_WIDTH_INCHES,
     TEXT_WIDTH_INCHES,
+    VARIANT_COLORS,
 )
 
 ENCODING = tiktoken.get_encoding("cl100k_base")
@@ -54,9 +55,9 @@ SKIP_PATTERNS = [
 ]
 
 VARIANT_CONFIG = {
-    "sparc":     {"label": "SPaRC",     "color": "#2E7D32"},
-    "gym":       {"label": "SPaRC-Gym", "color": "#1976D2"},
-    "traceback": {"label": "Traceback", "color": "#E65100"},
+    "sparc":     {"label": "SPaRC",     "color": VARIANT_COLORS["sparc"]},
+    "gym":       {"label": "SPaRC-Gym", "color": VARIANT_COLORS["gym"]},
+    "traceback": {"label": "Traceback", "color": VARIANT_COLORS["traceback"]},
 }
 
 

@@ -60,41 +60,108 @@ LOGOHELLBLAU30 = "#d2e6fa"
 LOGOHELLBLAU = "#50a5d2"
 LOGOMITTELBLAU = "#0091c8"
 
-# Categorical colormap for models
-# Each model gets a unique, distinguishable color
-# Colors based on Pastel6 from seaborn
+# ---------------------------------------------------------------------------
+# Logo-inspired model colors
+# Colors are derived from the dominant hues of each provider's logo icon.
+# Both space-separated ("Qwen 3 32B") and hyphen-separated ("Qwen3-32B")
+# display-name variants are provided so every plot can look up by display name.
+# ---------------------------------------------------------------------------
 MODEL_COLORS = {
-    # Gemma models
-    "Gemma 3 27B": "#FF615C",  #
-    "Gemma 3 12B": "#FF8985",  #
-    # Qwen 3 models - distinct colors for each size
-    "Qwen 3 0.6B": "#E8B4FA",  # Light purple
-    "Qwen 3 4B": "#C78EF0",    # Medium purple
-    "Qwen 3 14B": "#A47AFF",   # Purple
-    "Qwen 3 32B": "#7E4FD9",   # Dark purple
-    # Qwen 2.5 models
-    "Qwen 2.5 72B": "#C7ADFF",  #
-    "Qwen 2.5 32B": "#C7ADFF",  #
-    "Qwen 2.5 14B": "#C7ADFF",  #
-    "Qwen 2.5 7B": "#C7ADFF",  #
-    # Llama models
-    "Llama 3.3 70B": "#69A9ED",  #
-    "Llama 3.1 70B": "#91C0F2",  #
-    "Llama 3.1 8B": "#A4CBF4",  #
-    # DeepSeek/R1 models
-    "R1 Llama Distill 70B": "#61DB7E",  #
-    "Unknown 1": "#FFFC64",  #
-    "Unknown 2": "#84E8E5",  #
-    # Rule-based agents
-    "Rule Agent": "#707070",  # Gray
-    "Random Agent": "#A0A0A0",  # Light Gray
-    "A*": "#505050",  # Dark Gray for A* search
-    # Human players
-    "Human": "#6B5E62",  # Dark Navy
+    # --- OpenAI / GPT ---  (logo: black → use ChatGPT brand teal-green)
+    "GPT-OSS 120B":   "#292525",
+    "GPT-OSS-120B":   "#292525",
+
+    # --- Google / Gemma ---  (logo dominant: blue-purple #4080c0)
+    "Gemma 3 27B":    "#4E84C4",
+    "Gemma-3-27B":    "#4E84C4",
+    "Gemma 3 12B":    "#72A0D4",
+
+    # --- Qwen ---  (logo dominant: purple-indigo #6040e0, graduated light→dark by size)
+    "Qwen 3 0.6B":    "#C4AEFF",
+    "Qwen3-0.6B":     "#C4AEFF",
+    "Qwen 3 1.7B":    "#AB8EFA",
+    "Qwen3-1.7B":     "#AB8EFA",
+    "Qwen 3 4B":      "#9070F0",
+    "Qwen3-4B":       "#9070F0",
+    "Qwen 3 4B (FT)": "#9070F0",
+    "Qwen 3 8B":      "#7650E4",
+    "Qwen3-8B":       "#7650E4",
+    "Qwen 3 14B":     "#5E38D2",
+    "Qwen3-14B":      "#5E38D2",
+    "Qwen 3 32B":     "#4A20BE",
+    "Qwen3-32B":      "#4A20BE",
+    "Qwen 3 VL 32B":  "#7240CC",  # VL variant – distinct hue shift
+    "Qwen3-VL-32B":   "#7240CC",
+
+    # --- Qwen 2.5 ---
+    "Qwen 2.5 72B":   "#C8AEFF",
+    "Qwen 2.5 32B":   "#BEAAFF",
+    "Qwen 2.5 14B":   "#B49EFF",
+    "Qwen 2.5 7B":    "#A890F0",
+
+    # --- DeepSeek / R1 ---  (logo dominant: cobalt blue #4060a0)
+    "R1 Distill 32B":       "#4A6EA8",
+    "R1-Distill-32B":       "#4A6EA8",
+    "R1 Llama Distill 70B": "#6488BC",
+
+    # --- Meta / Llama ---  (logo dominant: bright royal blue #0080e0)
+    "Llama 3.3 70B":  "#0075D8",
+    "Llama 3.1 70B":  "#2892E0",
+    "Llama 3.1 8B":   "#60AAEC",
+
+    # --- NVIDIA / Nemotron ---  (logo dominant: lime green #60a000)
+    "Nemotron 49B":   "#76B900",
+    "Nemotron-49B":   "#76B900",
+
+    # --- AllenAI / OLMo ---  (logo dominant: hot pink #e04080)
+    "OLMo 3.1 32B":   "#D43870",
+    "OLMo-3.1-32B":   "#D43870",
+
+    # --- Mistral / Magistral ---  (logo dominant: warm orange #e06020)
+    "Magistral Small":  "#D96818",
+    "Magistral-Small":  "#D96818",
+
+    # --- Rule-based / baseline agents ---
+    "Rule Agent":     "#707070",
+    "Random Agent":   "#A0A0A0",
+    "A*":             "#505050",
+
+    # --- Human ---
+    "Human":          "#6B5E62",
+}
+
+# Keyword-based fallback colors keyed on tokens found in internal model path/name.
+# Used when a model's display name is not explicitly listed in MODEL_COLORS.
+# Keys are matched case-insensitively against the internal model identifier.
+MODEL_FAMILY_COLORS = {
+    "openai":    "#10A37F",  # GPT / OpenAI → ChatGPT teal-green
+    "gpt":       "#10A37F",
+    "google":    "#4E84C4",  # Gemma → blue (Gemma logo)
+    "gemma":     "#4E84C4",
+    "Qwen":      "#6040E0",  # Qwen → purple-indigo (Qwen logo)
+    "qwen":      "#6040E0",
+    "deepseek":  "#4A6EA8",  # R1 / DeepSeek → cobalt blue (DeepSeek logo)
+    "r1":        "#4A6EA8",
+    "llama":     "#0075D8",  # Llama → royal blue (Llama logo)
+    "nvidia":    "#76B900",  # Nemotron → NVIDIA lime green
+    "nemotron":  "#76B900",
+    "allenai":   "#D43870",  # OLMo → hot pink (OLMo logo)
+    "olmo":      "#D43870",
+    "mistral":   "#D96818",  # Magistral → warm orange (Mistral logo)
+    "magistral": "#D96818",
+    "9Tobi":     "#9070F0",  # Fine-tuned Qwen variant → same Qwen purple
 }
 
 # Fallback color for undefined models - VERY OBVIOUS!
 MODEL_COLOR_FALLBACK = "#FF00FF"  # Bright Magenta - impossible to miss!
+
+# Colors for the three benchmark variants (SPaRC / SPaRC-Gym / Traceback).
+# Centralised here so all plots use consistent variant colors.
+VARIANT_COLORS = {
+    "sparc":     "#2E7D32",  # Dark green  – SPaRC (baseline)
+    "gym":       "#1976D2",  # Medium blue – SPaRC-Gym
+    "traceback": "#E65100",  # Deep orange – SPaRC-Gym Traceback
+}
 
 # Training method colors - Based on Seaborn Set2 palette
 TRAINING_METHOD_COLORS = {

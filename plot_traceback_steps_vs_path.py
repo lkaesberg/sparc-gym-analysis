@@ -14,6 +14,8 @@ from plot_config import (
     TEXT_WIDTH_INCHES,
     COLUMN_WIDTH_INCHES,
     get_model_imagebox,
+    get_model_color,
+    MODEL_COLORS,
 )
 
 
@@ -104,17 +106,22 @@ MODEL_DISPLAY_NAMES = {
 }
 
 MODEL_FAMILY_COLORS = {
-    "openai": "#F79F1F",
-    "Qwen": "#A47AFF",
-    "deepseek": "#61DB7E",
-    "google": "#4285F4",
-    "nvidia": "#76B900",
-    "allenai": "#FF615C",
-    "mistralai": "#FF9500",
+    "openai":    "#10A37F",  # GPT / OpenAI → ChatGPT teal-green
+    "gpt":       "#10A37F",
+    "google":    "#4E84C4",  # Gemma → blue (Gemma logo)
+    "gemma":     "#4E84C4",
+    "Qwen":      "#6040E0",  # Qwen → purple-indigo (Qwen logo)
+    "qwen":      "#6040E0",
+    "deepseek":  "#4A6EA8",  # R1 / DeepSeek → cobalt blue
+    "nvidia":    "#76B900",  # Nemotron → NVIDIA lime green
+    "allenai":   "#D43870",  # OLMo → hot pink (OLMo logo)
+    "mistralai": "#D96818",  # Magistral → warm orange (Mistral logo)
 }
 
 
-def get_model_family_color(model_name):
+def get_model_family_color(model_name, display_name=None):
+    if display_name and display_name in MODEL_COLORS:
+        return MODEL_COLORS[display_name]
     for family, color in MODEL_FAMILY_COLORS.items():
         if family.lower() in model_name.lower():
             return color
@@ -237,7 +244,7 @@ def create_comparison_plot(results_dir, output_path=None, filter_max_steps=True)
                            key=lambda m: model_ratios[m]['median'])
     display_names = [MODEL_DISPLAY_NAMES.get(m, m) for m in sorted_models]
     medians = [model_ratios[m]['median'] for m in sorted_models]
-    colors = [get_model_family_color(m) for m in sorted_models]
+    colors = [get_model_family_color(m, MODEL_DISPLAY_NAMES.get(m, m)) for m in sorted_models]
 
     x_pos = np.arange(len(sorted_models))
     box_data = [model_ratios[m]['ratios'] for m in sorted_models]
