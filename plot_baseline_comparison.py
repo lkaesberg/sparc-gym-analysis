@@ -84,7 +84,7 @@ def create_baseline_comparison():
     x = np.arange(len(labels))
     width = 0.6
 
-    # === Left plot: Solve Rate ===
+    # === Left plot: Accuracy ===
     bars1 = ax1.bar(x, solve_rates, width, color=bar_colors, edgecolor='black', linewidth=0.5)
 
     for bar, value in zip(bars1, solve_rates):
@@ -98,7 +98,7 @@ def create_baseline_comparison():
 
     ax1.axvline(x=1.5, color='gray', linestyle='--', linewidth=0.8, alpha=0.7)
     ax1.set_ylabel('Rate (\\%)')
-    ax1.set_title('Solve Rate', fontsize=10, fontweight='bold')
+    ax1.set_title('Accuracy', fontsize=10, fontweight='bold')
     ax1.set_xticks(x)
     ax1.set_xticklabels(labels, fontsize=8)
     ax1.set_ylim(0, max(solve_rates) * 1.35)

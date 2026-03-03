@@ -1,5 +1,5 @@
 """
-Script to compare actual path length vs steps taken for SPARC-Gym Traceback.
+Script to compare actual path length vs steps taken for SPaRC-Gym Traceback.
 This shows the efficiency of traceback - how many steps are taken to produce a path of a certain length.
 """
 import matplotlib.pyplot as plt
@@ -7,10 +7,13 @@ import numpy as np
 import json
 from pathlib import Path
 
+from matplotlib.offsetbox import AnnotationBbox
+
 from plot_config import (
     setup_plot_style,
     TEXT_WIDTH_INCHES,
     COLUMN_WIDTH_INCHES,
+    get_model_imagebox,
 )
 
 
@@ -57,7 +60,7 @@ def clean_path(path):
 
 
 def extract_traceback_steps_vs_path(results_dir):
-    """Extract steps_taken and cleaned path length from SPARC-Gym Traceback files.
+    """Extract steps_taken and cleaned path length from SPaRC-Gym Traceback files.
     
     Note: extracted_path includes the starting position, so the number of 
     path segments (edges) is len(path) - 1. Each step corresponds to one edge.
@@ -261,6 +264,29 @@ def create_comparison_plot(results_dir, output_path=None, filter_max_steps=True)
     plt.tight_layout()
 
     if output_path:
+        # First pass: save to finalise layout so text positions are stable
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+
+        renderer = fig.canvas.get_renderer()
+
+        # X-axis logos on ax2 (per-model boxplot)
+        for tick_label in ax2.get_xticklabels():
+            name = tick_label.get_text()
+            imagebox = get_model_imagebox(name, zoom_factor=0.65, rotation=45)
+            if not imagebox:
+                continue
+            bbox = tick_label.get_window_extent(renderer)
+            fig_x, fig_y = fig.transFigure.inverted().transform(
+                [bbox.x0, bbox.y0]
+            )
+            ab = AnnotationBbox(imagebox, (fig_x - 0.01, fig_y),
+                               xycoords='figure fraction',
+                               frameon=False,
+                               box_alignment=(1.0, 0.5),
+                               pad=0)
+            fig.add_artist(ab)
+
+        # Second pass: save with logos in place
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
         print(f"\nFigure saved to: {output_path}")
 

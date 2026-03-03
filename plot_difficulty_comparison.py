@@ -1,6 +1,6 @@
 """
 Script to create a 3-panel line plot showing accuracy by difficulty level
-for each model individually, with subplots for SPARC, Gym w/o traceback, and Gym w/ traceback.
+for each model individually, with subplots for SPaRC, Gym w/o traceback, and Gym w/ traceback.
 """
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -114,10 +114,10 @@ def get_internal_name(filename, variant):
 
 
 def categorize_stats_files(results_dir):
-    """Categorize stats files into SPARC, Gym w/o traceback, and Gym w/ traceback."""
+    """Categorize stats files into SPaRC, Gym w/o traceback, and Gym w/ traceback."""
     results_path = Path(results_dir)
 
-    categories = {"SPARC": [], "Gym w/o traceback": [], "Gym w/ traceback": []}
+    categories = {"SPaRC": [], "Gym w/o traceback": [], "Gym w/ traceback": []}
 
     for stats_file in sorted(results_path.glob("*_stats.csv")):
         if "archive" in str(stats_file):
@@ -134,7 +134,7 @@ def categorize_stats_files(results_dir):
         elif "_gym_stats.csv" in filename:
             categories["Gym w/o traceback"].append(stats_file)
         elif "_stats.csv" in filename and "_gym_" not in filename:
-            categories["SPARC"].append(stats_file)
+            categories["SPaRC"].append(stats_file)
 
     return categories
 
@@ -143,7 +143,7 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
     """Create 3-panel line plot with individual model lines."""
     setup_plot_style(use_latex=True)
 
-    variant_names = ["SPARC", "Gym w/o traceback", "Gym w/ traceback"]
+    variant_names = ["SPaRC", "Gym w/o traceback", "Gym w/ traceback"]
 
     fig, axes = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 3.0), sharey=True)
 
@@ -191,7 +191,7 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
         ax.yaxis.grid(True, linestyle='--', alpha=0.3)
         ax.set_axisbelow(True)
 
-    axes[0].set_ylabel('Solve Rate (\\%)')
+    axes[0].set_ylabel('Accuracy (\\%)')
 
     # Create unified legend below the plot — deduplicate across panels
     seen_labels = set()

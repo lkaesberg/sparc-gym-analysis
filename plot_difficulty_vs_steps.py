@@ -1,9 +1,9 @@
 """
 Script to create a 4-subplot figure showing difficulty_score vs steps taken for:
 1. True solution (ground truth path length)
-2. SPARC (extracted path length)
-3. SPARC-Gym (steps_taken)
-4. SPARC-Gym Traceback (steps_taken)
+2. SPaRC (extracted path length)
+3. SPaRC-Gym (steps_taken)
+4. SPaRC-Gym Traceback (steps_taken)
 """
 import matplotlib.pyplot as plt
 import numpy as np
@@ -22,9 +22,9 @@ from plot_config import (
 # Colors for each variant - distinct and visually appealing
 VARIANT_COLORS = {
     "True Solution": "#2E7D32",      # Forest green
-    "SPARC": "#E65100",              # Deep orange
-    "SPARC-Gym": "#1565C0",          # Strong blue
-    "SPARC-Gym Traceback": "#7B1FA2", # Purple
+    "SPaRC": "#E65100",              # Deep orange
+    "SPaRC-Gym": "#1565C0",          # Strong blue
+    "SPaRC-Gym Traceback": "#7B1FA2", # Purple
 }
 
 
@@ -39,7 +39,7 @@ def load_jsonl_data(filepath):
 
 
 def categorize_jsonl_files(results_dir):
-    """Categorize JSONL files into SPARC, SPARC-Gym, and SPARC-Gym Traceback."""
+    """Categorize JSONL files into SPaRC, SPaRC-Gym, and SPaRC-Gym Traceback."""
     results_path = Path(results_dir)
     
     sparc_files = []
@@ -62,9 +62,9 @@ def categorize_jsonl_files(results_dir):
             sparc_files.append(jsonl_file)
     
     return {
-        "SPARC": sparc_files,
-        "SPARC-Gym": gym_files,
-        "SPARC-Gym Traceback": traceback_files,
+        "SPaRC": sparc_files,
+        "SPaRC-Gym": gym_files,
+        "SPaRC-Gym Traceback": traceback_files,
     }
 
 
@@ -99,7 +99,7 @@ def extract_true_solution_data(jsonl_files):
 
 
 def extract_sparc_data(jsonl_files):
-    """Extract difficulty_score and extracted_path length from SPARC JSONL files."""
+    """Extract difficulty_score and extracted_path length from SPaRC JSONL files."""
     all_difficulty_scores = []
     all_path_lengths = []
     
@@ -119,7 +119,7 @@ def extract_sparc_data(jsonl_files):
 
 
 def extract_gym_data(jsonl_files):
-    """Extract difficulty_score and steps_taken from SPARC-Gym JSONL files."""
+    """Extract difficulty_score and steps_taken from SPaRC-Gym JSONL files."""
     all_difficulty_scores = []
     all_steps = []
     
@@ -171,7 +171,7 @@ def clean_path(path):
 
 
 def extract_traceback_data(jsonl_files):
-    """Extract difficulty_score and cleaned path length from SPARC-Gym Traceback JSONL files."""
+    """Extract difficulty_score and cleaned path length from SPaRC-Gym Traceback JSONL files."""
     all_difficulty_scores = []
     all_path_lengths = []
     
@@ -222,7 +222,7 @@ def bin_data_by_difficulty(difficulty_scores, values, n_bins=20):
 def create_subplot(ax, difficulty_scores, values, title, color, ylabel=True):
     """Create a single subplot with scatter and trend line."""
     if len(difficulty_scores) == 0:
-        ax.set_title(title, fontsize=9, fontweight='bold')
+        ax.set_title(title, fontsize=8, fontweight='bold')
         ax.text(0.5, 0.5, 'No data', ha='center', va='center', transform=ax.transAxes)
         return
     
@@ -237,11 +237,15 @@ def create_subplot(ax, difficulty_scores, values, title, color, ylabel=True):
         ax.fill_between(bin_centers, bin_means - bin_stds, bin_means + bin_stds, 
                         color=color, alpha=0.3, label='±1 Std')
     
-    ax.set_title(title, fontsize=9, fontweight='bold')
-    ax.set_xlabel('Difficulty Score')
+    ax.set_title(title, fontsize=8, fontweight='bold')
+    ax.set_xlabel('Difficulty Score', fontsize=8)
     if ylabel:
-        ax.set_ylabel('Path Length')
-    
+        ax.set_ylabel('Path Length', fontsize=8)
+
+    ax.xaxis.set_major_locator(plt.MaxNLocator(nbins=6, integer=True))
+    ax.yaxis.set_major_locator(plt.MaxNLocator(nbins=6, integer=True))
+    ax.tick_params(axis='both', labelsize=8)
+
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.yaxis.grid(True, linestyle='--', alpha=0.3)
@@ -269,21 +273,21 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
     
     # True solution data is the same for all variants (same puzzles)
     # Use any available file to extract ground truth
-    any_file = (categorized_files["SPARC"] + categorized_files["SPARC-Gym"] + 
-                categorized_files["SPARC-Gym Traceback"])[:1]
+    any_file = (categorized_files["SPaRC"] + categorized_files["SPaRC-Gym"] + 
+                categorized_files["SPaRC-Gym Traceback"])[:1]
     
     # Extract data for each variant
     print("Extracting true solution data (same for all variants)...")
     true_diff, true_steps = extract_true_solution_data(any_file)
     
-    print("Extracting SPARC data...")
-    sparc_diff, sparc_steps = extract_sparc_data(categorized_files["SPARC"])
+    print("Extracting SPaRC data...")
+    sparc_diff, sparc_steps = extract_sparc_data(categorized_files["SPaRC"])
     
-    print("Extracting SPARC-Gym data...")
-    gym_diff, gym_steps = extract_gym_data(categorized_files["SPARC-Gym"])
+    print("Extracting SPaRC-Gym data...")
+    gym_diff, gym_steps = extract_gym_data(categorized_files["SPaRC-Gym"])
     
-    print("Extracting SPARC-Gym Traceback data...")
-    traceback_diff, traceback_steps = extract_traceback_data(categorized_files["SPARC-Gym Traceback"])
+    print("Extracting SPaRC-Gym Traceback data...")
+    traceback_diff, traceback_steps = extract_traceback_data(categorized_files["SPaRC-Gym Traceback"])
     
     # Apply filtering if max_steps is set
     if max_steps is not None:
@@ -294,7 +298,7 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
         traceback_diff, traceback_steps = filter_by_max_steps(traceback_diff, traceback_steps, max_steps)
     
     # Print statistics
-    print(f"\nData points: True={len(true_diff)}, SPARC={len(sparc_diff)}, Gym={len(gym_diff)}, Traceback={len(traceback_diff)}")
+    print(f"\nData points: True={len(true_diff)}, SPaRC={len(sparc_diff)}, Gym={len(gym_diff)}, Traceback={len(traceback_diff)}")
     
     # Create figure with 4 subplots
     fig, axes = plt.subplots(1, 4, figsize=(TEXT_WIDTH_INCHES, 2.5), sharey=True)
@@ -302,12 +306,12 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
     # Create each subplot
     create_subplot(axes[0], true_diff, true_steps, "(a) True Solution", 
                    VARIANT_COLORS["True Solution"], ylabel=True)
-    create_subplot(axes[1], sparc_diff, sparc_steps, "(b) SPARC", 
-                   VARIANT_COLORS["SPARC"], ylabel=False)
+    create_subplot(axes[1], sparc_diff, sparc_steps, "(b) SPaRC", 
+                   VARIANT_COLORS["SPaRC"], ylabel=False)
     create_subplot(axes[2], gym_diff, gym_steps, "(c) Gym w/o traceback", 
-                   VARIANT_COLORS["SPARC-Gym"], ylabel=False)
+                   VARIANT_COLORS["SPaRC-Gym"], ylabel=False)
     create_subplot(axes[3], traceback_diff, traceback_steps, "(d) Gym w/ traceback", 
-                   VARIANT_COLORS["SPARC-Gym Traceback"], ylabel=False)
+                   VARIANT_COLORS["SPaRC-Gym Traceback"], ylabel=False)
     
     # Compute shared y-limits
     all_steps = np.concatenate([

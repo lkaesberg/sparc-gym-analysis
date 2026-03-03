@@ -25,7 +25,7 @@ TP_SIZE="${SLURM_GPUS_ON_NODE}"   # == 4
 GPU_UTIL="${LLM_GPU_UTIL:-0.90}"
 HF_HOME="${HF_HOME:-$SCRATCH/huggingface}"
 VENV_VLLM="$HOME/.venv_llm"       # server env
-VENV_SPARC="$HOME/.venv_sparc"    # client env
+VENV_SPaRC="$HOME/.venv_sparc"    # client env
 
 ###############################################################################
 # 2 · (Optional) module load / environment setup
@@ -96,11 +96,11 @@ echo "[`date +%T`] Server output silenced (see $LOG_FILE if needed)"
 ###############################################################################
 # 6 · sparc‑puzzle virtual‑env (separate!)
 ###############################################################################
-#if [[ ! -d "$VENV_SPARC" ]]; then
-#  python3 -m venv "$VENV_SPARC"
+#if [[ ! -d "$VENV_SPaRC" ]]; then
+#  python3 -m venv "$VENV_SPaRC"
 #fi
 # Activate sparc env *without* touching the running server
-#source "$VENV_SPARC/bin/activate"
+#source "$VENV_SPaRC/bin/activate"
 
 #python - <<'PY'
 #import importlib.util, subprocess, sys

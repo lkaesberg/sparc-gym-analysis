@@ -1,6 +1,6 @@
 """
 Line plot showing average token usage per difficulty level (1–5) for
-SPARC, SPARC-Gym, and Traceback variants, with ±1 std error bands
+SPaRC, SPaRC-Gym, and Traceback variants, with ±1 std error bands
 computed across models.
 
 Uses the existing per-puzzle JSONL data; caches per-difficulty averages
@@ -54,8 +54,8 @@ SKIP_PATTERNS = [
 ]
 
 VARIANT_CONFIG = {
-    "sparc":     {"label": "SPARC",     "color": "#2E7D32"},
-    "gym":       {"label": "SPARC-Gym", "color": "#1976D2"},
+    "sparc":     {"label": "SPaRC",     "color": "#2E7D32"},
+    "gym":       {"label": "SPaRC-Gym", "color": "#1976D2"},
     "traceback": {"label": "Traceback", "color": "#E65100"},
 }
 
@@ -173,7 +173,7 @@ def load_token_by_difficulty_data(results_dir):
 
 def create_token_by_difficulty_plot(results_dir, output_path=None):
     """Single-panel line plot: avg tokens/puzzle vs. difficulty for GPT-OSS 120B.
-    One line per variant (SPARC / SPARC-Gym / Traceback).
+    One line per variant (SPaRC / SPaRC-Gym / Traceback).
     """
     setup_plot_style(use_latex=True)
 

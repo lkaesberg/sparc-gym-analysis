@@ -1,7 +1,7 @@
 """
 Script to create a combined figure with two subplots:
-1. SPARC-Gym vs SPARC difference
-2. SPARC-Gym Traceback vs SPARC-Gym difference
+1. SPaRC-Gym vs SPaRC difference
+2. SPaRC-Gym Traceback vs SPaRC-Gym difference
 """
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -69,7 +69,7 @@ def extract_accuracy_from_stats(stats_file):
 
 
 def load_sparc_gym_comparison(results_dir):
-    """Load accuracy stats for models with both SPARC and SPARC-Gym variants."""
+    """Load accuracy stats for models with both SPaRC and SPaRC-Gym variants."""
     results_path = Path(results_dir)
     
     sparc_files = list(results_path.glob("*_stats.csv"))
@@ -185,7 +185,7 @@ def add_bars_to_subplot(ax, model_data, title):
                                pad=0)
             ax.add_artist(ab)
     
-    ax.set_ylabel('Accuracy Difference (\\%)')
+    ax.set_ylabel('$\Delta$ Accuracy (\\%)')
     ax.set_xticks(x_pos)
     ax.set_xticklabels(display_names, rotation=45, ha='right', fontsize=8)
     ax.axhline(y=0, color='black', linestyle='-', linewidth=1)
@@ -203,8 +203,8 @@ def create_combined_chart(sparc_gym_data, traceback_data, output_path=None):
     
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 3.2), sharey=True)
     
-    # Left subplot: SPARC-Gym vs SPARC
-    add_bars_to_subplot(ax1, sparc_gym_data, "(a) SPARC-Gym vs SPARC")
+    # Left subplot: SPaRC-Gym vs SPaRC
+    add_bars_to_subplot(ax1, sparc_gym_data, "(a) SPaRC-Gym vs SPaRC")
     
     # Right subplot: Traceback vs Non-traceback
     add_bars_to_subplot(ax2, traceback_data, "(b) Traceback vs Standard")
@@ -243,7 +243,7 @@ def main():
     sparc_gym_data = load_sparc_gym_comparison(results_dir)
     traceback_data = load_traceback_comparison(results_dir)
     
-    print("\nSPARC-Gym vs SPARC:")
+    print("\nSPaRC-Gym vs SPaRC:")
     print("-" * 50)
     for m in sparc_gym_data:
         sign = '+' if m['difference'] > 0 else ''

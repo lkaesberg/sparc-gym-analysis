@@ -1,6 +1,6 @@
 """
 Script to compare navigation outcomes (finished vs deadlocked) for all models.
-Left panel: SPARC-Gym, Right panel: SPARC-Gym Traceback
+Left panel: SPaRC-Gym, Right panel: SPaRC-Gym Traceback
 """
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -158,7 +158,7 @@ def create_navigation_comparison():
     
     width = 0.75
     
-    # === Left plot: SPARC-Gym ===
+    # === Left plot: SPaRC-Gym ===
     labels1 = [m['display_name'] for m in gym_data]
     reached1 = [m['reached'] for m in gym_data]
     stuck1 = [m['stuck'] for m in gym_data]
@@ -198,7 +198,7 @@ def create_navigation_comparison():
     ]
     ax1.legend(handles=legend_elements, loc='upper center', fontsize=7, framealpha=0.9, ncol=2, bbox_to_anchor=(0.5, 1.04))
     
-    # === Right plot: SPARC-Gym Traceback ===
+    # === Right plot: SPaRC-Gym Traceback ===
     labels2 = [m['display_name'] for m in traceback_data]
     reached2 = [m['reached'] for m in traceback_data]
     stuck2 = [m['stuck'] for m in traceback_data]

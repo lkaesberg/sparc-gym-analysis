@@ -1,6 +1,6 @@
 """
 Script to compare Qwen 3 model performance with and without reasoning (thinking).
-Compares across SPARC and SPARC-Gym for both 14B and 32B sizes.
+Compares across SPaRC and SPaRC-Gym for both 14B and 32B sizes.
 Reads all data from stats CSV files.
 """
 import matplotlib.pyplot as plt
@@ -96,7 +96,7 @@ def create_reasoning_comparison():
     x = np.arange(len(MODEL_SIZES))
     width = 0.35
 
-    # === Left: SPARC Solve Rate ===
+    # === Left: SPaRC Accuracy ===
     sparc_reason = [all_stats[s]['sparc_reason'].get('solve_rate', 0) for s in MODEL_SIZES]
     sparc_no_reason = [all_stats[s]['sparc_no_reason'].get('solve_rate', 0) for s in MODEL_SIZES]
 
@@ -114,8 +114,8 @@ def create_reasoning_comparison():
                     xytext=(0, 2), textcoords="offset points",
                     ha='center', va='bottom', fontsize=7, fontweight='bold')
 
-    ax1.set_title('SPARC', fontsize=10, fontweight='bold')
-    ax1.set_ylabel('Solve Rate (\\%)')
+    ax1.set_title('SPaRC', fontsize=10, fontweight='bold')
+    ax1.set_ylabel('Accuracy (\\%)')
     ax1.set_xticks(x)
     ax1.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=8)
     ax1.set_ylim(0, max(max(sparc_reason), max(sparc_no_reason)) * 1.4)
@@ -125,7 +125,7 @@ def create_reasoning_comparison():
     ax1.set_axisbelow(True)
     ax1.legend(fontsize=6, loc='upper right', ncol=1)
 
-    # === Middle: SPARC-Gym Solve Rate ===
+    # === Middle: SPaRC-Gym Accuracy ===
     gym_reason = [all_stats[s]['gym_reason'].get('solve_rate', 0) for s in MODEL_SIZES]
     gym_no_reason = [all_stats[s]['gym_no_reason'].get('solve_rate', 0) for s in MODEL_SIZES]
 
@@ -143,8 +143,8 @@ def create_reasoning_comparison():
                     xytext=(0, 2), textcoords="offset points",
                     ha='center', va='bottom', fontsize=7, fontweight='bold')
 
-    ax2.set_title('SPARC-Gym', fontsize=10, fontweight='bold')
-    ax2.set_ylabel('Solve Rate (\\%)')
+    ax2.set_title('SPaRC-Gym', fontsize=10, fontweight='bold')
+    ax2.set_ylabel('Accuracy (\\%)')
     ax2.set_xticks(x)
     ax2.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=8)
     ax2.set_ylim(0, max(max(gym_reason), max(gym_no_reason)) * 1.4)
@@ -154,7 +154,7 @@ def create_reasoning_comparison():
     ax2.set_axisbelow(True)
     ax2.legend(fontsize=6, loc='upper right', ncol=1)
 
-    # === Right: SPARC-Gym Navigation Outcome ===
+    # === Right: SPaRC-Gym Navigation Outcome ===
     nav_labels = ["14B\nReason", "14B\nNo Reason", "32B\nReason", "32B\nNo Reason"]
     finished = [
         all_stats["14B"]["gym_reason"].get("finished", 0),
