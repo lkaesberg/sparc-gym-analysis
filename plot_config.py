@@ -68,30 +68,30 @@ LOGOMITTELBLAU = "#0091c8"
 # ---------------------------------------------------------------------------
 MODEL_COLORS = {
     # --- OpenAI / GPT ---  (logo: black → use ChatGPT brand teal-green)
-    "GPT-OSS 120B":   "#292525",
-    "GPT-OSS-120B":   "#292525",
+    "GPT-OSS 120B":   "#10A37F",
+    "GPT-OSS-120B":   "#10A37F",
 
     # --- Google / Gemma ---  (logo dominant: blue-purple #4080c0)
-    "Gemma 3 27B":    "#4E84C4",
-    "Gemma-3-27B":    "#4E84C4",
+    "Gemma 3 27B":    "#4285F4",
+    "Gemma-3-27B":    "#4285F4",
     "Gemma 3 12B":    "#72A0D4",
 
     # --- Qwen ---  (logo dominant: purple-indigo #6040e0, graduated light→dark by size)
-    "Qwen 3 0.6B":    "#C4AEFF",
-    "Qwen3-0.6B":     "#C4AEFF",
+    "Qwen 3 0.6B":    "#C4B5FD",
+    "Qwen3-0.6B":     "#C4B5FD",
     "Qwen 3 1.7B":    "#AB8EFA",
     "Qwen3-1.7B":     "#AB8EFA",
-    "Qwen 3 4B":      "#9070F0",
-    "Qwen3-4B":       "#9070F0",
+    "Qwen 3 4B":      "#A78BFA",
+    "Qwen3-4B":       "#A78BFA",
     "Qwen 3 4B (FT)": "#9070F0",
     "Qwen 3 8B":      "#7650E4",
     "Qwen3-8B":       "#7650E4",
-    "Qwen 3 14B":     "#5E38D2",
-    "Qwen3-14B":      "#5E38D2",
-    "Qwen 3 32B":     "#4A20BE",
-    "Qwen3-32B":      "#4A20BE",
-    "Qwen 3 VL 32B":  "#7240CC",  # VL variant – distinct hue shift
-    "Qwen3-VL-32B":   "#7240CC",
+    "Qwen 3 14B":     "#8B5CF6",
+    "Qwen3-14B":      "#8B5CF6",
+    "Qwen 3 32B":     "#6D28D9",
+    "Qwen3-32B":      "#6D28D9",
+    "Qwen 3 VL 32B":  "#C026D3",  # VL variant – distinct hue shift
+    "Qwen3-VL-32B":   "#C026D3",
 
     # --- Qwen 2.5 ---
     "Qwen 2.5 72B":   "#C8AEFF",
@@ -100,8 +100,8 @@ MODEL_COLORS = {
     "Qwen 2.5 7B":    "#A890F0",
 
     # --- DeepSeek / R1 ---  (logo dominant: cobalt blue #4060a0)
-    "R1 Distill 32B":       "#4A6EA8",
-    "R1-Distill-32B":       "#4A6EA8",
+    "R1 Distill 32B":       "#1E3A8A",
+    "R1-Distill-32B":       "#1E3A8A",
     "R1 Llama Distill 70B": "#6488BC",
 
     # --- Meta / Llama ---  (logo dominant: bright royal blue #0080e0)
@@ -114,12 +114,12 @@ MODEL_COLORS = {
     "Nemotron-49B":   "#76B900",
 
     # --- AllenAI / OLMo ---  (logo dominant: hot pink #e04080)
-    "OLMo 3.1 32B":   "#D43870",
-    "OLMo-3.1-32B":   "#D43870",
+    "OLMo 3.1 32B":   "#BE185D",
+    "OLMo-3.1-32B":   "#BE185D",
 
     # --- Mistral / Magistral ---  (logo dominant: warm orange #e06020)
-    "Magistral Small":  "#D96818",
-    "Magistral-Small":  "#D96818",
+    "Magistral Small":  "#EA580C",
+    "Magistral-Small":  "#EA580C",
 
     # --- Rule-based / baseline agents ---
     "Rule Agent":     "#707070",
@@ -127,7 +127,7 @@ MODEL_COLORS = {
     "A*":             "#505050",
 
     # --- Human ---
-    "Human":          "#6B5E62",
+    "Human":          "#475569",
 }
 
 # Keyword-based fallback colors keyed on tokens found in internal model path/name.
