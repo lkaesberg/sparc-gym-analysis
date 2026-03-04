@@ -28,6 +28,7 @@ PLOT_SCRIPTS = [
     "plot_token_analysis.py",
     "plot_token_by_difficulty.py",
     "plot_vision_comparison.py",
+    "plot_token_by_difficulty_per_model.py",
 ]
 
 
