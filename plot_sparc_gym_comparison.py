@@ -156,7 +156,7 @@ def create_sparc_gym_diff_chart(model_data, output_path=None):
                     xytext=(0, y_offset),
                     textcoords="offset points",
                     ha='center', va=va,
-                    fontsize=9,
+                    fontsize=7,
                     fontweight='bold',
                     color=m['color'])
         
@@ -174,7 +174,7 @@ def create_sparc_gym_diff_chart(model_data, output_path=None):
     # Customize axes
     ax.set_ylabel('Accuracy Difference (\\%)')
     ax.set_xticks(x_pos)
-    ax.set_xticklabels(display_names, rotation=45, ha='right', fontsize=9)
+    ax.set_xticklabels(display_names, rotation=45, ha='right')
     
     # Add horizontal line at y=0
     ax.axhline(y=0, color='black', linestyle='-', linewidth=1)

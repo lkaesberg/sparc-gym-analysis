@@ -157,7 +157,7 @@ def create_correlation_heatmap(results_dir, output_path=None):
         if len(df) == 0:
             print(f"  No data for {variant}")
             ax.text(0.5, 0.5, 'No data', ha='center', va='center', transform=ax.transAxes)
-            ax.set_title(var_label, fontsize=10, fontweight='bold')
+            ax.set_title(var_label, fontweight='bold')
             continue
         
         # Filter to complete models only
@@ -166,7 +166,7 @@ def create_correlation_heatmap(results_dir, output_path=None):
         
         if len(df) == 0:
             ax.text(0.5, 0.5, 'No data', ha='center', va='center', transform=ax.transAxes)
-            ax.set_title(var_label, fontsize=10, fontweight='bold')
+            ax.set_title(var_label, fontweight='bold')
             continue
         
         # Calculate correlation matrix
@@ -197,11 +197,11 @@ def create_correlation_heatmap(results_dir, output_path=None):
         for spine in ax.spines.values():
             spine.set_visible(False)
         
-        ax.set_title(var_label, fontsize=10, fontweight='bold')
+        ax.set_title(var_label, fontweight='bold')
     
     # Add colorbar
     cbar = fig.colorbar(im, ax=axes, fraction=0.02, pad=0.02)
-    cbar.set_label('Correlation', fontsize=9)
+    cbar.set_label('Correlation')
     
     plt.subplots_adjust(left=0.1, right=0.88, wspace=0.1)
     

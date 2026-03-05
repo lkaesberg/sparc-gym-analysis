@@ -2,6 +2,7 @@
 Radar plot showing solve rates by puzzle rule type for SPaRC, SPaRC-Gym, and SPaRC-Gym Traceback.
 """
 import matplotlib.pyplot as plt
+import matplotlib.patheffects as pe
 import numpy as np
 import json
 from pathlib import Path
@@ -197,20 +198,23 @@ def create_radar_plot(results_dir, output_path=None):
 
     # Set the labels
     ax.set_xticks(angles[:-1])
-    ax.set_xticklabels(rules, fontsize=8)
+    ax.set_xticklabels(rules)
 
     # Set y-axis - adjusted for actual data range
     max_val = max([max(solve_rates[r].values()) for r in rules])
     y_max = max_val * 1.15
     ax.set_ylim(0, y_max)
     ax.set_yticks([2, 4, 6, 8, 10])
-    ax.set_yticklabels(['2\\%', '4\\%', '6\\%', '8\\%', '10\\%'], fontsize=7)
+    ax.set_yticklabels(['2\\%', '4\\%', '6\\%', '8\\%', '10\\%'])
     ax.yaxis.set_tick_params(labelsize=7)
+    for label in ax.yaxis.get_ticklabels():
+        label.set_path_effects([pe.withStroke(linewidth=2, foreground='white')])
+        label.set_zorder(10)
 
     style_polar_grid(ax, [2, 4, 6, 8, 10])
 
     # Add legend below the plot
-    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=3, fontsize=8, frameon=False)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=3, frameon=False)
     
     plt.tight_layout()
     
@@ -366,17 +370,20 @@ def create_radar_plot_single_model(results_dir, model_filter, model_display_name
         ax.fill(angles, values, alpha=0.1, color=color, zorder=2)
 
     ax.set_xticks(angles[:-1])
-    ax.set_xticklabels(rules, fontsize=8)
+    ax.set_xticklabels(rules)
 
     max_val = max([max(solve_rates[r].values()) for r in rules if solve_rates[r].values()])
     ax.set_ylim(0, max_val * 1.15)
     ax.set_yticks([5, 10, 15, 20])
-    ax.set_yticklabels(['5\\%', '10\\%', '15\\%', '20\\%'], fontsize=7)
+    ax.set_yticklabels(['5\\%', '10\\%', '15\\%', '20\\%'])
+    for label in ax.yaxis.get_ticklabels():
+        label.set_path_effects([pe.withStroke(linewidth=2, foreground='white')])
+        label.set_zorder(10)
 
     style_polar_grid(ax, [5, 10, 15, 20])
 
-    ax.set_title(model_display_name, fontsize=10, fontweight='bold', pad=10)
-    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=3, fontsize=8, frameon=False)
+    ax.set_title(model_display_name, fontweight='bold', pad=10)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=3, frameon=False)
     
     plt.tight_layout()
     
@@ -431,13 +438,16 @@ def create_combined_radar_plot(results_dir, output_path=None):
         legend_handles.append(line)
 
     ax1.set_xticks(angles1[:-1])
-    ax1.set_xticklabels(rules_all, fontsize=8)
+    ax1.set_xticklabels(rules_all)
     max_val1 = max([max(solve_rates_all[r].values()) for r in rules_all])
     ax1.set_ylim(0, max_val1 * 1.15)
     ax1.set_yticks([2, 4, 6, 8, 10])
-    ax1.set_yticklabels(['2\\%', '4\\%', '6\\%', '8\\%', '10\\%'], fontsize=7)
+    ax1.set_yticklabels(['2\\%', '4\\%', '6\\%', '8\\%', '10\\%'])
+    for label in ax1.yaxis.get_ticklabels():
+        label.set_path_effects([pe.withStroke(linewidth=2, foreground='white')])
+        label.set_zorder(10)
     style_polar_grid(ax1, [2, 4, 6, 8, 10])
-    ax1.set_title('(a) All Models', fontsize=10)
+    ax1.set_title('(a) All Models')
 
     # Panel (b): GPT-OSS-120B
     N2 = len(rules_gpt)
@@ -457,18 +467,21 @@ def create_combined_radar_plot(results_dir, output_path=None):
         ax2.fill(angles2, values, alpha=0.1, color=color, zorder=2)
 
     ax2.set_xticks(angles2[:-1])
-    ax2.set_xticklabels(rules_gpt, fontsize=8)
+    ax2.set_xticklabels(rules_gpt)
     max_val2 = max([max(solve_rates_gpt[r].values()) for r in rules_gpt if solve_rates_gpt[r].values()])
     ax2.set_ylim(0, max(12, max_val2 * 1.15))
     ax2.set_yticks([5, 10, 15, 20])
-    ax2.set_yticklabels(['5\\%', '10\\%', '15\\%', '20\\%'], fontsize=7)
+    ax2.set_yticklabels(['5\\%', '10\\%', '15\\%', '20\\%'])
+    for label in ax2.yaxis.get_ticklabels():
+        label.set_path_effects([pe.withStroke(linewidth=2, foreground='white')])
+        label.set_zorder(10)
     style_polar_grid(ax2, [5, 10, 15, 20])
-    ax2.set_title('(b) GPT-OSS-120B', fontsize=10)
+    ax2.set_title('(b) GPT-OSS-120B')
 
     plt.tight_layout(rect=[0, 0.1, 1, 1])
 
     fig.legend(legend_handles, variants, loc='lower center', bbox_to_anchor=(0.5, 0.0),
-               ncol=3, fontsize=8, frameon=False)
+               ncol=3, frameon=False)
 
     if output_path:
         plt.savefig(output_path, dpi=300, bbox_inches='tight')

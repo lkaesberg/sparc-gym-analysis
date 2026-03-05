@@ -173,8 +173,8 @@ def create_bump_chart(results_dir, output_path=None, variant='gym'):
                        fontsize=7, va='center', color=colors[i])
     
     # Styling
-    ax.set_xlabel('Difficulty Level', fontsize=10)
-    ax.set_ylabel('Rank', fontsize=10)
+    ax.set_xlabel('Difficulty Level')
+    ax.set_ylabel('Rank')
     ax.set_xticks(difficulty_levels)
     ax.set_yticks(range(1, n_models + 1))
     ax.set_ylim(n_models + 0.5, 0.5)  # Invert so rank 1 is at top
@@ -191,7 +191,7 @@ def create_bump_chart(results_dir, output_path=None, variant='gym'):
     # Title
     variant_name = {'gym': 'SPaRC-Gym', 'traceback': 'SPaRC-Gym Traceback', 'sparc': 'SPaRC'}
     ax.set_title(f'Model Ranking by Difficulty ({variant_name.get(variant, variant)})', 
-                 fontsize=11, fontweight='bold', pad=10)
+                 fontweight='bold', pad=10)
     
     plt.tight_layout()
     
@@ -249,8 +249,8 @@ def create_combined_bump_chart(results_dir, output_path=None):
                 ax.annotate(display_name, (x_vals[-1] + 0.1, y_vals[-1]), 
                            fontsize=6, va='center', color=colors[i])
         
-        ax.set_xlabel('Difficulty Level', fontsize=9)
-        ax.set_ylabel('Rank', fontsize=9)
+        ax.set_xlabel('Difficulty Level')
+        ax.set_ylabel('Rank')
         ax.set_xticks(difficulty_levels)
         ax.set_yticks(range(1, n_models + 1))
         ax.set_ylim(n_models + 0.5, 0.5)
@@ -262,7 +262,7 @@ def create_combined_bump_chart(results_dir, output_path=None):
         ax.spines['top'].set_visible(False)
         ax.spines['right'].set_visible(False)
         
-        ax.set_title(vname, fontsize=10, fontweight='bold')
+        ax.set_title(vname, fontweight='bold')
     
     plt.tight_layout()
     

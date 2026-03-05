@@ -96,13 +96,13 @@ def create_baseline_comparison():
                     xytext=(0, 2),
                     textcoords="offset points",
                     ha='center', va='bottom',
-                    fontsize=8, fontweight='bold')
+                    fontsize=7, fontweight='bold')
 
     ax1.axvline(x=1.5, color='gray', linestyle='--', linewidth=0.8, alpha=0.7)
     ax1.set_ylabel('Accuracy (\\%)')
-    ax1.set_title('Accuracy', fontsize=10, fontweight='bold')
+    ax1.set_title('Accuracy', fontweight='bold')
     ax1.set_xticks(x)
-    ax1.set_xticklabels(labels, fontsize=8)
+    ax1.set_xticklabels(labels)
     ax1.set_ylim(0, max(solve_rates) * 1.35)
     ax1.spines['top'].set_visible(False)
     ax1.spines['right'].set_visible(False)
@@ -124,9 +124,9 @@ def create_baseline_comparison():
 
     ax2.axvline(x=1.5, ymin=0, ymax=100/125, color='gray', linestyle='--', linewidth=0.8, alpha=0.7)
     ax2.set_ylabel('Rate (\\%)')
-    ax2.set_title('Navigation Outcome', fontsize=10, fontweight='bold')
+    ax2.set_title('Navigation Outcome', fontweight='bold')
     ax2.set_xticks(x)
-    ax2.set_xticklabels(labels, fontsize=8)
+    ax2.set_xticklabels(labels)
     ax2.set_ylim(0, 120)
     ax2.set_yticks([0, 25, 50, 75, 100])
     ax2.spines['top'].set_visible(False)
@@ -170,7 +170,7 @@ def create_baseline_comparison():
         disp = ax1.transData.transform((x_center, y_top))
         disp_shifted = (disp[0], disp[1])
         fig_x, fig_y = fig.transFigure.inverted().transform(disp_shifted)
-        ab = AnnotationBbox(imagebox, (fig_x - 0.01, fig_y+0.045),
+        ab = AnnotationBbox(imagebox, (fig_x - 0.018, fig_y+0.05),
                             xycoords='figure fraction',
                             frameon=False,
                             box_alignment=(0.5, 0),

@@ -117,8 +117,8 @@ def create_reasoning_comparison():
                     xytext=(0, 2), textcoords="offset points",
                     ha='center', va='bottom', fontsize=6, fontweight='bold')
 
-    ax1.set_title('SPaRC', fontsize=8, fontweight='bold')
-    ax1.set_ylabel('Accuracy (\\%)', fontsize=8)
+    ax1.set_title('SPaRC', fontweight='bold')
+    ax1.set_ylabel('Accuracy (\\%)')
     ax1.set_xticks(x)
     ax1.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=7)
 
@@ -147,7 +147,7 @@ def create_reasoning_comparison():
                     xytext=(0, 2), textcoords="offset points",
                     ha='center', va='bottom', fontsize=6, fontweight='bold')
 
-    ax2.set_title('SPaRC-Gym', fontsize=8, fontweight='bold')
+    ax2.set_title('SPaRC-Gym', fontweight='bold')
     ax2.set_xticks(x)
     ax2.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=7)
     ax2.tick_params(labelleft=False)
@@ -181,8 +181,8 @@ def create_reasoning_comparison():
             ax3.annotate(f'{val:.0f}\\%', xy=(bar.get_x() + bar.get_width()/2, val/2),
                         ha='center', va='center', fontsize=6, fontweight='bold', color='white')
 
-    ax3.set_title('Navigation Outcome', fontsize=8, fontweight='bold')
-    ax3.set_ylabel('Rate (\\%)', fontsize=8)
+    ax3.set_title('Navigation Outcome', fontweight='bold')
+    ax3.set_ylabel('Rate (\\%)')
     ax3.set_xticks(x3)
     ax3.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=7)
     ax3.set_ylim(0, 120)

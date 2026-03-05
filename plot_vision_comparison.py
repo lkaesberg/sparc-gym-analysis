@@ -18,7 +18,7 @@ MODELS = {
     'text': {
         'file': 'Qwen_Qwen3-32B_gym_stats.csv',
         'label': 'Qwen3-32B',
-        'bar_label': 'Qwen3-32B',
+        'bar_label': 'Qwen3-32B\n(Text)',
         'short_label': 'Qwen3-32B (Text)',
         'color': MODEL_COLORS.get('Qwen3-32B', '#4A20BE'),
         'marker': 'D',
@@ -26,7 +26,7 @@ MODELS = {
     'vl_text': {
         'file': 'Qwen_Qwen3-VL-32B-Thinking_gym_stats.csv',
         'label': 'Qwen3-VL-32B\n(Text)',
-        'bar_label': 'VL-32B\n(Text)',
+        'bar_label': 'Qwen3-VL-32B\n(Text)',
         'short_label': 'Qwen3-VL-32B (Text)',
         'color': MODEL_COLORS.get('Qwen3-VL-32B', '#7240CC'),
         'marker': 's',
@@ -34,7 +34,7 @@ MODELS = {
     'vision': {
         'file': 'Qwen_Qwen3-VL-32B-Thinking_gym_visual_stats.csv',
         'label': 'Qwen3-VL-32B\n(Vision)',
-        'bar_label': 'VL-32B\n(Vision)',
+        'bar_label': 'Qwen3-VL-32B\n(Vision)',
         'short_label': 'Qwen3-VL-32B (Vision)',
         'color': '#9B59B6',
         'marker': 'o',
@@ -104,14 +104,14 @@ def create_vision_comparison(results_dir, output_path=None):
     x_pos = np.arange(len(labels))
     bars = ax1.bar(x_pos, accuracies, color=colors, edgecolor='white', linewidth=0.5)
     ax1.set_xticks(x_pos)
-    ax1.set_xticklabels(labels, fontsize=8)
+    ax1.set_xticklabels(labels)
     for bar, acc, color in zip(bars, accuracies, colors):
         ax1.annotate(f'{acc:.1f}\\%',
                      xy=(bar.get_x() + bar.get_width() / 2, bar.get_height()),
                      xytext=(0, 3),
                      textcoords="offset points",
                      ha='center', va='bottom',
-                     fontsize=9, fontweight='bold', color=color)
+                     fontsize=7, fontweight='bold', color=color)
 
     ax1.set_ylabel('Accuracy (\\%)')
     ax1.set_ylim(0, max(accuracies) * 1.45)
@@ -119,7 +119,7 @@ def create_vision_comparison(results_dir, output_path=None):
     ax1.spines['right'].set_visible(False)
     ax1.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax1.set_axisbelow(True)
-    ax1.set_title('(a) Overall Accuracy', fontsize=10, fontweight='bold')
+    ax1.set_title('(a) Overall Accuracy', fontweight='bold')
 
     # --- Subplot 2: Accuracy by difficulty (line plot) ---
     difficulties = np.array([1, 2, 3, 4, 5])
@@ -139,8 +139,8 @@ def create_vision_comparison(results_dir, output_path=None):
     ax2.spines['right'].set_visible(False)
     ax2.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax2.set_axisbelow(True)
-    ax2.legend(fontsize=8, loc='upper right', framealpha=0.9)
-    ax2.set_title('(b) Accuracy by Difficulty', fontsize=10, fontweight='bold')
+    ax2.legend(loc='upper right', framealpha=0.9)
+    ax2.set_title('(b) Accuracy by Difficulty', fontweight='bold')
 
     plt.tight_layout()
 

@@ -201,7 +201,7 @@ def create_qwen_scaling_plot(results_dir, output_path=None):
     ax2.set_xscale('log')
     ax2.set_ylabel('Accuracy (\\%)')
     ax2.set_xlabel('Estimated Compute (FLOPs)')
-    ax2.legend(loc='upper left', framealpha=0.9, fontsize=8)
+    ax2.legend(loc='upper left', framealpha=0.9)
     ax2.spines['top'].set_visible(False)
     ax2.spines['right'].set_visible(False)
     ax2.yaxis.grid(True, linestyle='--', alpha=0.3)

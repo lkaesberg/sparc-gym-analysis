@@ -219,8 +219,8 @@ def create_comparison_plot(results_dir, output_path=None, filter_max_steps=True)
     ax1.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax1.xaxis.grid(True, linestyle='--', alpha=0.3)
     ax1.set_axisbelow(True)
-    ax1.legend(loc='upper right', frameon=True, framealpha=0.9, fontsize=8)
-    ax1.set_title('(a) Steps vs Path Length', fontsize=10, fontweight='bold')
+    ax1.legend(loc='upper right', frameon=True, framealpha=0.9)
+    ax1.set_title('(a) Steps vs Path Length', fontweight='bold')
 
     # --- Right: per-model steps/path_edges ratio ---
     model_ratios = {}
@@ -255,13 +255,13 @@ def create_comparison_plot(results_dir, output_path=None, filter_max_steps=True)
         patch.set_alpha(0.8)
 
     ax2.set_xticks(x_pos)
-    ax2.set_xticklabels(display_names, fontsize=8, rotation=45, ha='right')
+    ax2.set_xticklabels(display_names, rotation=45, ha='right')
     ax2.set_ylabel('Steps / Path Edges')
     ax2.spines['top'].set_visible(False)
     ax2.spines['right'].set_visible(False)
     ax2.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax2.set_axisbelow(True)
-    ax2.set_title('(b) Backtracking Ratio by Model', fontsize=10, fontweight='bold')
+    ax2.set_title('(b) Backtracking Ratio by Model', fontweight='bold')
 
     print("\nPer-model backtracking ratio (steps / path edges):")
     for m in sorted_models:
@@ -328,7 +328,7 @@ def create_efficiency_histogram(results_dir, output_path=None):
     ax.set_ylabel('Count')
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
-    ax.legend(loc='upper right', fontsize=8)
+    ax.legend(loc='upper right')
     
     plt.tight_layout()
     

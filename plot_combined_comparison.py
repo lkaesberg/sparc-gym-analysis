@@ -194,14 +194,14 @@ def add_bars_to_subplot(ax, model_data, title):
     
     ax.set_ylabel('$\Delta$ Accuracy (\\%)')
     ax.set_xticks(x_pos)
-    ax.set_xticklabels(display_names, rotation=45, ha='right', fontsize=8)
+    ax.set_xticklabels(display_names, rotation=45, ha='right')
     ax.axhline(y=0, color='black', linestyle='-', linewidth=1)
     
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     ax.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax.set_axisbelow(True)
-    ax.set_title(title, fontsize=10, fontweight='bold')
+    ax.set_title(title, fontweight='bold')
 
 
 def create_combined_chart(sparc_gym_data, traceback_data, output_path=None):

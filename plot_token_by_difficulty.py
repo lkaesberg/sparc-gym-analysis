@@ -219,7 +219,7 @@ def create_token_by_difficulty_plot(results_dir, output_path=None):
     ax.yaxis.grid(True, linestyle="--", alpha=0.3)
     ax.set_axisbelow(True)
 
-    fig.legend(loc="lower center", ncol=3, fontsize=8, frameon=False,
+    fig.legend(loc="lower center", ncol=3, frameon=False,
                bbox_to_anchor=(0.5, -0.04))
 
     plt.tight_layout(rect=[0, 0.08, 1, 1])

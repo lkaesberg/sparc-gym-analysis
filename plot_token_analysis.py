@@ -274,8 +274,8 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
         plotted_models.add(display_name)
         plotted_variants.add(file_type)
     
-    ax.set_xlabel('Avg Tokens per Puzzle (K)', fontsize=10)
-    ax.set_ylabel('Accuracy (\\%)', fontsize=10)
+    ax.set_xlabel('Avg Tokens per Puzzle (K)')
+    ax.set_ylabel('Accuracy (\\%)')
     
     ax.set_xscale('log')
     
@@ -300,11 +300,11 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
     
     # Place legends inside plot
     leg1 = ax.legend(handles=model_handles, loc='upper left', fontsize=7, 
-                    frameon=True, framealpha=0.95, title='Model', title_fontsize=8,
+                    frameon=True, framealpha=0.95, title='Model', title_fontsize=7,
                     handletextpad=2.0)
     ax.add_artist(leg1)
-    leg2 = ax.legend(handles=variant_handles, loc='upper right', fontsize=8,
-                    frameon=True, framealpha=0.95, title='Variant', title_fontsize=8)
+    leg2 = ax.legend(handles=variant_handles, loc='upper right', fontsize=7,
+                    frameon=True, framealpha=0.95, title='Variant', title_fontsize=7)
     
     plt.tight_layout()
 
@@ -384,8 +384,8 @@ def create_token_comparison_bar(results_dir, output_path=None):
     bars3 = ax.barh(y_pos + height, tb_tokens, height, label='Traceback', color='#E65100', alpha=0.8)
     
     ax.set_yticks(y_pos)
-    ax.set_yticklabels(display_names, fontsize=9)
-    ax.set_xlabel('Avg Tokens per Puzzle (K)', fontsize=10)
+    ax.set_yticklabels(display_names)
+    ax.set_xlabel('Avg Tokens per Puzzle (K)')
     ax.set_xscale('log')
     
     ax.spines['top'].set_visible(False)
@@ -393,7 +393,7 @@ def create_token_comparison_bar(results_dir, output_path=None):
     ax.xaxis.grid(True, linestyle='--', alpha=0.3)
     ax.set_axisbelow(True)
     
-    ax.legend(loc='lower right', fontsize=9, frameon=True, framealpha=0.9)
+    ax.legend(loc='lower right', frameon=True, framealpha=0.9)
     
     plt.tight_layout()
     
@@ -483,11 +483,11 @@ def create_efficiency_chart(results_dir, output_path=None):
             ax.barh(y_pos + offset, values, height, label=ft.upper() if ft == 'sparc' else ('SPaRC-Gym' if ft == 'gym' else 'Traceback'), 
                    color=color_map[ft], alpha=0.8)
     
-    ax.legend(loc='lower right', fontsize=9, frameon=True, framealpha=0.9)
+    ax.legend(loc='lower right', frameon=True, framealpha=0.9)
     
     ax.set_yticks(y_pos)
-    ax.set_yticklabels(pivot.index, fontsize=9)
-    ax.set_xlabel('Efficiency (Accuracy \\% per 1K tokens)', fontsize=10)
+    ax.set_yticklabels(pivot.index)
+    ax.set_xlabel('Efficiency (Accuracy \\% per 1K tokens)')
     
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)

@@ -233,7 +233,7 @@ def create_token_by_difficulty_per_model_plot(results_dir, output_path=None):
         vdf = df[df["File Type"] == file_type]
 
         if vdf.empty:
-            ax.set_title(f'({chr(97 + i)}) {variant}', fontsize=10)
+            ax.set_title(f'({chr(97 + i)}) {variant}')
             continue
 
         for internal_name in sorted(vdf["Internal Name"].unique()):
@@ -264,7 +264,7 @@ def create_token_by_difficulty_per_model_plot(results_dir, output_path=None):
             if display_name not in all_models_seen:
                 all_models_seen[display_name] = (color, marker, internal_name)
 
-        ax.set_title(f'({chr(97 + i)}) {variant}', fontsize=10)
+        ax.set_title(f'({chr(97 + i)}) {variant}')
         ax.set_xlabel('Difficulty Level')
         ax.set_xticks(difficulties)
         ax.set_xlim(0.7, 5.3)

@@ -222,7 +222,7 @@ def bin_data_by_difficulty(difficulty_scores, values, n_bins=20):
 def create_subplot(ax, difficulty_scores, values, title, color, ylabel=True):
     """Create a single subplot with scatter and trend line."""
     if len(difficulty_scores) == 0:
-        ax.set_title(title, fontsize=8, fontweight='bold')
+        ax.set_title(title, fontweight='bold')
         ax.text(0.5, 0.5, 'No data', ha='center', va='center', transform=ax.transAxes)
         return
     
@@ -237,14 +237,14 @@ def create_subplot(ax, difficulty_scores, values, title, color, ylabel=True):
         ax.fill_between(bin_centers, bin_means - bin_stds, bin_means + bin_stds, 
                         color=color, alpha=0.3, label='±1 Std')
     
-    ax.set_title(title, fontsize=8, fontweight='bold')
-    ax.set_xlabel('Difficulty Score', fontsize=8)
+    ax.set_title(title, fontweight='bold')
+    ax.set_xlabel('Difficulty Score')
     if ylabel:
-        ax.set_ylabel('Path Length', fontsize=8)
+        ax.set_ylabel('Path Length')
 
     ax.xaxis.set_major_locator(plt.MaxNLocator(nbins=6, integer=True))
     ax.yaxis.set_major_locator(plt.MaxNLocator(nbins=6, integer=True))
-    ax.tick_params(axis='both', labelsize=8)
+    ax.tick_params(axis='both')
 
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)

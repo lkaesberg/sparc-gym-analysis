@@ -158,7 +158,7 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
     for i, (ax, variant) in enumerate(zip(axes, variant_names)):
         files = categorized_files.get(variant, [])
         if not files:
-            ax.set_title(f'({chr(97 + i)}) {variant}', fontsize=10)
+            ax.set_title(f'({chr(97 + i)}) {variant}')
             continue
 
         for stats_file in files:
@@ -185,7 +185,7 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
             if display_name not in all_models_seen:
                 all_models_seen[display_name] = (color, marker)
 
-        ax.set_title(f'({chr(97 + i)}) {variant}', fontsize=10)
+        ax.set_title(f'({chr(97 + i)}) {variant}')
         ax.set_xlabel('Difficulty Level')
         ax.set_xticks(difficulties)
         ax.set_xlim(0.7, 5.3)

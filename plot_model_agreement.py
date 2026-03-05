@@ -175,7 +175,7 @@ def create_agreement_heatmap(results_dir, output_path=None, variant='gym'):
             ax1.text(j, i, f'{val:.2f}', ha='center', va='center', 
                     color=color, fontsize=5)
     
-    ax1.set_title('Jaccard Similarity', fontsize=9, fontweight='bold')
+    ax1.set_title('Jaccard Similarity', fontweight='bold')
     
     # Colorbar
     cbar1 = fig.colorbar(im1, ax=ax1, fraction=0.046, pad=0.04)
@@ -198,7 +198,7 @@ def create_agreement_heatmap(results_dir, output_path=None, variant='gym'):
             ax2.text(j, i, f'{val:.2f}', ha='center', va='center', 
                     color=color, fontsize=5)
     
-    ax2.set_title('P(col solves $|$ row solves)', fontsize=9, fontweight='bold')
+    ax2.set_title('P(col solves $|$ row solves)', fontweight='bold')
     
     cbar2 = fig.colorbar(im2, ax=ax2, fraction=0.046, pad=0.04)
     cbar2.ax.tick_params(labelsize=7)
@@ -383,7 +383,7 @@ def create_unique_solves_by_difficulty_chart(results_dir, output_path=None, vari
     ax.spines['right'].set_visible(False)
     ax.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax.set_axisbelow(True)
-    ax.set_title('Uniquely Solved Puzzles by Difficulty', fontsize=10, fontweight='bold')
+    ax.set_title('Uniquely Solved Puzzles by Difficulty', fontweight='bold')
 
     plt.tight_layout()
 
@@ -470,12 +470,12 @@ def create_unique_solves_chart(results_dir, output_path=None, variant='gym'):
     
     ax.set_xticks(x)
     ax.set_xticklabels(display_names, fontsize=7, rotation=45, ha='right')
-    ax.set_ylabel('Puzzles', fontsize=9)
+    ax.set_ylabel('Puzzles')
     ax.legend(fontsize=7, loc='upper right')
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     
-    ax.set_title('Total vs Uniquely Solved Puzzles', fontsize=10, fontweight='bold')
+    ax.set_title('Total vs Uniquely Solved Puzzles', fontweight='bold')
     
     plt.tight_layout()
 

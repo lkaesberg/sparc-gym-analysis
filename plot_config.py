@@ -28,13 +28,15 @@ def setup_plot_style(use_latex=True):
     plt.rcParams["text.usetex"] = use_latex
     plt.rcParams["mathtext.fontset"] = "cm"  # Computer Modern for math
 
-    # Size configuration
-    plt.rcParams["axes.titlesize"] = 10
-    plt.rcParams["axes.labelsize"] = 10
-    plt.rcParams["xtick.labelsize"] = 10
-    plt.rcParams["ytick.labelsize"] = 10
-    plt.rcParams["legend.fontsize"] = 10
-    plt.rcParams["figure.titlesize"] = 10
+    # Size configuration – intentionally compact so that all plots
+    # look consistent even at COLUMN_WIDTH_INCHES (~2.75 in).
+    plt.rcParams["font.size"] = 8           # base size for annotations etc.
+    plt.rcParams["axes.titlesize"] = 8
+    plt.rcParams["axes.labelsize"] = 8
+    plt.rcParams["xtick.labelsize"] = 7
+    plt.rcParams["ytick.labelsize"] = 7
+    plt.rcParams["legend.fontsize"] = 7
+    plt.rcParams["figure.titlesize"] = 8
 
     # Line and marker configuration
     plt.rcParams["lines.linewidth"] = 1.0

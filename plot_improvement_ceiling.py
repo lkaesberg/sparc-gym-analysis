@@ -176,8 +176,8 @@ def create_improvement_analysis(results_dir, output_path=None):
     wedges, texts, autotexts = ax1.pie(sizes, colors=pie_colors, autopct='%1.1f%%',
                                         startangle=90, pctdistance=0.75)
     for autotext in autotexts:
-        autotext.set_fontsize(8)
-    ax1.set_title('Outcome Distribution', fontsize=10, fontweight='bold')
+        autotext.set_fontsize(7)
+    ax1.set_title('Outcome Distribution', fontweight='bold')
     
     # Plot 2: Difficulty distribution by category
     ax2 = axes[0, 1]
@@ -203,9 +203,9 @@ def create_improvement_analysis(results_dir, output_path=None):
             median.set_color('black')
         
         ax2.set_xticks(range(len(cat_order)))
-        ax2.set_xticklabels(['TB Helps', 'TB Hurts', 'Both OK', 'Both Fail'], fontsize=8, rotation=15)
-        ax2.set_ylabel('Difficulty Score', fontsize=9)
-        ax2.set_title('Difficulty by Category', fontsize=10, fontweight='bold')
+        ax2.set_xticklabels(['TB Helps', 'TB Hurts', 'Both OK', 'Both Fail'], rotation=15)
+        ax2.set_ylabel('Difficulty Score')
+        ax2.set_title('Difficulty by Category', fontweight='bold')
     
     # Plot 3: Solution count distribution
     ax3 = axes[1, 0]
@@ -224,9 +224,9 @@ def create_improvement_analysis(results_dir, output_path=None):
     
     ax3.set_xticks(np.arange(len(bins)-1))
     ax3.set_xticklabels(['1', '2', '3-5', '6-10', '11-50', '51-100', '>100'], fontsize=7)
-    ax3.set_xlabel('Solution Count', fontsize=9)
-    ax3.set_ylabel('Percentage', fontsize=9)
-    ax3.set_title('Solution Count Distribution', fontsize=10, fontweight='bold')
+    ax3.set_xlabel('Solution Count')
+    ax3.set_ylabel('Percentage')
+    ax3.set_title('Solution Count Distribution', fontweight='bold')
     ax3.legend(fontsize=7, loc='upper right')
     
     # Plot 4: Per-model breakdown
@@ -292,8 +292,8 @@ def create_improvement_analysis(results_dir, output_path=None):
     ax4.barh(y_pos, net_benefits_sorted, color=bar_colors, alpha=0.8)
     ax4.set_yticks(y_pos)
     ax4.set_yticklabels(short_names, fontsize=7)
-    ax4.set_xlabel('Net Benefit (\\%)', fontsize=9)
-    ax4.set_title('Traceback Net Benefit by Model', fontsize=10, fontweight='bold')
+    ax4.set_xlabel('Net Benefit (\\%)')
+    ax4.set_title('Traceback Net Benefit by Model', fontweight='bold')
     ax4.axvline(x=0, color='black', linewidth=0.5)
     ax4.invert_yaxis()
     

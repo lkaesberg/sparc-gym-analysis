@@ -186,7 +186,7 @@ def create_navigation_comparison():
                         fontsize=6, fontweight='bold', color='white')
     
     ax1.set_ylabel('Rate (\\%)')
-    ax1.set_title('Gym w/o traceback', fontsize=10, fontweight='bold')
+    ax1.set_title('Gym w/o traceback', fontweight='bold')
     ax1.set_xticks(x1)
     ax1.set_xticklabels(labels1, fontsize=7, rotation=45, ha='right')
     ax1.set_ylim(0, 120)
@@ -226,7 +226,7 @@ def create_navigation_comparison():
                         fontsize=6, fontweight='bold', color='white')
     
     ax2.set_ylabel('Rate (\\%)')
-    ax2.set_title('Gym w/ traceback', fontsize=10, fontweight='bold')
+    ax2.set_title('Gym w/ traceback', fontweight='bold')
     ax2.set_xticks(x2)
     ax2.set_xticklabels(labels2, fontsize=7, rotation=45, ha='right')
     ax2.set_ylim(0, 120)

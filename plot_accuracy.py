@@ -154,7 +154,7 @@ def create_accuracy_bar_chart(model_data, output_path=None):
             ax.annotate(f'{acc:.0f}\\%',
                         xy=(bar.get_x() + bar.get_width() / 2, height - 18),
                         ha='center', va='top',
-                        fontsize=8,
+                        fontsize=7,
                         fontweight='bold',
                         color='white')
             # Add human logo inside the bar (above the text)
@@ -172,7 +172,7 @@ def create_accuracy_bar_chart(model_data, output_path=None):
                         xytext=(0, 3),  # 3 points vertical offset
                         textcoords="offset points",
                         ha='center', va='bottom',
-                        fontsize=8,
+                        fontsize=7,
                         fontweight='bold',
                         color=color)
             
@@ -191,7 +191,7 @@ def create_accuracy_bar_chart(model_data, output_path=None):
     # Customize axes
     ax.set_ylabel('Accuracy (\\%)')
     ax.set_xticks(x_pos)
-    ax.set_xticklabels(all_display_names, rotation=45, ha='right', fontsize=9)
+    ax.set_xticklabels(all_display_names, rotation=45, ha='right')
     
     # Add horizontal dashed line at y=0 for reference
     ax.axhline(y=0, color='gray', linestyle='-', linewidth=0.5)
