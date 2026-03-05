@@ -1,0 +1,20 @@
+\begin{table*}[b]
+  \centering
+  \small
+  \begin{tabular}{cl | c | ccccc | c}
+    \toprule
+    & \textbf{Model} & \textbf{Accuracy} & \textbf{D1} & \textbf{D2} & \textbf{D3} & \textbf{D4} & \textbf{D5} & \textbf{Avg.\ Steps} \\
+    \midrule
+    \raisebox{-0.3\height}{\includegraphics[width=1.2em]{images/logos/openai.png}} & GPT-OSS 120B & \textbf{21.6} & \textbf{64.0} & \textbf{26.3} & \textbf{9.9} & \textbf{8.1} & \textbf{3.4} & 19.8 \\
+    \raisebox{-0.3\height}{\includegraphics[width=1.2em]{images/logos/nvidia.png}} & Nemotron 49B & 11.4 & 45.3 & 7.6 & 5.0 & 2.3 & 1.1 & 20.0 \\
+    \raisebox{-0.3\height}{\includegraphics[width=1.2em]{images/logos/qwen.png}} & Qwen 3 32B & 5.2 & 19.8 & 4.2 & 2.5 & 1.2 & 0.0 & 20.0 \\
+    \raisebox{-0.3\height}{\includegraphics[width=1.2em]{images/logos/olmo.png}} & OLMo 3.1 32B & 16.2 & 51.2 & 20.3 & 9.1 & 2.3 & 0.0 & 16.1 \\
+    \raisebox{-0.3\height}{\includegraphics[width=1.2em]{images/logos/deepseek.png}} & R1 Distill 32B & 3.6 & 9.3 & 5.9 & 1.7 & 1.2 & 0.0 & 19.3 \\
+    \raisebox{-0.3\height}{\includegraphics[width=1.2em]{images/logos/gemma.png}} & Gemma 3 27B & 0.8 & 1.2 & 0.8 & 1.7 & 0.0 & 0.0 & 17.6 \\
+    \raisebox{-0.3\height}{\includegraphics[width=1.2em]{images/logos/mistral.png}} & Magistral Small & 1.6 & 3.5 & 2.5 & 0.8 & 1.2 & 0.0 & 20.3 \\
+    \raisebox{-0.3\height}{\includegraphics[width=1.2em]{images/logos/qwen.png}} & Qwen 3 0.6B & 0.4 & 0.0 & 0.8 & 0.8 & 0.0 & 0.0 & 15.5 \\
+    \bottomrule
+  \end{tabular}
+  \caption{SPaRC results. Overall accuracy (\%) and per-difficulty solve rate (D1--D5).}
+  \label{tab:sparc-results}
+\end{table*}
