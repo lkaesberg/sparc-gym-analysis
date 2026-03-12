@@ -233,7 +233,7 @@ def create_subplot(ax, difficulty_scores, values, title, color, ylabel=True):
     bin_centers, bin_means, bin_stds = bin_data_by_difficulty(difficulty_scores, values, n_bins=15)
     
     if len(bin_centers) > 0:
-        ax.plot(bin_centers, bin_means, color=color, linewidth=2, label='Mean')
+        ax.plot(bin_centers, bin_means, color="black", alpha=0.6, linewidth=2, label="Mean")
         ax.fill_between(bin_centers, bin_means - bin_stds, bin_means + bin_stds, 
                         color=color, alpha=0.3, label='±1 Std')
     
@@ -301,7 +301,7 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
     print(f"\nData points: True={len(true_diff)}, SPaRC={len(sparc_diff)}, Gym={len(gym_diff)}, Traceback={len(traceback_diff)}")
     
     # Create figure with 4 subplots
-    fig, axes = plt.subplots(1, 4, figsize=(TEXT_WIDTH_INCHES, 2.5), sharey=True)
+    fig, axes = plt.subplots(1, 4, figsize=(TEXT_WIDTH_INCHES, 1.8), sharey=True)
     
     # Create each subplot
     create_subplot(axes[0], true_diff, true_steps, "(a) True Solution", 
