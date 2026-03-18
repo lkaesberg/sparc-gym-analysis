@@ -11,6 +11,7 @@ import re
 from plot_config import (
     setup_plot_style,
     TEXT_WIDTH_INCHES,
+    COLUMN_WIDTH_INCHES,
     MODEL_COLORS,
 )
 
@@ -152,6 +153,92 @@ def create_vision_comparison(results_dir, output_path=None):
     return model_stats
 
 
+def create_accuracy_bar_plot(results_dir, output_path=None):
+    """Create a standalone bar chart of overall accuracy."""
+    setup_plot_style(use_latex=True)
+
+    results_path = Path(results_dir)
+    model_stats = {}
+    for key, cfg in MODELS.items():
+        model_stats[key] = extract_stats_from_csv(results_path / cfg['file'])
+
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 1.5))
+
+    keys = list(MODELS.keys())
+    labels = [MODELS[k]['bar_label'] for k in keys]
+    accuracies = [model_stats[k]['accuracy'] for k in keys]
+    colors = [MODELS[k]['color'] for k in keys]
+
+    x_pos = np.arange(len(labels))
+    bars = ax.bar(x_pos, accuracies, color=colors, edgecolor='white', linewidth=0.5)
+    ax.set_xticks(x_pos)
+    ax.set_xticklabels(labels)
+    for bar, acc, color in zip(bars, accuracies, colors):
+        ax.annotate(f'{acc:.1f}\\%',
+                    xy=(bar.get_x() + bar.get_width() / 2, bar.get_height()),
+                    xytext=(0, 3),
+                    textcoords="offset points",
+                    ha='center', va='bottom',
+                    fontsize=7, fontweight='bold', color=color)
+
+    ax.set_ylabel('Accuracy (\\%)')
+    ax.set_ylim(0, max(accuracies) * 1.45)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.yaxis.grid(True, linestyle='--', alpha=0.3)
+    ax.set_axisbelow(True)
+
+    plt.tight_layout()
+
+    if output_path:
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        print(f"Figure saved to: {output_path}")
+
+    plt.close(fig)
+    return fig, ax
+
+
+def create_difficulty_line_plot(results_dir, output_path=None):
+    """Create a standalone line plot of accuracy by difficulty."""
+    setup_plot_style(use_latex=True)
+
+    results_path = Path(results_dir)
+    model_stats = {}
+    for key, cfg in MODELS.items():
+        model_stats[key] = extract_stats_from_csv(results_path / cfg['file'])
+
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 2.0))
+
+    keys = list(MODELS.keys())
+    difficulties = np.array([1, 2, 3, 4, 5])
+    for key in keys:
+        vals = [model_stats[key].get(f'd{d}_pct', 0) for d in difficulties]
+        cfg = MODELS[key]
+        ax.plot(difficulties, vals,
+                color=cfg['color'], marker=cfg['marker'], markersize=5,
+                linewidth=1.5, label=cfg['short_label'],
+                markeredgecolor='white', markeredgewidth=0.4)
+
+    ax.set_ylabel('Accuracy (\\%)')
+    ax.set_xlabel('Difficulty Level')
+    ax.set_xticks(difficulties)
+    ax.set_xlim(0.7, 5.3)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.yaxis.grid(True, linestyle='--', alpha=0.3)
+    ax.set_axisbelow(True)
+    ax.legend(loc='upper right', framealpha=0.9)
+
+    plt.tight_layout()
+
+    if output_path:
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        print(f"Figure saved to: {output_path}")
+
+    plt.close(fig)
+    return fig, ax
+
+
 def main():
     results_dir = Path(__file__).parent / "results" / "sparc"
     output_pdf = Path(__file__).parent / "vision_comparison.pdf"
@@ -163,6 +250,14 @@ def main():
 
     stats = create_vision_comparison(results_dir, output_pdf)
     create_vision_comparison(results_dir, output_png)
+
+    print("\n" + "=" * 60)
+    print("Creating individual subplot figures...")
+    print("=" * 60)
+    base = Path(__file__).parent
+    for ext in ("pdf", "png"):
+        create_accuracy_bar_plot(results_dir, base / f"vision_accuracy.{ext}")
+        create_difficulty_line_plot(results_dir, base / f"vision_difficulty.{ext}")
 
     for key, cfg in MODELS.items():
         s = stats[key]

@@ -155,7 +155,7 @@ def create_qwen_scaling_plot(results_dir, output_path=None):
     gym_accs = [data['gym'].get(size, 0) for size in QWEN_SIZES]
     
     # --- Single subplot: Accuracy vs compute (FLOPs) for both variants ---
-    fig, ax2 = plt.subplots(1, 1, figsize=(COLUMN_WIDTH_INCHES, 2.5))
+    fig, ax2 = plt.subplots(1, 1, figsize=(COLUMN_WIDTH_INCHES, 2))
     
     # Get tokens per puzzle for both variants
     sparc_tokens = [data['sparc_tokens'].get(size, 0) for size in QWEN_SIZES]

@@ -81,7 +81,7 @@ def create_baseline_comparison():
     finish_rates = [s.get('finish_rate', 0) for s in all_stats]
     stuck_rates = [s.get('stuck_rate', 0) for s in all_stats]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.4))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2))
 
     x = np.arange(len(labels))
     width = 0.6
@@ -103,7 +103,7 @@ def create_baseline_comparison():
     ax1.set_title('Accuracy', fontweight='bold')
     ax1.set_xticks(x)
     ax1.set_xticklabels(labels)
-    ax1.set_ylim(0, max(solve_rates) * 1.35)
+    ax1.set_ylim(0, max(solve_rates) * 1.45)
     ax1.spines['top'].set_visible(False)
     ax1.spines['right'].set_visible(False)
     ax1.yaxis.grid(True, linestyle='--', alpha=0.3)
@@ -127,7 +127,7 @@ def create_baseline_comparison():
     ax2.set_title('Navigation Outcome', fontweight='bold')
     ax2.set_xticks(x)
     ax2.set_xticklabels(labels)
-    ax2.set_ylim(0, 120)
+    ax2.set_ylim(0, 125)
     ax2.set_yticks([0, 25, 50, 75, 100])
     ax2.spines['top'].set_visible(False)
     ax2.spines['right'].set_visible(False)
@@ -170,7 +170,7 @@ def create_baseline_comparison():
         disp = ax1.transData.transform((x_center, y_top))
         disp_shifted = (disp[0], disp[1])
         fig_x, fig_y = fig.transFigure.inverted().transform(disp_shifted)
-        ab = AnnotationBbox(imagebox, (fig_x - 0.018, fig_y+0.05),
+        ab = AnnotationBbox(imagebox, (fig_x - 0.005, fig_y+0.07),
                             xycoords='figure fraction',
                             frameon=False,
                             box_alignment=(0.5, 0),

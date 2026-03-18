@@ -302,6 +302,135 @@ def create_comparison_plot(results_dir, output_path=None, filter_max_steps=True)
     return fig, (ax1, ax2)
 
 
+def create_scatter_plot(results_dir, output_path=None, filter_max_steps=True):
+    """Create a standalone scatter plot of steps vs path edges."""
+    setup_plot_style(use_latex=True)
+
+    steps, path_edges = extract_traceback_steps_vs_path(results_dir)
+
+    if filter_max_steps:
+        mask = steps < 100
+        steps_filtered = steps[mask]
+        path_edges_filtered = path_edges[mask]
+    else:
+        steps_filtered = steps
+        path_edges_filtered = path_edges
+
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 2.7))
+
+    ax.scatter(path_edges_filtered, steps_filtered, alpha=0.4, s=12,
+               color='#7B1FA2', edgecolors='none', rasterized=True)
+
+    max_path = path_edges_filtered.max()
+    max_steps = steps_filtered.max()
+    diag_max = max(max_path, max_steps) * 1.05
+    ax.plot([0, diag_max], [0, diag_max], color='#666666', linestyle='--',
+            linewidth=1.5, label='No backtracking', zorder=1)
+
+    z = np.polyfit(path_edges_filtered, steps_filtered, 1)
+    p = np.poly1d(z)
+    x_line = np.linspace(0, max_path, 100)
+    ax.plot(x_line, p(x_line), color='#E65100', linewidth=2.5,
+            label=f'Linear fit (slope={z[0]:.2f})', zorder=2)
+
+    ax.set_xlabel('Final Path Edges')
+    ax.set_ylabel('Total Steps Taken')
+    ax.set_xlim(0, max_path * 1.05)
+    ax.set_ylim(0, 120)
+    ax.set_yticks(np.arange(0, 101, 20))
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.yaxis.grid(True, linestyle='--', alpha=0.3)
+    ax.xaxis.grid(True, linestyle='--', alpha=0.3)
+    ax.set_axisbelow(True)
+    ax.legend(loc='upper right', frameon=True, framealpha=0.9)
+
+    plt.tight_layout()
+
+    if output_path:
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        print(f"Figure saved to: {output_path}")
+
+    plt.close(fig)
+    return fig, ax
+
+
+def create_backtracking_ratio_plot(results_dir, output_path=None, filter_max_steps=True):
+    """Create a standalone boxplot of per-model backtracking ratio."""
+    setup_plot_style(use_latex=True)
+
+    per_model = extract_traceback_steps_vs_path_per_model(results_dir)
+
+    model_ratios = {}
+    for model_name, data in per_model.items():
+        s = data['steps']
+        pe = data['path_edges']
+        if filter_max_steps:
+            m = s < 100
+            s, pe = s[m], pe[m]
+        valid = pe > 0
+        if valid.sum() > 0:
+            ratios = s[valid] / pe[valid]
+            model_ratios[model_name] = {
+                'mean': ratios.mean(),
+                'median': np.median(ratios),
+                'std': ratios.std(),
+                'ratios': ratios,
+            }
+
+    sorted_models = sorted(model_ratios.keys(),
+                           key=lambda m: model_ratios[m]['median'])
+    display_names = [MODEL_DISPLAY_NAMES.get(m, m) for m in sorted_models]
+    colors = [get_model_family_color(m, MODEL_DISPLAY_NAMES.get(m, m)) for m in sorted_models]
+
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 2))
+
+    x_pos = np.arange(len(sorted_models))
+    box_data = [model_ratios[m]['ratios'] for m in sorted_models]
+    bp = ax.boxplot(box_data, positions=x_pos, widths=0.55, patch_artist=True,
+                    showfliers=False, medianprops=dict(color='black', linewidth=1.5))
+    for patch, color in zip(bp['boxes'], colors):
+        patch.set_facecolor(color)
+        patch.set_alpha(0.8)
+
+    ax.set_xticks(x_pos)
+    ax.set_xticklabels(display_names, rotation=45, ha='right')
+    ax.set_ylabel('Steps / Path Edges')
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.yaxis.grid(True, linestyle='--', alpha=0.3)
+    ax.set_axisbelow(True)
+
+    plt.tight_layout()
+
+    if output_path:
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+
+        renderer = fig.canvas.get_renderer()
+
+        for tick_label in ax.get_xticklabels():
+            name = tick_label.get_text()
+            imagebox = get_model_imagebox(name, zoom_factor=0.85, rotation=45)
+            if not imagebox:
+                continue
+            bbox = tick_label.get_window_extent(renderer)
+            fig_x, fig_y = fig.transFigure.inverted().transform(
+                [bbox.x0, bbox.y0]
+            )
+            ab = AnnotationBbox(imagebox, (fig_x + 0.03, fig_y+0.01),
+                                xycoords='figure fraction',
+                                frameon=False,
+                                box_alignment=(1.0, 0.5),
+                                pad=0)
+            fig.add_artist(ab)
+
+        plt.savefig(output_path, dpi=300, bbox_inches='tight')
+        print(f"Figure saved to: {output_path}")
+
+    plt.close(fig)
+    return fig, ax
+
+
 def create_efficiency_histogram(results_dir, output_path=None):
     """Create a histogram of efficiency (path_edges / steps).
     
@@ -353,6 +482,14 @@ def main():
     create_comparison_plot(results_dir, output_pdf)
     create_comparison_plot(results_dir, output_png)
     
+    # Individual subplot figures
+    print("\n" + "=" * 60)
+    print("Creating individual subplot figures...")
+    print("=" * 60)
+    for ext in ("pdf", "png"):
+        create_scatter_plot(results_dir, Path(__file__).parent / f"traceback_scatter.{ext}")
+        create_backtracking_ratio_plot(results_dir, Path(__file__).parent / f"traceback_ratio.{ext}")
+
     # Efficiency histogram
     print("\n" + "=" * 60)
     print("Creating efficiency histogram...")

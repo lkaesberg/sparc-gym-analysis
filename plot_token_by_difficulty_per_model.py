@@ -222,7 +222,7 @@ def create_token_by_difficulty_per_model_plot(results_dir, output_path=None):
 
     variant_names = ["SPaRC", "Gym w/o traceback", "Gym w/ traceback"]
 
-    fig, axes = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 2.4))
+    fig, axes = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 2.0))
 
     difficulties = np.array([1, 2, 3, 4, 5])
 

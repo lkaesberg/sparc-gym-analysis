@@ -129,7 +129,7 @@ def create_accuracy_bar_chart(model_data, output_path=None):
     setup_plot_style(use_latex=True)
     
     # Create figure
-    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES*1.3, 2.5))
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 1.8))
     
     # Add human as first entry
     all_display_names = ['Human'] + [m['display_name'] for m in model_data]
@@ -154,7 +154,7 @@ def create_accuracy_bar_chart(model_data, output_path=None):
             ax.annotate(f'{acc:.0f}\\%',
                         xy=(bar.get_x() + bar.get_width() / 2, height - 18),
                         ha='center', va='top',
-                        fontsize=7,
+                        fontsize=6,
                         fontweight='bold',
                         color='white')
             # Add human logo inside the bar (above the text)
@@ -172,7 +172,7 @@ def create_accuracy_bar_chart(model_data, output_path=None):
                         xytext=(0, 3),  # 3 points vertical offset
                         textcoords="offset points",
                         ha='center', va='bottom',
-                        fontsize=7,
+                        fontsize=6,
                         fontweight='bold',
                         color=color)
             

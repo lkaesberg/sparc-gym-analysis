@@ -93,7 +93,7 @@ def create_reasoning_comparison():
     color_reasoning = get_model_color("Qwen 3 32B")
     color_no_reasoning = "#C8B8E8"
 
-    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 2.2),
+    fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 1.8),
                                         gridspec_kw={'width_ratios': [1, 1, 1.2]})
 
     x = np.arange(len(MODEL_SIZES))
@@ -185,7 +185,7 @@ def create_reasoning_comparison():
     ax3.set_ylabel('Rate (\\%)')
     ax3.set_xticks(x3)
     ax3.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=7)
-    ax3.set_ylim(0, 120)
+    ax3.set_ylim(0, 125)
     ax3.set_yticks([0, 25, 50, 75, 100])
     ax3.tick_params(axis='y', labelsize=7)
     ax3.spines['top'].set_visible(False)
@@ -256,7 +256,7 @@ def create_reasoning_comparison():
     shared_ylim = (0, max(all_acc) * 1.45)
     ax1.set_ylim(shared_ylim)
     ax2.set_ylim(shared_ylim)
-    ax3.set_ylim(0, 120)
+    ax3.set_ylim(0, 130)
 
     # Second pass: save with logos
     fig.savefig(output_dir / "reasoning_comparison.pdf", bbox_inches='tight', dpi=300)

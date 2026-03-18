@@ -160,7 +160,7 @@ def create_navigation_comparison():
     traceback_data = [tb_by_name[name] for name in gym_order if name in tb_by_name]
     
     # Create figure with two subplots
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.4), sharey=True)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.0), sharey=True)
     
     width = 0.75
     
@@ -189,7 +189,7 @@ def create_navigation_comparison():
     ax1.set_title('Gym w/o traceback', fontweight='bold')
     ax1.set_xticks(x1)
     ax1.set_xticklabels(labels1, fontsize=7, rotation=45, ha='right')
-    ax1.set_ylim(0, 120)
+    ax1.set_ylim(0, 130)
     ax1.set_yticks([0, 25, 50, 75, 100])
     ax1.spines['top'].set_visible(False)
     ax1.spines['right'].set_visible(False)
@@ -229,7 +229,7 @@ def create_navigation_comparison():
     ax2.set_title('Gym w/ traceback', fontweight='bold')
     ax2.set_xticks(x2)
     ax2.set_xticklabels(labels2, fontsize=7, rotation=45, ha='right')
-    ax2.set_ylim(0, 120)
+    ax2.set_ylim(0, 130)
     ax2.set_yticks([0, 25, 50, 75, 100])
     ax2.tick_params(axis='y', left=False, labelleft=False)
     ax2.set_ylabel('')
@@ -254,14 +254,14 @@ def create_navigation_comparison():
     for ax in [ax1, ax2]:
         for tick_label in ax.get_xticklabels():
             name = tick_label.get_text()
-            imagebox = get_model_imagebox(name, zoom_factor=0.65, rotation=45)
+            imagebox = get_model_imagebox(name, zoom_factor=0.85, rotation=45)
             if not imagebox:
                 continue
             bbox = tick_label.get_window_extent(renderer)
             fig_x, fig_y = fig.transFigure.inverted().transform(
                 [bbox.x0, bbox.y0]
             )
-            ab = AnnotationBbox(imagebox, (fig_x - 0.001, fig_y),
+            ab = AnnotationBbox(imagebox, (fig_x + 0.006, fig_y+0.005),
                                xycoords='figure fraction',
                                frameon=False,
                                box_alignment=(1.0, 0.5),

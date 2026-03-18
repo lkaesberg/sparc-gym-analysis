@@ -208,7 +208,7 @@ def create_combined_chart(sparc_gym_data, traceback_data, output_path=None):
     """Create the combined figure with two subplots."""
     setup_plot_style(use_latex=True)
     
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.5), sharey=True)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.2), sharey=True)
     
     # Left subplot: SPaRC-Gym vs SPaRC
     add_bars_to_subplot(ax1, sparc_gym_data, "(a) SPaRC-Gym vs SPaRC")
@@ -220,7 +220,7 @@ def create_combined_chart(sparc_gym_data, traceback_data, output_path=None):
     all_diffs = [m['difference'] for m in sparc_gym_data] + [m['difference'] for m in traceback_data]
     y_max = max(all_diffs) if max(all_diffs) > 0 else 0
     y_min = min(all_diffs) if min(all_diffs) < 0 else 0
-    padding = max(abs(y_max), abs(y_min)) * 0.7
+    padding = max(abs(y_max), abs(y_min)) * 1.0
     shared_ylim = (y_min - padding, y_max + padding)
     
     ax1.set_ylim(shared_ylim)
