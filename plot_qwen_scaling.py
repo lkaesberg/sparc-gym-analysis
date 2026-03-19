@@ -1,6 +1,6 @@
 """
 Script to create a comparison of Qwen 3 model scaling (0.6B, 4B, 14B, 32B) 
-across SPaRC and SPaRC-Gym variants.
+across SPaRC and Spatial Gym variants.
 """
 import matplotlib.pyplot as plt
 import matplotlib.patheffects as pe
@@ -23,7 +23,7 @@ QWEN_PARAMS = [0.6, 4, 14, 32]  # For x-axis scaling
 # Colors
 COLORS = {
     'sparc': '#7B68EE',      # Medium slate blue for SPaRC
-    'gym': '#A47AFF',        # Lighter purple for SPaRC-Gym
+    'gym': '#A47AFF',        # Lighter purple for Spatial Gym
 }
 
 
@@ -58,7 +58,7 @@ def extract_difficulty_stats(stats_file):
 
 
 def load_qwen_data(results_dir):
-    """Load SPaRC and SPaRC-Gym data for all Qwen sizes."""
+    """Load SPaRC and Spatial Gym data for all Qwen sizes."""
     results_path = Path(results_dir)
     
     data = {
@@ -68,7 +68,7 @@ def load_qwen_data(results_dir):
         'gym_diff': {},
         'gym_path_stats': {},  # Path length statistics
         'sparc_tokens': {},  # Tokens per puzzle for SPaRC
-        'gym_tokens': {},  # Tokens per puzzle for SPaRC-Gym
+        'gym_tokens': {},  # Tokens per puzzle for Spatial Gym
     }
     
     # Load token cache
@@ -93,7 +93,7 @@ def load_qwen_data(results_dir):
             data['sparc'][size] = extract_accuracy_from_stats(sparc_file)
             data['sparc_diff'][size] = extract_difficulty_stats(sparc_file)
         
-        # SPaRC-Gym stats
+        # Spatial Gym stats
         gym_file = results_path / f"Qwen_Qwen3-{size}_gym_stats.csv"
         if gym_file.exists():
             data['gym'][size] = extract_accuracy_from_stats(gym_file)
@@ -145,7 +145,7 @@ def extract_path_stats(jsonl_file):
 
 
 def create_qwen_scaling_plot(results_dir, output_path=None):
-    """Create a plot showing Qwen scaling across SPaRC and SPaRC-Gym."""
+    """Create a plot showing Qwen scaling across SPaRC and Spatial Gym."""
     setup_plot_style(use_latex=True)
     
     data = load_qwen_data(results_dir)
@@ -225,7 +225,7 @@ def main():
     output_png = Path(__file__).parent / "qwen_scaling.png"
     
     print("=" * 60)
-    print("Qwen 3 Model Scaling Comparison (SPaRC vs SPaRC-Gym)")
+    print("Qwen 3 Model Scaling Comparison (SPaRC vs Spatial Gym)")
     print("=" * 60)
     
     data = create_qwen_scaling_plot(results_dir, output_pdf)
@@ -234,7 +234,7 @@ def main():
     # Print summary
     print("\nAccuracy by model size:")
     print("-" * 50)
-    print(f"{'Size':<10} {'SPaRC':<12} {'SPaRC-Gym':<12} {'Diff':<10}")
+    print(f"{'Size':<10} {'SPaRC':<12} {'Spatial Gym':<12} {'Diff':<10}")
     print("-" * 50)
     for size in QWEN_SIZES:
         sparc = data['sparc'].get(size, 0)
@@ -244,8 +244,8 @@ def main():
     print("-" * 50)
     
     print("\nKey observations:")
-    print(f"  - SPaRC-Gym helps smaller models (0.6B: {data['gym']['0.6B'] - data['sparc']['0.6B']:+.1f}%)")
-    print(f"  - SPaRC-Gym helps larger models (32B: {data['gym']['32B'] - data['sparc']['32B']:+.1f}%)")
+    print(f"  - Spatial Gym helps smaller models (0.6B: {data['gym']['0.6B'] - data['sparc']['0.6B']:+.1f}%)")
+    print(f"  - Spatial Gym helps larger models (32B: {data['gym']['32B'] - data['sparc']['32B']:+.1f}%)")
 
 
 if __name__ == "__main__":

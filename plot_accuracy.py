@@ -1,5 +1,5 @@
 """
-Script to create an accuracy comparison bar chart for SPaRC-Gym models.
+Script to create an accuracy comparison bar chart for Spatial Gym models.
 Uses the plot_config.py style settings.
 """
 import matplotlib.pyplot as plt

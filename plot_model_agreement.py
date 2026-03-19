@@ -525,7 +525,7 @@ def main():
     results_dir = Path(__file__).parent / "results" / "sparc"
     
     print("=" * 60)
-    print("Creating model agreement matrix for SPaRC-Gym...")
+    print("Creating model agreement matrix for Spatial Gym...")
     print("=" * 60)
     
     output_pdf = Path(__file__).parent / "model_agreement.pdf"

@@ -1,5 +1,5 @@
 """
-Script to compare actual path length vs steps taken for SPaRC-Gym Traceback.
+Script to compare actual path length vs steps taken for Spatial Gym Traceback.
 This shows the efficiency of traceback - how many steps are taken to produce a path of a certain length.
 """
 import matplotlib.pyplot as plt
@@ -62,7 +62,7 @@ def clean_path(path):
 
 
 def extract_traceback_steps_vs_path(results_dir):
-    """Extract steps_taken and cleaned path length from SPaRC-Gym Traceback files.
+    """Extract steps_taken and cleaned path length from Spatial Gym Traceback files.
     
     Note: extracted_path includes the starting position, so the number of 
     path segments (edges) is len(path) - 1. Each step corresponds to one edge.

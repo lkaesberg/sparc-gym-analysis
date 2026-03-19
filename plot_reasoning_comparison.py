@@ -1,6 +1,6 @@
 """
 Script to compare Qwen 3 model performance with and without reasoning (thinking).
-Compares across SPaRC and SPaRC-Gym for both 14B and 32B sizes.
+Compares across SPaRC and Spatial Gym for both 14B and 32B sizes.
 Reads all data from stats CSV files.
 """
 import matplotlib.pyplot as plt
@@ -129,7 +129,7 @@ def create_reasoning_comparison():
     ax1.set_axisbelow(True)
     ax1.tick_params(axis='y', labelsize=7)
 
-    # === Middle: SPaRC-Gym Accuracy ===
+    # === Middle: Spatial Gym Accuracy ===
     gym_reason = [all_stats[s]['gym_reason'].get('solve_rate', 0) for s in MODEL_SIZES]
     gym_no_reason = [all_stats[s]['gym_no_reason'].get('solve_rate', 0) for s in MODEL_SIZES]
 
@@ -147,7 +147,7 @@ def create_reasoning_comparison():
                     xytext=(0, 2), textcoords="offset points",
                     ha='center', va='bottom', fontsize=6, fontweight='bold')
 
-    ax2.set_title('SPaRC-Gym', fontweight='bold')
+    ax2.set_title('Spatial Gym', fontweight='bold')
     ax2.set_xticks(x)
     ax2.set_xticklabels([f'Qwen 3\n{s}' for s in MODEL_SIZES], fontsize=7)
     ax2.tick_params(labelleft=False)
@@ -156,7 +156,7 @@ def create_reasoning_comparison():
     ax2.yaxis.grid(True, linestyle='--', alpha=0.3)
     ax2.set_axisbelow(True)
 
-    # === Right: SPaRC-Gym Navigation Outcome (grouped like ax1/ax2) ===
+    # === Right: Spatial Gym Navigation Outcome (grouped like ax1/ax2) ===
     finished_reason = [all_stats[s]['gym_reason'].get('finished', 0) for s in MODEL_SIZES]
     finished_no = [all_stats[s]['gym_no_reason'].get('finished', 0) for s in MODEL_SIZES]
     stuck_reason = [all_stats[s]['gym_reason'].get('stuck', 0) for s in MODEL_SIZES]

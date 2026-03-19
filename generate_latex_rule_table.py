@@ -1,5 +1,5 @@
 """
-Generate three LaTeX tables (SPaRC, SPaRC-Gym, SPaRC-Gym + Traceback) showing
+Generate three LaTeX tables (SPaRC, Spatial Gym, Spatial Gym + Traceback) showing
 per-model solve rates broken down by puzzle rule type.
 
 Each table has models on the y-axis and rule types on the x-axis.
@@ -312,13 +312,13 @@ def main():
         },
         {
             "variant": "gym",
-            "caption": r"SPaRC-Gym accuracy (\%) by rule type.",
+            "caption": r"Spatial Gym accuracy (\%) by rule type.",
             "label": "tab:sparc-gym-rule-rates",
             "filename": "sparc_gym_rule_table.tex",
         },
         {
             "variant": "tb",
-            "caption": r"SPaRC-Gym with Traceback accuracy (\%) by rule type.",
+            "caption": r"Spatial Gym with Traceback accuracy (\%) by rule type.",
             "label": "tab:sparc-gym-tb-rule-rates",
             "filename": "sparc_gym_tb_rule_table.tex",
         },

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Script to regenerate all plots for the SPaRC-Gym analysis.
+Script to regenerate all plots for the Spatial Gym analysis.
 """
 import subprocess
 import sys

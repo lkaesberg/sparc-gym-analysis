@@ -1,6 +1,6 @@
 """
 Token usage visualizations - comparing token counts across models and variants.
-Includes SPaRC, SPaRC-Gym, and SPaRC-Gym Traceback.
+Includes SPaRC, Spatial Gym, and Spatial Gym Traceback.
 """
 import matplotlib.pyplot as plt
 import numpy as np
@@ -84,7 +84,7 @@ def calculate_token_stats_from_jsonl(jsonl_path):
 
 
 def load_all_token_data(results_dir):
-    """Load token data for all variants: SPaRC, SPaRC-Gym, Traceback.
+    """Load token data for all variants: SPaRC, Spatial Gym, Traceback.
     Uses existing token_analysis.csv for gym/traceback data.
     """
     results_path = Path(results_dir)
@@ -131,7 +131,7 @@ def load_all_token_data(results_dir):
                 'Avg Tokens per Puzzle': stats['avg_tokens'],
             })
     
-    # SPaRC-Gym
+    # Spatial Gym
     for jsonl_file in results_path.glob("*_gym.jsonl"):
         if "traceback" in jsonl_file.name or "archive" in str(jsonl_file) or "visual" in jsonl_file.name:
             continue
@@ -242,7 +242,7 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
     
     # Shapes for variants
     variant_markers = {'sparc': '^', 'gym': 'o', 'traceback': 's'}
-    variant_labels = {'sparc': 'SPaRC', 'gym': 'SPaRC-Gym', 'traceback': 'Traceback'}
+    variant_labels = {'sparc': 'SPaRC', 'gym': 'Spatial Gym', 'traceback': 'Traceback'}
     
     # Collect data by model
     plotted_models = set()
@@ -380,7 +380,7 @@ def create_token_comparison_bar(results_dir, output_path=None):
     tb_tokens = merged['traceback'].values / 1000
     
     bars1 = ax.barh(y_pos - height, sparc_tokens, height, label='SPaRC', color='#2E7D32', alpha=0.8)
-    bars2 = ax.barh(y_pos, gym_tokens, height, label='SPaRC-Gym', color='#1976D2', alpha=0.8)
+    bars2 = ax.barh(y_pos, gym_tokens, height, label='Spatial Gym', color='#1976D2', alpha=0.8)
     bars3 = ax.barh(y_pos + height, tb_tokens, height, label='Traceback', color='#E65100', alpha=0.8)
     
     ax.set_yticks(y_pos)
@@ -480,7 +480,7 @@ def create_efficiency_chart(results_dir, output_path=None):
         if ft in pivot.columns:
             values = pivot[ft].fillna(0).values
             offset = (i - 1) * height
-            ax.barh(y_pos + offset, values, height, label=ft.upper() if ft == 'sparc' else ('SPaRC-Gym' if ft == 'gym' else 'Traceback'), 
+            ax.barh(y_pos + offset, values, height, label=ft.upper() if ft == 'sparc' else ('Spatial Gym' if ft == 'gym' else 'Traceback'), 
                    color=color_map[ft], alpha=0.8)
     
     ax.legend(loc='lower right', frameon=True, framealpha=0.9)

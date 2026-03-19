@@ -1,6 +1,6 @@
 """
-Generate a LaTeX table comparing model results across SPaRC, SPaRC-Gym, and
-SPaRC-Gym Traceback variants.
+Generate a LaTeX table comparing model results across SPaRC, Spatial Gym, and
+Spatial Gym Traceback variants.
 
 Only models that have results for *all three* configurations are included.
 Logos are referenced via images/logos/<name>.png for inclusion in the paper.
@@ -297,13 +297,13 @@ def main():
         },
         {
             "variant": "gym",
-            "caption": r"SPaRC-Gym results. Overall accuracy (\%) and per-difficulty solve rate (D1--D5).",
+            "caption": r"Spatial Gym results. Overall accuracy (\%) and per-difficulty solve rate (D1--D5).",
             "label": "tab:sparc-gym-results",
             "filename": "sparc_gym_results_table.tex",
         },
         {
             "variant": "tb",
-            "caption": r"SPaRC-Gym with Traceback results. Overall accuracy (\%) and per-difficulty solve rate (D1--D5).",
+            "caption": r"Spatial Gym with Traceback results. Overall accuracy (\%) and per-difficulty solve rate (D1--D5).",
             "label": "tab:sparc-gym-tb-results",
             "filename": "sparc_gym_tb_results_table.tex",
         },

@@ -1,5 +1,5 @@
 """
-Script to create correlation heatmaps for SPaRC, SPaRC-Gym, and Traceback variants.
+Script to create correlation heatmaps for SPaRC, Spatial Gym, and Traceback variants.
 """
 import matplotlib.pyplot as plt
 import numpy as np
@@ -140,7 +140,7 @@ def create_correlation_heatmap(results_dir, output_path=None):
     print(f"  {sorted(complete_models)}")
     
     variants = ['gym', 'traceback']
-    variant_labels = ['SPaRC-Gym', 'Traceback']
+    variant_labels = ['Spatial Gym', 'Traceback']
     
     cols = ['difficulty', 'steps_taken', 'path_length', 'success', 'efficiency']
     labels = ['Difficulty', 'Steps', 'Path Len', 'Success', 'Efficiency']

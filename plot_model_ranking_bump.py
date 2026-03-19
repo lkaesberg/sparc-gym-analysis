@@ -189,7 +189,7 @@ def create_bump_chart(results_dir, output_path=None, variant='gym'):
     ax.spines['right'].set_visible(False)
     
     # Title
-    variant_name = {'gym': 'SPaRC-Gym', 'traceback': 'SPaRC-Gym Traceback', 'sparc': 'SPaRC'}
+    variant_name = {'gym': 'Spatial Gym', 'traceback': 'Spatial Gym Traceback', 'sparc': 'SPaRC'}
     ax.set_title(f'Model Ranking by Difficulty ({variant_name.get(variant, variant)})', 
                  fontweight='bold', pad=10)
     
@@ -208,13 +208,13 @@ def create_bump_chart(results_dir, output_path=None, variant='gym'):
 
 
 def create_combined_bump_chart(results_dir, output_path=None):
-    """Create side-by-side bump charts for SPaRC-Gym and Traceback."""
+    """Create side-by-side bump charts for Spatial Gym and Traceback."""
     setup_plot_style(use_latex=True)
     
     fig, axes = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 3.5))
     
     variants = ['gym', 'traceback']
-    variant_names = ['SPaRC-Gym', 'SPaRC-Gym Traceback']
+    variant_names = ['Spatial Gym', 'Spatial Gym Traceback']
     
     for ax, variant, vname in zip(axes, variants, variant_names):
         print(f"\nCalculating for {vname}...")
@@ -282,7 +282,7 @@ def main():
     results_dir = Path(__file__).parent / "results" / "sparc"
     
     print("=" * 60)
-    print("Creating bump chart for SPaRC-Gym...")
+    print("Creating bump chart for Spatial Gym...")
     print("=" * 60)
     
     output_pdf = Path(__file__).parent / "model_ranking_bump.pdf"

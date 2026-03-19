@@ -1,6 +1,6 @@
 """
-Script to create a bar chart showing the difference between SPaRC-Gym and SPaRC variants.
-Positive values mean SPaRC-Gym performed better, negative means it performed worse.
+Script to create a bar chart showing the difference between Spatial Gym and SPaRC variants.
+Positive values mean Spatial Gym performed better, negative means it performed worse.
 """
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -71,7 +71,7 @@ def extract_accuracy_from_stats(stats_file):
 
 
 def load_sparc_gym_comparison(results_dir):
-    """Load accuracy stats for models with both SPaRC and SPaRC-Gym variants."""
+    """Load accuracy stats for models with both SPaRC and Spatial Gym variants."""
     results_path = Path(results_dir)
     
     # Find all SPaRC (non-gym) stats files
@@ -86,7 +86,7 @@ def load_sparc_gym_comparison(results_dir):
         # Extract model name from filename
         model_name = sparc_file.name.replace("_stats.csv", "")
         
-        # Check if SPaRC-Gym variant exists
+        # Check if Spatial Gym variant exists
         gym_file = results_path / f"{model_name}_gym_stats.csv"
         if not gym_file.exists():
             continue
@@ -117,7 +117,7 @@ def load_sparc_gym_comparison(results_dir):
 
 
 def create_sparc_gym_diff_chart(model_data, output_path=None):
-    """Create the SPaRC vs SPaRC-Gym difference bar chart."""
+    """Create the SPaRC vs Spatial Gym difference bar chart."""
     setup_plot_style(use_latex=True)
     
     # Create figure
@@ -216,9 +216,9 @@ def main():
     model_data = load_sparc_gym_comparison(results_dir)
     
     # Print summary
-    print("\nSPaRC-Gym vs SPaRC Comparison (sorted by improvement):")
+    print("\nSpatial Gym vs SPaRC Comparison (sorted by improvement):")
     print("-" * 70)
-    print(f"{'Model':<25} {'SPaRC':>10} {'SPaRC-Gym':>10} {'Diff':>10}")
+    print(f"{'Model':<25} {'SPaRC':>10} {'Spatial Gym':>10} {'Diff':>10}")
     print("-" * 70)
     for m in model_data:
         sign = '+' if m['difference'] > 0 else ''

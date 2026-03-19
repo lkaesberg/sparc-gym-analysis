@@ -157,12 +157,12 @@ MODEL_FAMILY_COLORS = {
 # Fallback color for undefined models - VERY OBVIOUS!
 MODEL_COLOR_FALLBACK = "#FF00FF"  # Bright Magenta - impossible to miss!
 
-# Colors for the three benchmark variants (SPaRC / SPaRC-Gym / Traceback).
+# Colors for the three benchmark variants (SPaRC / Spatial Gym / Traceback).
 # Centralised here so all plots use consistent variant colors.
 VARIANT_COLORS = {
     "sparc":     "#2E7D32",  # Dark green  – SPaRC (baseline)
-    "gym":       "#1976D2",  # Medium blue – SPaRC-Gym
-    "traceback": "#E65100",  # Deep orange – SPaRC-Gym Traceback
+    "gym":       "#1976D2",  # Medium blue – Spatial Gym
+    "traceback": "#E65100",  # Deep orange – Spatial Gym Traceback
 }
 
 # Training method colors - Based on Seaborn Set2 palette

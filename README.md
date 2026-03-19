@@ -1,16 +1,16 @@
-# SPaRC-Gym Analysis
+# Spatial Gym Analysis
 
-Analysis and visualization toolkit for **[SPaRC-Gym](https://github.com/lkaesberg/sparc-gym)**, a benchmark for evaluating large language models on spatial reasoning and constraint-satisfaction puzzles. This repository produces publication-ready plots, LaTeX tables, and statistical analyses comparing LLM performance across multiple benchmark variants.
+Analysis and visualization toolkit for **[Spatial Gym](https://github.com/lkaesberg/sparc-gym)**, a benchmark for evaluating large language models on spatial reasoning and constraint-satisfaction puzzles. This repository produces publication-ready plots, LaTeX tables, and statistical analyses comparing LLM performance across multiple benchmark variants.
 
 ## Overview
 
-SPaRC-Gym evaluates how well LLMs can solve spatial reasoning puzzles by navigating grid-based environments with constraints (polyomino regions, path rules, etc.). This toolkit analyzes results across three benchmark variants:
+Spatial Gym evaluates how well LLMs can solve spatial reasoning puzzles by navigating grid-based environments with constraints (polyomino regions, path rules, etc.). This toolkit analyzes results across three benchmark variants:
 
 | Variant | Description |
 |---------|-------------|
 | **SPaRC** | Baseline single-shot evaluation — the model receives the puzzle and produces a solution |
-| **SPaRC-Gym** | Interactive evaluation — the model can iteratively refine its solution via environment feedback |
-| **SPaRC-Gym Traceback** | Interactive evaluation with traceback — the model receives detailed error traces to guide corrections |
+| **Spatial Gym** | Interactive evaluation — the model can iteratively refine its solution via environment feedback |
+| **Spatial Gym Traceback** | Interactive evaluation with traceback — the model receives detailed error traces to guide corrections |
 
 ### Models Benchmarked
 
@@ -44,7 +44,7 @@ sparc-gym-analysis/
     └── sparc/
         ├── *_stats.csv            # Per-model aggregate statistics
         ├── *_details.csv          # Per-puzzle detailed results
-        ├── *_gym.jsonl            # Raw SPaRC-Gym results
+        ├── *_gym.jsonl            # Raw Spatial Gym results
         ├── *_gym_traceback.jsonl  # Raw Traceback variant results
         ├── combine.py             # Merge stats CSVs into combined file
         └── sparc_run.sbatch       # SLURM job script for vLLM inference
@@ -76,7 +76,7 @@ This runs all `plot_*.py` scripts and reports success/failure for each. Generate
 # Accuracy comparison across models
 python plot_accuracy.py
 
-# SPaRC vs SPaRC-Gym comparison
+# SPaRC vs Spatial Gym comparison
 python plot_sparc_gym_comparison.py
 
 # Combined three-variant comparison
@@ -126,7 +126,7 @@ Counts tokens across JSONL result files using [tiktoken](https://github.com/open
 | Script | Description |
 |--------|-------------|
 | `plot_accuracy.py` | Overall accuracy bar chart across models |
-| `plot_sparc_gym_comparison.py` | SPaRC vs SPaRC-Gym accuracy |
+| `plot_sparc_gym_comparison.py` | SPaRC vs Spatial Gym accuracy |
 | `plot_combined_comparison.py` | Three-variant (SPaRC / Gym / Traceback) comparison |
 | `plot_difficulty_comparison.py` | Accuracy broken down by difficulty level |
 | `plot_difficulty_vs_steps.py` | Relationship between difficulty and steps taken |

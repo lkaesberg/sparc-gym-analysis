@@ -1,5 +1,5 @@
 """
-Radar plot showing solve rates by puzzle rule type for SPaRC, SPaRC-Gym, and SPaRC-Gym Traceback.
+Radar plot showing solve rates by puzzle rule type for SPaRC, Spatial Gym, and Spatial Gym Traceback.
 """
 import matplotlib.pyplot as plt
 import matplotlib.patheffects as pe
@@ -95,7 +95,7 @@ def calculate_solve_rates_by_rule(results_dir):
                     if solved:
                         rule_stats[rule]['SPaRC']['solved'] += 1
     
-    # Process SPaRC-Gym
+    # Process Spatial Gym
     for jsonl_file in results_path.glob("*_gym.jsonl"):
         if "traceback" in jsonl_file.name or "archive" in str(jsonl_file):
             continue
@@ -108,11 +108,11 @@ def calculate_solve_rates_by_rule(results_dir):
             solved = result.get('solved', False)
             
             for rule in rules:
-                rule_stats[rule]['SPaRC-Gym']['total'] += 1
+                rule_stats[rule]['Spatial Gym']['total'] += 1
                 if solved:
-                    rule_stats[rule]['SPaRC-Gym']['solved'] += 1
+                    rule_stats[rule]['Spatial Gym']['solved'] += 1
     
-    # Process SPaRC-Gym Traceback
+    # Process Spatial Gym Traceback
     for jsonl_file in results_path.glob("*_gym_traceback.jsonl"):
         if "archive" in str(jsonl_file):
             continue
@@ -133,7 +133,7 @@ def calculate_solve_rates_by_rule(results_dir):
     solve_rates = {}
     for rule in rule_stats:
         solve_rates[rule] = {}
-        for variant in ['SPaRC', 'SPaRC-Gym', 'Traceback']:
+        for variant in ['SPaRC', 'Spatial Gym', 'Traceback']:
             stats = rule_stats[rule][variant]
             if stats['total'] > 0:
                 solve_rates[rule][variant] = stats['solved'] / stats['total'] * 100
@@ -154,14 +154,14 @@ def create_radar_plot(results_dir, output_path=None):
     print("\nSolve rates by rule type:")
     for rule in sorted(solve_rates.keys()):
         print(f"\n{rule}:")
-        for variant in ['SPaRC', 'SPaRC-Gym', 'Traceback']:
+        for variant in ['SPaRC', 'Spatial Gym', 'Traceback']:
             stats = rule_stats[rule][variant]
             rate = solve_rates[rule].get(variant, 0)
             print(f"  {variant}: {rate:.1f}% ({stats['solved']}/{stats['total']})")
     
     # Prepare data for radar plot
     # Filter rules with enough data
-    rules = [r for r in solve_rates.keys() if rule_stats[r]['SPaRC-Gym']['total'] >= 100]
+    rules = [r for r in solve_rates.keys() if rule_stats[r]['Spatial Gym']['total'] >= 100]
     rules = sorted(rules)
     
     if not rules:
@@ -180,7 +180,7 @@ def create_radar_plot(results_dir, output_path=None):
                            subplot_kw=dict(polar=True))
     
     # Colors and variants
-    variants = ['SPaRC', 'SPaRC-Gym', 'Traceback']
+    variants = ['SPaRC', 'Spatial Gym', 'Traceback']
     colors = ['#1976D2', '#7B1FA2', '#E65100']
     
     # Rotate so that Polyomino faces up
@@ -239,7 +239,7 @@ def calculate_solve_rates_by_rule_single_model(results_dir, model_filter):
     for rule in ['Dot', 'Gap', 'Polyomino', 'Square', 'Star', 'Triangle', 'Ylop']:
         rule_stats[rule] = {
             'SPaRC': {'solved': 0, 'total': 0},
-            'SPaRC-Gym': {'solved': 0, 'total': 0},
+            'Spatial Gym': {'solved': 0, 'total': 0},
             'Traceback': {'solved': 0, 'total': 0},
         }
     
@@ -265,7 +265,7 @@ def calculate_solve_rates_by_rule_single_model(results_dir, model_filter):
                     if solved:
                         rule_stats[rule]['SPaRC']['solved'] += 1
     
-    # Process SPaRC-Gym
+    # Process Spatial Gym
     for jsonl_file in results_path.glob("*_gym.jsonl"):
         if "traceback" in jsonl_file.name or "archive" in str(jsonl_file):
             continue
@@ -283,11 +283,11 @@ def calculate_solve_rates_by_rule_single_model(results_dir, model_filter):
             
             for rule in rules:
                 if rule in rule_stats:
-                    rule_stats[rule]['SPaRC-Gym']['total'] += 1
+                    rule_stats[rule]['Spatial Gym']['total'] += 1
                     if solved:
-                        rule_stats[rule]['SPaRC-Gym']['solved'] += 1
+                        rule_stats[rule]['Spatial Gym']['solved'] += 1
     
-    # Process SPaRC-Gym Traceback
+    # Process Spatial Gym Traceback
     for jsonl_file in results_path.glob("*_gym_traceback.jsonl"):
         if "archive" in str(jsonl_file):
             continue
@@ -313,7 +313,7 @@ def calculate_solve_rates_by_rule_single_model(results_dir, model_filter):
     solve_rates = {}
     for rule in rule_stats:
         solve_rates[rule] = {}
-        for variant in ['SPaRC', 'SPaRC-Gym', 'Traceback']:
+        for variant in ['SPaRC', 'Spatial Gym', 'Traceback']:
             stats = rule_stats[rule][variant]
             if stats['total'] > 0:
                 solve_rates[rule][variant] = stats['solved'] / stats['total'] * 100
@@ -334,13 +334,13 @@ def create_radar_plot_single_model(results_dir, model_filter, model_display_name
     print(f"\nSolve rates by rule type for {model_display_name}:")
     for rule in sorted(solve_rates.keys()):
         print(f"\n{rule}:")
-        for variant in ['SPaRC', 'SPaRC-Gym', 'Traceback']:
+        for variant in ['SPaRC', 'Spatial Gym', 'Traceback']:
             stats = rule_stats[rule][variant]
             rate = solve_rates[rule].get(variant, 0)
             print(f"  {variant}: {rate:.1f}% ({stats['solved']}/{stats['total']})")
     
     # Filter rules with data
-    rules = [r for r in solve_rates.keys() if rule_stats[r]['SPaRC-Gym']['total'] > 0]
+    rules = [r for r in solve_rates.keys() if rule_stats[r]['Spatial Gym']['total'] > 0]
     rules = sorted(rules)
     
     if not rules:
@@ -354,7 +354,7 @@ def create_radar_plot_single_model(results_dir, model_filter, model_display_name
     fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, COLUMN_WIDTH_INCHES), 
                            subplot_kw=dict(polar=True))
     
-    variants = ['SPaRC', 'SPaRC-Gym', 'Traceback']
+    variants = ['SPaRC', 'Spatial Gym', 'Traceback']
     colors = ['#1976D2', '#7B1FA2', '#E65100']
     
     # Rotate so that Polyomino faces up
@@ -404,14 +404,14 @@ def create_combined_radar_plot(results_dir, output_path=None):
     setup_plot_style(use_latex=True)
 
     solve_rates_all, rule_stats_all = calculate_solve_rates_by_rule(results_dir)
-    rules_all = [r for r in solve_rates_all.keys() if rule_stats_all[r]['SPaRC-Gym']['total'] >= 100]
+    rules_all = [r for r in solve_rates_all.keys() if rule_stats_all[r]['Spatial Gym']['total'] >= 100]
     rules_all = sorted(rules_all)
 
     solve_rates_gpt, rule_stats_gpt = calculate_solve_rates_by_rule_single_model(results_dir, "gpt-oss-120b")
-    rules_gpt = [r for r in solve_rates_gpt.keys() if rule_stats_gpt[r]['SPaRC-Gym']['total'] > 0]
+    rules_gpt = [r for r in solve_rates_gpt.keys() if rule_stats_gpt[r]['Spatial Gym']['total'] > 0]
     rules_gpt = sorted(rules_gpt)
 
-    variants = ['SPaRC', 'SPaRC-Gym', 'Traceback']
+    variants = ['SPaRC', 'Spatial Gym', 'Traceback']
     colors = ['#1976D2', '#7B1FA2', '#E65100']
 
     panel_h = TEXT_WIDTH_INCHES / 2

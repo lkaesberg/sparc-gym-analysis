@@ -2,8 +2,8 @@
 Script to create a 4-subplot figure showing difficulty_score vs steps taken for:
 1. True solution (ground truth path length)
 2. SPaRC (extracted path length)
-3. SPaRC-Gym (steps_taken)
-4. SPaRC-Gym Traceback (steps_taken)
+3. Spatial Gym (steps_taken)
+4. Spatial Gym Traceback (steps_taken)
 """
 import matplotlib.pyplot as plt
 import numpy as np
@@ -23,8 +23,8 @@ from plot_config import (
 VARIANT_COLORS = {
     "True Solution": "#2E7D32",      # Forest green
     "SPaRC": "#E65100",              # Deep orange
-    "SPaRC-Gym": "#1565C0",          # Strong blue
-    "SPaRC-Gym Traceback": "#7B1FA2", # Purple
+    "Spatial Gym": "#1565C0",          # Strong blue
+    "Spatial Gym Traceback": "#7B1FA2", # Purple
 }
 
 
@@ -39,7 +39,7 @@ def load_jsonl_data(filepath):
 
 
 def categorize_jsonl_files(results_dir):
-    """Categorize JSONL files into SPaRC, SPaRC-Gym, and SPaRC-Gym Traceback."""
+    """Categorize JSONL files into SPaRC, Spatial Gym, and Spatial Gym Traceback."""
     results_path = Path(results_dir)
     
     sparc_files = []
@@ -63,8 +63,8 @@ def categorize_jsonl_files(results_dir):
     
     return {
         "SPaRC": sparc_files,
-        "SPaRC-Gym": gym_files,
-        "SPaRC-Gym Traceback": traceback_files,
+        "Spatial Gym": gym_files,
+        "Spatial Gym Traceback": traceback_files,
     }
 
 
@@ -119,7 +119,7 @@ def extract_sparc_data(jsonl_files):
 
 
 def extract_gym_data(jsonl_files):
-    """Extract difficulty_score and steps_taken from SPaRC-Gym JSONL files."""
+    """Extract difficulty_score and steps_taken from Spatial Gym JSONL files."""
     all_difficulty_scores = []
     all_steps = []
     
@@ -171,7 +171,7 @@ def clean_path(path):
 
 
 def extract_traceback_data(jsonl_files):
-    """Extract difficulty_score and cleaned path length from SPaRC-Gym Traceback JSONL files."""
+    """Extract difficulty_score and cleaned path length from Spatial Gym Traceback JSONL files."""
     all_difficulty_scores = []
     all_path_lengths = []
     
@@ -273,8 +273,8 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
     
     # True solution data is the same for all variants (same puzzles)
     # Use any available file to extract ground truth
-    any_file = (categorized_files["SPaRC"] + categorized_files["SPaRC-Gym"] + 
-                categorized_files["SPaRC-Gym Traceback"])[:1]
+    any_file = (categorized_files["SPaRC"] + categorized_files["Spatial Gym"] + 
+                categorized_files["Spatial Gym Traceback"])[:1]
     
     # Extract data for each variant
     print("Extracting true solution data (same for all variants)...")
@@ -283,11 +283,11 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
     print("Extracting SPaRC data...")
     sparc_diff, sparc_steps = extract_sparc_data(categorized_files["SPaRC"])
     
-    print("Extracting SPaRC-Gym data...")
-    gym_diff, gym_steps = extract_gym_data(categorized_files["SPaRC-Gym"])
+    print("Extracting Spatial Gym data...")
+    gym_diff, gym_steps = extract_gym_data(categorized_files["Spatial Gym"])
     
-    print("Extracting SPaRC-Gym Traceback data...")
-    traceback_diff, traceback_steps = extract_traceback_data(categorized_files["SPaRC-Gym Traceback"])
+    print("Extracting Spatial Gym Traceback data...")
+    traceback_diff, traceback_steps = extract_traceback_data(categorized_files["Spatial Gym Traceback"])
     
     # Apply filtering if max_steps is set
     if max_steps is not None:
@@ -309,9 +309,9 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
     create_subplot(axes[1], sparc_diff, sparc_steps, "(b) SPaRC", 
                    VARIANT_COLORS["SPaRC"], ylabel=False)
     create_subplot(axes[2], gym_diff, gym_steps, "(c) Gym w/o traceback", 
-                   VARIANT_COLORS["SPaRC-Gym"], ylabel=False)
+                   VARIANT_COLORS["Spatial Gym"], ylabel=False)
     create_subplot(axes[3], traceback_diff, traceback_steps, "(d) Gym w/ traceback", 
-                   VARIANT_COLORS["SPaRC-Gym Traceback"], ylabel=False)
+                   VARIANT_COLORS["Spatial Gym Traceback"], ylabel=False)
     
     # Compute shared y-limits
     all_steps = np.concatenate([
