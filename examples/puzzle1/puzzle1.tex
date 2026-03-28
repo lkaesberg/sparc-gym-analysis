@@ -1,0 +1,32 @@
+% Standalone example: compile from repo root with:
+%   pdflatex -interaction=nonstopmode -output-directory=examples/puzzle1 examples/puzzle1/puzzle1.tex
+% Or from this directory:
+%   cd examples/puzzle1 && pdflatex puzzle1.tex
+%
+% Regenerate figures + fragment:
+%   python generate_latex_puzzle_trajectory.py
+%
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=0.9in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{url}
+
+\graphicspath{{figures/}}
+
+\title{Spatial Gym trajectory (example)}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\noindent
+This file inputs \texttt{trajectory\_fragment.tex} (PNG screenshots from SPaRC-Gym replay
+and per-step metadata). Regenerate with \texttt{python generate\_latex\_puzzle\_trajectory.py}
+from the repository root.
+
+\input{trajectory_fragment.tex}
+
+\end{document}

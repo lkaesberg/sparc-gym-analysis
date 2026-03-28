@@ -16,6 +16,7 @@ from plot_config import (
     TEXT_WIDTH_INCHES,
     get_model_imagebox,
     MODEL_COLORS,
+    figure_fraction_anchor_from_display_xy,
 )
 
 # ---------------------------------------------------------------------------
@@ -82,7 +83,7 @@ INCLUDED_MODELS = {
 }
 
 FILE_TYPE_TO_VARIANT = {
-    "sparc": "SPaRC",
+    "sparc": "Baseline",
     "gym": "Gym w/o traceback",
     "traceback": "Gym w/ traceback",
 }
@@ -220,7 +221,7 @@ def create_token_by_difficulty_per_model_plot(results_dir, output_path=None):
         print("No data available.")
         return None, None
 
-    variant_names = ["SPaRC", "Gym w/o traceback", "Gym w/ traceback"]
+    variant_names = ["Baseline", "Gym w/o traceback", "Gym w/ traceback"]
 
     fig, axes = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 2.0))
 
@@ -294,17 +295,21 @@ def create_token_by_difficulty_per_model_plot(results_dir, output_path=None):
                      bbox_to_anchor=(0.5, -0.02),
                      handlelength=2, handletextpad=2.0)
 
-    # Add logos to legend handles
     fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
 
     for label, legend_handle in zip(labels, leg.legend_handles):
         imagebox = get_model_imagebox(label, zoom_factor=0.8)
         if not imagebox:
             continue
 
-        ab = AnnotationBbox(imagebox, (0.5, 0.5),
+        bbox = legend_handle.get_window_extent(renderer)
+        xd = bbox.x0 + 0.5 * bbox.width
+        yd = bbox.y0 + 0.5 * bbox.height
+        fx, fy = figure_fraction_anchor_from_display_xy(fig, (xd, yd), (-0.0225, -0.005))
+        ab = AnnotationBbox(imagebox, (fx, fy),
                             xybox=(15, 0),
-                            xycoords=legend_handle,
+                            xycoords='figure fraction',
                             boxcoords="offset points",
                             frameon=False,
                             box_alignment=(0.5, 0.5),

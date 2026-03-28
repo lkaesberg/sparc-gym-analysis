@@ -16,6 +16,7 @@ from plot_config import (
     get_model_color,
     get_model_imagebox,
     MODEL_COLORS,
+    figure_fraction_anchor_from_display_xy,
 )
 
 # Model display name mapping
@@ -160,7 +161,7 @@ def create_navigation_comparison():
     traceback_data = [tb_by_name[name] for name in gym_order if name in tb_by_name]
     
     # Create figure with two subplots
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.0), sharey=True)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 1.8), sharey=True)
     
     width = 0.75
     
@@ -189,7 +190,7 @@ def create_navigation_comparison():
     ax1.set_title('Gym w/o traceback', fontweight='bold')
     ax1.set_xticks(x1)
     ax1.set_xticklabels(labels1, fontsize=7, rotation=45, ha='right')
-    ax1.set_ylim(0, 130)
+    ax1.set_ylim(0, 145)
     ax1.set_yticks([0, 25, 50, 75, 100])
     ax1.spines['top'].set_visible(False)
     ax1.spines['right'].set_visible(False)
@@ -229,7 +230,7 @@ def create_navigation_comparison():
     ax2.set_title('Gym w/ traceback', fontweight='bold')
     ax2.set_xticks(x2)
     ax2.set_xticklabels(labels2, fontsize=7, rotation=45, ha='right')
-    ax2.set_ylim(0, 130)
+    ax2.set_ylim(0, 145)
     ax2.set_yticks([0, 25, 50, 75, 100])
     ax2.tick_params(axis='y', left=False, labelleft=False)
     ax2.set_ylabel('')
@@ -244,10 +245,8 @@ def create_navigation_comparison():
     # Tight layout
     plt.tight_layout()
 
-    # First pass: save to finalise layout so text positions are stable
     output_dir = Path(__file__).parent
-    fig.savefig(output_dir / "navigation_outcome.pdf", bbox_inches='tight', dpi=300)
-
+    fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
 
     # X-axis logos on both axes
@@ -258,10 +257,10 @@ def create_navigation_comparison():
             if not imagebox:
                 continue
             bbox = tick_label.get_window_extent(renderer)
-            fig_x, fig_y = fig.transFigure.inverted().transform(
-                [bbox.x0, bbox.y0]
+            fx, fy = figure_fraction_anchor_from_display_xy(
+                fig, (bbox.x0, bbox.y0), (0.0001, -0.015)
             )
-            ab = AnnotationBbox(imagebox, (fig_x + 0.006, fig_y+0.005),
+            ab = AnnotationBbox(imagebox, (fx, fy),
                                xycoords='figure fraction',
                                frameon=False,
                                box_alignment=(1.0, 0.5),

@@ -46,11 +46,32 @@ def setup_plot_style(use_latex=True):
     plt.rcParams["figure.dpi"] = 300
     plt.rcParams["savefig.dpi"] = 300
     plt.rcParams["savefig.bbox"] = "tight"
+    plt.rcParams["savefig.pad_inches"] = 0
 
     # Optional: Remove top and right spines for cleaner look
     # Commented out by default - uncomment if desired
     # plt.rcParams["axes.spines.top"] = False
     # plt.rcParams["axes.spines.right"] = False
+
+
+def figure_fraction_anchor_from_display_xy(fig, display_xy, frac_offset=(0.0, 0.0)):
+    """Map display coords to normalized figure coords for ``xycoords='figure fraction'``.
+
+    ``display_xy`` is in the same space as ``get_window_extent`` / ``transData.transform``.
+    ``frac_offset`` is added in normalized figure space (same as ``fig_x + dx`` nudges).
+
+    Uses ``fig.bbox`` explicitly so coords match after ``fig.canvas.draw()`` (call ``draw``
+    before measuring tick/text extents; do not rely on ``savefig`` to refresh layout).
+    """
+    x, y = float(display_xy[0]), float(display_xy[1])
+    bb = fig.bbox
+    w, h = bb.width, bb.height
+    if w <= 0 or h <= 0:
+        return 0.5 + frac_offset[0], 0.5 + frac_offset[1]
+    fx = (x - bb.x0) / w + frac_offset[0]
+    fy = (y - bb.y0) / h + frac_offset[1]
+    return fx, fy
+
 
 GAMMA = "#A79D5B"
 ETA = "#6C8A5B"

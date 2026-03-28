@@ -168,7 +168,7 @@ def create_qwen_scaling_plot(results_dir, output_path=None):
     
     # Plot accuracy vs FLOPs
     # Use lines with markers so scaling trend is easier to see
-    ax2.plot(sparc_flops, sparc_accs, label='SPaRC',
+    ax2.plot(sparc_flops, sparc_accs, label='Baseline',
              color=COLORS['sparc'], marker='o', linewidth=1.5)
     ax2.plot(gym_flops, gym_accs, label='Gym',
              color=COLORS['gym'], marker='s', linewidth=1.5)

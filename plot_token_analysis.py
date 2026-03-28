@@ -18,6 +18,7 @@ from plot_config import (
     get_model_color,
     get_model_imagebox,
     MODEL_COLORS,
+    figure_fraction_anchor_from_display_xy,
 )
 
 # Use cl100k_base encoding (used by GPT-4, GPT-3.5-turbo)
@@ -238,11 +239,11 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
     complete_models = model_variants[model_variants.apply(lambda x: {'sparc', 'gym', 'traceback'}.issubset(x))].index
     token_df = token_df[token_df['Model'].isin(complete_models)]
     
-    fig, ax = plt.subplots(figsize=(TEXT_WIDTH_INCHES, 3.2))
+    fig, ax = plt.subplots(figsize=(TEXT_WIDTH_INCHES, 2.5))
     
     # Shapes for variants
     variant_markers = {'sparc': '^', 'gym': 'o', 'traceback': 's'}
-    variant_labels = {'sparc': 'SPaRC', 'gym': 'Spatial Gym', 'traceback': 'Traceback'}
+    variant_labels = {'sparc': 'Baseline', 'gym': 'Gym w/o traceback', 'traceback': 'Gym w/ traceback'}
     
     # Collect data by model
     plotted_models = set()
@@ -308,15 +309,19 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
     
     plt.tight_layout()
 
-    # Add logos to model legend handles
     fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
     for label, legend_handle in zip(model_labels, leg1.legend_handles):
         imagebox = get_model_imagebox(label, zoom_factor=0.8)
         if not imagebox:
             continue
-        ab = AnnotationBbox(imagebox, (0.5, 0.5),
+        bbox = legend_handle.get_window_extent(renderer)
+        xd = bbox.x0 + 0.5 * bbox.width
+        yd = bbox.y0 + 0.5 * bbox.height
+        fx, fy = figure_fraction_anchor_from_display_xy(fig, (xd, yd), (-0.025, -0.05))
+        ab = AnnotationBbox(imagebox, (fx, fy),
                             xybox=(15, 0),
-                            xycoords=legend_handle,
+                            xycoords='figure fraction',
                             boxcoords="offset points",
                             frameon=False,
                             box_alignment=(0.5, 0.5),
@@ -379,7 +384,7 @@ def create_token_comparison_bar(results_dir, output_path=None):
     gym_tokens = merged['gym'].values / 1000
     tb_tokens = merged['traceback'].values / 1000
     
-    bars1 = ax.barh(y_pos - height, sparc_tokens, height, label='SPaRC', color='#2E7D32', alpha=0.8)
+    bars1 = ax.barh(y_pos - height, sparc_tokens, height, label='Baseline', color='#2E7D32', alpha=0.8)
     bars2 = ax.barh(y_pos, gym_tokens, height, label='Spatial Gym', color='#1976D2', alpha=0.8)
     bars3 = ax.barh(y_pos + height, tb_tokens, height, label='Traceback', color='#E65100', alpha=0.8)
     

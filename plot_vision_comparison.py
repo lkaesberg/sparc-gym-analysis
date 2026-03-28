@@ -207,7 +207,7 @@ def create_difficulty_line_plot(results_dir, output_path=None):
     for key, cfg in MODELS.items():
         model_stats[key] = extract_stats_from_csv(results_path / cfg['file'])
 
-    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 2.0))
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 1.5))
 
     keys = list(MODELS.keys())
     difficulties = np.array([1, 2, 3, 4, 5])

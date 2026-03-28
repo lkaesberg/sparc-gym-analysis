@@ -18,6 +18,7 @@ from plot_config import (
     get_model_color,
     MODEL_COLORS,
     get_model_imagebox,
+    figure_fraction_anchor_from_display_xy,
 )
 
 RESULTS_DIR = Path(__file__).parent / "results" / "sparc"
@@ -168,9 +169,8 @@ def create_baseline_comparison():
         y_top = bar.get_height()
         # Convert bar top to display coords, then shift up above the annotation text
         disp = ax1.transData.transform((x_center, y_top))
-        disp_shifted = (disp[0], disp[1])
-        fig_x, fig_y = fig.transFigure.inverted().transform(disp_shifted)
-        ab = AnnotationBbox(imagebox, (fig_x - 0.005, fig_y+0.07),
+        fx, fy = figure_fraction_anchor_from_display_xy(fig, disp, (-0.0225, 0.015))
+        ab = AnnotationBbox(imagebox, (fx, fy),
                             xycoords='figure fraction',
                             frameon=False,
                             box_alignment=(0.5, 0),

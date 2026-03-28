@@ -17,6 +17,7 @@ from plot_config import (
     get_model_color,
     get_model_imagebox,
     MODEL_COLORS,
+    figure_fraction_anchor_from_display_xy,
 )
 
 # Model display name mapping
@@ -148,7 +149,7 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
 
     variant_names = ["SPaRC", "Gym w/o traceback", "Gym w/ traceback"]
 
-    fig, axes = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 3.0), sharey=True)
+    fig, axes = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 2.0), sharey=True)
 
     difficulties = np.array([1, 2, 3, 4, 5])
 
@@ -214,18 +215,23 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
                bbox_to_anchor=(0.5, -0.02),
                handlelength=2, handletextpad=2)
 
-    # Add logos to legend - need to draw first to get positions
+    # Add logos: draw first so handle bboxes are valid. Do not use xycoords=legend_handle
+    # with fig.add_artist — transform chain is wrong; use display bboxes + figure fraction.
     fig.canvas.draw()
+    renderer = fig.canvas.get_renderer()
 
-    # Add logos to legend handles
     for label, legend_handle in zip(labels, leg.legend_handles):
         imagebox = get_model_imagebox(label, zoom_factor=0.8)
         if not imagebox:
             continue
 
-        ab = AnnotationBbox(imagebox, (0.25, 0.5),
+        bbox = legend_handle.get_window_extent(renderer)
+        xd = bbox.x0 + 0.25 * bbox.width
+        yd = bbox.y0 + 0.5 * bbox.height
+        fx, fy = figure_fraction_anchor_from_display_xy(fig, (xd, yd), (-0.0225, 0.0))
+        ab = AnnotationBbox(imagebox, (fx, fy),
                            xybox=(19, 0),
-                           xycoords=legend_handle,
+                           xycoords='figure fraction',
                            boxcoords="offset points",
                            frameon=False,
                            box_alignment=(0.5, 0.5),

@@ -16,6 +16,7 @@ from plot_config import (
     get_model_imagebox,
     get_model_color,
     MODEL_COLORS,
+    figure_fraction_anchor_from_display_xy,
 )
 
 
@@ -284,10 +285,10 @@ def create_comparison_plot(results_dir, output_path=None, filter_max_steps=True)
             if not imagebox:
                 continue
             bbox = tick_label.get_window_extent(renderer)
-            fig_x, fig_y = fig.transFigure.inverted().transform(
-                [bbox.x0, bbox.y0]
+            fx, fy = figure_fraction_anchor_from_display_xy(
+                fig, (bbox.x0, bbox.y0), (-0.005, 0.0)
             )
-            ab = AnnotationBbox(imagebox, (fig_x - 0.005, fig_y),
+            ab = AnnotationBbox(imagebox, (fx, fy),
                                xycoords='figure fraction',
                                frameon=False,
                                box_alignment=(1.0, 0.5),
@@ -316,7 +317,7 @@ def create_scatter_plot(results_dir, output_path=None, filter_max_steps=True):
         steps_filtered = steps
         path_edges_filtered = path_edges
 
-    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 2.7))
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 2.0))
 
     ax.scatter(path_edges_filtered, steps_filtered, alpha=0.4, s=12,
                color='#7B1FA2', edgecolors='none', rasterized=True)
@@ -414,10 +415,10 @@ def create_backtracking_ratio_plot(results_dir, output_path=None, filter_max_ste
             if not imagebox:
                 continue
             bbox = tick_label.get_window_extent(renderer)
-            fig_x, fig_y = fig.transFigure.inverted().transform(
-                [bbox.x0, bbox.y0]
+            fx, fy = figure_fraction_anchor_from_display_xy(
+                fig, (bbox.x0, bbox.y0), (0.015, -0.015)
             )
-            ab = AnnotationBbox(imagebox, (fig_x + 0.03, fig_y+0.01),
+            ab = AnnotationBbox(imagebox, (fx, fy),
                                 xycoords='figure fraction',
                                 frameon=False,
                                 box_alignment=(1.0, 0.5),
@@ -446,7 +447,7 @@ def create_efficiency_histogram(results_dir, output_path=None):
     valid_mask = steps > 0
     efficiency = path_edges[valid_mask] / steps[valid_mask]
     
-    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 2.5))
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 2.0))
     
     ax.hist(efficiency, bins=50, color='#7B1FA2', edgecolor='white', alpha=0.8)
     ax.axvline(x=1.0, color='black', linestyle='--', linewidth=1, label='Perfect efficiency')

@@ -181,7 +181,7 @@ def create_accuracy_bar_chart(model_data, output_path=None):
             imagebox = get_model_imagebox(m['display_name'])
             if imagebox:
                 ab = AnnotationBbox(imagebox, (bar.get_x() + bar.get_width() / 2, height),
-                                   xybox=(0, 20),  # Offset above percentage
+                                   xybox=(0, 15),  # Offset above percentage
                                    xycoords='data',
                                    boxcoords="offset points",
                                    frameon=False,

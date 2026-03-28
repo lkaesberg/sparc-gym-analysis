@@ -16,6 +16,7 @@ from plot_config import (
     TEXT_WIDTH_INCHES,
     COLUMN_WIDTH_INCHES,
     get_model_imagebox,
+    figure_fraction_anchor_from_display_xy,
 )
 
 # Display names for models
@@ -204,11 +205,7 @@ def create_agreement_heatmap(results_dir, output_path=None, variant='gym'):
     cbar2.ax.tick_params(labelsize=7)
     
     plt.tight_layout()
-
-    # First pass: save to finalise layout so text positions are stable
-    if output_path:
-        plt.savefig(output_path, dpi=300, bbox_inches='tight')
-
+    fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
 
     # Y-axis logos on ax1 only (shared axis)
@@ -218,10 +215,10 @@ def create_agreement_heatmap(results_dir, output_path=None, variant='gym'):
         if not imagebox:
             continue
         bbox = tick_label.get_window_extent(renderer)
-        fig_x, fig_y = fig.transFigure.inverted().transform(
-            [bbox.x0, bbox.y0 + bbox.height / 2]
+        fx, fy = figure_fraction_anchor_from_display_xy(
+            fig, (bbox.x0, bbox.y0 + bbox.height / 2), (-0.005, -0.01)
         )
-        ab = AnnotationBbox(imagebox, (fig_x, fig_y+0.005),
+        ab = AnnotationBbox(imagebox, (fx, fy),
                            xycoords='figure fraction',
                            frameon=False,
                            box_alignment=(1.0, 0.5),
@@ -237,10 +234,10 @@ def create_agreement_heatmap(results_dir, output_path=None, variant='gym'):
                 continue
             bbox = tick_label.get_window_extent(renderer)
             # For 45° ha='right' text, the word starts at the upper-left of the bbox
-            fig_x, fig_y = fig.transFigure.inverted().transform(
-                [bbox.x0, bbox.y0]
+            fx, fy = figure_fraction_anchor_from_display_xy(
+                fig, (bbox.x0, bbox.y0), (-0.002, -0.012)
             )
-            ab = AnnotationBbox(imagebox, (fig_x+0.01, fig_y),
+            ab = AnnotationBbox(imagebox, (fx, fy),
                                xycoords='figure fraction',
                                frameon=False,
                                box_alignment=(1.0, 0.5),
@@ -386,11 +383,7 @@ def create_unique_solves_by_difficulty_chart(results_dir, output_path=None, vari
     ax.set_title('Uniquely Solved Puzzles by Difficulty', fontweight='bold')
 
     plt.tight_layout()
-
-    # First pass: save to finalise layout so text positions are stable
-    if output_path:
-        plt.savefig(output_path, dpi=300, bbox_inches='tight')
-
+    fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
 
     # X-axis logos — placed at the start of each rotated label
@@ -400,10 +393,8 @@ def create_unique_solves_by_difficulty_chart(results_dir, output_path=None, vari
         if not imagebox:
             continue
         bbox = tick_label.get_window_extent(renderer)
-        fig_x, fig_y = fig.transFigure.inverted().transform(
-            [bbox.x0, bbox.y0]
-        )
-        ab = AnnotationBbox(imagebox, (fig_x, fig_y),
+        fx, fy = figure_fraction_anchor_from_display_xy(fig, (bbox.x0, bbox.y0), (0.01, 0.1))
+        ab = AnnotationBbox(imagebox, (fx, fy),
                            xycoords='figure fraction',
                            frameon=False,
                            box_alignment=(1.0, 0.5),
@@ -456,7 +447,7 @@ def create_unique_solves_chart(results_dir, output_path=None, variant='gym'):
     # Sort by unique count
     sorted_models = sorted(models, key=lambda m: -unique_counts[m])
     
-    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 2.5))
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 1.8))
     
     display_names = [MODEL_DISPLAY_NAMES.get(m, m[:10]) for m in sorted_models]
     counts = [unique_counts[m] for m in sorted_models]
@@ -475,14 +466,9 @@ def create_unique_solves_chart(results_dir, output_path=None, variant='gym'):
     ax.spines['top'].set_visible(False)
     ax.spines['right'].set_visible(False)
     
-    ax.set_title('Total vs Uniquely Solved Puzzles', fontweight='bold')
     
     plt.tight_layout()
-
-    # First pass: save to finalise layout so text positions are stable
-    if output_path:
-        plt.savefig(output_path, dpi=300, bbox_inches='tight')
-
+    fig.canvas.draw()
     renderer = fig.canvas.get_renderer()
 
     # X-axis logos — placed at the start of each rotated label
@@ -492,10 +478,10 @@ def create_unique_solves_chart(results_dir, output_path=None, variant='gym'):
         if not imagebox:
             continue
         bbox = tick_label.get_window_extent(renderer)
-        fig_x, fig_y = fig.transFigure.inverted().transform(
-            [bbox.x0, bbox.y0]
+        fx, fy = figure_fraction_anchor_from_display_xy(
+            fig, (bbox.x0, bbox.y0), (-0.03, -0.016)
         )
-        ab = AnnotationBbox(imagebox, (fig_x - 0.01, fig_y),
+        ab = AnnotationBbox(imagebox, (fx, fy),
                            xycoords='figure fraction',
                            frameon=False,
                            box_alignment=(1.0, 0.5),
