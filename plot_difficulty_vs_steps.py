@@ -306,7 +306,7 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
     # Create each subplot
     create_subplot(axes[0], true_diff, true_steps, "(a) True Solution", 
                    VARIANT_COLORS["True Solution"], ylabel=True)
-    create_subplot(axes[1], sparc_diff, sparc_steps, "(b) SPaRC", 
+    create_subplot(axes[1], sparc_diff, sparc_steps, "(b) Baseline", 
                    VARIANT_COLORS["SPaRC"], ylabel=False)
     create_subplot(axes[2], gym_diff, gym_steps, "(c) Gym w/o traceback", 
                    VARIANT_COLORS["Spatial Gym"], ylabel=False)
