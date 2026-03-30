@@ -20,6 +20,7 @@ MODELS = {
         'file': 'Qwen_Qwen3-32B_gym_stats.csv',
         'label': 'Qwen3-32B',
         'bar_label': 'Qwen3-32B\n(Text)',
+        'accuracy_bar_label': 'Qwen3\n32B\n(Text)',
         'short_label': 'Qwen3-32B (Text)',
         'color': MODEL_COLORS.get('Qwen3-32B', '#4A20BE'),
         'marker': 'D',
@@ -28,6 +29,7 @@ MODELS = {
         'file': 'Qwen_Qwen3-VL-32B-Thinking_gym_stats.csv',
         'label': 'Qwen3-VL-32B\n(Text)',
         'bar_label': 'Qwen3-VL-32B\n(Text)',
+        'accuracy_bar_label': 'Qwen3\nVL-32B\n(Text)',
         'short_label': 'Qwen3-VL-32B (Text)',
         'color': MODEL_COLORS.get('Qwen3-VL-32B', '#7240CC'),
         'marker': 's',
@@ -36,6 +38,7 @@ MODELS = {
         'file': 'Qwen_Qwen3-VL-32B-Thinking_gym_visual_stats.csv',
         'label': 'Qwen3-VL-32B\n(Vision)',
         'bar_label': 'Qwen3-VL-32B\n(Vision)',
+        'accuracy_bar_label': 'Qwen3\nVL-32B\n(Vision)',
         'short_label': 'Qwen3-VL-32B (Vision)',
         'color': '#9B59B6',
         'marker': 'o',
@@ -162,17 +165,17 @@ def create_accuracy_bar_plot(results_dir, output_path=None):
     for key, cfg in MODELS.items():
         model_stats[key] = extract_stats_from_csv(results_path / cfg['file'])
 
-    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES, 1.5))
+    fig, ax = plt.subplots(figsize=(COLUMN_WIDTH_INCHES * 0.72, 1.5))
 
     keys = list(MODELS.keys())
-    labels = [MODELS[k]['bar_label'] for k in keys]
+    labels = [MODELS[k]['accuracy_bar_label'] for k in keys]
     accuracies = [model_stats[k]['accuracy'] for k in keys]
     colors = [MODELS[k]['color'] for k in keys]
 
     x_pos = np.arange(len(labels))
     bars = ax.bar(x_pos, accuracies, color=colors, edgecolor='white', linewidth=0.5)
     ax.set_xticks(x_pos)
-    ax.set_xticklabels(labels)
+    ax.set_xticklabels(labels, ha='center')
     for bar, acc, color in zip(bars, accuracies, colors):
         ax.annotate(f'{acc:.1f}\\%',
                     xy=(bar.get_x() + bar.get_width() / 2, bar.get_height()),

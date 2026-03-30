@@ -82,7 +82,7 @@ def create_baseline_comparison():
     finish_rates = [s.get('finish_rate', 0) for s in all_stats]
     stuck_rates = [s.get('stuck_rate', 0) for s in all_stats]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2))
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 1.6))
 
     x = np.arange(len(labels))
     width = 0.6
@@ -128,7 +128,7 @@ def create_baseline_comparison():
     ax2.set_title('Navigation Outcome', fontweight='bold')
     ax2.set_xticks(x)
     ax2.set_xticklabels(labels)
-    ax2.set_ylim(0, 125)
+    ax2.set_ylim(0, 140)
     ax2.set_yticks([0, 25, 50, 75, 100])
     ax2.spines['top'].set_visible(False)
     ax2.spines['right'].set_visible(False)

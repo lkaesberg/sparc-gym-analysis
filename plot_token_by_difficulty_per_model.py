@@ -1,6 +1,6 @@
 """
 Script to create a 3-panel line plot showing average tokens per puzzle by difficulty level
-for each model individually, with subplots for SPaRC, Gym w/o traceback, and Gym w/ traceback.
+for each model individually, with subplots for SPaRC, Gym w/o backtracking, and Gym w/ backtracking.
 """
 import json
 import matplotlib.pyplot as plt
@@ -84,8 +84,8 @@ INCLUDED_MODELS = {
 
 FILE_TYPE_TO_VARIANT = {
     "sparc": "Baseline",
-    "gym": "Gym w/o traceback",
-    "traceback": "Gym w/ traceback",
+    "gym": "Gym w/o backtracking",
+    "traceback": "Gym w/ backtracking",
 }
 
 # ---------------------------------------------------------------------------
@@ -221,7 +221,7 @@ def create_token_by_difficulty_per_model_plot(results_dir, output_path=None):
         print("No data available.")
         return None, None
 
-    variant_names = ["Baseline", "Gym w/o traceback", "Gym w/ traceback"]
+    variant_names = ["Baseline", "Gym w/o backtracking", "Gym w/ backtracking"]
 
     fig, axes = plt.subplots(1, 3, figsize=(TEXT_WIDTH_INCHES, 2.0))
 

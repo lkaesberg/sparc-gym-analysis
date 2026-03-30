@@ -243,7 +243,7 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
     
     # Shapes for variants
     variant_markers = {'sparc': '^', 'gym': 'o', 'traceback': 's'}
-    variant_labels = {'sparc': 'Baseline', 'gym': 'Gym w/o traceback', 'traceback': 'Gym w/ traceback'}
+    variant_labels = {'sparc': 'Baseline', 'gym': 'Gym w/o backtracking', 'traceback': 'Gym w/ backtracking'}
     
     # Collect data by model
     plotted_models = set()
@@ -269,7 +269,7 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
         y = acc
         
         # Plot point
-        ax.scatter(x, y, s=80, c=color, alpha=0.85, marker=marker,
+        ax.scatter(x, y, s=36, c=color, alpha=0.85, marker=marker,
                   edgecolors='white', linewidth=0.5, zorder=3)
         
         plotted_models.add(display_name)
@@ -293,11 +293,11 @@ def create_tokens_vs_accuracy(results_dir, output_path=None):
     model_labels = sorted(plotted_models, key=lambda m: m if m in MODEL_COLORS else '')
     model_labels = [m for m in model_labels if m in MODEL_COLORS]
     model_handles = [Line2D([0], [0], marker='o', color='w', markerfacecolor=MODEL_COLORS.get(m, '#666'),
-                           markersize=8, label=m) for m in model_labels]
+                           markersize=6, label=m) for m in model_labels]
     
     # Variant legend (shapes)  
     variant_handles = [Line2D([0], [0], marker=variant_markers[v], color='w', markerfacecolor='#444',
-                             markersize=8, label=variant_labels[v]) for v in ['sparc', 'gym', 'traceback'] if v in plotted_variants]
+                             markersize=6, label=variant_labels[v]) for v in ['sparc', 'gym', 'traceback'] if v in plotted_variants]
     
     # Place legends inside plot
     leg1 = ax.legend(handles=model_handles, loc='upper left', fontsize=7, 

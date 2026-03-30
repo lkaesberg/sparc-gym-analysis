@@ -211,10 +211,10 @@ def create_combined_chart(spatial_gym_data, traceback_data, output_path=None):
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.2), sharey=True)
     
     # Left subplot: Spatial Gym vs SPaRC
-    add_bars_to_subplot(ax1, spatial_gym_data, "(a) Gym vs Baseline")
+    add_bars_to_subplot(ax1, spatial_gym_data, "(a) Gym w/o backtracking vs Baseline")
     
     # Right subplot: Traceback vs Non-traceback
-    add_bars_to_subplot(ax2, traceback_data, "(b) Gym w/traceback vs w/o traceback")
+    add_bars_to_subplot(ax2, traceback_data, "(b) Gym w/ backtracking vs w/o backtracking")
     
     # Calculate shared y-limits from both datasets
     all_diffs = [m['difference'] for m in spatial_gym_data] + [m['difference'] for m in traceback_data]

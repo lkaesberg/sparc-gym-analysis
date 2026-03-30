@@ -301,16 +301,16 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
     print(f"\nData points: True={len(true_diff)}, SPaRC={len(sparc_diff)}, Gym={len(gym_diff)}, Traceback={len(traceback_diff)}")
     
     # Create figure with 4 subplots
-    fig, axes = plt.subplots(1, 4, figsize=(TEXT_WIDTH_INCHES, 1.8), sharey=True)
+    fig, axes = plt.subplots(1, 4, figsize=(TEXT_WIDTH_INCHES, 2.0), sharey=True)
     
     # Create each subplot
     create_subplot(axes[0], true_diff, true_steps, "(a) True Solution", 
                    VARIANT_COLORS["True Solution"], ylabel=True)
     create_subplot(axes[1], sparc_diff, sparc_steps, "(b) Baseline", 
                    VARIANT_COLORS["SPaRC"], ylabel=False)
-    create_subplot(axes[2], gym_diff, gym_steps, "(c) Gym w/o traceback", 
+    create_subplot(axes[2], gym_diff, gym_steps, "(c) Gym w/o backtracking", 
                    VARIANT_COLORS["Spatial Gym"], ylabel=False)
-    create_subplot(axes[3], traceback_diff, traceback_steps, "(d) Gym w/ traceback", 
+    create_subplot(axes[3], traceback_diff, traceback_steps, "(d) Gym w/ backtracking", 
                    VARIANT_COLORS["Spatial Gym Traceback"], ylabel=False)
     
     # Compute shared y-limits
@@ -325,6 +325,7 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
         ax.set_ylim(0, y_max * 1.05)
     
     plt.tight_layout()
+    plt.subplots_adjust(wspace=0.3)
     
     if output_path:
         plt.savefig(output_path, dpi=300, bbox_inches='tight')
