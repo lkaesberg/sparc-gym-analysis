@@ -247,7 +247,7 @@ def create_difficulty_comparison_plot(categorized_files, output_path=None):
 
 
 def main():
-    results_dir = Path(__file__).parent / "results" / "sparc"
+    results_dir = Path(__file__).parent / "results" / "spatial_gym"
     output_pdf = Path(__file__).parent / "difficulty_comparison.pdf"
     output_png = Path(__file__).parent / "difficulty_comparison.png"
 

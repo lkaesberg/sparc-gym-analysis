@@ -14,7 +14,7 @@ from collections import defaultdict
 # Configuration
 # ---------------------------------------------------------------------------
 
-RESULTS_DIR = Path(__file__).parent / "results" / "sparc"
+RESULTS_DIR = Path(__file__).parent / "results" / "spatial_gym"
 
 # All models we want to include, with their display names and logos.
 # Separate orderings per variant since they have different model sets.
@@ -313,14 +313,14 @@ def main():
         {
             "variant": "gym",
             "caption": r"Spatial Gym accuracy (\%) by rule type.",
-            "label": "tab:sparc-gym-rule-rates",
-            "filename": "sparc_gym_rule_table.tex",
+            "label": "tab:spatial-gym-rule-rates",
+            "filename": "spatial_gym_rule_table.tex",
         },
         {
             "variant": "tb",
             "caption": r"Spatial Gym with Traceback accuracy (\%) by rule type.",
-            "label": "tab:sparc-gym-tb-rule-rates",
-            "filename": "sparc_gym_tb_rule_table.tex",
+            "label": "tab:spatial-gym-tb-rule-rates",
+            "filename": "spatial_gym_tb_rule_table.tex",
         },
     ]
 

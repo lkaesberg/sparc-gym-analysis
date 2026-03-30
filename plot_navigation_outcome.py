@@ -146,7 +146,7 @@ def create_navigation_comparison():
     """Create the navigation outcome comparison chart."""
     setup_plot_style()
     
-    results_dir = Path(__file__).parent / "results" / "sparc"
+    results_dir = Path(__file__).parent / "results" / "spatial_gym"
     
     # Load data for both variants
     gym_data = load_navigation_stats(results_dir, 'gym')

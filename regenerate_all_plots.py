@@ -13,7 +13,7 @@ PLOT_SCRIPTS = [
     "plot_baseline_comparison.py",
     "plot_traceback_diff.py",
     "plot_difficulty_comparison.py",
-    "plot_sparc_gym_comparison.py",
+    "plot_spatial_gym_comparison.py",
     "plot_combined_comparison.py",
     "plot_difficulty_vs_steps.py",
     "plot_traceback_steps_vs_path.py",

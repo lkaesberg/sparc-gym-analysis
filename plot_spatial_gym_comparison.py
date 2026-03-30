@@ -70,7 +70,7 @@ def extract_accuracy_from_stats(stats_file):
     return 0.0
 
 
-def load_sparc_gym_comparison(results_dir):
+def load_spatial_gym_comparison(results_dir):
     """Load accuracy stats for models with both SPaRC and Spatial Gym variants."""
     results_path = Path(results_dir)
     
@@ -116,7 +116,7 @@ def load_sparc_gym_comparison(results_dir):
     return model_data
 
 
-def create_sparc_gym_diff_chart(model_data, output_path=None):
+def create_spatial_gym_diff_chart(model_data, output_path=None):
     """Create the SPaRC vs Spatial Gym difference bar chart."""
     setup_plot_style(use_latex=True)
     
@@ -207,13 +207,13 @@ def create_sparc_gym_diff_chart(model_data, output_path=None):
 
 def main():
     # Define paths
-    results_dir = Path(__file__).parent / "results" / "sparc"
-    output_pdf = Path(__file__).parent / "sparc_gym_comparison.pdf"
-    output_png = Path(__file__).parent / "sparc_gym_comparison.png"
+    results_dir = Path(__file__).parent / "results" / "spatial_gym"
+    output_pdf = Path(__file__).parent / "spatial_gym_comparison.pdf"
+    output_png = Path(__file__).parent / "spatial_gym_comparison.png"
     
     # Load data
     print("Loading model statistics...")
-    model_data = load_sparc_gym_comparison(results_dir)
+    model_data = load_spatial_gym_comparison(results_dir)
     
     # Print summary
     print("\nSpatial Gym vs SPaRC Comparison (sorted by improvement):")
@@ -227,8 +227,8 @@ def main():
     
     # Create chart
     print("\nCreating bar chart...")
-    create_sparc_gym_diff_chart(model_data, output_pdf)
-    create_sparc_gym_diff_chart(model_data, output_png)
+    create_spatial_gym_diff_chart(model_data, output_pdf)
+    create_spatial_gym_diff_chart(model_data, output_png)
 
 
 if __name__ == "__main__":

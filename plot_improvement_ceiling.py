@@ -328,7 +328,7 @@ def create_improvement_analysis(results_dir, output_path=None):
 
 
 def main():
-    results_dir = Path(__file__).parent / "results" / "sparc"
+    results_dir = Path(__file__).parent / "results" / "spatial_gym"
     
     print("=" * 60)
     print("Improvement Ceiling Analysis")

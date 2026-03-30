@@ -21,7 +21,7 @@ from plot_config import (
     figure_fraction_anchor_from_display_xy,
 )
 
-RESULTS_DIR = Path(__file__).parent / "results" / "sparc"
+RESULTS_DIR = Path(__file__).parent / "results" / "spatial_gym"
 
 MODELS = [
     {"label": "Random", "file": "random_ablation_baseline1_stats.csv",

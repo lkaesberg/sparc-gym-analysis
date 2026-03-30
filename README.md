@@ -1,6 +1,6 @@
 # Spatial Gym Analysis
 
-Analysis and visualization toolkit for **[Spatial Gym](https://github.com/lkaesberg/sparc-gym)**, a benchmark for evaluating large language models on spatial reasoning and constraint-satisfaction puzzles. This repository produces publication-ready plots, LaTeX tables, and statistical analyses comparing LLM performance across multiple benchmark variants.
+Analysis and visualization toolkit for **[Spatial Gym](https://github.com/lkaesberg/spatial-gym)**, a benchmark for evaluating large language models on spatial reasoning and constraint-satisfaction puzzles. This repository produces publication-ready plots, LaTeX tables, and statistical analyses comparing LLM performance across multiple benchmark variants.
 
 ## Overview
 
@@ -30,7 +30,7 @@ Qwen 3 (0.6B–32B), GPT-OSS 120B, Gemma 3 27B, DeepSeek R1 Distill 32B, Nemotro
 ## Repository Structure
 
 ```
-sparc-gym-analysis/
+spatial-gym-analysis/
 ├── plot_config.py                 # Shared plot styling, model colors, and statistical helpers
 ├── regenerate_all_plots.py        # Batch-run all plot scripts
 ├── plot_*.py                      # Individual plot scripts (20+)
@@ -41,20 +41,20 @@ sparc-gym-analysis/
 ├── DATASET_STRUCTURE.md           # JSONL schema documentation
 ├── logos/                         # Model provider logos (PNG/SVG/PDF)
 └── results/
-    └── sparc/
+    └── spatial_gym/
         ├── *_stats.csv            # Per-model aggregate statistics
         ├── *_details.csv          # Per-puzzle detailed results
         ├── *_gym.jsonl            # Raw Spatial Gym results
         ├── *_gym_traceback.jsonl  # Raw Traceback variant results
         ├── combine.py             # Merge stats CSVs into combined file
-        └── sparc_run.sbatch       # SLURM job script for vLLM inference
+        └── spatial_gym_run.sbatch # SLURM job script for vLLM inference
 ```
 
 ## Installation
 
 ```bash
-git clone https://github.com/lkaesberg/sparc-gym-analysis.git
-cd sparc-gym-analysis
+git clone https://github.com/lkaesberg/spatial-gym-analysis.git
+cd spatial-gym-analysis
 pip install matplotlib pandas numpy scipy seaborn tiktoken Pillow
 ```
 
@@ -77,7 +77,7 @@ This runs all `plot_*.py` scripts and reports success/failure for each. Generate
 python plot_accuracy.py
 
 # SPaRC vs Spatial Gym comparison
-python plot_sparc_gym_comparison.py
+python plot_spatial_gym_comparison.py
 
 # Combined three-variant comparison
 python plot_combined_comparison.py
@@ -107,7 +107,7 @@ Output `.tex` files are written to `results/`.
 ### Combine Statistics
 
 ```bash
-cd results/sparc
+cd results/spatial_gym
 python combine.py
 ```
 
@@ -126,7 +126,7 @@ Counts tokens across JSONL result files using [tiktoken](https://github.com/open
 | Script | Description |
 |--------|-------------|
 | `plot_accuracy.py` | Overall accuracy bar chart across models |
-| `plot_sparc_gym_comparison.py` | SPaRC vs Spatial Gym accuracy |
+| `plot_spatial_gym_comparison.py` | SPaRC vs Spatial Gym accuracy |
 | `plot_combined_comparison.py` | Three-variant (SPaRC / Gym / Traceback) comparison |
 | `plot_difficulty_comparison.py` | Accuracy broken down by difficulty level |
 | `plot_difficulty_vs_steps.py` | Relationship between difficulty and steps taken |

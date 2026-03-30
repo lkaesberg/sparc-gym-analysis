@@ -222,7 +222,7 @@ def create_accuracy_bar_chart(model_data, output_path=None):
 
 def main():
     # Define paths
-    results_dir = Path(__file__).parent / "results" / "sparc"
+    results_dir = Path(__file__).parent / "results" / "spatial_gym"
     output_pdf = Path(__file__).parent / "accuracy_comparison.pdf"
     output_png = Path(__file__).parent / "accuracy_comparison.png"
     

@@ -1,6 +1,6 @@
 ## Dataset Sample Structure
 
-Each entry in the JSONL result files (`analyze/results/sparc/*.jsonl`) contains the following keys:
+Each entry in the JSONL result files (`analyze/results/spatial_gym/*.jsonl`) contains the following keys:
 
 ### Puzzle Information
 - **`id`**: Unique puzzle identifier (string)

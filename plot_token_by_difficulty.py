@@ -241,7 +241,7 @@ def create_token_by_difficulty_plot(results_dir, output_path=None):
 # ---------------------------------------------------------------------------
 
 def main():
-    results_dir = Path(__file__).parent / "results" / "sparc"
+    results_dir = Path(__file__).parent / "results" / "spatial_gym"
     output_pdf = Path(__file__).parent / "token_by_difficulty.pdf"
 
     print("=" * 60)

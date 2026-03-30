@@ -75,7 +75,7 @@ def extract_accuracy_from_stats(stats_file):
     return 0.0
 
 
-def load_sparc_gym_comparison(results_dir):
+def load_spatial_gym_comparison(results_dir):
     """Load accuracy stats for models with both SPaRC and Spatial Gym variants."""
     results_path = Path(results_dir)
     
@@ -204,20 +204,20 @@ def add_bars_to_subplot(ax, model_data, title):
     ax.set_title(title, fontweight='bold')
 
 
-def create_combined_chart(sparc_gym_data, traceback_data, output_path=None):
+def create_combined_chart(spatial_gym_data, traceback_data, output_path=None):
     """Create the combined figure with two subplots."""
     setup_plot_style(use_latex=True)
     
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(TEXT_WIDTH_INCHES, 2.2), sharey=True)
     
     # Left subplot: Spatial Gym vs SPaRC
-    add_bars_to_subplot(ax1, sparc_gym_data, "(a) Gym vs Baseline")
+    add_bars_to_subplot(ax1, spatial_gym_data, "(a) Gym vs Baseline")
     
     # Right subplot: Traceback vs Non-traceback
     add_bars_to_subplot(ax2, traceback_data, "(b) Gym w/traceback vs w/o traceback")
     
     # Calculate shared y-limits from both datasets
-    all_diffs = [m['difference'] for m in sparc_gym_data] + [m['difference'] for m in traceback_data]
+    all_diffs = [m['difference'] for m in spatial_gym_data] + [m['difference'] for m in traceback_data]
     y_max = max(all_diffs) if max(all_diffs) > 0 else 0
     y_min = min(all_diffs) if min(all_diffs) < 0 else 0
     padding = max(abs(y_max), abs(y_min)) * 1.0
@@ -242,17 +242,17 @@ def create_combined_chart(sparc_gym_data, traceback_data, output_path=None):
 
 
 def main():
-    results_dir = Path(__file__).parent / "results" / "sparc"
+    results_dir = Path(__file__).parent / "results" / "spatial_gym"
     output_pdf = Path(__file__).parent / "combined_comparison.pdf"
     output_png = Path(__file__).parent / "combined_comparison.png"
     
     print("Loading model statistics...")
-    sparc_gym_data = load_sparc_gym_comparison(results_dir)
+    spatial_gym_data = load_spatial_gym_comparison(results_dir)
     traceback_data = load_traceback_comparison(results_dir)
     
     print("\nSpatial Gym vs SPaRC:")
     print("-" * 50)
-    for m in sparc_gym_data:
+    for m in spatial_gym_data:
         sign = '+' if m['difference'] > 0 else ''
         print(f"{m['display_name']:<20} {sign}{m['difference']:>6.1f}%")
     
@@ -263,8 +263,8 @@ def main():
         print(f"{m['display_name']:<20} {sign}{m['difference']:>6.1f}%")
     
     print("\nCreating combined chart...")
-    create_combined_chart(sparc_gym_data, traceback_data, output_pdf)
-    create_combined_chart(sparc_gym_data, traceback_data, output_png)
+    create_combined_chart(spatial_gym_data, traceback_data, output_pdf)
+    create_combined_chart(spatial_gym_data, traceback_data, output_png)
 
 
 if __name__ == "__main__":

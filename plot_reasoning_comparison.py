@@ -18,7 +18,7 @@ from plot_config import (
     get_model_imagebox,
 )
 
-RESULTS_DIR = Path(__file__).parent / "results" / "sparc"
+RESULTS_DIR = Path(__file__).parent / "results" / "spatial_gym"
 
 MODEL_SIZES = ["14B", "32B"]
 

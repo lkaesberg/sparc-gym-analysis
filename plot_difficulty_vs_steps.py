@@ -335,7 +335,7 @@ def create_difficulty_steps_plot(results_dir, output_path=None, max_steps=None):
 
 
 def main():
-    results_dir = Path(__file__).parent / "results" / "sparc"
+    results_dir = Path(__file__).parent / "results" / "spatial_gym"
     
     # Version 1: All data
     print("=" * 60)

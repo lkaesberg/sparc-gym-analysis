@@ -13,7 +13,7 @@ def clean_path(path):
         cleaned.append(coord)
     return cleaned
 
-results_path = Path("results/sparc")
+results_path = Path("results/spatial_gym")
 anomalies = []
 for jsonl_file in results_path.glob("*_gym_traceback.jsonl"):
     with open(jsonl_file) as f:

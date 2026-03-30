@@ -1,24 +1,24 @@
 #!/usr/bin/env python3
 """
-Replay a Spatial Gym episode from JSONL using SPaRC-Gym, export renderer PNGs,
+Replay a Spatial Gym episode from JSONL using the Spatial Gym environment package, export renderer PNGs,
 and emit a LaTeX fragment for paper inclusion.
 
 Dependencies (install in the active environment)::
-    pip install SPaRC-Gym gymnasium pygame
+    pip install spatial-gym gymnasium pygame
 
 The Hugging Face dataset ``lkaesberg/SPaRC`` is downloaded on first use.
 
 Headless servers: set ``SDL_VIDEODRIVER=dummy`` before running so pygame does not
 need a display (Linux; on macOS you may need a real video driver / X11).
 
-Environment id: ``SPaRC-Gym`` (see ``SPaRC_Gym.register_env``).
+Environment id: ``Spatial-Gym`` (see ``spatial_gym.register_env``).
 
 Example (defaults write to ``examples/puzzle1/``)::
     python generate_latex_puzzle_trajectory.py
 
 Override paths::
     python generate_latex_puzzle_trajectory.py \\
-        --jsonl results/sparc/openai_gpt-oss-120b_gym.jsonl \\
+        --jsonl results/spatial_gym/openai_gpt-oss-120b_gym.jsonl \\
         --puzzle-id c2f1726c32030b96 \\
         --out-dir examples/puzzle1/figures \\
         --tex-out examples/puzzle1/trajectory_fragment.tex
@@ -32,15 +32,15 @@ import sys
 from pathlib import Path
 
 
-DEFAULT_JSONL = Path(__file__).resolve().parent / "results" / "sparc" / "openai_gpt-oss-120b_gym.jsonl"
+DEFAULT_JSONL = Path(__file__).resolve().parent / "results" / "spatial_gym" / "openai_gpt-oss-120b_gym.jsonl"
 # Solved GPT-OSS gym run with >=5 actions; fewest steps (5) among those in the current JSONL.
 DEFAULT_PUZZLE_ID = "c2f1726c32030b96"
-ENV_ID = "SPaRC-Gym"
+ENV_ID = "Spatial-Gym"
 
 # Default LaTeX example bundle (see examples/puzzle1/puzzle1.tex)
 EXAMPLE_PUZZLE1_DIR = Path(__file__).resolve().parent / "examples" / "puzzle1"
 
-# SPaRC-Gym discrete action meanings (see upstream README)
+# Spatial Gym discrete action meanings (see upstream README)
 ACTION_NAMES = ("Right", "Up", "Left", "Down")
 
 
@@ -113,7 +113,7 @@ def _get_human_screen(env) -> "object":
     if hr is None or getattr(hr, "screen", None) is None:
         raise RuntimeError(
             "Could not access human_renderer.screen after render(). "
-            "Ensure render_mode='human' and SPaRC-Gym version exposes HumanRenderer."
+            "Ensure render_mode='human' and Spatial Gym exposes HumanRenderer."
         )
     return hr.screen
 
@@ -126,13 +126,18 @@ def replay_and_save_frames(
     """Reset env, replay actions, save step_00.png .. step_N.png (N = len(actions))."""
     import pygame  # noqa: F401 — imported after env may init SDL
     import gymnasium as gym
-    import SPaRC_Gym  # noqa: F401 — register env
+    env_id = ENV_ID
+    try:
+        import spatial_gym  # noqa: F401 — register env
+    except ImportError:
+        import SPaRC_Gym  # noqa: F401 — legacy package name
+        env_id = "SPaRC-Gym"
 
     out_dir.mkdir(parents=True, exist_ok=True)
     paths: list[Path] = []
 
     env = gym.make(
-        ENV_ID,
+        env_id,
         df_name="lkaesberg/SPaRC",
         df_split="all",
         df_set="test",

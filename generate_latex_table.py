@@ -15,7 +15,7 @@ import pandas as pd
 # Configuration
 # ---------------------------------------------------------------------------
 
-RESULTS_DIR = Path(__file__).parent / "results" / "sparc"
+RESULTS_DIR = Path(__file__).parent / "results" / "spatial_gym"
 
 # Display names for each model base name
 MODEL_DISPLAY_NAMES = {
@@ -298,14 +298,14 @@ def main():
         {
             "variant": "gym",
             "caption": r"Spatial Gym results. Overall accuracy (\%) and per-difficulty solve rate (D1--D5).",
-            "label": "tab:sparc-gym-results",
-            "filename": "sparc_gym_results_table.tex",
+            "label": "tab:spatial-gym-results",
+            "filename": "spatial_gym_results_table.tex",
         },
         {
             "variant": "tb",
             "caption": r"Spatial Gym with Traceback results. Overall accuracy (\%) and per-difficulty solve rate (D1--D5).",
-            "label": "tab:sparc-gym-tb-results",
-            "filename": "sparc_gym_tb_results_table.tex",
+            "label": "tab:spatial-gym-tb-results",
+            "filename": "spatial_gym_tb_results_table.tex",
         },
     ]
 
