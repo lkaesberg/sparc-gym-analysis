@@ -8,7 +8,6 @@ Each row in the JSONL is one puzzle - calculates per-puzzle and overall averages
 import os
 import json
 import glob
-from pathlib import Path
 import re
 import statistics
 import tiktoken
@@ -94,7 +93,7 @@ def analyze_jsonl_file(filepath: str) -> dict:
 
 
 def main():
-    results_dir = Path(__file__).resolve().parent / "results" / "spatial_gym"
+    results_dir = "/Users/larskaesberg/Documents/Cursor/sparc-gym-analysis/results/sparc"
 
     jsonl_files = glob.glob(os.path.join(results_dir, "*_gym.jsonl"))
     jsonl_files += glob.glob(os.path.join(results_dir, "*_gym_traceback.jsonl"))
